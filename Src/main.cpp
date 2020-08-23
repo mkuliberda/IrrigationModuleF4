@@ -30,42 +30,28 @@
 #include "usart.h"
 #include "gpio.h"
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
 
-/* USER CODE END Includes */
+#define REFRESH_RATE_SECONDS_OTHER 0.5
+#define TASK_FREQ_MULTIPLIER 1000
 
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
-
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
-
-/* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-void MX_FREERTOS_Init(void);
-/* USER CODE BEGIN PFP */
+//void MX_FREERTOS_Init(void);
 
-/* USER CODE END PFP */
+void vLEDFlashTask( void *pvParameters )
+{
 
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
+	portTickType xLastWakeTime;
+	constexpr portTickType xFrequencySeconds = REFRESH_RATE_SECONDS_OTHER * TASK_FREQ_MULTIPLIER;
+	xLastWakeTime=xTaskGetTickCount();
 
-/* USER CODE END 0 */
+    for( ;; )
+    {
+    	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+    	vTaskDelayUntil(&xLastWakeTime, xFrequencySeconds);
+    	//vTaskDelay(10000);
+    }
+}
+
 
 /**
   * @brief  The application entry point.
@@ -96,7 +82,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_ADC1_Init();
-  MX_IWDG_Init();
+  //MX_IWDG_Init();
   MX_RTC_Init();
   MX_SDIO_SD_Init();
   MX_SPI1_Init();
@@ -109,7 +95,9 @@ int main(void)
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
-  MX_FREERTOS_Init();
+  //MX_FREERTOS_Init();
+  xTaskCreate( vLEDFlashTask, ( const char * ) "LED", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+
   /* Start scheduler */
   osKernelStart();
 

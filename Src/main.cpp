@@ -29,29 +29,10 @@
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
+#include "freertos_tasks.h"
 
-
-#define REFRESH_RATE_SECONDS_OTHER 0.5
-#define TASK_FREQ_MULTIPLIER 1000
 
 void SystemClock_Config(void);
-//void MX_FREERTOS_Init(void);
-
-void vLEDFlashTask( void *pvParameters )
-{
-
-	portTickType xLastWakeTime;
-	constexpr portTickType xFrequencySeconds = REFRESH_RATE_SECONDS_OTHER * TASK_FREQ_MULTIPLIER;
-	xLastWakeTime=xTaskGetTickCount();
-
-    for( ;; )
-    {
-    	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
-    	vTaskDelayUntil(&xLastWakeTime, xFrequencySeconds);
-    	//vTaskDelay(10000);
-    }
-}
-
 
 /**
   * @brief  The application entry point.
@@ -95,9 +76,7 @@ int main(void)
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
-  //MX_FREERTOS_Init();
-  xTaskCreate( vLEDFlashTask, ( const char * ) "LED", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
-
+  MX_FREERTOS_Init();
   /* Start scheduler */
   osKernelStart();
 

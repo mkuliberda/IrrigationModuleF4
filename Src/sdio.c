@@ -31,6 +31,8 @@ SD_HandleTypeDef hsd;
 void MX_SDIO_SD_Init(void)
 {
 
+  HAL_SD_MspInit(&hsd);
+
   hsd.Instance = SDIO;
   hsd.Init.ClockEdge = SDIO_CLOCK_EDGE_RISING;
   hsd.Init.ClockBypass = SDIO_CLOCK_BYPASS_DISABLE;

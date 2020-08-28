@@ -21,6 +21,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "adc.h"
+#include "dma.h"
 #include "fatfs.h"
 #include "iwdg.h"
 #include "rtc.h"
@@ -65,11 +66,12 @@ int main(void)
   MX_ADC1_Init();
   //MX_IWDG_Init();
   MX_RTC_Init();
-  MX_SDIO_SD_Init();
   MX_SPI1_Init();
   MX_TIM2_Init();
   MX_TIM7_Init();
   MX_USART3_UART_Init();
+  MX_DMA_Init();
+  MX_SDIO_SD_Init();
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
 

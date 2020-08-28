@@ -75,7 +75,7 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, configMINIMAL_STACK_SIZE);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
-  osThreadDef(ledTask, LedFlashTask, osPriorityNormal, 0, 5*configMINIMAL_STACK_SIZE);
+  osThreadDef(ledTask, LedFlashTask, osPriorityIdle, 0, 5*configMINIMAL_STACK_SIZE);
   ledTaskHandle = osThreadCreate(osThread(ledTask), NULL);
 
 
@@ -106,36 +106,40 @@ void StartDefaultTask(void const * argument)
 void LedFlashTask(void const *argument)
 {
 
-	BYTE lun = 0;
+/*	BYTE lun = 0;
 	BYTE cmd = GET_SECTOR_COUNT;
 	DWORD buffer;
 	SD_Driver.disk_initialize(lun);
 	if (SD_Driver.disk_ioctl(lun, cmd, &buffer) == RES_OK){
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
 	}
-
+*/
 	FATFS myfile;
     uint8_t fName[] = "testfile.txt\0";
     FIL file;
 	uint8_t string[40] = "hello this is FREERTOS and FATFS Demo";
-	FRESULT fR;
+	//FRESULT fR;
 	UINT bytesCnt= 0;
-	fR= f_mount(&myfile,SDPath,1);
 
-	if(fR == FR_OK)
+	if(f_mount(&myfile,SDPath,1) == FR_OK)
 	{
-		HAL_GPIO_WritePin(GPIOD,GPIO_PIN_13,GPIO_PIN_SET);
-		if(f_open(&file,(char *)fName, FA_WRITE|FA_CREATE_ALWAYS)== FR_OK)
+		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
+		if(f_open(&file,(char *)fName, FA_WRITE|FA_CREATE_ALWAYS) == FR_OK)
 		{
 			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_13,GPIO_PIN_SET);
-			if (f_write(&file,string,sizeof(string),&bytesCnt) == FR_OK){
+			FRESULT fR = f_write(&file, string, sizeof(string), &bytesCnt);
+			if (fR == FR_OK){
 				HAL_GPIO_WritePin(GPIOD,GPIO_PIN_13,GPIO_PIN_SET);
+			}
+			else{
+				HAL_GPIO_WritePin(GPIOD,GPIO_PIN_13,GPIO_PIN_RESET);
 			}
 			f_close(&file);
 
 		}
-	}else{
-		HAL_GPIO_WritePin(GPIOD,GPIO_PIN_13,GPIO_PIN_RESET);
+	}
+	else{
+		HAL_GPIO_WritePin(GPIOD,GPIO_PIN_14,GPIO_PIN_RESET);
 	}
 
     for( ;; )

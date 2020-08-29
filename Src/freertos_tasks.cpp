@@ -72,10 +72,10 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, configMINIMAL_STACK_SIZE);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityIdle, 0, configMINIMAL_STACK_SIZE);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
-  osThreadDef(ledTask, LedFlashTask, osPriorityIdle, 0, 5*configMINIMAL_STACK_SIZE);
+  osThreadDef(ledTask, LedFlashTask, osPriorityNormal, 0, 5*configMINIMAL_STACK_SIZE);
   ledTaskHandle = osThreadCreate(osThread(ledTask), NULL);
 
 
@@ -117,25 +117,27 @@ void LedFlashTask(void const *argument)
 	FATFS myfile;
     uint8_t fName[] = "testfile.txt\0";
     FIL file;
-	uint8_t string[40] = "hello this is FREERTOS and FATFS Demo";
+	uint8_t string[40] = "hello this is FREERTOS and FATFS\n";
 	//FRESULT fR;
 	UINT bytesCnt= 0;
+    //BYTE work[_MAX_SS]; /* Work area (larger is better for processing time) */
+
+
+    /* Format the default drive with default parameters */
+    //fR = f_mkfs("", FM_FAT32, 4096, work, sizeof(work));
+    //osDelay(1000);
 
 	if(f_mount(&myfile,SDPath,1) == FR_OK)
 	{
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
-		if(f_open(&file,(char *)fName, FA_WRITE|FA_CREATE_ALWAYS) == FR_OK)
+		if(f_open(&file,(char *)fName, FA_WRITE | FA_OPEN_APPEND) == FR_OK)
 		{
 			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_13,GPIO_PIN_SET);
-			FRESULT fR = f_write(&file, string, sizeof(string), &bytesCnt);
-			if (fR == FR_OK){
-				HAL_GPIO_WritePin(GPIOD,GPIO_PIN_13,GPIO_PIN_SET);
+			if (f_write(&file, string, sizeof(string), &bytesCnt) != FR_OK){
+				HAL_GPIO_WritePin(GPIOD,GPIO_PIN_13, GPIO_PIN_RESET);
 			}
-			else{
-				HAL_GPIO_WritePin(GPIOD,GPIO_PIN_13,GPIO_PIN_RESET);
-			}
-			f_close(&file);
-
+			osDelay(10);
+			while (f_close(&file) != FR_OK);
 		}
 	}
 	else{

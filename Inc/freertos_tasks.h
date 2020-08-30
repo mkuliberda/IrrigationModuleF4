@@ -18,6 +18,8 @@
 #include "usart.h"
 #include "gpio.h"
 #include "sd_diskio.h"
+#include "stm32f4xx_hal_rtc.h"
+#include "time.h"
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
 void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );

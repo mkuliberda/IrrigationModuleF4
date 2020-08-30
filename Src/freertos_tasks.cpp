@@ -1,14 +1,14 @@
 
 #include "freertos_tasks.h"
 
-#define REFRESH_RATE_SECONDS_OTHER 0.5
-#define TASK_FREQ_MULTIPLIER 1000
 
 osThreadId defaultTaskHandle;
-osThreadId ledTaskHandle;
+osThreadId SDCardTaskHandle;
+osThreadId WirelessCommTaskHandle;
 
-void StartDefaultTask(void const * argument);
-void LedFlashTask(void const *argument);
+void DefaultTask(void const * argument);
+void SDCardTask(void const *argument);
+void WirelessCommTask(void const *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -72,11 +72,14 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityIdle, 0, configMINIMAL_STACK_SIZE);
+  osThreadDef(defaultTask, DefaultTask, osPriorityIdle, 0, configMINIMAL_STACK_SIZE);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
-  osThreadDef(ledTask, LedFlashTask, osPriorityNormal, 0, 5*configMINIMAL_STACK_SIZE);
-  ledTaskHandle = osThreadCreate(osThread(ledTask), NULL);
+  osThreadDef(sdcardTask, SDCardTask, osPriorityNormal, 0, 5*configMINIMAL_STACK_SIZE);
+  SDCardTaskHandle = osThreadCreate(osThread(sdcardTask), NULL);
+
+  osThreadDef(wirelessTask, WirelessCommTask, osPriorityNormal, 0, configMINIMAL_STACK_SIZE);
+  WirelessCommTaskHandle = osThreadCreate(osThread(wirelessTask), NULL);
 
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -92,7 +95,7 @@ void MX_FREERTOS_Init(void) {
   * @retval None
   */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void const * argument)
+void DefaultTask(void const * argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
   /* Infinite loop */
@@ -103,17 +106,9 @@ void StartDefaultTask(void const * argument)
   /* USER CODE END StartDefaultTask */
 }
 
-void LedFlashTask(void const *argument)
+void SDCardTask(void const *argument)
 {
 
-/*	BYTE lun = 0;
-	BYTE cmd = GET_SECTOR_COUNT;
-	DWORD buffer;
-	SD_Driver.disk_initialize(lun);
-	if (SD_Driver.disk_ioctl(lun, cmd, &buffer) == RES_OK){
-		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
-	}
-*/
 	FATFS myfile;
     uint8_t fName[] = "testfile.txt\0";
     FIL file;
@@ -126,6 +121,7 @@ void LedFlashTask(void const *argument)
     /* Format the default drive with default parameters */
     //fR = f_mkfs("", FM_FAT32, 4096, work, sizeof(work));
     //osDelay(1000);
+
 
 	if(f_mount(&myfile,SDPath,1) == FR_OK)
 	{
@@ -150,5 +146,29 @@ void LedFlashTask(void const *argument)
     	osDelay(500);
     }
 }
+
+
+void WirelessCommTask(void const *argument){
+
+	RTC_TimeTypeDef rtc_time = {15, 21, 0, 0, 0, 0, 0, 0};
+	RTC_DateTypeDef rtc_date;
+	rtc_date.WeekDay = RTC_WEEKDAY_SUNDAY;
+	rtc_date.Date = 30;
+	rtc_date.Month = 8;
+	rtc_date.Year = 20;
+
+	HAL_RTC_SetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
+	HAL_RTC_SetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
+
+
+	for( ;; )
+	{
+		HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
+		HAL_RTC_GetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
+		HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15);
+		osDelay(20);
+	}
+}
+
 
 

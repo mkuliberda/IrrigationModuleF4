@@ -44,9 +44,12 @@ void MX_FATFS_Init(void)
   */
 DWORD get_fattime(void)
 {
-  /* USER CODE BEGIN get_fattime */
-  return 0;
-  /* USER CODE END get_fattime */
+	return  ((DWORD)(2020 - 1980) << 25)  // Year 2020
+	        | ((DWORD)8 << 21)            // Month 8
+	        | ((DWORD)30 << 16)           // Mday 30
+	        | ((DWORD)16 << 11)           // Hour 16
+	        | ((DWORD)0 << 5)             // Min 0
+	        | ((DWORD)0 >> 1);            // Sec 0
 }
 
 /* USER CODE BEGIN Application */

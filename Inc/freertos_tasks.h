@@ -19,7 +19,17 @@
 #include "gpio.h"
 #include "sd_diskio.h"
 #include "stm32f4xx_hal_rtc.h"
-#include "time.h"
+#include "ctime"
+
+typedef struct {
+	uint8_t weekday;
+	uint8_t hours;
+	uint8_t minutes;
+	uint8_t seconds;
+	uint8_t day;
+	uint8_t month;
+	uint8_t year;
+}TimeStamp_t;
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
 void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );

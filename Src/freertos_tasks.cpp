@@ -1,10 +1,15 @@
 
 #include "freertos_tasks.h"
+#include "freertos_memory.h"
 
 
 osThreadId defaultTaskHandle;
 osThreadId SDCardTaskHandle;
 osThreadId WirelessCommTaskHandle;
+osMessageQId timestampQueueHandle;
+
+osMailQDef(timestamp_box, 1, TimeStamp_t);
+osMailQId timestamp_box;
 
 void DefaultTask(void const * argument);
 void SDCardTask(void const *argument);
@@ -67,7 +72,6 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE END RTOS_TIMERS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
-  /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
@@ -78,7 +82,7 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(sdcardTask, SDCardTask, osPriorityNormal, 0, 5*configMINIMAL_STACK_SIZE);
   SDCardTaskHandle = osThreadCreate(osThread(sdcardTask), NULL);
 
-  osThreadDef(wirelessTask, WirelessCommTask, osPriorityNormal, 0, configMINIMAL_STACK_SIZE);
+  osThreadDef(wirelessTask, WirelessCommTask, osPriorityNormal, 0, 5*configMINIMAL_STACK_SIZE);
   WirelessCommTaskHandle = osThreadCreate(osThread(wirelessTask), NULL);
 
 
@@ -97,17 +101,34 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_StartDefaultTask */
 void DefaultTask(void const * argument)
 {
-  /* USER CODE BEGIN StartDefaultTask */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END StartDefaultTask */
+	RTC_TimeTypeDef rtc_time;
+	RTC_DateTypeDef rtc_date;
+
+	timestamp_box = osMailCreate(osMailQ(timestamp_box), NULL);
+	TimeStamp_t *timestamp;
+	timestamp = (TimeStamp_t*)osMailAlloc(timestamp_box, osWaitForever);
+
+	for(;;)
+	{
+		HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
+		HAL_RTC_GetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
+		timestamp->day = rtc_date.Date;
+		timestamp->hours = rtc_time.Hours;
+		timestamp->minutes = rtc_time.Minutes;
+		timestamp->month = rtc_date.Month;
+		timestamp->seconds = rtc_time.Seconds;
+		timestamp->weekday = rtc_date.WeekDay;
+		timestamp->year = rtc_date.Year;
+		osMailPut(timestamp_box, timestamp);
+		osDelay(10);
+	}
 }
 
 void SDCardTask(void const *argument)
 {
+
+	osEvent evt;
+	TimeStamp_t *timestamp;
 
 	FATFS myfile;
     uint8_t fName[] = "testfile.txt\0";
@@ -142,6 +163,12 @@ void SDCardTask(void const *argument)
 
     for( ;; )
     {
+    	evt = osMailGet(timestamp_box, osWaitForever);
+    	if (evt.status == osEventMail) {
+    		timestamp = (TimeStamp_t*)evt.value.p;
+        	osMailFree(timestamp_box, timestamp);
+    	}
+
     	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
     	osDelay(500);
     }
@@ -150,8 +177,13 @@ void SDCardTask(void const *argument)
 
 void WirelessCommTask(void const *argument){
 
-	RTC_TimeTypeDef rtc_time = {15, 21, 0, 0, 0, 0, 0, 0};
+	RTC_TimeTypeDef rtc_time;
 	RTC_DateTypeDef rtc_date;
+	rtc_time.Hours = 15;
+	rtc_time.Minutes = 21;
+	rtc_time.Seconds = 0;
+	rtc_time.TimeFormat = 0;
+	rtc_time.DayLightSaving = 0;
 	rtc_date.WeekDay = RTC_WEEKDAY_SUNDAY;
 	rtc_date.Date = 30;
 	rtc_date.Month = 8;
@@ -163,8 +195,6 @@ void WirelessCommTask(void const *argument){
 
 	for( ;; )
 	{
-		HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
-		HAL_RTC_GetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
 		HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15);
 		osDelay(20);
 	}

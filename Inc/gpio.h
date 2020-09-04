@@ -38,7 +38,10 @@
 void MX_GPIO_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+struct gpio_s{
+	GPIO_TypeDef* port;
+	uint16_t pin;
+};
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

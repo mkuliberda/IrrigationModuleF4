@@ -1,0 +1,3 @@
+[submodule "Middlewares/WirelessComm"]
+	path = Middlewares/WirelessComm
+	url = https://github.com/mkuliberda/WirelessComm.git

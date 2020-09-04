@@ -44,12 +44,18 @@ void MX_FATFS_Init(void)
   */
 DWORD get_fattime(void)
 {
-	return  ((DWORD)(2020 - 1980) << 25)  // Year 2020
-	        | ((DWORD)8 << 21)            // Month 8
-	        | ((DWORD)30 << 16)           // Mday 30
-	        | ((DWORD)16 << 11)           // Hour 16
-	        | ((DWORD)0 << 5)             // Min 0
-	        | ((DWORD)0 >> 1);            // Sec 0
+	RTC_TimeTypeDef rtc_time = {0, 0, 0, 0, 0, 0, 0, 0};
+	RTC_DateTypeDef rtc_date = {RTC_WEEKDAY_MONDAY, 1, 1, 99};
+
+	HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
+	HAL_RTC_GetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
+
+	return  ((DWORD)(2000 + rtc_date.Year - 1980) << 25)  // Year 2099
+	        | ((DWORD)rtc_date.Month << 21)            // Month 8
+	        | ((DWORD)rtc_date.Date << 16)           // Day 30
+	        | ((DWORD)rtc_time.Hours << 11)           // Hour 16
+	        | ((DWORD)rtc_time.Minutes << 5)             // Min 0
+	        | ((DWORD)rtc_time.Seconds >> 1);            // Sec 0
 }
 
 /* USER CODE BEGIN Application */

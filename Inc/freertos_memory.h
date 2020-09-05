@@ -7,9 +7,9 @@
 #include "stdlib.h"
 
 
-inline void *operator new(size_t size);
-inline void *operator new[](size_t size);
-inline void operator delete(void *p) noexcept;
-inline void operator delete[](void *p) noexcept;
+void *operator new(size_t size);
+void *operator new[](size_t size);
+void operator delete(void *p) noexcept;
+void operator delete[](void *p) noexcept;
 
 #endif //__freertos_memory_H

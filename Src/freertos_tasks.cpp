@@ -143,8 +143,9 @@ void SDCardTask(void const *argument)
 	UINT bytesCnt= 0;
     //BYTE work[_MAX_SS]; /* Work area (larger is better for processing time) */
 	FIL schedule_file;
-	char schedule_line[42]; /* Line buffer */
-	std::string schedule1 = "empty";
+	char schedule_line[42] = ""; /* Line buffer */
+	char test[1] = {8};
+	std::string schedule;
 
 
 
@@ -169,6 +170,7 @@ void SDCardTask(void const *argument)
 		if (f_open(&schedule_file, "sector1.txt", FA_READ) == FR_OK){
 			/* Read every line and display it */
 			while (f_gets(schedule_line, sizeof(schedule_line), &schedule_file)) {
+				schedule.append(schedule_line);
 			}
 			osDelay(10);
 			while (f_close(&schedule_file) != FR_OK);
@@ -184,7 +186,18 @@ void SDCardTask(void const *argument)
         	osMailFree(timestamp_box, timestamp);
     	}
 
-    	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+		if (f_open(&schedule_file, "sector1.txt", FA_READ) == FR_OK){
+			/* Read every line and display it */
+			while (f_gets(schedule_line, sizeof(schedule_line), &schedule_file)) {
+				test[0] = schedule_line[0];
+			}
+			osDelay(10);
+			while (f_close(&schedule_file) != FR_OK);
+	    	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+		}
+
+
+
     	osDelay(500);
     }
 }
@@ -220,6 +233,9 @@ void IrrigationTask(void const *argument){
 	osEvent evt;
 	TimeStamp_t *timestamp;
 	plantstatus_s plant1 = {"KROTON", 0, 11.7};
+	Plant *pelargonia = new Plant("Pelargonia", 0);
+
+	std::string name = pelargonia->nameGet();
 
 	for( ;; )
 	{

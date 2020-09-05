@@ -30,7 +30,7 @@ inline void operator delete(void *p) noexcept
 // Define the ‘new’ operator for C++ to use the freeRTOS memory management
 // functions. THIS IS NOT OPTIONAL!
 //
-inline void *operator new(size_t size){
+void *operator new(size_t size){
  void *p;
 
  if(uxTaskGetNumberOfTasks())
@@ -54,7 +54,7 @@ inline void *operator new(size_t size){
 // Define the ‘delete’ operator for C++ to use the freeRTOS memory management
 // functions. THIS IS NOT OPTIONAL!
 //
-inline void operator delete(void *p) noexcept
+void operator delete(void *p) noexcept
 {
 
  if(uxTaskGetNumberOfTasks())
@@ -66,7 +66,7 @@ inline void operator delete(void *p) noexcept
  p = NULL;
 }
 
-inline void *operator new[](size_t size){
+void *operator new[](size_t size){
  void *p;
 
  if(uxTaskGetNumberOfTasks())
@@ -91,7 +91,7 @@ inline void *operator new[](size_t size){
 // Define the ‘delete’ operator for C++ to use the freeRTOS memory management
 // functions. THIS IS NOT OPTIONAL!
 //
-inline void operator delete[](void *p) noexcept
+void operator delete[](void *p) noexcept
 {
 
  if(uxTaskGetNumberOfTasks())

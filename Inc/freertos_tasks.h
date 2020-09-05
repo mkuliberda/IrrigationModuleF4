@@ -31,6 +31,7 @@ typedef struct {
 	uint8_t year;
 }TimeStamp_t;
 
+
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
 void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );
 /* GetTimerTaskMemory prototype (linked to static allocation support) */

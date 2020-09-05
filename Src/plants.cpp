@@ -1,6 +1,7 @@
 
 #include <plants.h>
 
+
 struct confirmation_s{
 	uint8_t target;
 	uint8_t target_id;
@@ -181,14 +182,14 @@ bool IrrigationSector::handleConfirmation(void){
 		confirmation.target_id = this->getSector();
 		confirmation.cmd = 0x10;
 		confirmation.consumed = true;
-		not_confirmed = xQueueSendToFront(confirmationsQueue, (void *)&confirmation, ( TickType_t ) 5) == pdTRUE ? false : true;
+		//not_confirmed = xQueueSendToFront(confirmationsQueue, (void *)&confirmation, ( TickType_t ) 5) == pdTRUE ? false : true;
 
 	}
 	if (this->water_plants == false and this->getPumpState() == pumpstate_t::stopped){
 		confirmation.target_id = this->getSector();
 		confirmation.cmd = 0x11;
 		confirmation.consumed = true;
-		not_confirmed = xQueueSendToFront(confirmationsQueue, (void *)&confirmation, ( TickType_t ) 5) == pdTRUE ? false : true;
+		//not_confirmed = xQueueSendToFront(confirmationsQueue, (void *)&confirmation, ( TickType_t ) 5) == pdTRUE ? false : true;
 	}
 
 	return not_confirmed;

@@ -9,8 +9,8 @@
 #define PLANTS_H_
 
 #include "stm32f4xx_hal.h"
+#include "freertos_memory.h"
 #include <string>
-#include "main.h"
 #include "gpio.h"
 #include "tim.h"
 #include <array>
@@ -22,9 +22,7 @@
 #include <irrigation.h>
 #include <cstring>
 
-extern xQueueHandle confirmationsQueue;
-
-#define NAME_LENGTH 20
+#define NAME_LENGTH 11
 #define PLANTS_LENGTH 20
 
 struct plantstatus_s{
@@ -38,6 +36,7 @@ struct sectorstatus_s {
 	uint32_t state;
 	char plants[PLANTS_LENGTH];
 };
+
 
 
 class Plant{

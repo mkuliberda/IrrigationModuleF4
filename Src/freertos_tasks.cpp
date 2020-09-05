@@ -1,11 +1,13 @@
 
 #include "freertos_tasks.h"
 #include "freertos_memory.h"
+#include "plants.h"
 
 
 osThreadId defaultTaskHandle;
 osThreadId SDCardTaskHandle;
 osThreadId WirelessCommTaskHandle;
+osThreadId IrrigationTaskHandle;
 osMessageQId timestampQueueHandle;
 
 osMailQDef(timestamp_box, 1, TimeStamp_t);
@@ -14,6 +16,7 @@ osMailQId timestamp_box;
 void DefaultTask(void const * argument);
 void SDCardTask(void const *argument);
 void WirelessCommTask(void const *argument);
+void IrrigationTask(void const *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -79,12 +82,14 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(defaultTask, DefaultTask, osPriorityIdle, 0, configMINIMAL_STACK_SIZE);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
-  osThreadDef(sdcardTask, SDCardTask, osPriorityNormal, 0, 5*configMINIMAL_STACK_SIZE);
+  osThreadDef(sdcardTask, SDCardTask, osPriorityNormal, 0, 20*configMINIMAL_STACK_SIZE);
   SDCardTaskHandle = osThreadCreate(osThread(sdcardTask), NULL);
 
-  osThreadDef(wirelessTask, WirelessCommTask, osPriorityNormal, 0, 5*configMINIMAL_STACK_SIZE);
+  osThreadDef(wirelessTask, WirelessCommTask, osPriorityNormal, 0, 15*configMINIMAL_STACK_SIZE);
   WirelessCommTaskHandle = osThreadCreate(osThread(wirelessTask), NULL);
 
+  osThreadDef(irrigationTask, IrrigationTask, osPriorityHigh, 0, 20*configMINIMAL_STACK_SIZE);
+  IrrigationTaskHandle = osThreadCreate(osThread(irrigationTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -120,7 +125,7 @@ void DefaultTask(void const * argument)
 		timestamp->weekday = rtc_date.WeekDay;
 		timestamp->year = rtc_date.Year;
 		osMailPut(timestamp_box, timestamp);
-		osDelay(10);
+		osDelay(1);
 	}
 }
 
@@ -130,13 +135,17 @@ void SDCardTask(void const *argument)
 	osEvent evt;
 	TimeStamp_t *timestamp;
 
-	FATFS myfile;
+	FATFS file_system;
     uint8_t fName[] = "testfile.txt\0";
     FIL file;
 	uint8_t string[40] = "hello this is FREERTOS and FATFS\n";
 	//FRESULT fR;
 	UINT bytesCnt= 0;
     //BYTE work[_MAX_SS]; /* Work area (larger is better for processing time) */
+	FIL schedule_file;
+	char schedule_line[42]; /* Line buffer */
+	std::string schedule1 = "empty";
+
 
 
     /* Format the default drive with default parameters */
@@ -144,26 +153,32 @@ void SDCardTask(void const *argument)
     //osDelay(1000);
 
 
-	if(f_mount(&myfile,SDPath,1) == FR_OK)
+	if(f_mount(&file_system, SDPath, 1) == FR_OK)
 	{
-		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
 		if(f_open(&file,(char *)fName, FA_WRITE | FA_OPEN_APPEND) == FR_OK)
 		{
-			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_13,GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOD,GPIO_PIN_14,GPIO_PIN_SET);
 			if (f_write(&file, string, sizeof(string), &bytesCnt) != FR_OK){
-				HAL_GPIO_WritePin(GPIOD,GPIO_PIN_13, GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(GPIOD,GPIO_PIN_14, GPIO_PIN_RESET);
 			}
 			osDelay(10);
 			while (f_close(&file) != FR_OK);
 		}
+
+	    /* Open a text file */
+		if (f_open(&schedule_file, "sector1.txt", FA_READ) == FR_OK){
+			/* Read every line and display it */
+			while (f_gets(schedule_line, sizeof(schedule_line), &schedule_file)) {
+			}
+			osDelay(10);
+			while (f_close(&schedule_file) != FR_OK);
+		}
 	}
-	else{
-		HAL_GPIO_WritePin(GPIOD,GPIO_PIN_14,GPIO_PIN_RESET);
-	}
+
 
     for( ;; )
     {
-    	evt = osMailGet(timestamp_box, osWaitForever);
+    	evt = osMailGet(timestamp_box, 10);
     	if (evt.status == osEventMail) {
     		timestamp = (TimeStamp_t*)evt.value.p;
         	osMailFree(timestamp_box, timestamp);
@@ -197,6 +212,24 @@ void WirelessCommTask(void const *argument){
 	{
 		HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15);
 		osDelay(20);
+	}
+}
+
+void IrrigationTask(void const *argument){
+
+	osEvent evt;
+	TimeStamp_t *timestamp;
+	plantstatus_s plant1 = {"KROTON", 0, 11.7};
+
+	for( ;; )
+	{
+    	evt = osMailGet(timestamp_box, 10);
+    	if (evt.status == osEventMail) {
+    		timestamp = (TimeStamp_t*)evt.value.p;
+        	osMailFree(timestamp_box, timestamp);
+    	}
+    	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
+		osDelay(100);
 	}
 }
 

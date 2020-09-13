@@ -2,21 +2,22 @@
 #include "freertos_tasks.h"
 #include "freertos_memory.h"
 #include "plants.h"
+#include "schedule.h"
 
 
 osThreadId defaultTaskHandle;
-osThreadId SDCardTaskHandle;
+osThreadId IrrigationScheduleTaskHandle;
 osThreadId WirelessCommTaskHandle;
-osThreadId IrrigationTaskHandle;
+osThreadId IrrigationControlTaskHandle;
 osMessageQId timestampQueueHandle;
 
-osMailQDef(timestamp_box, 1, TimeStamp_t);
-osMailQId timestamp_box;
+//osMailQDef(timestamp_box, 1, TimeStamp_t);
+//osMailQId timestamp_box;
 
 void DefaultTask(void const * argument);
-void SDCardTask(void const *argument);
+void IrrigationScheduleTask(void const *argument);
 void WirelessCommTask(void const *argument);
-void IrrigationTask(void const *argument);
+void IrrigationControlTask(void const *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -82,14 +83,14 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(defaultTask, DefaultTask, osPriorityIdle, 0, configMINIMAL_STACK_SIZE);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
-  osThreadDef(sdcardTask, SDCardTask, osPriorityNormal, 0, 20*configMINIMAL_STACK_SIZE);
-  SDCardTaskHandle = osThreadCreate(osThread(sdcardTask), NULL);
+  osThreadDef(scheduleTask, IrrigationScheduleTask, osPriorityNormal, 0, 20*configMINIMAL_STACK_SIZE);
+  IrrigationScheduleTaskHandle = osThreadCreate(osThread(scheduleTask), NULL);
 
   osThreadDef(wirelessTask, WirelessCommTask, osPriorityNormal, 0, 15*configMINIMAL_STACK_SIZE);
   WirelessCommTaskHandle = osThreadCreate(osThread(wirelessTask), NULL);
 
-  osThreadDef(irrigationTask, IrrigationTask, osPriorityHigh, 0, 20*configMINIMAL_STACK_SIZE);
-  IrrigationTaskHandle = osThreadCreate(osThread(irrigationTask), NULL);
+  osThreadDef(irrigationTask, IrrigationControlTask, osPriorityHigh, 0, 20*configMINIMAL_STACK_SIZE);
+  IrrigationControlTaskHandle = osThreadCreate(osThread(irrigationTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -106,16 +107,16 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_StartDefaultTask */
 void DefaultTask(void const * argument)
 {
-	RTC_TimeTypeDef rtc_time;
+	/*RTC_TimeTypeDef rtc_time;
 	RTC_DateTypeDef rtc_date;
 
 	timestamp_box = osMailCreate(osMailQ(timestamp_box), NULL);
 	TimeStamp_t *timestamp;
-	timestamp = (TimeStamp_t*)osMailAlloc(timestamp_box, osWaitForever);
+	timestamp = (TimeStamp_t*)osMailAlloc(timestamp_box, osWaitForever);*/
 
 	for(;;)
 	{
-		HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
+		/*HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
 		HAL_RTC_GetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
 		timestamp->day = rtc_date.Date;
 		timestamp->hours = rtc_time.Hours;
@@ -124,16 +125,19 @@ void DefaultTask(void const * argument)
 		timestamp->seconds = rtc_time.Seconds;
 		timestamp->weekday = rtc_date.WeekDay;
 		timestamp->year = rtc_date.Year;
-		osMailPut(timestamp_box, timestamp);
+		osMailPut(timestamp_box, timestamp);*/
 		osDelay(1);
 	}
 }
 
-void SDCardTask(void const *argument)
+void IrrigationScheduleTask(void const *argument)
 {
 
-	osEvent evt;
-	TimeStamp_t *timestamp;
+	/*osEvent evt;
+	TimeStamp_t *timestamp;*/
+	RTC_TimeTypeDef rtc_time;
+	RTC_DateTypeDef rtc_date;
+	TimeStamp_t timestamp;
 
 	FATFS file_system;
     uint8_t fName[] = "testfile.txt\0";
@@ -141,17 +145,9 @@ void SDCardTask(void const *argument)
 	uint8_t string[40] = "hello this is FREERTOS and FATFS\n";
 	//FRESULT fR;
 	UINT bytesCnt= 0;
-    //BYTE work[_MAX_SS]; /* Work area (larger is better for processing time) */
 	FIL schedule_file;
 	char schedule_line[42] = ""; /* Line buffer */
-	char test[1] = {8};
-	std::string schedule;
-
-
-
-    /* Format the default drive with default parameters */
-    //fR = f_mkfs("", FM_FAT32, 4096, work, sizeof(work));
-    //osDelay(1000);
+	Schedule *schedule1 = new Schedule("Sector1");
 
 
 	if(f_mount(&file_system, SDPath, 1) == FR_OK)
@@ -170,7 +166,7 @@ void SDCardTask(void const *argument)
 		if (f_open(&schedule_file, "sector1.txt", FA_READ) == FR_OK){
 			/* Read every line and display it */
 			while (f_gets(schedule_line, sizeof(schedule_line), &schedule_file)) {
-				schedule.append(schedule_line);
+				schedule1->addLine(schedule_line);
 			}
 			osDelay(10);
 			while (f_close(&schedule_file) != FR_OK);
@@ -180,24 +176,22 @@ void SDCardTask(void const *argument)
 
     for( ;; )
     {
-    	evt = osMailGet(timestamp_box, 10);
+		HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
+		HAL_RTC_GetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
+		timestamp.day = rtc_date.Date;
+		timestamp.hours = rtc_time.Hours;
+		timestamp.minutes = rtc_time.Minutes;
+		timestamp.month = rtc_date.Month;
+		timestamp.seconds = rtc_time.Seconds;
+		timestamp.weekday = rtc_date.WeekDay;
+		timestamp.year = rtc_date.Year;
+
+    	/*evt = osMailGet(timestamp_box, 10);
     	if (evt.status == osEventMail) {
     		timestamp = (TimeStamp_t*)evt.value.p;
         	osMailFree(timestamp_box, timestamp);
-    	}
-
-		if (f_open(&schedule_file, "sector1.txt", FA_READ) == FR_OK){
-			/* Read every line and display it */
-			while (f_gets(schedule_line, sizeof(schedule_line), &schedule_file)) {
-				test[0] = schedule_line[0];
-			}
-			osDelay(10);
-			while (f_close(&schedule_file) != FR_OK);
-	    	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
-		}
-
-
-
+    	}*/
+    	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
     	osDelay(500);
     }
 }
@@ -207,6 +201,8 @@ void WirelessCommTask(void const *argument){
 
 	RTC_TimeTypeDef rtc_time;
 	RTC_DateTypeDef rtc_date;
+
+	//TODO: set time based on wireless communication from external computer
 	rtc_time.Hours = 15;
 	rtc_time.Minutes = 21;
 	rtc_time.Seconds = 0;
@@ -228,10 +224,14 @@ void WirelessCommTask(void const *argument){
 	}
 }
 
-void IrrigationTask(void const *argument){
+void IrrigationControlTask(void const *argument){
 
-	osEvent evt;
-	TimeStamp_t *timestamp;
+	RTC_TimeTypeDef rtc_time;
+	RTC_DateTypeDef rtc_date;
+	TimeStamp_t timestamp;
+
+	/*osEvent evt;
+	TimeStamp_t *timestamp;*/
 	plantstatus_s plant1 = {"KROTON", 0, 11.7};
 	Plant *pelargonia = new Plant("Pelargonia", 0);
 
@@ -239,11 +239,22 @@ void IrrigationTask(void const *argument){
 
 	for( ;; )
 	{
-    	evt = osMailGet(timestamp_box, 10);
+
+		HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
+		HAL_RTC_GetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
+		timestamp.day = rtc_date.Date;
+		timestamp.hours = rtc_time.Hours;
+		timestamp.minutes = rtc_time.Minutes;
+		timestamp.month = rtc_date.Month;
+		timestamp.seconds = rtc_time.Seconds;
+		timestamp.weekday = rtc_date.WeekDay;
+		timestamp.year = rtc_date.Year;
+
+    	/*evt = osMailGet(timestamp_box, 10);
     	if (evt.status == osEventMail) {
     		timestamp = (TimeStamp_t*)evt.value.p;
         	osMailFree(timestamp_box, timestamp);
-    	}
+    	}*/
     	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
 		osDelay(100);
 	}

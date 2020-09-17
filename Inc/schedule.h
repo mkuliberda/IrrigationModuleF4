@@ -10,7 +10,7 @@
 
 #include <vector>
 #include <string>
-#include <cstring>
+#include <time.h>
 
 typedef struct {
 	uint8_t weekday;
@@ -56,12 +56,14 @@ private:
 	std::vector<activity_s> 				vActivities;
 	std::vector<exception_s> 				vExceptions;
 	std::string 							name;
-	bool									active_time;
+	bool									is_active;
+	bool 									compare_time(const time_t &_time1, const time_t &_time2);
+
 
 public:
 	Schedule(const std::string &_name):
 	name(_name),
-	active_time(false)
+	is_active(false)
 	{};
 
 	bool& 									isActive(const TimeStamp_t &_timestamp);

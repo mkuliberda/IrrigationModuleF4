@@ -138,6 +138,7 @@ void IrrigationScheduleTask(void const *argument)
 	RTC_TimeTypeDef rtc_time;
 	RTC_DateTypeDef rtc_date;
 	TimeStamp_t timestamp;
+	bool sector1_watering = false;
 
 	FATFS file_system;
     uint8_t fName[] = "testfile.txt\0";
@@ -147,7 +148,7 @@ void IrrigationScheduleTask(void const *argument)
 	UINT bytesCnt= 0;
 	FIL schedule_file;
 	char schedule_line[42] = ""; /* Line buffer */
-	Schedule *schedule1 = new Schedule("Sector1");
+	Schedule *schedule1 = new Schedule("Sector1"); //todo: obtain list of files on sd card with f_opendir + f_readdir
 
 
 	if(f_mount(&file_system, SDPath, 1) == FR_OK)
@@ -186,6 +187,8 @@ void IrrigationScheduleTask(void const *argument)
 		timestamp.weekday = rtc_date.WeekDay;
 		timestamp.year = rtc_date.Year;
 
+		sector1_watering = schedule1->isActive(timestamp);
+
     	/*evt = osMailGet(timestamp_box, 10);
     	if (evt.status == osEventMail) {
     		timestamp = (TimeStamp_t*)evt.value.p;
@@ -203,14 +206,14 @@ void WirelessCommTask(void const *argument){
 	RTC_DateTypeDef rtc_date;
 
 	//TODO: set time based on wireless communication from external computer
-	rtc_time.Hours = 15;
-	rtc_time.Minutes = 21;
+	rtc_time.Hours = 19;
+	rtc_time.Minutes = 01;
 	rtc_time.Seconds = 0;
 	rtc_time.TimeFormat = 0;
 	rtc_time.DayLightSaving = 0;
-	rtc_date.WeekDay = RTC_WEEKDAY_SUNDAY;
-	rtc_date.Date = 30;
-	rtc_date.Month = 8;
+	rtc_date.WeekDay = RTC_WEEKDAY_MONDAY;
+	rtc_date.Date = 14;
+	rtc_date.Month = 9;
 	rtc_date.Year = 20;
 
 	HAL_RTC_SetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);

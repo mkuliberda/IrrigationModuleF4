@@ -1,12 +1,12 @@
 /*
- * schedule.h
+ * scheduler.h
  *
  *  Created on: 05.09.2020
  *      Author: Mati
  */
 
-#ifndef SCHEDULE_H_
-#define SCHEDULE_H_
+#ifndef SCHEDULER_H_
+#define SCHEDULER_H_
 
 #include <vector>
 #include <string>
@@ -38,42 +38,54 @@ struct time_s{
 };
 
 struct activity_s{
+	uint8_t id;
+	uint8_t weekday;
 	period_s begin;
 	period_s end;
-	uint8_t weekday;
 	time_s start;
 	time_s duration;
 };
 
 struct exception_s{
+	uint8_t id;
 	period_s begin;
 	period_s end;
 };
 
-class Schedule{
+class Scheduler{
 
 private:
 	std::vector<activity_s> 				vActivities;
 	std::vector<exception_s> 				vExceptions;
-	std::string 							name;
+	const std::string						name;
 	bool									is_active;
+	bool									is_available;
+	uint8_t									activities_limit;
+	uint8_t									exceptions_limit;
 	bool 									compare_time(const time_t &_time1, const time_t &_time2);
 
 
 public:
-	Schedule(const std::string &_name):
+	Scheduler(const std::string &_name, uint8_t _activities_limit = 255, uint8_t _exceptions_limit = 40):
 	name(_name),
-	is_active(false)
+	is_active(false),
+	is_available(false),
+	activities_limit(_activities_limit),
+	exceptions_limit(_exceptions_limit)
 	{};
 
 	bool& 									isActive(const TimeStamp_t &_timestamp);
+	bool& 									isAvailable(void);
+	void									setAvailable(void);
 	bool									addActivity(const struct activity_s &_activity);
 	bool									addActivity(const char *_activity);
 	bool									addException(const struct exception_s &_exception);
 	bool									addException(const char *_exception);
 	bool									addLine(const char *_line);
+	std::vector<activity_s>&				getActivities(void);
+	std::vector<exception_s>&				getExceptions(void);
 };
 
 
 
-#endif /* SCHEDULE_H_ */
+#endif /* SCHEDULER_H_ */

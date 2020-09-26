@@ -16,6 +16,12 @@ osMailQId activities_box;
 osMailQDef(activities_box, 42, activity_msg);
 osMailQId exceptions_box;
 osMailQDef(exceptions_box, 6, exception_msg);
+osMailQId sys_logs_box;
+osMailQDef(sys_logs_box, 5, log_msg);
+osMailQId irg_logs_box;
+osMailQDef(irg_logs_box, 5, log_msg);
+osMailQId wls_logs_box;
+osMailQDef(wls_logs_box, 5, log_msg);
 
 
 void SysMonitorTask(void const * argument);
@@ -56,8 +62,7 @@ void vApplicationGetTimerTaskMemory( StaticTask_t **ppxTimerTaskTCBBuffer, Stack
   /* place for user code */
 }
 
-//template<typename T1, typename T2, typename T3>
-//bool reveiveScheduleMsg(T1 mail_box, T2 *event, T3 *msg)
+//bool retreiveScheduleMsg(T1 mail_box, T2 *event, T3 *msg)
 //{
 //	do{
 //		evt = osMailGet(mail_box, 1);
@@ -83,10 +88,7 @@ void vApplicationGetTimerTaskMemory( StaticTask_t **ppxTimerTaskTCBBuffer, Stack
 //}
 //
 //template bool receiveScheduleMsg<osMailQId, activity_msg>
-//
-//template void f<double>(double); // instantiates f<double>(double)
-//template void f<>(char); // instantiates f<char>(char), template argument deduced
-//template void f(int); // instantiates f<int>(int), template argument deduced
+
 /* USER CODE END GET_TIMER_TASK_MEMORY */
 
 /**
@@ -116,7 +118,7 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(sysmonitorTask, SysMonitorTask, osPriorityIdle, 0, configMINIMAL_STACK_SIZE);
+  osThreadDef(sysmonitorTask, SysMonitorTask, osPriorityRealtime, 0, configMINIMAL_STACK_SIZE);
   SysMonitorTaskHandle = osThreadCreate(osThread(sysmonitorTask), NULL);
 
   osThreadDef(sdcardTask, SDCardTask, osPriorityNormal, 0, 120*configMINIMAL_STACK_SIZE);
@@ -144,6 +146,18 @@ void MX_FREERTOS_Init(void) {
 void SysMonitorTask(void const * argument)
 {
 	size_t min_heap_size;
+	std::string log_string = "Sys monitor task started\n";
+	if (log_string.length() > LOG_TEXT_LEN){
+		log_string = log_string.substr(log_string.length() - LOG_TEXT_LEN, LOG_TEXT_LEN);
+	}
+	log_msg *message;
+	sys_logs_box = osMailCreate(osMailQ(sys_logs_box), osThreadGetId());
+	message = (log_msg*)osMailAlloc(sys_logs_box, osWaitForever);
+	message->reporter_id = reporter_t::sysmonitor_task;
+	message->len = log_string.length();
+	log_string.copy(message->text, std::min((uint8_t)log_string.length(), (uint8_t)LOG_TEXT_LEN), 0);
+	while (osMailPut(sys_logs_box, message) != osOK);
+
 	/*RTC_TimeTypeDef rtc_time;
 	RTC_DateTypeDef rtc_date;
 
@@ -175,8 +189,7 @@ void SDCardTask(void const *argument)
 	RTC_DateTypeDef rtc_date;
 	TimeStamp_t timestamp;
 
-	std::string log_string = "System init...\n";
-	const std::string log_filename = "LOG.TXT";
+	const char log_filename[] = "LOG.TXT";
     FIL log_file;
 	FIL schedule_file;
 	UINT bytesCnt= 0;
@@ -186,24 +199,27 @@ void SDCardTask(void const *argument)
 	FILINFO file_info;
 	char cwd_buffer[80] = "/";
 
-	const std::array<std::string, 3> poss_sched_filename = {"SECTOR1.TXT", "SECTOR2.TXT", "SECTOR3.TXT"};
+	const std::array<std::string, 4> poss_sched_filename = {"SECTOR1.TXT", "SECTOR2.TXT", "SECTOR3.TXT",  "SECTOR4.TXT"};
 	Scheduler schedule = Scheduler("PARSER");
 	bool mount_success = false;
 	activities_box = osMailCreate(osMailQ(activities_box), osThreadGetId());
 	activity_msg *activity;
 	exceptions_box = osMailCreate(osMailQ(exceptions_box), osThreadGetId());
 	exception_msg *exception;
-
+	osEvent evt;
+	log_msg *sys_message;
+	log_msg *irg_message;
+	log_msg *wls_message;
 
 
 	if(f_mount(&file_system, logical_drive, 1) == FR_OK){
 		mount_success = true;
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
-		if(f_open(&log_file, log_filename.c_str(), FA_WRITE | FA_OPEN_APPEND) == FR_OK){
-			if (f_write(&log_file, log_string.c_str(), log_string.length(), &bytesCnt) != FR_OK){
+		if(f_open(&log_file, log_filename, FA_WRITE | FA_OPEN_APPEND) == FR_OK){
+			char log_str[] = "SDCard mount successful\n";
+			if (f_write(&log_file, log_str, sizeof(log_str), &bytesCnt) != FR_OK){
 				HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
 			}
-			osDelay(10);
 			while (f_close(&log_file) != FR_OK);
 		}
 		else{
@@ -225,7 +241,6 @@ void SDCardTask(void const *argument)
 
 					if (file == sdcard_sched_filename){
 						uint8_t sector_nbr = atoi(sdcard_sched_filename.substr(6,1).c_str()) - 1;
-
 						/* Open a text file */
 						if (f_open(&schedule_file, file_info.fname, FA_READ) == FR_OK){
 							char schedule_line[43] = "";
@@ -256,7 +271,6 @@ void SDCardTask(void const *argument)
 	}
 
 
-	log_string = "for loop\n";
     for( ;; )
     {
 		HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
@@ -270,12 +284,41 @@ void SDCardTask(void const *argument)
 		timestamp.year = rtc_date.Year;
 
 		if(mount_success){
-			if(f_open(&log_file,log_filename.c_str(), FA_WRITE | FA_OPEN_APPEND) == FR_OK){
-				if (f_write(&log_file, log_string.c_str(), log_string.length(), &bytesCnt) == FR_OK){
-					//HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
+			do{
+				evt = osMailGet(sys_logs_box, 1);
+				if (evt.status == osEventMail){
+					sys_message = (log_msg*)evt.value.p;
+					if(f_open(&log_file, log_filename, FA_WRITE | FA_OPEN_APPEND) == FR_OK){
+						f_write(&log_file, sys_message->text, sys_message->len, &bytesCnt);
+						while (f_close(&log_file) != FR_OK);
+					}
 				}
-				while (f_close(&log_file) != FR_OK);
-			}
+				osMailFree(sys_logs_box, irg_message);
+			}while(evt.status == osEventMail);
+
+			do{
+				evt = osMailGet(irg_logs_box, 1);
+				if (evt.status == osEventMail){
+					irg_message = (log_msg*)evt.value.p;
+					if(f_open(&log_file, log_filename, FA_WRITE | FA_OPEN_APPEND) == FR_OK){
+						f_write(&log_file, irg_message->text, irg_message->len, &bytesCnt);
+						while (f_close(&log_file) != FR_OK);
+					}
+				}
+				osMailFree(irg_logs_box, irg_message);
+			}while(evt.status == osEventMail);
+
+			do{
+				evt = osMailGet(wls_logs_box, 1);
+				if (evt.status == osEventMail){
+					wls_message = (log_msg*)evt.value.p;
+					if(f_open(&log_file, log_filename, FA_WRITE | FA_OPEN_APPEND) == FR_OK){
+						f_write(&log_file, wls_message->text, wls_message->len, &bytesCnt);
+						while (f_close(&log_file) != FR_OK);
+					}
+				}
+				osMailFree(wls_logs_box, wls_message);
+			}while(evt.status == osEventMail);
 		}
 
 		//bool sector_watering = schedule[0].isActive(timestamp);
@@ -286,7 +329,20 @@ void SDCardTask(void const *argument)
 }
 
 
-void WirelessCommTask(void const *argument){
+void WirelessCommTask(void const *argument)
+{
+	std::string log_string = "Wireless Comm task started\n";
+	if (log_string.length() > LOG_TEXT_LEN){
+		log_string = log_string.substr(log_string.length() - LOG_TEXT_LEN, LOG_TEXT_LEN);
+	}
+	log_msg *message;
+	wls_logs_box = osMailCreate(osMailQ(wls_logs_box), osThreadGetId());
+	message = (log_msg*)osMailAlloc(wls_logs_box, osWaitForever);
+	message->reporter_id = reporter_t::wireless_task;
+	message->len = log_string.length();
+	log_string.copy(message->text, std::min((uint8_t)log_string.length(), (uint8_t)LOG_TEXT_LEN), 0);
+	while (osMailPut(wls_logs_box, message) != osOK);
+
 
 	RTC_TimeTypeDef rtc_time;
 	RTC_DateTypeDef rtc_date;
@@ -314,6 +370,19 @@ void WirelessCommTask(void const *argument){
 }
 
 void IrrigationControlTask(void const *argument){
+
+	std::string log_string = "Irrigation Ctrl task started\n";
+	if (log_string.length() > LOG_TEXT_LEN){
+		log_string = log_string.substr(log_string.length() - LOG_TEXT_LEN, LOG_TEXT_LEN);
+	}
+	log_msg *message;
+	irg_logs_box = osMailCreate(osMailQ(irg_logs_box), osThreadGetId());
+	message = (log_msg*)osMailAlloc(irg_logs_box, osWaitForever);
+	message->reporter_id = reporter_t::irrigation_task;
+	message->len = log_string.length();
+	log_string.copy(message->text, std::min((uint8_t)log_string.length(), (uint8_t)LOG_TEXT_LEN), 0);
+	//TODO: Logger class: message->len = logger.prepareMessage("Irrigation Ctrl task started\n", message->text, LOG_TEXT_LEN);
+	while (osMailPut(irg_logs_box, message) != osOK);
 
 	RTC_TimeTypeDef rtc_time;
 	RTC_DateTypeDef rtc_date;

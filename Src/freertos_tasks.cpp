@@ -13,9 +13,9 @@ osThreadId IrrigationControlTaskHandle;
 //osMailQId timestamp_box;
 
 osMailQId activities_box;
-osMailQDef(activities_box, 3, activity_msg);
+osMailQDef(activities_box, 42, activity_msg);
 osMailQId exceptions_box;
-osMailQDef(exceptions_box, 3, exception_msg);
+osMailQDef(exceptions_box, 6, exception_msg);
 
 
 void SysMonitorTask(void const * argument);
@@ -329,74 +329,13 @@ void IrrigationControlTask(void const *argument){
 	Plant pelargonia("Pelargonia", 0);
 	std::string name = pelargonia.nameGet();
 
-	osDelay(1000);
-
-
-	//TODO: move osMailGet section to a separate function
-	do{
-		evt = osMailGet(activities_box, 10);
-		if (evt.status == osEventMail){
-			activity = (activity_msg*)evt.value.p;
-			switch (activity->sector_nbr){
-			case 0:
-				sector_schedule[0].addActivity(activity->activity);
-				break;
-			case 1:
-				sector_schedule[1].addActivity(activity->activity);
-				break;
-			case 2:
-				sector_schedule[2].addActivity(activity->activity);
-				break;
-			default:
-				break;
-			}
-		}
-		osMailFree(activities_box, activity);
-	}while(evt.status == osEventMail);
-
-
-	do{
-		evt = osMailGet(exceptions_box, 10);
-		if (evt.status == osEventMail){
-			exception = (exception_msg*)evt.value.p;
-			switch (exception->sector_nbr){
-			case 0:
-				sector_schedule[0].addException(exception->exception);
-				break;
-			case 1:
-				sector_schedule[1].addException(exception->exception);
-				break;
-			case 2:
-				sector_schedule[2].addException(exception->exception);
-				break;
-			default:
-				break;
-			}
-		}
-		osMailFree(exceptions_box, exception);
-	}while(evt.status == osEventMail);
-
+	osDelay(1000);  //leave some time for read from SDCard
+	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
 
 	for( ;; )
 	{
-		HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
-		HAL_RTC_GetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
-		timestamp.day = rtc_date.Date;
-		timestamp.hours = rtc_time.Hours;
-		timestamp.minutes = rtc_time.Minutes;
-		timestamp.month = rtc_date.Month;
-		timestamp.seconds = rtc_time.Seconds;
-		timestamp.weekday = rtc_date.WeekDay;
-		timestamp.year = rtc_date.Year;
 
-		sector_schedule[0].isActive(timestamp);
-		activities_cnt[0] = sector_schedule[0].getActivitiesCount();
-		activities_cnt[1] = sector_schedule[1].getActivitiesCount();
-		activities_cnt[2] = sector_schedule[2].getActivitiesCount();
-		exceptions_cnt[0] = sector_schedule[0].getExceptionsCount();
-		exceptions_cnt[1] = sector_schedule[1].getExceptionsCount();
-		exceptions_cnt[2] = sector_schedule[2].getExceptionsCount();
-
+		//TODO: place msg retrieval into a function
 		do{
 			evt = osMailGet(activities_box, 1);
 			if (evt.status == osEventMail){
@@ -440,6 +379,29 @@ void IrrigationControlTask(void const *argument){
 			osMailFree(exceptions_box, exception);
 		}while(evt.status == osEventMail);
 
+
+		HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
+		HAL_RTC_GetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
+		timestamp.day = rtc_date.Date;
+		timestamp.hours = rtc_time.Hours;
+		timestamp.minutes = rtc_time.Minutes;
+		timestamp.month = rtc_date.Month;
+		timestamp.seconds = rtc_time.Seconds;
+		timestamp.weekday = rtc_date.WeekDay;
+		timestamp.year = rtc_date.Year;
+
+		if (sector_schedule[0].isActive(timestamp)){
+			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
+		}
+		else{
+			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
+		}
+		activities_cnt[0] = sector_schedule[0].getActivitiesCount();
+		activities_cnt[1] = sector_schedule[1].getActivitiesCount();
+		activities_cnt[2] = sector_schedule[2].getActivitiesCount();
+		exceptions_cnt[0] = sector_schedule[0].getExceptionsCount();
+		exceptions_cnt[1] = sector_schedule[1].getExceptionsCount();
+		exceptions_cnt[2] = sector_schedule[2].getExceptionsCount();
 
 		//Placeholder for rest of the code
 

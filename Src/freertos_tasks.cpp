@@ -1,21 +1,24 @@
 
-#include <scheduler.h>
 #include "freertos_tasks.h"
 #include "freertos_memory.h"
 #include "plants.h"
 
 
-osThreadId defaultTaskHandle;
+osThreadId SysMonitorTaskHandle;
 osThreadId SDCardTaskHandle;
 osThreadId WirelessCommTaskHandle;
 osThreadId IrrigationControlTaskHandle;
-osMessageQId timestampQueueHandle;
-
+//osMessageQId timestampQueueHandle;
 //osMailQDef(timestamp_box, 1, TimeStamp_t);
 //osMailQId timestamp_box;
 
+osMailQId activities_box;
+osMailQDef(activities_box, 3, activity_msg);
+osMailQId exceptions_box;
+osMailQDef(exceptions_box, 3, exception_msg);
 
-void DefaultTask(void const * argument);
+
+void SysMonitorTask(void const * argument);
 void SDCardTask(void const *argument);
 void WirelessCommTask(void const *argument);
 void IrrigationControlTask(void const *argument);
@@ -52,6 +55,38 @@ void vApplicationGetTimerTaskMemory( StaticTask_t **ppxTimerTaskTCBBuffer, Stack
   *pulTimerTaskStackSize = configTIMER_TASK_STACK_DEPTH;
   /* place for user code */
 }
+
+//template<typename T1, typename T2, typename T3>
+//bool reveiveScheduleMsg(T1 mail_box, T2 *event, T3 *msg)
+//{
+//	do{
+//		evt = osMailGet(mail_box, 1);
+//		if (event.status == osEventMail){
+//			msg = (activity_msg*)event.value.p;
+//			switch (msg->sector_nbr){
+//			case 0:
+//				sector_schedule[0].addActivity(msg->activity);
+//				break;
+//			case 1:
+//				sector_schedule[1].addActivity(activity->activity);
+//				break;
+//			case 2:
+//				sector_schedule[2].addActivity(activity->activity);
+//				break;
+//			default:
+//				break;
+//			}
+//		}
+//		osMailFree(activities_box, activity);
+//	}while(evt.status == osEventMail);
+//    return true;
+//}
+//
+//template bool receiveScheduleMsg<osMailQId, activity_msg>
+//
+//template void f<double>(double); // instantiates f<double>(double)
+//template void f<>(char); // instantiates f<char>(char), template argument deduced
+//template void f(int); // instantiates f<int>(int), template argument deduced
 /* USER CODE END GET_TIMER_TASK_MEMORY */
 
 /**
@@ -81,10 +116,10 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, DefaultTask, osPriorityIdle, 0, configMINIMAL_STACK_SIZE);
-  defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
+  osThreadDef(sysmonitorTask, SysMonitorTask, osPriorityIdle, 0, configMINIMAL_STACK_SIZE);
+  SysMonitorTaskHandle = osThreadCreate(osThread(sysmonitorTask), NULL);
 
-  osThreadDef(sdcardTask, SDCardTask, osPriorityNormal, 0, 150*configMINIMAL_STACK_SIZE);
+  osThreadDef(sdcardTask, SDCardTask, osPriorityNormal, 0, 120*configMINIMAL_STACK_SIZE);
   SDCardTaskHandle = osThreadCreate(osThread(sdcardTask), NULL);
 
   osThreadDef(wirelessTask, WirelessCommTask, osPriorityNormal, 0, 20*configMINIMAL_STACK_SIZE);
@@ -106,8 +141,9 @@ void MX_FREERTOS_Init(void) {
   * @retval None
   */
 /* USER CODE END Header_StartDefaultTask */
-void DefaultTask(void const * argument)
+void SysMonitorTask(void const * argument)
 {
+	size_t min_heap_size;
 	/*RTC_TimeTypeDef rtc_time;
 	RTC_DateTypeDef rtc_date;
 
@@ -127,21 +163,20 @@ void DefaultTask(void const * argument)
 		timestamp->weekday = rtc_date.WeekDay;
 		timestamp->year = rtc_date.Year;
 		osMailPut(timestamp_box, timestamp);*/
-		osDelay(1);
+    	min_heap_size = xPortGetMinimumEverFreeHeapSize();
+		osDelay(1000);
 	}
 }
 
 void SDCardTask(void const *argument)
 {
 
-	/*osEvent evt;
-	TimeStamp_t *timestamp;*/
 	RTC_TimeTypeDef rtc_time;
 	RTC_DateTypeDef rtc_date;
 	TimeStamp_t timestamp;
 
 	std::string log_string = "System init...\n";
-	std::string log_filename = "LOG.TXT";
+	const std::string log_filename = "LOG.TXT";
     FIL log_file;
 	FIL schedule_file;
 	UINT bytesCnt= 0;
@@ -151,25 +186,27 @@ void SDCardTask(void const *argument)
 	FILINFO file_info;
 	char cwd_buffer[80] = "/";
 
-	std::array<std::string, 3> poss_sched_filename = {"SECTOR1.TXT", "SECTOR2.TXT", "SECTOR3.TXT"};
-	Scheduler schedule[3] = {Scheduler("SECTOR1"), Scheduler("SECTOR2"), Scheduler("SECTOR3")};
+	const std::array<std::string, 3> poss_sched_filename = {"SECTOR1.TXT", "SECTOR2.TXT", "SECTOR3.TXT"};
+	Scheduler schedule = Scheduler("PARSER");
 	bool mount_success = false;
+	activities_box = osMailCreate(osMailQ(activities_box), osThreadGetId());
+	activity_msg *activity;
+	exceptions_box = osMailCreate(osMailQ(exceptions_box), osThreadGetId());
+	exception_msg *exception;
 
 
-	if(f_mount(&file_system, logical_drive, 1) == FR_OK)
-	{
+
+	if(f_mount(&file_system, logical_drive, 1) == FR_OK){
 		mount_success = true;
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
-		if(f_open(&log_file, log_filename.c_str(), FA_WRITE | FA_OPEN_APPEND) == FR_OK)
-		{
+		if(f_open(&log_file, log_filename.c_str(), FA_WRITE | FA_OPEN_APPEND) == FR_OK){
 			if (f_write(&log_file, log_string.c_str(), log_string.length(), &bytesCnt) != FR_OK){
 				HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
 			}
 			osDelay(10);
 			while (f_close(&log_file) != FR_OK);
 		}
-		else
-		{
+		else{
 			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
 		}
 
@@ -186,17 +223,26 @@ void SDCardTask(void const *argument)
 
 					std::string sdcard_sched_filename(file_info.fname);
 
-					if (file == sdcard_sched_filename)
-					{
+					if (file == sdcard_sched_filename){
 						uint8_t sector_nbr = atoi(sdcard_sched_filename.substr(6,1).c_str()) - 1;
+
 						/* Open a text file */
-						if (f_open(&schedule_file, file_info.fname, FA_READ) == FR_OK)
-						{
+						if (f_open(&schedule_file, file_info.fname, FA_READ) == FR_OK){
 							char schedule_line[43] = "";
-							while (f_gets(schedule_line, sizeof(schedule_line), &schedule_file)) {
-								schedule[sector_nbr].addLine(schedule_line);
+							while (f_gets(schedule_line, sizeof(schedule_line), &schedule_file)){
+								if(schedule_line[0] == 'A'){
+									activity = (activity_msg*)osMailAlloc(activities_box, osWaitForever);
+									activity->sector_nbr = sector_nbr;
+									activity->activity = schedule.parseActivity(schedule_line);
+									while (osMailPut(activities_box, activity) != osOK);
+								}
+								else if(schedule_line[0] == 'E'){
+									exception = (exception_msg*)osMailAlloc(exceptions_box, osWaitForever);
+									exception->sector_nbr = sector_nbr;
+									exception->exception = schedule.parseException(schedule_line);
+									while (osMailPut(exceptions_box, exception) != osOK);
+								}
 							}
-							//osDelay(10); //TODO: check later if this delay is necessary
 							while (f_close(&schedule_file) != FR_OK);
 						}
 						else{
@@ -223,29 +269,17 @@ void SDCardTask(void const *argument)
 		timestamp.weekday = rtc_date.WeekDay;
 		timestamp.year = rtc_date.Year;
 
-		if(mount_success)
-		{
-			if(f_open(&log_file,log_filename.c_str(), FA_WRITE | FA_OPEN_APPEND) == FR_OK)
-			{
+		if(mount_success){
+			if(f_open(&log_file,log_filename.c_str(), FA_WRITE | FA_OPEN_APPEND) == FR_OK){
 				if (f_write(&log_file, log_string.c_str(), log_string.length(), &bytesCnt) == FR_OK){
 					//HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
 				}
-//				else{
-//					HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
-//				}
-				//osDelay(10);
 				while (f_close(&log_file) != FR_OK);
 			}
 		}
 
-		bool sector_watering = schedule[0].isActive(timestamp);
+		//bool sector_watering = schedule[0].isActive(timestamp);
 
-
-    	/*evt = osMailGet(timestamp_box, 10);
-    	if (evt.status == osEventMail) {
-    		timestamp = (TimeStamp_t*)evt.value.p;
-        	osMailFree(timestamp_box, timestamp);
-    	}*/
     	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
     	osDelay(500);
     }
@@ -285,20 +319,66 @@ void IrrigationControlTask(void const *argument){
 	RTC_DateTypeDef rtc_date;
 	TimeStamp_t timestamp;
 
-	/*osEvent evt;
-	TimeStamp_t *timestamp;*/
-	//plantstatus_s plant1 = {"KROTON", 0, 11.7};
+	osEvent evt;
+	activity_msg *activity;
+	exception_msg *exception;
+	Scheduler sector_schedule[3] = {Scheduler("SECTOR1"), Scheduler("SECTOR2"), Scheduler("SECTOR3")};
+	uint8_t activities_cnt[3]={0,0,0};
+	uint8_t exceptions_cnt[3]={0,0,0};
+
 	Plant pelargonia("Pelargonia", 0);
-
 	std::string name = pelargonia.nameGet();
-	Scheduler schedule[3] = {Scheduler("SECTOR1"), Scheduler("SECTOR2"), Scheduler("SECTOR3")};
-	bool sector_watering[3] = {false, false, false};
 
+	osDelay(1000);
+
+
+	//TODO: move osMailGet section to a separate function
+	do{
+		evt = osMailGet(activities_box, 10);
+		if (evt.status == osEventMail){
+			activity = (activity_msg*)evt.value.p;
+			switch (activity->sector_nbr){
+			case 0:
+				sector_schedule[0].addActivity(activity->activity);
+				break;
+			case 1:
+				sector_schedule[1].addActivity(activity->activity);
+				break;
+			case 2:
+				sector_schedule[2].addActivity(activity->activity);
+				break;
+			default:
+				break;
+			}
+		}
+		osMailFree(activities_box, activity);
+	}while(evt.status == osEventMail);
+
+
+	do{
+		evt = osMailGet(exceptions_box, 10);
+		if (evt.status == osEventMail){
+			exception = (exception_msg*)evt.value.p;
+			switch (exception->sector_nbr){
+			case 0:
+				sector_schedule[0].addException(exception->exception);
+				break;
+			case 1:
+				sector_schedule[1].addException(exception->exception);
+				break;
+			case 2:
+				sector_schedule[2].addException(exception->exception);
+				break;
+			default:
+				break;
+			}
+		}
+		osMailFree(exceptions_box, exception);
+	}while(evt.status == osEventMail);
 
 
 	for( ;; )
 	{
-
 		HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
 		HAL_RTC_GetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
 		timestamp.day = rtc_date.Date;
@@ -309,17 +389,65 @@ void IrrigationControlTask(void const *argument){
 		timestamp.weekday = rtc_date.WeekDay;
 		timestamp.year = rtc_date.Year;
 
-		sector_watering[0] = schedule[0].isActive(timestamp);
+		sector_schedule[0].isActive(timestamp);
+		activities_cnt[0] = sector_schedule[0].getActivitiesCount();
+		activities_cnt[1] = sector_schedule[1].getActivitiesCount();
+		activities_cnt[2] = sector_schedule[2].getActivitiesCount();
+		exceptions_cnt[0] = sector_schedule[0].getExceptionsCount();
+		exceptions_cnt[1] = sector_schedule[1].getExceptionsCount();
+		exceptions_cnt[2] = sector_schedule[2].getExceptionsCount();
 
-    	/*evt = osMailGet(timestamp_box, 10);
-    	if (evt.status == osEventMail) {
-    		timestamp = (TimeStamp_t*)evt.value.p;
-        	osMailFree(timestamp_box, timestamp);
-    	}*/
+		do{
+			evt = osMailGet(activities_box, 1);
+			if (evt.status == osEventMail){
+				activity = (activity_msg*)evt.value.p;
+				switch (activity->sector_nbr){
+				case 0:
+					sector_schedule[0].addActivity(activity->activity);
+					break;
+				case 1:
+					sector_schedule[1].addActivity(activity->activity);
+					break;
+				case 2:
+					sector_schedule[2].addActivity(activity->activity);
+					break;
+				default:
+					break;
+				}
+			}
+			osMailFree(activities_box, activity);
+		}while(evt.status == osEventMail);
+
+
+		do{
+			evt = osMailGet(exceptions_box, 1);
+			if (evt.status == osEventMail){
+				exception = (exception_msg*)evt.value.p;
+				switch (exception->sector_nbr){
+				case 0:
+					sector_schedule[0].addException(exception->exception);
+					break;
+				case 1:
+					sector_schedule[1].addException(exception->exception);
+					break;
+				case 2:
+					sector_schedule[2].addException(exception->exception);
+					break;
+				default:
+					break;
+				}
+			}
+			osMailFree(exceptions_box, exception);
+		}while(evt.status == osEventMail);
+
+
+		//Placeholder for rest of the code
+
     	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
 		osDelay(100);
 	}
 }
+
 
 
 

@@ -60,8 +60,8 @@ private:
 	const std::string						name;
 	bool									is_active;
 	bool									is_available;
-	uint8_t									activities_limit;
-	uint8_t									exceptions_limit;
+	const uint8_t							activities_limit;
+	const uint8_t							exceptions_limit;
 	bool 									compare_time(const time_t &_time1, const time_t &_time2);
 
 
@@ -84,6 +84,10 @@ public:
 	bool									addLine(const char *_line);
 	std::vector<activity_s>&				getActivities(void);
 	std::vector<exception_s>&				getExceptions(void);
+	const uint8_t							getActivitiesCount(void);
+	const uint8_t							getExceptionsCount(void);
+	activity_s								parseActivity(const char *_line);
+	exception_s								parseException(const char *_line);
 };
 
 

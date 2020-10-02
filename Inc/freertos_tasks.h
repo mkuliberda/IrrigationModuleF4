@@ -25,18 +25,14 @@
 #include "stm32f4xx_hal_rtc.h"
 
 #define LOG_TEXT_LEN 26
+#define LOG_FORMAT "%02d-%02d-%02d %02d:%02d:%02d %s: %s\n"
 
-enum class reporter_t: uint8_t{
-	sector1 		= 0x01,
-	sector2 		= 0x02,
-	sector3 		= 0x03,
-	sector4 		= 0x04,
-	sdcard_task 	= 0x05,
-	irrigation_task = 0x06,
-	wireless_task	= 0x07,
-	sysmonitor_task = 0x08,
-	anonymous		= 0xff
-};
+#define REPORTERS C(Sector1)C(Sector2)C(Sector3)C(Sector4)C(Task_SDCard)C(Task_Irrigation)C(Task_Wireless)C(Task_SysMonitor)C(Generic)
+#define C(x) x,
+enum reporter_t { REPORTERS TOP };
+#undef C
+#define C(x) #x,
+const char * const reporter[] = { REPORTERS };
 
 struct activity_msg{
 	uint8_t sector_nbr;
@@ -48,10 +44,20 @@ struct exception_msg{
 	exception_s exception;
 };
 
+struct log_time{
+	uint8_t hours;
+	uint8_t minutes;
+	uint8_t seconds;
+	uint8_t day;
+	uint8_t month;
+	uint8_t year;
+};
+
 struct log_msg{
-	char 		text[LOG_TEXT_LEN];
-	uint8_t		len;
-	reporter_t 	reporter_id;
+	char 			text[LOG_TEXT_LEN];
+	uint8_t			len;
+	reporter_t 		reporter_id;
+	log_time		time;
 };
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */

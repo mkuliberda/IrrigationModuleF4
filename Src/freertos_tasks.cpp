@@ -4,24 +4,22 @@
 #include "plants.h"
 
 
+
 osThreadId SysMonitorTaskHandle;
 osThreadId SDCardTaskHandle;
 osThreadId WirelessCommTaskHandle;
 osThreadId IrrigationControlTaskHandle;
-//osMessageQId timestampQueueHandle;
-//osMailQDef(timestamp_box, 1, TimeStamp_t);
-//osMailQId timestamp_box;
 
 osMailQId activities_box;
 osMailQDef(activities_box, 42, activity_msg);
 osMailQId exceptions_box;
 osMailQDef(exceptions_box, 6, exception_msg);
 osMailQId sys_logs_box;
-osMailQDef(sys_logs_box, 5, log_msg);
+osMailQDef(sys_logs_box, 10, log_msg);
 osMailQId irg_logs_box;
-osMailQDef(irg_logs_box, 5, log_msg);
+osMailQDef(irg_logs_box, 10, log_msg);
 osMailQId wls_logs_box;
-osMailQDef(wls_logs_box, 5, log_msg);
+osMailQDef(wls_logs_box, 10, log_msg);
 
 
 void SysMonitorTask(void const * argument);
@@ -62,32 +60,102 @@ void vApplicationGetTimerTaskMemory( StaticTask_t **ppxTimerTaskTCBBuffer, Stack
   /* place for user code */
 }
 
-//bool retreiveScheduleMsg(T1 mail_box, T2 *event, T3 *msg)
-//{
-//	do{
-//		evt = osMailGet(mail_box, 1);
-//		if (event.status == osEventMail){
-//			msg = (activity_msg*)event.value.p;
-//			switch (msg->sector_nbr){
-//			case 0:
-//				sector_schedule[0].addActivity(msg->activity);
-//				break;
-//			case 1:
-//				sector_schedule[1].addActivity(activity->activity);
-//				break;
-//			case 2:
-//				sector_schedule[2].addActivity(activity->activity);
-//				break;
-//			default:
-//				break;
-//			}
-//		}
-//		osMailFree(activities_box, activity);
-//	}while(evt.status == osEventMail);
-//    return true;
-//}
-//
-//template bool receiveScheduleMsg<osMailQId, activity_msg>
+uint16_t publishLogMessage(std::string msg_txt, osMailQId &mail_box, const reporter_t &_reporter, const uint8_t &_maxlen)
+{
+	uint16_t retval = 0x00;
+	RTC_TimeTypeDef rtc_time;
+	RTC_DateTypeDef rtc_date;
+
+	HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
+	HAL_RTC_GetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
+
+	log_msg *msg;
+	msg = (log_msg*)osMailAlloc(mail_box, osWaitForever);
+
+	msg->time.day = rtc_date.Date;
+	msg->time.hours = rtc_time.Hours;
+	msg->time.minutes = rtc_time.Minutes;
+	msg->time.month = rtc_date.Month;
+	msg->time.seconds = rtc_time.Seconds;
+	msg->time.year = rtc_date.Year;
+
+	if (msg_txt.length() > _maxlen){
+		msg_txt = msg_txt.substr(msg_txt.length() - _maxlen, _maxlen);
+		retval = 0x0001;
+	}
+	msg->reporter_id = _reporter;
+	msg->len = msg_txt.length();
+	msg_txt.copy(msg->text, std::min((uint8_t)msg_txt.length(), (uint8_t)_maxlen), 0);
+
+	retval = osMailPut(mail_box, msg) != osOK ? 0x0002 : 0x0000;
+
+	return retval;
+}
+
+osEvent updateSectorsActivities(Scheduler *schedule, osMailQId &mail_box)
+{
+	osEvent evt;
+	activity_msg *msg;
+
+	do{
+		evt = osMailGet(mail_box, 1);
+		if (evt.status == osEventMail){
+			msg = (activity_msg*)evt.value.p;
+			switch (msg->sector_nbr){
+			case 0:
+				schedule[0].addActivity(msg->activity);
+				break;
+			case 1:
+				schedule[1].addActivity(msg->activity);
+				break;
+			case 2:
+				schedule[2].addActivity(msg->activity);
+				break;
+			case 3:
+				schedule[3].addActivity(msg->activity);
+				break;
+			default:
+				break;
+			}
+		}
+		osMailFree(mail_box, msg);
+	}while(evt.status == osEventMail);
+
+	return evt;
+}
+
+osEvent updateSectorsExceptions(Scheduler *schedule, osMailQId &mail_box)
+{
+	osEvent evt;
+	exception_msg *msg;
+
+	do{
+		evt = osMailGet(mail_box, 1);
+		if (evt.status == osEventMail){
+			msg = (exception_msg*)evt.value.p;
+			switch (msg->sector_nbr){
+			case 0:
+				schedule[0].addException(msg->exception);
+				break;
+			case 1:
+				schedule[1].addException(msg->exception);
+				break;
+			case 2:
+				schedule[2].addException(msg->exception);
+				break;
+			case 3:
+				schedule[3].addException(msg->exception);
+				break;
+			default:
+				break;
+			}
+		}
+		osMailFree(mail_box, msg);
+	}while(evt.status == osEventMail);
+
+	return evt;
+}
+
 
 /* USER CODE END GET_TIMER_TASK_MEMORY */
 
@@ -146,39 +214,13 @@ void MX_FREERTOS_Init(void) {
 void SysMonitorTask(void const * argument)
 {
 	size_t min_heap_size;
-	std::string log_string = "Sys monitor task started\n";
-	if (log_string.length() > LOG_TEXT_LEN){
-		log_string = log_string.substr(log_string.length() - LOG_TEXT_LEN, LOG_TEXT_LEN);
-	}
-	log_msg *message;
 	sys_logs_box = osMailCreate(osMailQ(sys_logs_box), osThreadGetId());
-	message = (log_msg*)osMailAlloc(sys_logs_box, osWaitForever);
-	message->reporter_id = reporter_t::sysmonitor_task;
-	message->len = log_string.length();
-	log_string.copy(message->text, std::min((uint8_t)log_string.length(), (uint8_t)LOG_TEXT_LEN), 0);
-	while (osMailPut(sys_logs_box, message) != osOK);
-
-	/*RTC_TimeTypeDef rtc_time;
-	RTC_DateTypeDef rtc_date;
-
-	timestamp_box = osMailCreate(osMailQ(timestamp_box), NULL);
-	TimeStamp_t *timestamp;
-	timestamp = (TimeStamp_t*)osMailAlloc(timestamp_box, osWaitForever);*/
+	publishLogMessage("Sys monitor task started", sys_logs_box, reporter_t::Task_SysMonitor, LOG_TEXT_LEN);
 
 	for(;;)
 	{
-		/*HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
-		HAL_RTC_GetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
-		timestamp->day = rtc_date.Date;
-		timestamp->hours = rtc_time.Hours;
-		timestamp->minutes = rtc_time.Minutes;
-		timestamp->month = rtc_date.Month;
-		timestamp->seconds = rtc_time.Seconds;
-		timestamp->weekday = rtc_date.WeekDay;
-		timestamp->year = rtc_date.Year;
-		osMailPut(timestamp_box, timestamp);*/
     	min_heap_size = xPortGetMinimumEverFreeHeapSize();
-		osDelay(1000);
+		osDelay(2000);
 	}
 }
 
@@ -199,25 +241,37 @@ void SDCardTask(void const *argument)
 	FILINFO file_info;
 	char cwd_buffer[80] = "/";
 
-	const std::array<std::string, 4> poss_sched_filename = {"SECTOR1.TXT", "SECTOR2.TXT", "SECTOR3.TXT",  "SECTOR4.TXT"};
+	const std::array<std::string, 4> schedule_file_candidates = {"SECTOR1.TXT", "SECTOR2.TXT", "SECTOR3.TXT",  "SECTOR4.TXT"};
 	Scheduler schedule = Scheduler("PARSER");
 	bool mount_success = false;
-	activities_box = osMailCreate(osMailQ(activities_box), osThreadGetId());
 	activity_msg *activity;
-	exceptions_box = osMailCreate(osMailQ(exceptions_box), osThreadGetId());
+	activities_box = osMailCreate(osMailQ(activities_box), osThreadGetId());
 	exception_msg *exception;
+	exceptions_box = osMailCreate(osMailQ(exceptions_box), osThreadGetId());
 	osEvent evt;
 	log_msg *sys_message;
 	log_msg *irg_message;
 	log_msg *wls_message;
 
 
+	HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
+	HAL_RTC_GetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
+	timestamp.day = rtc_date.Date;
+	timestamp.hours = rtc_time.Hours;
+	timestamp.minutes = rtc_time.Minutes;
+	timestamp.month = rtc_date.Month;
+	timestamp.seconds = rtc_time.Seconds;
+	timestamp.weekday = rtc_date.WeekDay;
+	timestamp.year = rtc_date.Year;
+
+
 	if(f_mount(&file_system, logical_drive, 1) == FR_OK){
 		mount_success = true;
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
 		if(f_open(&log_file, log_filename, FA_WRITE | FA_OPEN_APPEND) == FR_OK){
-			char log_str[] = "SDCard mount successful\n";
-			if (f_write(&log_file, log_str, sizeof(log_str), &bytesCnt) != FR_OK){
+			char log_str[] = "SDCard mount successful!";
+			if(f_printf(&log_file, LOG_FORMAT, timestamp.day, timestamp.month, timestamp.year, timestamp.hours,\
+					timestamp.minutes, timestamp.seconds, reporter[Task_SDCard], log_str) == EOF){
 				HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
 			}
 			while (f_close(&log_file) != FR_OK);
@@ -235,7 +289,7 @@ void SDCardTask(void const *argument)
 					break;
 				}
 
-				for(auto const &file: poss_sched_filename){
+				for(auto const &file: schedule_file_candidates){
 
 					std::string sdcard_sched_filename(file_info.fname);
 
@@ -288,20 +342,26 @@ void SDCardTask(void const *argument)
 				evt = osMailGet(sys_logs_box, 1);
 				if (evt.status == osEventMail){
 					sys_message = (log_msg*)evt.value.p;
+					char text[LOG_TEXT_LEN] = "";
+					strncpy(text, sys_message->text, sys_message->len);
 					if(f_open(&log_file, log_filename, FA_WRITE | FA_OPEN_APPEND) == FR_OK){
-						f_write(&log_file, sys_message->text, sys_message->len, &bytesCnt);
+						f_printf(&log_file, LOG_FORMAT, sys_message->time.day, sys_message->time.month, sys_message->time.year,\
+								sys_message->time.hours, sys_message->time.minutes, sys_message->time.seconds, reporter[sys_message->reporter_id], text);
 						while (f_close(&log_file) != FR_OK);
 					}
 				}
-				osMailFree(sys_logs_box, irg_message);
+				osMailFree(sys_logs_box, sys_message);
 			}while(evt.status == osEventMail);
 
 			do{
 				evt = osMailGet(irg_logs_box, 1);
 				if (evt.status == osEventMail){
 					irg_message = (log_msg*)evt.value.p;
+					char text[LOG_TEXT_LEN] = "";
+					strncpy(text, irg_message->text, irg_message->len);
 					if(f_open(&log_file, log_filename, FA_WRITE | FA_OPEN_APPEND) == FR_OK){
-						f_write(&log_file, irg_message->text, irg_message->len, &bytesCnt);
+						f_printf(&log_file, LOG_FORMAT, irg_message->time.day, irg_message->time.month, irg_message->time.year,\
+								irg_message->time.hours, irg_message->time.minutes, irg_message->time.seconds, reporter[irg_message->reporter_id], text);
 						while (f_close(&log_file) != FR_OK);
 					}
 				}
@@ -312,8 +372,11 @@ void SDCardTask(void const *argument)
 				evt = osMailGet(wls_logs_box, 1);
 				if (evt.status == osEventMail){
 					wls_message = (log_msg*)evt.value.p;
+					char text[LOG_TEXT_LEN] = "";
+					strncpy(text, wls_message->text, wls_message->len);
 					if(f_open(&log_file, log_filename, FA_WRITE | FA_OPEN_APPEND) == FR_OK){
-						f_write(&log_file, wls_message->text, wls_message->len, &bytesCnt);
+						f_printf(&log_file, LOG_FORMAT, wls_message->time.day, wls_message->time.month, wls_message->time.year,\
+								wls_message->time.hours, wls_message->time.minutes, wls_message->time.seconds, reporter[wls_message->reporter_id], text);
 						while (f_close(&log_file) != FR_OK);
 					}
 				}
@@ -321,28 +384,16 @@ void SDCardTask(void const *argument)
 			}while(evt.status == osEventMail);
 		}
 
-		//bool sector_watering = schedule[0].isActive(timestamp);
-
     	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
-    	osDelay(500);
+    	osDelay(200);
     }
 }
 
 
 void WirelessCommTask(void const *argument)
 {
-	std::string log_string = "Wireless Comm task started\n";
-	if (log_string.length() > LOG_TEXT_LEN){
-		log_string = log_string.substr(log_string.length() - LOG_TEXT_LEN, LOG_TEXT_LEN);
-	}
-	log_msg *message;
 	wls_logs_box = osMailCreate(osMailQ(wls_logs_box), osThreadGetId());
-	message = (log_msg*)osMailAlloc(wls_logs_box, osWaitForever);
-	message->reporter_id = reporter_t::wireless_task;
-	message->len = log_string.length();
-	log_string.copy(message->text, std::min((uint8_t)log_string.length(), (uint8_t)LOG_TEXT_LEN), 0);
-	while (osMailPut(wls_logs_box, message) != osOK);
-
+	publishLogMessage("Wireless Comm task started", wls_logs_box, reporter_t::Task_Wireless, LOG_TEXT_LEN);
 
 	RTC_TimeTypeDef rtc_time;
 	RTC_DateTypeDef rtc_date;
@@ -371,27 +422,14 @@ void WirelessCommTask(void const *argument)
 
 void IrrigationControlTask(void const *argument){
 
-	std::string log_string = "Irrigation Ctrl task started\n";
-	if (log_string.length() > LOG_TEXT_LEN){
-		log_string = log_string.substr(log_string.length() - LOG_TEXT_LEN, LOG_TEXT_LEN);
-	}
-	log_msg *message;
 	irg_logs_box = osMailCreate(osMailQ(irg_logs_box), osThreadGetId());
-	message = (log_msg*)osMailAlloc(irg_logs_box, osWaitForever);
-	message->reporter_id = reporter_t::irrigation_task;
-	message->len = log_string.length();
-	log_string.copy(message->text, std::min((uint8_t)log_string.length(), (uint8_t)LOG_TEXT_LEN), 0);
-	//TODO: Logger class: message->len = logger.prepareMessage("Irrigation Ctrl task started\n", message->text, LOG_TEXT_LEN);
-	while (osMailPut(irg_logs_box, message) != osOK);
+	publishLogMessage("Irrigation Ctrl task started", irg_logs_box, reporter_t::Task_Irrigation, LOG_TEXT_LEN);
 
 	RTC_TimeTypeDef rtc_time;
 	RTC_DateTypeDef rtc_date;
 	TimeStamp_t timestamp;
 
-	osEvent evt;
-	activity_msg *activity;
-	exception_msg *exception;
-	Scheduler sector_schedule[3] = {Scheduler("SECTOR1"), Scheduler("SECTOR2"), Scheduler("SECTOR3")};
+	Scheduler sector_schedule[4] = {Scheduler("SECTOR1"), Scheduler("SECTOR2"), Scheduler("SECTOR3"), Scheduler("SECTOR4")};
 	uint8_t activities_cnt[3]={0,0,0};
 	uint8_t exceptions_cnt[3]={0,0,0};
 
@@ -403,51 +441,9 @@ void IrrigationControlTask(void const *argument){
 
 	for( ;; )
 	{
-
-		//TODO: place msg retrieval into a function
-		do{
-			evt = osMailGet(activities_box, 1);
-			if (evt.status == osEventMail){
-				activity = (activity_msg*)evt.value.p;
-				switch (activity->sector_nbr){
-				case 0:
-					sector_schedule[0].addActivity(activity->activity);
-					break;
-				case 1:
-					sector_schedule[1].addActivity(activity->activity);
-					break;
-				case 2:
-					sector_schedule[2].addActivity(activity->activity);
-					break;
-				default:
-					break;
-				}
-			}
-			osMailFree(activities_box, activity);
-		}while(evt.status == osEventMail);
-
-
-		do{
-			evt = osMailGet(exceptions_box, 1);
-			if (evt.status == osEventMail){
-				exception = (exception_msg*)evt.value.p;
-				switch (exception->sector_nbr){
-				case 0:
-					sector_schedule[0].addException(exception->exception);
-					break;
-				case 1:
-					sector_schedule[1].addException(exception->exception);
-					break;
-				case 2:
-					sector_schedule[2].addException(exception->exception);
-					break;
-				default:
-					break;
-				}
-			}
-			osMailFree(exceptions_box, exception);
-		}while(evt.status == osEventMail);
-
+		publishLogMessage("Irrigation started", irg_logs_box, reporter_t::Sector1, LOG_TEXT_LEN);
+		updateSectorsActivities(sector_schedule, activities_box);
+		updateSectorsExceptions(sector_schedule, exceptions_box);
 
 		HAL_RTC_GetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
 		HAL_RTC_GetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
@@ -472,10 +468,11 @@ void IrrigationControlTask(void const *argument){
 		exceptions_cnt[1] = sector_schedule[1].getExceptionsCount();
 		exceptions_cnt[2] = sector_schedule[2].getExceptionsCount();
 
+		publishLogMessage("Irrigation finished", irg_logs_box, reporter_t::Sector1, LOG_TEXT_LEN);
 		//Placeholder for rest of the code
 
     	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
-		osDelay(100);
+		osDelay(500);
 	}
 }
 

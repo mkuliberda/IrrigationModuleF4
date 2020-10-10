@@ -4,7 +4,6 @@
 #include "plants.h"
 
 
-
 osThreadId SysMonitorTaskHandle;
 osThreadId SDCardTaskHandle;
 osThreadId WirelessCommTaskHandle;
@@ -234,7 +233,7 @@ void SDCardTask(void const *argument)
 	const char log_filename[] = "LOG.TXT";
     FIL log_file;
 	FIL schedule_file;
-	UINT bytesCnt= 0;
+	//UINT bytesCnt= 0;
 	char logical_drive[4];   /* SD logical drive path */
 	FATFS file_system;    /* File system object for SD logical drive */
 	DIR directory;
@@ -429,19 +428,16 @@ void IrrigationControlTask(void const *argument){
 	RTC_DateTypeDef rtc_date;
 	TimeStamp_t timestamp;
 
-	Scheduler sector_schedule[4] = {Scheduler("SECTOR1"), Scheduler("SECTOR2"), Scheduler("SECTOR3"), Scheduler("SECTOR4")};
-	uint8_t activities_cnt[3]={0,0,0};
-	uint8_t exceptions_cnt[3]={0,0,0};
-
-	Plant pelargonia("Pelargonia", 0);
-	std::string name = pelargonia.nameGet();
+	bool sector_active_prev[SECTORS_AMOUNT] = {false, false, false, false};
+	Scheduler sector_schedule[SECTORS_AMOUNT] = {Scheduler("SECTOR1"), Scheduler("SECTOR2"), Scheduler("SECTOR3"), Scheduler("SECTOR4")};
+	uint8_t activities_cnt[SECTORS_AMOUNT]={0,0,0,0};
+	uint8_t exceptions_cnt[SECTORS_AMOUNT]={0,0,0,0};
 
 	osDelay(1000);  //leave some time for read from SDCard
 	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
 
 	for( ;; )
 	{
-		publishLogMessage("Irrigation started", irg_logs_box, reporter_t::Sector1, LOG_TEXT_LEN);
 		updateSectorsActivities(sector_schedule, activities_box);
 		updateSectorsExceptions(sector_schedule, exceptions_box);
 
@@ -455,20 +451,26 @@ void IrrigationControlTask(void const *argument){
 		timestamp.weekday = rtc_date.WeekDay;
 		timestamp.year = rtc_date.Year;
 
-		if (sector_schedule[0].isActive(timestamp)){
-			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
-		}
-		else{
-			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
-		}
-		activities_cnt[0] = sector_schedule[0].getActivitiesCount();
-		activities_cnt[1] = sector_schedule[1].getActivitiesCount();
-		activities_cnt[2] = sector_schedule[2].getActivitiesCount();
-		exceptions_cnt[0] = sector_schedule[0].getExceptionsCount();
-		exceptions_cnt[1] = sector_schedule[1].getExceptionsCount();
-		exceptions_cnt[2] = sector_schedule[2].getExceptionsCount();
+		for (uint8_t s_nbr=0; s_nbr<SECTORS_AMOUNT; ++s_nbr){
+			if (sector_schedule[s_nbr].isAvailable()){
+				if (sector_schedule[s_nbr].update(timestamp) != sector_active_prev[s_nbr]){
+					if (sector_schedule[s_nbr].isActive()){
+						HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
+						publishLogMessage("Irrigation started", irg_logs_box, static_cast<reporter_t>(s_nbr), LOG_TEXT_LEN);
+					}
+					else{
+						publishLogMessage("Irrigation finished", irg_logs_box, static_cast<reporter_t>(s_nbr), LOG_TEXT_LEN);
+						HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
+					}
 
-		publishLogMessage("Irrigation finished", irg_logs_box, reporter_t::Sector1, LOG_TEXT_LEN);
+					sector_active_prev[s_nbr] = sector_schedule[s_nbr].isActive();
+				}
+			activities_cnt[s_nbr] = sector_schedule[s_nbr].getActivitiesCount();
+			exceptions_cnt[s_nbr] = sector_schedule[s_nbr].getExceptionsCount();
+			}
+		}
+
+
 		//Placeholder for rest of the code
 
     	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);

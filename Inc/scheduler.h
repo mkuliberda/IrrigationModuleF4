@@ -74,7 +74,9 @@ public:
 	exceptions_limit(_exceptions_limit)
 	{};
 
-	bool& 									isActive(const TimeStamp_t &_timestamp);
+	bool& 									update(const TimeStamp_t &_timestamp);
+	bool& 									isActive(void);
+	bool 									isExceptionPeriod(const TimeStamp_t &_timestamp);
 	bool& 									isAvailable(void);
 	void									setAvailable(void);
 	bool									addActivity(const struct activity_s &_activity);

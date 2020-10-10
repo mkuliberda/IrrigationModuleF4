@@ -1,5 +1,5 @@
 /*
- * adc_moisture_sensor.cpp
+ * analog_moisture_sensor.cpp
  *
  *  Created on: 21.01.2020
  *      Author: Mati

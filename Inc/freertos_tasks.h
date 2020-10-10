@@ -26,6 +26,7 @@
 
 #define LOG_TEXT_LEN 26
 #define LOG_FORMAT "%02d-%02d-%02d %02d:%02d:%02d %s: %s\n"
+#define SECTORS_AMOUNT 4
 
 #define REPORTERS C(Sector1)C(Sector2)C(Sector3)C(Sector4)C(Task_SDCard)C(Task_Irrigation)C(Task_Wireless)C(Task_SysMonitor)C(Generic)
 #define C(x) x,

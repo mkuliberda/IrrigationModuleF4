@@ -11,59 +11,60 @@ bool Scheduler::compare_time(const time_t &_time1, const time_t &_time2){
 	return difftime(_time1, _time2) > 0.0 ? true : false;
 }
 
-bool& Scheduler::isActive(const TimeStamp_t &_timestamp){
+bool& Scheduler::update(const TimeStamp_t &_timestamp){
+	if (!this->isExceptionPeriod(_timestamp)){
+		for (auto const& activity_time: this->vActivities){
+			if(activity_time.weekday == _timestamp.weekday){
+				time_t now, period_begin, period_end;
+				struct tm tm_timestamp;
 
-	for (auto const& activity_time: this->vActivities){
-		if(activity_time.weekday == _timestamp.weekday){
-			time_t now, period_begin, period_end;
-			struct tm tm_timestamp;
-
-			tm_timestamp.tm_hour = _timestamp.hours;
-			tm_timestamp.tm_min = _timestamp.minutes;
-			tm_timestamp.tm_sec = _timestamp.seconds;
-			tm_timestamp.tm_mday = _timestamp.day;
-			tm_timestamp.tm_mon = _timestamp.month - 1;
-			tm_timestamp.tm_year = 100 + _timestamp.year;
-			now = mktime(&tm_timestamp);
-
-			tm_timestamp.tm_hour = activity_time.begin.hours;
-			tm_timestamp.tm_min = activity_time.begin.minutes;
-			tm_timestamp.tm_sec = activity_time.begin.seconds;
-			tm_timestamp.tm_mday = activity_time.begin.day;
-			tm_timestamp.tm_mon = activity_time.begin.month - 1;
-			tm_timestamp.tm_year = 100 + activity_time.begin.year;
-			period_begin = mktime(&tm_timestamp);
-
-			tm_timestamp.tm_hour = activity_time.end.hours;
-			tm_timestamp.tm_min = activity_time.end.minutes;
-			tm_timestamp.tm_sec = activity_time.end.seconds;
-			tm_timestamp.tm_mday = activity_time.end.day;
-			tm_timestamp.tm_mon = activity_time.end.month - 1;
-			tm_timestamp.tm_year = 100 + activity_time.end.year;
-			period_end = mktime(&tm_timestamp);
-
-			if(this->compare_time(now, period_begin) && this->compare_time(period_end, now)){
-				time_t activity_start, activity_duration, activity_end;
-
+				tm_timestamp.tm_hour = _timestamp.hours;
+				tm_timestamp.tm_min = _timestamp.minutes;
+				tm_timestamp.tm_sec = _timestamp.seconds;
 				tm_timestamp.tm_mday = _timestamp.day;
 				tm_timestamp.tm_mon = _timestamp.month - 1;
 				tm_timestamp.tm_year = 100 + _timestamp.year;
+				now = mktime(&tm_timestamp);
 
-				tm_timestamp.tm_hour = activity_time.start.hours;
-				tm_timestamp.tm_min = activity_time.start.minutes;
-				tm_timestamp.tm_sec = activity_time.start.seconds;
-				activity_start = mktime(&tm_timestamp);
+				tm_timestamp.tm_hour = activity_time.begin.hours;
+				tm_timestamp.tm_min = activity_time.begin.minutes;
+				tm_timestamp.tm_sec = activity_time.begin.seconds;
+				tm_timestamp.tm_mday = activity_time.begin.day;
+				tm_timestamp.tm_mon = activity_time.begin.month - 1;
+				tm_timestamp.tm_year = 100 + activity_time.begin.year;
+				period_begin = mktime(&tm_timestamp);
 
-				tm_timestamp.tm_hour = activity_time.duration.hours;
-				tm_timestamp.tm_min = activity_time.duration.minutes;
-				tm_timestamp.tm_sec = activity_time.duration.seconds;
-				mktime(&tm_timestamp);
-				activity_duration = 3600 * tm_timestamp.tm_hour + 60 * tm_timestamp.tm_min + tm_timestamp.tm_sec;//mktime(&tm_timestamp);
+				tm_timestamp.tm_hour = activity_time.end.hours;
+				tm_timestamp.tm_min = activity_time.end.minutes;
+				tm_timestamp.tm_sec = activity_time.end.seconds;
+				tm_timestamp.tm_mday = activity_time.end.day;
+				tm_timestamp.tm_mon = activity_time.end.month - 1;
+				tm_timestamp.tm_year = 100 + activity_time.end.year;
+				period_end = mktime(&tm_timestamp);
 
-				activity_end = activity_start + activity_duration;
+				if(this->compare_time(now, period_begin) && this->compare_time(period_end, now)){
+					time_t activity_start, activity_duration, activity_end;
 
-				if(this->compare_time(now, activity_start) && this->compare_time(activity_end, now)){
-					return this->is_active = true;
+					tm_timestamp.tm_mday = _timestamp.day;
+					tm_timestamp.tm_mon = _timestamp.month - 1;
+					tm_timestamp.tm_year = 100 + _timestamp.year;
+
+					tm_timestamp.tm_hour = activity_time.start.hours;
+					tm_timestamp.tm_min = activity_time.start.minutes;
+					tm_timestamp.tm_sec = activity_time.start.seconds;
+					activity_start = mktime(&tm_timestamp);
+
+					tm_timestamp.tm_hour = activity_time.duration.hours;
+					tm_timestamp.tm_min = activity_time.duration.minutes;
+					tm_timestamp.tm_sec = activity_time.duration.seconds;
+					mktime(&tm_timestamp);
+					activity_duration = 3600 * tm_timestamp.tm_hour + 60 * tm_timestamp.tm_min + tm_timestamp.tm_sec;
+
+					activity_end = activity_start + activity_duration;
+
+					if(this->compare_time(now, activity_start) && this->compare_time(activity_end, now)){
+						return this->is_active = true;
+					}
 				}
 			}
 		}
@@ -71,6 +72,55 @@ bool& Scheduler::isActive(const TimeStamp_t &_timestamp){
 
 	return is_active = false;
 
+}
+
+bool& Scheduler::isActive(void){
+	return this->is_active;
+}
+
+/*
+A1:20-05-01,20-09-30,MON,06-00-00,00-10-00
+A2:20-05-01,20-09-30,MON,19-00-00,00-02-00
+A3:20-05-01,20-09-30,TUE,06-00-00,00-10-00
+A4:20-05-01,20-09-30,TUE,19-00-00,00-10-00
+A5:20-05-01,20-09-30,THU,06-00-00,00-10-00
+A6:20-05-01,20-09-30,THU,20-00-00,00-10-00
+E1:20-05-15,00-00-01,20-05-15,16-00-00
+E2:20-09-14,19-05-00,20-09-14,19-05-30
+ */
+bool Scheduler::isExceptionPeriod(const TimeStamp_t &_timestamp){
+
+	for (auto const& exception_time: this->vExceptions){
+		time_t now, period_begin, period_end;
+		struct tm tm_timestamp;
+
+		tm_timestamp.tm_hour = _timestamp.hours;
+		tm_timestamp.tm_min = _timestamp.minutes;
+		tm_timestamp.tm_sec = _timestamp.seconds;
+		tm_timestamp.tm_mday = _timestamp.day;
+		tm_timestamp.tm_mon = _timestamp.month - 1;
+		tm_timestamp.tm_year = 100 + _timestamp.year;
+		now = mktime(&tm_timestamp);
+
+		tm_timestamp.tm_hour = exception_time.begin.hours;
+		tm_timestamp.tm_min = exception_time.begin.minutes;
+		tm_timestamp.tm_sec = exception_time.begin.seconds;
+		tm_timestamp.tm_mday = exception_time.begin.day;
+		tm_timestamp.tm_mon = exception_time.begin.month - 1;
+		tm_timestamp.tm_year = 100 + exception_time.begin.year;
+		period_begin = mktime(&tm_timestamp);
+
+		tm_timestamp.tm_hour = exception_time.end.hours;
+		tm_timestamp.tm_min = exception_time.end.minutes;
+		tm_timestamp.tm_sec = exception_time.end.seconds;
+		tm_timestamp.tm_mday = exception_time.end.day;
+		tm_timestamp.tm_mon = exception_time.end.month - 1;
+		tm_timestamp.tm_year = 100 + exception_time.end.year;
+		period_end = mktime(&tm_timestamp);
+
+		if(this->compare_time(now, period_begin) && this->compare_time(period_end, now)) return true;
+	}
+	return false;
 }
 
 bool& Scheduler::isAvailable(void){
@@ -85,6 +135,7 @@ bool Scheduler::addActivity(const struct activity_s &_activity){
 	if (this->vActivities.size() <= this->activities_limit)
 	{
 		this->vActivities.push_back(_activity);
+		this->setAvailable();
 		return true;
 	}
 	else
@@ -95,11 +146,13 @@ bool Scheduler::addActivity(const struct activity_s &_activity){
 
 //01234567891123456789212345678931234567894
 /*A1:20-05-01,20-09-30,MON,06-00-00,00-10-00
-A2:20-05-01,20-09-30,MON,19-00-00,00-10-00
+A2:20-05-01,20-09-30,MON,19-00-00,00-02-00
 A3:20-05-01,20-09-30,TUE,06-00-00,00-10-00
 A4:20-05-01,20-09-30,TUE,19-00-00,00-10-00
 A5:20-05-01,20-09-30,THU,06-00-00,00-10-00
-A6:20-05-01,20-09-30,THU,20-00-00,00-10-00*/
+A6:20-05-01,20-09-30,THU,20-00-00,00-10-00
+E1:20-05-15,00-00-01,20-05-15,16-00-00
+E2:20-09-14,19-05-00,20-09-14,19-05-30*/
 bool Scheduler::addActivity(const char *_activity){
 	const std::string str(_activity);
 	if (str.length() == 42){
@@ -145,6 +198,7 @@ bool Scheduler::addActivity(const char *_activity){
 			activity.duration.minutes = atoi(str.substr(37,2).c_str());
 			activity.duration.seconds = atoi(str.substr(40,2).c_str());
 			this->vActivities.push_back(activity);
+			this->setAvailable();
 			return true;
 		}
 		else{
@@ -206,12 +260,10 @@ bool Scheduler::addLine(const char *_line){
 	const std::string str(_line);
 	if (str.length() == 39 || str.length() == 42 ){
 		if (str.substr(0,1) == "E" && str.substr(2,1) == ":"){
-			this->addException(_line);
-			return true;
+			return this->addException(_line);
 		}
 		else if (str.substr(0,1) == "A" && str.substr(2,1) == ":"){
-			this->addActivity(_line);
-			return true;
+			return this->addActivity(_line);
 		}
 		else{
 			return false;

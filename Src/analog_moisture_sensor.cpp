@@ -12,11 +12,11 @@
 /*! AnalogDMAMoistureSensor class implementation */
 /***********************************/
 
-void AnalogDMAMoistureSensor::voltsUpdate(void){
+void AnalogDMAMoistureSensor::updateVolts(void){
 	this->moistureVolts = this->moistureRaw * 3.3f/4095.0f;
 }
 
-void AnalogDMAMoistureSensor::percentUpdate(void){
+void AnalogDMAMoistureSensor::updatePercent(void){
 	this->moisturePercent = this->moistureRaw * 100.0f/4095.0f;
 }
 
@@ -28,13 +28,13 @@ bool& AnalogDMAMoistureSensor::isValid(void){
 	return this->valid;
 }
 
-void AnalogDMAMoistureSensor::rawUpdate(const uint16_t & _raw_value){
+void AnalogDMAMoistureSensor::update(const uint16_t & _raw_value){
 	this->moistureRaw = _raw_value;
-	this->percentUpdate();
-	this->voltsUpdate();
+	this->updatePercent();
+	this->updateVolts();
 }
 
-float& AnalogDMAMoistureSensor::voltsGet(void){
+float& AnalogDMAMoistureSensor::getVolts(void){
 	return this->moistureVolts;
 }
 

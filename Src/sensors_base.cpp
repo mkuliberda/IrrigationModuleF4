@@ -9,29 +9,40 @@
 
 
 /******************************************/
+/*! Sensor class implementation */
+/******************************************/
+sensorinterfacetype_t& Sensor::getInterface(void)
+{
+	return this->interfacetype;
+}
+
+
+/******************************************/
 /*! TemperatureSensor class implementation */
 /******************************************/
 
-temperaturesensortype_t& TemperatureSensor::typeGet(void){
+temperaturesensortype_t& TemperatureSensor::getType(void){
 	return this->type;
 }
 
-sensorinterfacetype_t& TemperatureSensor::interfacetypeGet(void){
-	return this->interfacetype;
-}
+//sensorinterfacetype_t& TemperatureSensor::getInterface(void){
+//	return this->interfacetype;
+//}
+
+
 /***********************************/
 /*! MoistureSensor class implementation */
 /***********************************/
 
-moisturesensortype_t& MoistureSensor::typeGet(void){
+moisturesensortype_t& MoistureSensor::getType(void){
 	return this->type;
 }
 
-sensorinterfacetype_t& MoistureSensor::interfacetypeGet(void){
-	return this->interfacetype;
-}
+//sensorinterfacetype_t& MoistureSensor::getInterface(void){
+//	return this->interfacetype;
+//}
 
-float& MoistureSensor::percentGet(void){
+float& MoistureSensor::getMoisturePercent(void){
 	return this->moisturePercent;
 }
 
@@ -40,16 +51,16 @@ float& MoistureSensor::percentGet(void){
 /*! WaterLevelSensor class implementation */
 /******************************************/
 
-waterlevelsensorsubtype_t&  WaterLevelSensor::subtypeGet(void){
+waterlevelsensorsubtype_t&  WaterLevelSensor::getSubtype(void){
 	return this->subtype;
 }
 
-waterlevelsensortype_t& WaterLevelSensor::typeGet(void){
+waterlevelsensortype_t& WaterLevelSensor::getType(void){
 	return this->type;
 }
 
-sensorinterfacetype_t& WaterLevelSensor::interfacetypeGet(void){
-	return this->interfacetype;
-}
+//sensorinterfacetype_t& WaterLevelSensor::getInterface(void){
+//	return this->interfacetype;
+//}
 
 

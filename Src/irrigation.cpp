@@ -13,23 +13,23 @@ bool Pump::init(void){
 	return true;
 }
 
-pumpstate_t& Pump::stateGet(void){
+pumpstate_t& Pump::getState(void){
 	return this->state;
 }
 
 bool Pump::isRunning(void){
-	return this->stateGet() == pumpstate_t::running || this->stateGet() == pumpstate_t::reversing ? true : false;
+	return this->getState() == pumpstate_t::running || this->getState() == pumpstate_t::reversing ? true : false;
 }
 
 void Pump::run(const double & _dt){
 
 }
 
-struct pumpstatus_s& Pump::statusGet(void){
+struct pumpstatus_s& Pump::getStatus(void){
 	return this->status;
 }
 
-pumptype_t& Pump::typeGet(void){
+pumptype_t& Pump::getType(void){
 	return this->type;
 }
 
@@ -74,7 +74,7 @@ bool BinaryPump::init(const uint8_t & _id, const uint32_t & _idletimeRequiredSec
 	this->runtimeLimitSeconds = _runtimeLimitSeconds;
 	HAL_GPIO_WritePin(this->pinout.port,this->pinout.pin, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(this->led.port, this->led.pin, GPIO_PIN_RESET);
-	this->stateSet(pumpstate_t::stopped);
+	this->setState(pumpstate_t::stopped);
 
 	return true;
 }
@@ -83,7 +83,7 @@ void BinaryPump::run(const double & _dt, const pumpcmd_t & _cmd, bool & cmd_cons
 
 	if(_cmd != pumpcmd_t::reverse){
 
-		switch (this->stateGet())
+		switch (this->getState())
 		{
 		case pumpstate_t::init:
 			this->stop();
@@ -106,7 +106,7 @@ void BinaryPump::run(const double & _dt, const pumpcmd_t & _cmd, bool & cmd_cons
 				cmd_consumed = true;
 			}
 			else if((_cmd == pumpcmd_t::start) && (this->idletimeGetSeconds() <= this->idletimeRequiredSeconds)){
-				this->stateSet(pumpstate_t::waiting);
+				this->setState(pumpstate_t::waiting);
 			}
 			break;
 
@@ -141,7 +141,7 @@ bool BinaryPump::start(void){
 
 		HAL_GPIO_WritePin(this->pinout.port,this->pinout.pin, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(this->led.port, this->led.pin, GPIO_PIN_SET);
-		this->stateSet(pumpstate_t::running);
+		this->setState(pumpstate_t::running);
 		this->idletimeReset();
 		this->runtimeReset();
 		success = true;
@@ -159,7 +159,7 @@ bool BinaryPump::stop(void){
 
 		HAL_GPIO_WritePin(this->pinout.port,this->pinout.pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(this->led.port, this->led.pin, GPIO_PIN_RESET);
-		this->stateSet(pumpstate_t::stopped);
+		this->setState(pumpstate_t::stopped);
 		this->idletimeReset();
 		this->runtimeReset();
 		success = true;
@@ -174,7 +174,7 @@ void BinaryPump::forcestart(void){
 
 	HAL_GPIO_WritePin(this->pinout.port,this->pinout.pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(this->led.port, this->led.pin, GPIO_PIN_SET);
-	this->stateSet(pumpstate_t::running);
+	this->setState(pumpstate_t::running);
 	this->status.forced = true;
 }
 void BinaryPump::forcestop(void){
@@ -183,11 +183,11 @@ void BinaryPump::forcestop(void){
 
 	HAL_GPIO_WritePin(this->pinout.port,this->pinout.pin, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(this->led.port, this->led.pin, GPIO_PIN_RESET);
-	this->stateSet(pumpstate_t::stopped);
+	this->setState(pumpstate_t::stopped);
 	this->status.forced = true;
 }
 
-void BinaryPump::stateSet(const pumpstate_t & _state){
+void BinaryPump::setState(const pumpstate_t & _state){
 	this->state = _state;
 	this->status.state = static_cast<uint32_t>(_state);
 }
@@ -214,7 +214,7 @@ bool DRV8833Pump::init(const uint8_t & _id, const uint32_t & _idletimeRequiredSe
 	this->idletimeSeconds = this->idletimeRequiredSeconds;
 	this->runtimeLimitSeconds = _runtimeLimitSeconds;
 
-	switch (this->typeGet()){
+	switch (this->getType()){
 	case pumptype_t::drv8833_dc:
 		success = false;
 		break;
@@ -239,7 +239,7 @@ bool DRV8833Pump::init(const uint8_t & _id, const uint32_t & _idletimeRequiredSe
 		//TODO:
 	}
 	else{
-		this->stateSet(pumpstate_t::fault);
+		this->setState(pumpstate_t::fault);
 		success = false;
 	}
 
@@ -263,7 +263,7 @@ bool DRV8833Pump::init(const uint8_t & _id, const uint32_t & _idletimeRequiredSe
 	this->idletimeSeconds = this->idletimeRequiredSeconds;
 	this->runtimeLimitSeconds = _runtimeLimitSeconds;
 
-	switch (this->typeGet()){
+	switch (this->getType()){
 	case pumptype_t::drv8833_dc:
 		this->aIN[0].pin = _pinout[0].pin;
 		this->aIN[0].port = _pinout[0].port;
@@ -290,7 +290,7 @@ bool DRV8833Pump::init(const uint8_t & _id, const uint32_t & _idletimeRequiredSe
 		HAL_GPIO_WritePin(this->led.port, this->led.pin, GPIO_PIN_RESET);
 	}
 	else{
-		this->stateSet(pumpstate_t::fault);
+		this->setState(pumpstate_t::fault);
 		success = false;
 	}
 
@@ -299,11 +299,11 @@ bool DRV8833Pump::init(const uint8_t & _id, const uint32_t & _idletimeRequiredSe
 
 void DRV8833Pump::run(const double & _dt, const pumpcmd_t & _cmd, bool & cmd_consumed, bool & fault){
 
-	if (this->isFault() == true) this->stateSet(pumpstate_t::fault);
+	if (this->isFault() == true) this->setState(pumpstate_t::fault);
 
-	switch (this->stateGet()){
+	switch (this->getState()){
 	case pumpstate_t::init:
-		this->stateSet(pumpstate_t::stopped);
+		this->setState(pumpstate_t::stopped);
 		if (_cmd == pumpcmd_t::stop) cmd_consumed = true;
 		else cmd_consumed = false;
 		break;
@@ -325,7 +325,7 @@ void DRV8833Pump::run(const double & _dt, const pumpcmd_t & _cmd, bool & cmd_con
 				cmd_consumed = true;
 			}
 			else if (this->idletimeGetSeconds() <= this->idletimeRequiredSeconds){
-				this->stateSet(pumpstate_t::waiting);
+				this->setState(pumpstate_t::waiting);
 			}
 		}
 		else{
@@ -392,7 +392,7 @@ bool DRV8833Pump::start(void){
 		this->idletimeReset();
 		this->runtimeReset();
 
-		switch (this->typeGet()){
+		switch (this->getType()){
 		case pumptype_t::drv8833_dc:
 			HAL_GPIO_WritePin(this->aIN[0].port, this->aIN[0].pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(this->aIN[1].port, this->aIN[1].pin, GPIO_PIN_RESET);
@@ -407,7 +407,7 @@ bool DRV8833Pump::start(void){
 		}
 	}
 
-	this->stateSet(pumpstate_t::running);
+	this->setState(pumpstate_t::running);
 
 	return success;
 }
@@ -421,7 +421,7 @@ bool DRV8833Pump::stop(void){
 		this->idletimeReset();
 		this->runtimeReset();
 
-		switch (this->typeGet()){
+		switch (this->getType()){
 		case pumptype_t::drv8833_dc:
 			HAL_GPIO_WritePin(this->aIN[0].port, this->aIN[0].pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(this->aIN[1].port, this->aIN[1].pin, GPIO_PIN_SET);
@@ -436,7 +436,7 @@ bool DRV8833Pump::stop(void){
 		}
 	}
 
-	this->stateSet(pumpstate_t::stopped);
+	this->setState(pumpstate_t::stopped);
 
 	return success;
 }
@@ -450,7 +450,7 @@ bool DRV8833Pump::reverse(void){
 	this->idletimeReset();
 	this->runtimeReset();
 
-	switch (this->typeGet()){
+	switch (this->getType()){
 	case pumptype_t::drv8833_dc:
 		HAL_GPIO_WritePin(this->aIN[0].port, this->aIN[0].pin, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(this->aIN[1].port, this->aIN[1].pin, GPIO_PIN_SET);
@@ -464,7 +464,7 @@ bool DRV8833Pump::reverse(void){
 		break;
 	}
 
-	this->stateSet(pumpstate_t::reversing);
+	this->setState(pumpstate_t::reversing);
 
 
 	return success;
@@ -477,12 +477,12 @@ bool DRV8833Pump::forcestart(void){
 
 	this->status.forced = true;
 
-	switch (this->typeGet()){
+	switch (this->getType()){
 	case pumptype_t::drv8833_dc:
 		HAL_GPIO_WritePin(this->aIN[0].port, this->aIN[0].pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(this->aIN[1].port, this->aIN[1].pin, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(this->led.port, this->led.pin, GPIO_PIN_SET);
-		this->stateSet(pumpstate_t::running);
+		this->setState(pumpstate_t::running);
 		break;
 	case pumptype_t::drv8833_bldc:
 		//TODO:
@@ -508,12 +508,12 @@ bool DRV8833Pump::forcestop(void){
 
 	this->status.forced = true;
 
-	switch (this->typeGet()){
+	switch (this->getType()){
 	case pumptype_t::drv8833_dc:
 		HAL_GPIO_WritePin(this->aIN[0].port, this->aIN[0].pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(this->aIN[1].port, this->aIN[1].pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(this->led.port, this->led.pin, GPIO_PIN_RESET);
-		this->stateSet(pumpstate_t::stopped);
+		this->setState(pumpstate_t::stopped);
 		break;
 	case pumptype_t::drv8833_bldc:
 		//TODO:
@@ -540,12 +540,12 @@ bool DRV8833Pump::forcereverse(void){
 
 	this->status.forced = true;
 
-	switch (this->typeGet()){
+	switch (this->getType()){
 	case pumptype_t::drv8833_dc:
 		HAL_GPIO_WritePin(this->aIN[0].port, this->aIN[0].pin, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(this->aIN[1].port, this->aIN[1].pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(this->led.port, this->led.pin, GPIO_PIN_SET);
-		this->stateSet(pumpstate_t::reversing);
+		this->setState(pumpstate_t::reversing);
 		break;
 	case pumptype_t::drv8833_bldc:
 		//TODO:
@@ -569,7 +569,7 @@ bool DRV8833Pump::forcereverse(void){
 void DRV8833Pump::setSleep(void){
 	this->stop();
 	HAL_GPIO_WritePin(this->mode.port, this->mode.pin, GPIO_PIN_RESET);
-	this->stateSet(pumpstate_t::sleep);
+	this->setState(pumpstate_t::sleep);
 }
 
 void DRV8833Pump::setEnable(void){
@@ -580,7 +580,7 @@ bool DRV8833Pump::isFault(void){
 	return HAL_GPIO_ReadPin(this->fault.port, this->fault.pin) == GPIO_PIN_RESET ? true : false;
 }
 
-void DRV8833Pump::stateSet(const pumpstate_t & _state){
+void DRV8833Pump::setState(const pumpstate_t & _state){
 	this->state = _state;
 	this->status.state = static_cast<uint32_t>(_state);
 }
@@ -593,23 +593,23 @@ bool WaterTank::init(void){
 	return true;
 }
 
-float& WaterTank::temperatureCelsiusGet(void){
+float& WaterTank::getTemperatureCelsius(void){
 	return this->mean_watertemperatureCelsius;
 }
 
-void WaterTank::waterlevelSet(const contentlevel_t & _waterlevel){
+void WaterTank::setWaterLevel(const contentlevel_t & _waterlevel){
 	this->waterlevel= _waterlevel;
 }
 
-WaterTank::contentlevel_t& WaterTank::waterlevelGet(void){
+WaterTank::contentlevel_t& WaterTank::getWaterLevel(void){
 	return this->waterlevel;
 }
 
-void WaterTank::stateSet(const contentstate_t & _state){
+void WaterTank::setState(const contentstate_t & _state){
 	this->waterstate = _state;
 }
 
-WaterTank::contentstate_t& WaterTank::stateGet(void){
+WaterTank::contentstate_t& WaterTank::getState(void){
 	return this->waterstate;
 }
 
@@ -649,8 +649,8 @@ bool WaterTank::checkStateOK(const double & _dt, uint32_t & errcodeBitmask){
 
 		for(uint8_t i = 0; i < this->temperatureSensorsCount; i++){
 			if(this->vTemperatureSensors[i].isValid() == true){
-				float temp = this->vTemperatureSensors[i].temperatureCelsiusRead(_dt);
-				vTemperature.push_back(temp);
+				float temp = this->vTemperatureSensors[i].readTemperatureCelsius(_dt);
+				vTemperature.push_back(temp); //TODO: check how much memory allocates and maybe shrink_to_fit?
 				errcode.reset(19+i);
 				tempReadingValid = true;
 			}
@@ -660,18 +660,18 @@ bool WaterTank::checkStateOK(const double & _dt, uint32_t & errcodeBitmask){
 			this->mean_watertemperatureCelsius = (accumulate(vTemperature.begin(), vTemperature.end(), 0))/this->temperatureSensorsCount;
 
 			if(this->mean_watertemperatureCelsius < 0.0){
-				this->stateSet(contentstate_t::frozen);
+				this->setState(contentstate_t::frozen);
 				errcode.reset(17);
 				isOK = false;
 			}
 			else if (this->mean_watertemperatureCelsius > 100.0)
 			{
-				this->stateSet(contentstate_t::boiling);
+				this->setState(contentstate_t::boiling);
 				errcode.reset(16);
 				isOK = false;
 			}
 			else{
-				this->stateSet(contentstate_t::liquid);
+				this->setState(contentstate_t::liquid);
 				errcode.reset(16);
 				errcode.reset(17);
 			}
@@ -690,24 +690,24 @@ bool WaterTank::checkStateOK(const double & _dt, uint32_t & errcodeBitmask){
 			if(this->vOpticalWLSensors[i].isValid() == true){
 				errcode.reset(22+i);
 				if (this->vOpticalWLSensors[i].isSubmersed()){
-					temp_waterlevelPercent = this->waterlevelConvertToPercent(this->vOpticalWLSensors[i].mountpositionGet());
+					temp_waterlevelPercent = this->waterlevelConvertToPercent(this->vOpticalWLSensors[i].getMountPosition());
 					if(temp_waterlevelPercent > waterlevelPercent) waterlevelPercent = temp_waterlevelPercent;
 				}
 			}
 		}
 	}
 
-	if		(waterlevelPercent >= 98) 	{ this->waterlevelSet(contentlevel_t::full); errcode.reset(18); }
-	else if	(waterlevelPercent > 90) 	{ this->waterlevelSet(contentlevel_t::above90); errcode.reset(18); }
-	else if (waterlevelPercent > 80) 	{ this->waterlevelSet(contentlevel_t::above80); errcode.reset(18); }
-	else if (waterlevelPercent > 70) 	{ this->waterlevelSet(contentlevel_t::above70); errcode.reset(18); }
-	else if (waterlevelPercent > 60) 	{ this->waterlevelSet(contentlevel_t::above60); errcode.reset(18); }
-	else if (waterlevelPercent > 50) 	{ this->waterlevelSet(contentlevel_t::above50); errcode.reset(18); }
-	else if (waterlevelPercent > 40) 	{ this->waterlevelSet(contentlevel_t::above40); errcode.reset(18); }
-	else if (waterlevelPercent > 30) 	{ this->waterlevelSet(contentlevel_t::above30); errcode.reset(18); }
-	else if (waterlevelPercent > 20) 	{ this->waterlevelSet(contentlevel_t::above20); errcode.reset(18); }
-	else if (waterlevelPercent > 10) 	{ this->waterlevelSet(contentlevel_t::above10); errcode.reset(18); }
-	else if (waterlevelPercent >= 0) 	{ this->waterlevelSet(contentlevel_t::empty); isOK = false; }
+	if		(waterlevelPercent >= 98) 	{ this->setWaterLevel(contentlevel_t::full); errcode.reset(18); }
+	else if	(waterlevelPercent > 90) 	{ this->setWaterLevel(contentlevel_t::above90); errcode.reset(18); }
+	else if (waterlevelPercent > 80) 	{ this->setWaterLevel(contentlevel_t::above80); errcode.reset(18); }
+	else if (waterlevelPercent > 70) 	{ this->setWaterLevel(contentlevel_t::above70); errcode.reset(18); }
+	else if (waterlevelPercent > 60) 	{ this->setWaterLevel(contentlevel_t::above60); errcode.reset(18); }
+	else if (waterlevelPercent > 50) 	{ this->setWaterLevel(contentlevel_t::above50); errcode.reset(18); }
+	else if (waterlevelPercent > 40) 	{ this->setWaterLevel(contentlevel_t::above40); errcode.reset(18); }
+	else if (waterlevelPercent > 30) 	{ this->setWaterLevel(contentlevel_t::above30); errcode.reset(18); }
+	else if (waterlevelPercent > 20) 	{ this->setWaterLevel(contentlevel_t::above20); errcode.reset(18); }
+	else if (waterlevelPercent > 10) 	{ this->setWaterLevel(contentlevel_t::above10); errcode.reset(18); }
+	else if (waterlevelPercent >= 0) 	{ this->setWaterLevel(contentlevel_t::empty); isOK = false; }
 
 	errcodeBitmask = errcode.to_ulong();
 
@@ -718,11 +718,11 @@ uint8_t WaterTank::waterlevelConvertToPercent(const float & _valMeters){
 	return static_cast<uint8_t>(_valMeters/this->tankheightMeters*100);
 }
 
-uint8_t WaterTank::waterlevelPercentGet(void){
+uint8_t WaterTank::getWaterLevelPercent(void){
 	return static_cast<uint8_t>(this->waterlevel);
 }
 
-bool WaterTank::waterlevelSensorCreate(const waterlevelsensortype_t & _sensortype){
+bool WaterTank::createWaterLevelSensor(const waterlevelsensortype_t & _sensortype){
 
 	bool success = true;
 
@@ -732,7 +732,7 @@ bool WaterTank::waterlevelSensorCreate(const waterlevelsensortype_t & _sensortyp
 		if (this->waterlevelSensorsCount < (this->waterlevelSensorsLimit+1))
 		{
 			OpticalWaterLevelSensor temp_sensor;
-			this->vOpticalWLSensors.push_back(temp_sensor);
+			this->vOpticalWLSensors.push_back(temp_sensor);//TODO: check how much memory allocates and maybe shrink_to_fit?
 			this->waterlevelSensorsCount++;
 		}
 		else
@@ -757,7 +757,7 @@ bool WaterTank::waterlevelSensorCreate(const waterlevelsensortype_t & _sensortyp
 	return success;
 }
 
-bool WaterTank::temperatureSensorCreate(const temperaturesensortype_t & _sensortype){
+bool WaterTank::createTemperatureSensor(const temperaturesensortype_t & _sensortype){
 
 	bool success = true;
 
@@ -767,7 +767,7 @@ bool WaterTank::temperatureSensorCreate(const temperaturesensortype_t & _sensort
 		if (this->temperatureSensorsCount < (this->temperatureSensorsLimit+1))
 		{
 			DS18B20 temp_sensor;
-			this->vTemperatureSensors.push_back(temp_sensor);
+			this->vTemperatureSensors.push_back(temp_sensor);//TODO: check how much memory allocates and maybe shrink_to_fit?
 			this->temperatureSensorsCount++;
 		}
 		else
@@ -788,7 +788,7 @@ bool WaterTank::temperatureSensorCreate(const temperaturesensortype_t & _sensort
 	return success;
 }
 
-uint8_t & WaterTank::idGet(void){
+uint8_t & WaterTank::getId(void){
 	return this->id;
 }
 
@@ -838,12 +838,12 @@ bool PumpController::update(const double & _dt, bool & _activate_watering){
 				}
 				else if (this->p8833Pump != nullptr)
 				{
-					if(_activate_watering == true && this->p8833Pump->stateGet() != pumpstate_t::waiting)
+					if(_activate_watering == true && this->p8833Pump->getState() != pumpstate_t::waiting)
 					{
 						this->p8833Pump->run(_dt, pumpcmd_t::start, consumed, fault);
 						if(consumed == false) errcode.set(0,true);
 					}
-					else if (_activate_watering == true && this->p8833Pump->stateGet() == pumpstate_t::waiting)
+					else if (_activate_watering == true && this->p8833Pump->getState() == pumpstate_t::waiting)
 					{
 						this->p8833Pump->run(_dt, pumpcmd_t::stop, consumed, fault);
 						if(consumed == false) errcode.set(0,true);
@@ -878,11 +878,11 @@ bool PumpController::update(const double & _dt, bool & _activate_watering){
 
 		if (this->pBinPump != nullptr)
 		{
-			if (this->pBinPump->stateGet() == pumpstate_t::running) errcode.set(1,true);
+			if (this->pBinPump->getState() == pumpstate_t::running) errcode.set(1,true);
 		}
 		else if (this->p8833Pump != nullptr)
 		{
-			if (this->p8833Pump->stateGet() == pumpstate_t::running) errcode.set(1,true);
+			if (this->p8833Pump->getState() == pumpstate_t::running) errcode.set(1,true);
 		}
 
 		if (fault == true){
@@ -897,7 +897,7 @@ bool PumpController::update(const double & _dt, bool & _activate_watering){
 	return consumed;
 }
 
-bool PumpController::pumpCreate(const pumptype_t & _pumptype){
+bool PumpController::createPump(const pumptype_t & _pumptype){
 
 	bool success = true;
 
@@ -950,7 +950,7 @@ bool PumpController::pumpCreate(const pumptype_t & _pumptype){
 	return success;
 }
 
-bool PumpController::moisturesensorCreate(const moisturesensortype_t & _sensortype){
+/*bool PumpController::createMoistureSensor(const moisturesensortype_t & _sensortype){
 	bool success = true;
 
 	switch(_sensortype){
@@ -962,7 +962,7 @@ bool PumpController::moisturesensorCreate(const moisturesensortype_t & _sensorty
 		if (this->moisturesensorsCount < (this->moisturesensorsLimit+1))
 		{
 			AnalogDMAMoistureSensor temp_sensor;
-			this->vDMAMoistureSensor.push_back(temp_sensor);
+			this->vDMAMoistureSensor.push_back(temp_sensor);//TODO: check how much memory allocates and maybe shrink_to_fit?
 			this->moisturesensorsCount++;
 		}
 		else
@@ -977,9 +977,9 @@ bool PumpController::moisturesensorCreate(const moisturesensortype_t & _sensorty
 	}
 
 	return success;
-}
+}*/
 
-bool PumpController::modeSet(const pumpcontrollermode_t & _mode){
+bool PumpController::setMode(const pumpcontrollermode_t & _mode){
 
 	bool changed = true;
 
@@ -992,7 +992,7 @@ bool PumpController::modeSet(const pumpcontrollermode_t & _mode){
 	return changed;
 }
 
-const pumpcontrollermode_t&	PumpController::modeGet(void){
+const pumpcontrollermode_t&	PumpController::getMode(void){
 	return this->mode;
 }
 

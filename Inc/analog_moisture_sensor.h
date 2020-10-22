@@ -22,8 +22,8 @@ private:
 	uint16_t						moistureRaw;
 	float							moistureVolts;
 
-	void		 					percentUpdate(void);
-	void 							voltsUpdate(void);
+	void		 					updatePercent(void);
+	void 							updateVolts(void);
 
 public:
 
@@ -38,8 +38,8 @@ public:
 
 	float		 					read(void);
 	bool&							isValid(void);
-	void							rawUpdate(const uint16_t & _raw_value);
-	float&							voltsGet(void);
+	void							update(const uint16_t & _raw_value);
+	float&							getVolts(void);
 
 };
 

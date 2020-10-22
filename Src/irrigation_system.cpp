@@ -75,8 +75,8 @@ float IrrigationSector::getPlantHealth(const std::string & _name){
 void IrrigationSector::setMeasurements(uint16_t *_raw_adc_values_array, const uint8_t & _raw_adc_values_cnt){
 	for (uint8_t i=0; i<_raw_adc_values_cnt; ++i){
 		if (i < this->plantsCount){
-			this->irrigationController.vDMAMoistureSensor.at(i).rawUpdate(_raw_adc_values_array[i]);
-			this->vPlants.at(i).setMoisturePercent(this->irrigationController.vDMAMoistureSensor.at(i).percentGet());
+			//this->irrigationController.vDMAMoistureSensor.at(i).update(_raw_adc_values_array[i]);
+			//this->vPlants.at(i).setMoisturePercent(this->irrigationController.vDMAMoistureSensor.at(i).getMoisturePercent());
 		}
 	}
 }
@@ -133,10 +133,10 @@ uint8_t& IrrigationSector::getStatus(void){
 
 pumpstate_t IrrigationSector::getPumpState(void){
 	if 		(this->irrigationController.pBinPump != nullptr){
-		return this->irrigationController.pBinPump->stateGet();
+		return this->irrigationController.pBinPump->getState();
 	}
 	else if (this->irrigationController.p8833Pump != nullptr){
-		return this->irrigationController.p8833Pump->stateGet();
+		return this->irrigationController.p8833Pump->getState();
 	}
 	else{
 		return pumpstate_t::init;

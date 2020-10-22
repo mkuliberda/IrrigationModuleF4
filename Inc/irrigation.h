@@ -91,7 +91,7 @@ protected:
 
 	virtual bool 				start() = 0;
 	virtual bool 				stop() = 0;
-	pumptype_t& 				typeGet();
+	pumptype_t& 				getType();
 
 public:
 
@@ -106,10 +106,10 @@ public:
 
 	bool 						init();
 	void 						run(const double & _dt);
-	virtual void 				stateSet(const pumpstate_t & _st) = 0;
-	pumpstate_t& 				stateGet(void);
+	virtual void 				setState(const pumpstate_t & _st) = 0;
+	pumpstate_t& 				getState(void);
 	virtual bool 				isRunning(void);
-	struct pumpstatus_s&		statusGet(void);
+	struct pumpstatus_s&		getStatus(void);
 
 	void 						runtimeReset(void);
 	void 						runtimeIncrease(const double & _dt);
@@ -142,7 +142,7 @@ public:
 	bool 						init(const uint8_t & _id, const uint32_t & _idletimeRequiredSeconds, const uint32_t & _runtimeLimitSeconds, \
 									const struct gpio_s & _pinout, const struct gpio_s & _led);
 	void 						run(const double & _dt, const pumpcmd_t & _cmd, bool & cmd_consumed);
-	void 						stateSet(const pumpstate_t & _st) override;
+	void 						setState(const pumpstate_t & _st) override;
 	void 						forcestart(void);
 	void 						forcestop(void);
 
@@ -179,7 +179,7 @@ public:
 									const std::array<struct gpio_s, 2> & _pinout, const struct gpio_s & _led_pinout, \
 									const struct gpio_s & _fault_pinout, const struct gpio_s & _mode_pinout);
 	void 						run(const double & _dt, const pumpcmd_t & _cmd, bool & cmd_consumed, bool & fault);
-	void 						stateSet(const pumpstate_t & _st) override;
+	void 						setState(const pumpstate_t & _st) override;
 	bool 						forcestart(void);
 	bool 						forcereverse(void);
 	bool 						forcestop(void);
@@ -227,10 +227,10 @@ private:
 	uint8_t								temperatureSensorsCount;
 	uint8_t								id;
 
-	void 								waterlevelSet(const contentlevel_t & _waterlevel);
-	contentlevel_t&						waterlevelGet(void);
-	void 								stateSet(const contentstate_t & _waterstate);
-	contentstate_t&						stateGet(void);
+	void 								setWaterLevel(const contentlevel_t & _waterlevel);
+	contentlevel_t&						getWaterLevel(void);
+	void 								setState(const contentstate_t & _waterstate);
+	contentstate_t&						getState(void);
 	uint8_t 							waterlevelConvertToPercent(const float & _valMeters);
 
 public:
@@ -256,11 +256,11 @@ public:
 
 	bool 								init(void);
 	bool 								checkStateOK(const double &_dt, uint32_t & errcodeBitmask);
-	float& 								temperatureCelsiusGet(void);
-	uint8_t		 						waterlevelPercentGet(void);
-	bool 								waterlevelSensorCreate(const waterlevelsensortype_t & _sensortype);
-	bool 								temperatureSensorCreate(const temperaturesensortype_t & _sensortype);
-	uint8_t&							idGet(void);
+	float& 								getTemperatureCelsius(void);
+	uint8_t		 						getWaterLevelPercent(void);
+	bool 								createWaterLevelSensor(const waterlevelsensortype_t & _sensortype);
+	bool 								createTemperatureSensor(const temperaturesensortype_t & _sensortype);
+	uint8_t&							getId(void);
 
 };
 
@@ -294,13 +294,13 @@ public:
 
 	BinaryPump							*pBinPump = nullptr;
 	DRV8833Pump							*p8833Pump = nullptr;
-	std::vector <AnalogDMAMoistureSensor> 	vDMAMoistureSensor;
+	//std::vector <AnalogDMAMoistureSensor> 	vDMAMoistureSensor;
 
 	bool								update(const double & _dt, bool & _activate_watering);
-	bool								pumpCreate(const pumptype_t & _pumptype);
-	bool 								moisturesensorCreate(const moisturesensortype_t & _sensortype);
-	bool								modeSet(const pumpcontrollermode_t & _mode);
-	const pumpcontrollermode_t&			modeGet(void);
+	bool								createPump(const pumptype_t & _pumptype);
+	//bool 								createMoistureSensor(const moisturesensortype_t & _sensortype);
+	bool								setMode(const pumpcontrollermode_t & _mode);
+	const pumpcontrollermode_t&			getMode(void);
 	uint8_t&							getPumpStatusEncoded(void);
 
 

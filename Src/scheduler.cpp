@@ -135,6 +135,7 @@ bool Scheduler::addActivity(const struct activity_s &_activity){
 	if (this->vActivities.size() <= this->activities_limit)
 	{
 		this->vActivities.push_back(_activity);
+		this->vActivities.shrink_to_fit();
 		this->setAvailable();
 		return true;
 	}
@@ -198,6 +199,7 @@ bool Scheduler::addActivity(const char *_activity){
 			activity.duration.minutes = atoi(str.substr(37,2).c_str());
 			activity.duration.seconds = atoi(str.substr(40,2).c_str());
 			this->vActivities.push_back(activity);
+			this->vActivities.shrink_to_fit();
 			this->setAvailable();
 			return true;
 		}
@@ -215,6 +217,7 @@ bool Scheduler::addException(const struct exception_s &_exception){
 	if (this->vExceptions.size() <= this->exceptions_limit)
 	{
 		this->vExceptions.push_back(_exception);
+		this->vExceptions.shrink_to_fit();
 		return true;
 	}
 	else
@@ -245,6 +248,7 @@ bool Scheduler::addException(const char *_exception){
 			exception.end.minutes = atoi(str.substr(33,2).c_str());
 			exception.end.seconds = atoi(str.substr(36,2).c_str());
 			this->vExceptions.push_back(exception);
+			this->vExceptions.shrink_to_fit();
 			return true;
 		}
 		else{

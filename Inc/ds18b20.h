@@ -95,7 +95,7 @@ public:
 
 	bool& 							init(const struct gpio_s & _gpio, TIM_HandleTypeDef* _tim_baseHandle);
 	bool& 							isValid(void);
-	float& 							temperatureCelsiusRead(const double & _dt);
+	float& 							readTemperatureCelsius(const double & _dt);
 
 };
 

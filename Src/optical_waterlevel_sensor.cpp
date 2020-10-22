@@ -20,7 +20,7 @@ bool OpticalWaterLevelSensor::init(const float & _mountpositionMeters, const str
 	return true;
 }
 
-const float& OpticalWaterLevelSensor::mountpositionGet(void){
+const float& OpticalWaterLevelSensor::getMountPosition(void){
 	return this->mountpositionMeters;
 }
 

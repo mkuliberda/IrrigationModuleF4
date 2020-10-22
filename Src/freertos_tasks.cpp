@@ -433,8 +433,15 @@ void IrrigationControlTask(void const *argument){
 	uint8_t activities_cnt[SECTORS_AMOUNT]={0,0,0,0};
 	uint8_t exceptions_cnt[SECTORS_AMOUNT]={0,0,0,0};
 
+	//PlantInterface *PlantWithDMAMoistureSensor1 = new PlantWithDMAMoistureSensor(new Plant("Pelargonia", 0), 3.3, 4095);
+	//PlantInterface *PlantWithDMAMoistureSensor2 = new PlantWithDMAMoistureSensor(new Plant("Kroton", 0), 3.3, 4095);
+
 	osDelay(1000);  //leave some time for read from SDCard
 	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
+
+	std::vector<Scheduler> vect(3, (Scheduler("SECTOR1"), Scheduler("SECTOR2"), Scheduler("SECTOR3")));
+
+
 
 	for( ;; )
 	{
@@ -476,6 +483,9 @@ void IrrigationControlTask(void const *argument){
     	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
 		osDelay(500);
 	}
+
+	//delete PlantWithDMAMoistureSensor1;
+	//delete PlantWithDMAMoistureSensor2;
 }
 
 

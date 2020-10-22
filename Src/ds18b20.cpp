@@ -218,7 +218,7 @@ bool& DS18B20::isValid(void){
 	return this->valid;
 }
 
-float& DS18B20::temperatureCelsiusRead(const double & _dt){
+float& DS18B20::readTemperatureCelsius(const double & _dt){
 
 	uint16_t temperature;
 	uint8_t resolution;

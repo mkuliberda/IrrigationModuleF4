@@ -35,7 +35,7 @@ public:
 			this->interfacetype = sensorinterfacetype_t::gpio;
 		};
 
-	const float& 					mountpositionGet(void);
+	const float& 					getMountPosition(void);
 	bool 							init(const float & _mountpositionMeters, const struct gpio_s & _pinout);
 	bool 							isValid(void);
 	bool 							isSubmersed(void);

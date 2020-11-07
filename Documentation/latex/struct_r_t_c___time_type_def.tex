@@ -1,0 +1,126 @@
+\hypertarget{struct_r_t_c___time_type_def}{}\doxysection{R\+T\+C\+\_\+\+Time\+Type\+Def Struct Reference}
+\label{struct_r_t_c___time_type_def}\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+
+
+R\+TC Time structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32f4xx\+\_\+hal\+\_\+rtc.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_afb56ed968b4967d127517ebb4ed40d8b}{Hours}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_a362931e6bba28836c36423197e429f29}{Minutes}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_a297ae76c2b7de4f939d996d93240c6b2}{Seconds}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_a701c21c52472e8caf9e23653ec2fd604}{Time\+Format}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_ae24e60a3b9549fd02b00ad6762ae5b77}{Sub\+Seconds}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_ab9e6aabb125b82b1e25cd1070a2d2ecb}{Second\+Fraction}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_ac873d19a4d99d3f447f96ecae2bf3c5d}{Day\+Light\+Saving}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_a7628b757d7c7a4ab30b6bbc45a028b7d}{Store\+Operation}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+R\+TC Time structure definition. 
+
+Definition at line 83 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_r_t_c___time_type_def_ac873d19a4d99d3f447f96ecae2bf3c5d}\label{struct_r_t_c___time_type_def_ac873d19a4d99d3f447f96ecae2bf3c5d}} 
+\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!DayLightSaving@{DayLightSaving}}
+\index{DayLightSaving@{DayLightSaving}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{DayLightSaving}{DayLightSaving}}
+{\footnotesize\ttfamily uint32\+\_\+t R\+T\+C\+\_\+\+Time\+Type\+Def\+::\+Day\+Light\+Saving}
+
+Specifies Day\+Light Save Operation. This parameter can be a value of \mbox{\hyperlink{group___r_t_c___day_light_saving___definitions}{R\+TC Day\+Light Saving Definitions}} 
+
+Definition at line 108 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+\mbox{\Hypertarget{struct_r_t_c___time_type_def_afb56ed968b4967d127517ebb4ed40d8b}\label{struct_r_t_c___time_type_def_afb56ed968b4967d127517ebb4ed40d8b}} 
+\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!Hours@{Hours}}
+\index{Hours@{Hours}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{Hours}{Hours}}
+{\footnotesize\ttfamily uint8\+\_\+t R\+T\+C\+\_\+\+Time\+Type\+Def\+::\+Hours}
+
+Specifies the R\+TC Time Hour. This parameter must be a number between Min\+\_\+\+Data = 0 and Max\+\_\+\+Data = 12 if the R\+T\+C\+\_\+\+Hour\+Format\+\_\+12 is selected. This parameter must be a number between Min\+\_\+\+Data = 0 and Max\+\_\+\+Data = 23 if the R\+T\+C\+\_\+\+Hour\+Format\+\_\+24 is selected ~\newline
+ 
+
+Definition at line 85 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+\mbox{\Hypertarget{struct_r_t_c___time_type_def_a362931e6bba28836c36423197e429f29}\label{struct_r_t_c___time_type_def_a362931e6bba28836c36423197e429f29}} 
+\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!Minutes@{Minutes}}
+\index{Minutes@{Minutes}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{Minutes}{Minutes}}
+{\footnotesize\ttfamily uint8\+\_\+t R\+T\+C\+\_\+\+Time\+Type\+Def\+::\+Minutes}
+
+Specifies the R\+TC Time Minutes. This parameter must be a number between Min\+\_\+\+Data = 0 and Max\+\_\+\+Data = 59 
+
+Definition at line 89 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+\mbox{\Hypertarget{struct_r_t_c___time_type_def_ab9e6aabb125b82b1e25cd1070a2d2ecb}\label{struct_r_t_c___time_type_def_ab9e6aabb125b82b1e25cd1070a2d2ecb}} 
+\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!SecondFraction@{SecondFraction}}
+\index{SecondFraction@{SecondFraction}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{SecondFraction}{SecondFraction}}
+{\footnotesize\ttfamily uint32\+\_\+t R\+T\+C\+\_\+\+Time\+Type\+Def\+::\+Second\+Fraction}
+
+Specifies the range or granularity of Sub Second register content corresponding to Synchronous pre-\/scaler factor value (P\+R\+E\+D\+I\+V\+\_\+S) This parameter corresponds to a time unit range between \mbox{[}0-\/1\mbox{]} Second with \mbox{[}1 Sec / Second\+Fraction +1\mbox{]} granularity. This field will be used only by H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+Get\+Time function 
+
+Definition at line 102 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+\mbox{\Hypertarget{struct_r_t_c___time_type_def_a297ae76c2b7de4f939d996d93240c6b2}\label{struct_r_t_c___time_type_def_a297ae76c2b7de4f939d996d93240c6b2}} 
+\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!Seconds@{Seconds}}
+\index{Seconds@{Seconds}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{Seconds}{Seconds}}
+{\footnotesize\ttfamily uint8\+\_\+t R\+T\+C\+\_\+\+Time\+Type\+Def\+::\+Seconds}
+
+Specifies the R\+TC Time Seconds. This parameter must be a number between Min\+\_\+\+Data = 0 and Max\+\_\+\+Data = 59 
+
+Definition at line 92 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+\mbox{\Hypertarget{struct_r_t_c___time_type_def_a7628b757d7c7a4ab30b6bbc45a028b7d}\label{struct_r_t_c___time_type_def_a7628b757d7c7a4ab30b6bbc45a028b7d}} 
+\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!StoreOperation@{StoreOperation}}
+\index{StoreOperation@{StoreOperation}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{StoreOperation}{StoreOperation}}
+{\footnotesize\ttfamily uint32\+\_\+t R\+T\+C\+\_\+\+Time\+Type\+Def\+::\+Store\+Operation}
+
+Specifies R\+T\+C\+\_\+\+Store\+Operation value to be written in the B\+CK bit in CR register to store the operation. This parameter can be a value of \mbox{\hyperlink{group___r_t_c___store_operation___definitions}{R\+TC Store Operation Definitions}} 
+
+Definition at line 111 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+\mbox{\Hypertarget{struct_r_t_c___time_type_def_ae24e60a3b9549fd02b00ad6762ae5b77}\label{struct_r_t_c___time_type_def_ae24e60a3b9549fd02b00ad6762ae5b77}} 
+\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!SubSeconds@{SubSeconds}}
+\index{SubSeconds@{SubSeconds}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{SubSeconds}{SubSeconds}}
+{\footnotesize\ttfamily uint32\+\_\+t R\+T\+C\+\_\+\+Time\+Type\+Def\+::\+Sub\+Seconds}
+
+Specifies the R\+T\+C\+\_\+\+S\+SR R\+TC Sub Second register content. This parameter corresponds to a time unit range between \mbox{[}0-\/1\mbox{]} Second with \mbox{[}1 Sec / Second\+Fraction +1\mbox{]} granularity 
+
+Definition at line 98 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+\mbox{\Hypertarget{struct_r_t_c___time_type_def_a701c21c52472e8caf9e23653ec2fd604}\label{struct_r_t_c___time_type_def_a701c21c52472e8caf9e23653ec2fd604}} 
+\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!TimeFormat@{TimeFormat}}
+\index{TimeFormat@{TimeFormat}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{TimeFormat}{TimeFormat}}
+{\footnotesize\ttfamily uint8\+\_\+t R\+T\+C\+\_\+\+Time\+Type\+Def\+::\+Time\+Format}
+
+Specifies the R\+TC A\+M/\+PM Time. This parameter can be a value of \mbox{\hyperlink{group___r_t_c___a_m___p_m___definitions}{R\+TC AM PM Definitions}} 
+
+Definition at line 95 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Drivers/\+S\+T\+M32\+F4xx\+\_\+\+H\+A\+L\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32f4xx__hal__rtc_8h}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}\end{DoxyCompactItemize}

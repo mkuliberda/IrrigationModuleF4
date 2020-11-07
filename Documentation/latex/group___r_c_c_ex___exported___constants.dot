@@ -1,0 +1,17 @@
+digraph "RCCEx Exported Constants"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=box];
+  rankdir=LR;
+  Node2 [label="RCCEx",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_c_c_ex.html",tooltip="RCCEx HAL module driver."];
+  Node3 [label="RCC Periph Clock Selection",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_c_c_ex___periph___clock___selection.html",tooltip=" "];
+  Node6 [label="RCC PLLSAIP Clock Divider",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_c_c_ex___p_l_l_s_a_i_p___clock___divider.html",tooltip=" "];
+  Node5 [label="RCC PLLI2SP Clock Divider",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_c_c_ex___p_l_l_i2_s_p___clock___divider.html",tooltip=" "];
+  Node4 [label="RCC PLLSAI DIVR",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_c_c_ex___p_l_l_s_a_i___d_i_v_r.html",tooltip=" "];
+  Node1 [label="RCCEx Exported Constants",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2->Node1 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node3 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node4 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node5 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node6 [shape=plaintext, dir="back", style="solid"];
+}

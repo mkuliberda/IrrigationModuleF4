@@ -1,0 +1,16 @@
+digraph "EventGroupDef_t"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="EventGroupDef_t",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" xTasksWaitingForBits" ,fontname="Helvetica"];
+  Node2 [label="xLIST",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structx_l_i_s_t.html",tooltip=" "];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" xListEnd" ,fontname="Helvetica"];
+  Node3 [label="xMINI_LIST_ITEM",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structx_m_i_n_i___l_i_s_t___i_t_e_m.html",tooltip=" "];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pxNext\npxPrevious" ,fontname="Helvetica"];
+  Node4 [label="xLIST_ITEM",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structx_l_i_s_t___i_t_e_m.html",tooltip=" "];
+  Node4 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pxNext\npxPrevious" ,fontname="Helvetica"];
+  Node2 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pxContainer" ,fontname="Helvetica"];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pxIndex" ,fontname="Helvetica"];
+}

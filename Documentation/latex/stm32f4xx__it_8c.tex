@@ -1,0 +1,150 @@
+\hypertarget{stm32f4xx__it_8c}{}\doxysection{Src/stm32f4xx\+\_\+it.c File Reference}
+\label{stm32f4xx__it_8c}\index{Src/stm32f4xx\_it.c@{Src/stm32f4xx\_it.c}}
+
+
+Interrupt Service Routines.  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f4xx\+\_\+it.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{stm32f4xx__it_8c_adb3e01a3e924c7c52cad43949a43e9c7}{S\+D\+I\+O\+\_\+\+I\+R\+Q\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles S\+D\+IO global interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32f4xx__it_8c_a0839a45f331c4c067939b9c4533bbf4d}{T\+I\+M6\+\_\+\+D\+A\+C\+\_\+\+I\+R\+Q\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles T\+I\+M6 global interrupt, D\+A\+C1 and D\+A\+C2 underrun error interrupts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32f4xx__it_8c_a877135f6494d6923d6f6ec32d75d9eeb}{D\+M\+A2\+\_\+\+Stream3\+\_\+\+I\+R\+Q\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles D\+M\+A2 stream3 global interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32f4xx__it_8c_a76d38919f345dfea8ab0e0cd9e2c47e3}{D\+M\+A2\+\_\+\+Stream6\+\_\+\+I\+R\+Q\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles D\+M\+A2 stream6 global interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{D\+M\+A\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{stm32f4xx__it_8c_adb8978634f4a0fd26c3d9d39cc63d490}{hdma\+\_\+sdio\+\_\+rx}}
+\item 
+\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{D\+M\+A\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{stm32f4xx__it_8c_aa83f62f831cb1aa0d1005e9dcc0c275d}{hdma\+\_\+sdio\+\_\+tx}}
+\item 
+S\+D\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{stm32f4xx__it_8c_ae81fa362038e2e56bce3dd2e6416c78e}{hsd}}
+\item 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{T\+I\+M\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{stm32f4xx__it_8c_a1564492831a79fa18466467c3420c3c3}{htim6}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interrupt Service Routines. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+\doxysubsubsection*{\begin{center}\copyright{} Copyright (c) 2020 S\+T\+Microelectronics. All rights reserved.\end{center} }
+
+This software component is licensed by ST under Ultimate Liberty license S\+L\+A0044, the \char`\"{}\+License\char`\"{}; You may not use this file except in compliance with the License. You may obtain a copy of the License at\+: www.\+st.\+com/\+S\+L\+A0044 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{stm32f4xx__it_8c_a877135f6494d6923d6f6ec32d75d9eeb}\label{stm32f4xx__it_8c_a877135f6494d6923d6f6ec32d75d9eeb}} 
+\index{stm32f4xx\_it.c@{stm32f4xx\_it.c}!DMA2\_Stream3\_IRQHandler@{DMA2\_Stream3\_IRQHandler}}
+\index{DMA2\_Stream3\_IRQHandler@{DMA2\_Stream3\_IRQHandler}!stm32f4xx\_it.c@{stm32f4xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{DMA2\_Stream3\_IRQHandler()}{DMA2\_Stream3\_IRQHandler()}}
+{\footnotesize\ttfamily void D\+M\+A2\+\_\+\+Stream3\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles D\+M\+A2 stream3 global interrupt. 
+
+
+
+Definition at line 110 of file stm32f4xx\+\_\+it.\+c.
+
+\mbox{\Hypertarget{stm32f4xx__it_8c_a76d38919f345dfea8ab0e0cd9e2c47e3}\label{stm32f4xx__it_8c_a76d38919f345dfea8ab0e0cd9e2c47e3}} 
+\index{stm32f4xx\_it.c@{stm32f4xx\_it.c}!DMA2\_Stream6\_IRQHandler@{DMA2\_Stream6\_IRQHandler}}
+\index{DMA2\_Stream6\_IRQHandler@{DMA2\_Stream6\_IRQHandler}!stm32f4xx\_it.c@{stm32f4xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{DMA2\_Stream6\_IRQHandler()}{DMA2\_Stream6\_IRQHandler()}}
+{\footnotesize\ttfamily void D\+M\+A2\+\_\+\+Stream6\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles D\+M\+A2 stream6 global interrupt. 
+
+
+
+Definition at line 124 of file stm32f4xx\+\_\+it.\+c.
+
+\mbox{\Hypertarget{stm32f4xx__it_8c_adb3e01a3e924c7c52cad43949a43e9c7}\label{stm32f4xx__it_8c_adb3e01a3e924c7c52cad43949a43e9c7}} 
+\index{stm32f4xx\_it.c@{stm32f4xx\_it.c}!SDIO\_IRQHandler@{SDIO\_IRQHandler}}
+\index{SDIO\_IRQHandler@{SDIO\_IRQHandler}!stm32f4xx\_it.c@{stm32f4xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{SDIO\_IRQHandler()}{SDIO\_IRQHandler()}}
+{\footnotesize\ttfamily void S\+D\+I\+O\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles S\+D\+IO global interrupt. 
+
+
+
+Definition at line 82 of file stm32f4xx\+\_\+it.\+c.
+
+\mbox{\Hypertarget{stm32f4xx__it_8c_a0839a45f331c4c067939b9c4533bbf4d}\label{stm32f4xx__it_8c_a0839a45f331c4c067939b9c4533bbf4d}} 
+\index{stm32f4xx\_it.c@{stm32f4xx\_it.c}!TIM6\_DAC\_IRQHandler@{TIM6\_DAC\_IRQHandler}}
+\index{TIM6\_DAC\_IRQHandler@{TIM6\_DAC\_IRQHandler}!stm32f4xx\_it.c@{stm32f4xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{TIM6\_DAC\_IRQHandler()}{TIM6\_DAC\_IRQHandler()}}
+{\footnotesize\ttfamily void T\+I\+M6\+\_\+\+D\+A\+C\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles T\+I\+M6 global interrupt, D\+A\+C1 and D\+A\+C2 underrun error interrupts. 
+
+
+
+Definition at line 96 of file stm32f4xx\+\_\+it.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{stm32f4xx__it_8c_adb8978634f4a0fd26c3d9d39cc63d490}\label{stm32f4xx__it_8c_adb8978634f4a0fd26c3d9d39cc63d490}} 
+\index{stm32f4xx\_it.c@{stm32f4xx\_it.c}!hdma\_sdio\_rx@{hdma\_sdio\_rx}}
+\index{hdma\_sdio\_rx@{hdma\_sdio\_rx}!stm32f4xx\_it.c@{stm32f4xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_sdio\_rx}{hdma\_sdio\_rx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{D\+M\+A\+\_\+\+Handle\+Type\+Def}} hdma\+\_\+sdio\+\_\+rx}
+
+
+
+Definition at line 28 of file sdio.\+c.
+
+\mbox{\Hypertarget{stm32f4xx__it_8c_aa83f62f831cb1aa0d1005e9dcc0c275d}\label{stm32f4xx__it_8c_aa83f62f831cb1aa0d1005e9dcc0c275d}} 
+\index{stm32f4xx\_it.c@{stm32f4xx\_it.c}!hdma\_sdio\_tx@{hdma\_sdio\_tx}}
+\index{hdma\_sdio\_tx@{hdma\_sdio\_tx}!stm32f4xx\_it.c@{stm32f4xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_sdio\_tx}{hdma\_sdio\_tx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{D\+M\+A\+\_\+\+Handle\+Type\+Def}} hdma\+\_\+sdio\+\_\+tx}
+
+
+
+Definition at line 29 of file sdio.\+c.
+
+\mbox{\Hypertarget{stm32f4xx__it_8c_ae81fa362038e2e56bce3dd2e6416c78e}\label{stm32f4xx__it_8c_ae81fa362038e2e56bce3dd2e6416c78e}} 
+\index{stm32f4xx\_it.c@{stm32f4xx\_it.c}!hsd@{hsd}}
+\index{hsd@{hsd}!stm32f4xx\_it.c@{stm32f4xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{hsd}{hsd}}
+{\footnotesize\ttfamily S\+D\+\_\+\+Handle\+Type\+Def hsd}
+
+File Name \+: \mbox{\hyperlink{sdio_8c}{S\+D\+I\+O.\+c}} Description \+: This file provides code for the configuration of the S\+D\+IO instances.
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+\doxysubsubsection*{\begin{center}\copyright{} Copyright (c) 2020 S\+T\+Microelectronics. All rights reserved.\end{center} }
+
+This software component is licensed by ST under Ultimate Liberty license S\+L\+A0044, the \char`\"{}\+License\char`\"{}; You may not use this file except in compliance with the License. You may obtain a copy of the License at\+: www.\+st.\+com/\+S\+L\+A0044 
+
+Definition at line 27 of file sdio.\+c.
+
+\mbox{\Hypertarget{stm32f4xx__it_8c_a1564492831a79fa18466467c3420c3c3}\label{stm32f4xx__it_8c_a1564492831a79fa18466467c3420c3c3}} 
+\index{stm32f4xx\_it.c@{stm32f4xx\_it.c}!htim6@{htim6}}
+\index{htim6@{htim6}!stm32f4xx\_it.c@{stm32f4xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{htim6}{htim6}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_t_i_m___handle_type_def}{T\+I\+M\+\_\+\+Handle\+Type\+Def}} htim6}
+
+
+
+Definition at line 29 of file stm32f4xx\+\_\+hal\+\_\+timebase\+\_\+tim.\+c.
+

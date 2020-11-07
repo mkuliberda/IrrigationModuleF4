@@ -1,0 +1,210 @@
+\hypertarget{sensors__base_8h}{}\doxysection{Inc/sensors\+\_\+base.h File Reference}
+\label{sensors__base_8h}\index{Inc/sensors\_base.h@{Inc/sensors\_base.h}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_sensor}{Sensor}}
+\item 
+class \mbox{\hyperlink{class_temperature_sensor}{Temperature\+Sensor}}
+\item 
+class \mbox{\hyperlink{class_moisture_sensor}{Moisture\+Sensor}}
+\item 
+class \mbox{\hyperlink{class_water_level_sensor}{Water\+Level\+Sensor}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{sensors__base_8h_a3e0f80498e26c947d9e05aa859013d31}{temperaturesensortype\+\_\+t}} \{ \mbox{\hyperlink{sensors__base_8h_a3e0f80498e26c947d9e05aa859013d31a3d517f8924ac7fd03699a29d97dc52d9}{temperaturesensortype\+\_\+t\+::generic}}, 
+\mbox{\hyperlink{sensors__base_8h_a3e0f80498e26c947d9e05aa859013d31af34d53d31dc1f6b0501853227ea8476b}{temperaturesensortype\+\_\+t\+::ds18b20}}
+ \}
+\item 
+enum \mbox{\hyperlink{sensors__base_8h_a9d7d3ed6022589458c04fc22a5df7ea9}{fixedwaterlevelsensorstate\+\_\+t}} \{ \mbox{\hyperlink{sensors__base_8h_a9d7d3ed6022589458c04fc22a5df7ea9a276fc71ddbf2483a3842cdcef417e03d}{fixedwaterlevelsensorstate\+\_\+t\+::undetermined}}, 
+\mbox{\hyperlink{sensors__base_8h_a9d7d3ed6022589458c04fc22a5df7ea9a9ff49c6a11b0ed72fa190e9b55ec4f6d}{fixedwaterlevelsensorstate\+\_\+t\+::wet}}, 
+\mbox{\hyperlink{sensors__base_8h_a9d7d3ed6022589458c04fc22a5df7ea9a81e047aa9039b5428b6d6f5c440f4670}{fixedwaterlevelsensorstate\+\_\+t\+::dry}}
+ \}
+\item 
+enum \mbox{\hyperlink{sensors__base_8h_acccc74d38e7f319fbe3e209ef80b067e}{waterlevelsensorsubtype\+\_\+t}} \{ \mbox{\hyperlink{sensors__base_8h_acccc74d38e7f319fbe3e209ef80b067eaad921d60486366258809553a3db49a4a}{waterlevelsensorsubtype\+\_\+t\+::unknown}}, 
+\mbox{\hyperlink{sensors__base_8h_acccc74d38e7f319fbe3e209ef80b067eacec315e3d0975e5cc2811d5d8725f149}{waterlevelsensorsubtype\+\_\+t\+::fixed}}, 
+\mbox{\hyperlink{sensors__base_8h_acccc74d38e7f319fbe3e209ef80b067ea374515b23d6f106696387776a6077d17}{waterlevelsensorsubtype\+\_\+t\+::floating}}
+ \}
+\item 
+enum \mbox{\hyperlink{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821}{waterlevelsensortype\+\_\+t}} \{ \mbox{\hyperlink{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821aad921d60486366258809553a3db49a4a}{waterlevelsensortype\+\_\+t\+::unknown}}, 
+\mbox{\hyperlink{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821a4313277ed1d56c552d84008ff59b3d64}{waterlevelsensortype\+\_\+t\+::optical}}, 
+\mbox{\hyperlink{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821a94382e2ffdbc8bf80aa15fe17b1898e9}{waterlevelsensortype\+\_\+t\+::capacitive}}, 
+\mbox{\hyperlink{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821a8443351218dbc276777b1b5522352406}{waterlevelsensortype\+\_\+t\+::resistive}}
+ \}
+\item 
+enum \mbox{\hyperlink{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129d}{sensorinterfacetype\+\_\+t}} \{ \newline
+\mbox{\hyperlink{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129da955871c9778abe2297251e689899dcdc}{sensorinterfacetype\+\_\+t\+::gpio}}, 
+\mbox{\hyperlink{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129da02c9adc0d63e270f7ea08ef4008e81bf}{sensorinterfacetype\+\_\+t\+::analog}}, 
+\mbox{\hyperlink{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129dad98a5d59eb76d52e07bdb5eb430fce9a}{sensorinterfacetype\+\_\+t\+::digital\+\_\+\+I2C}}, 
+\mbox{\hyperlink{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129daa452d1a43e6d68905c6dd12f8d3e2417}{sensorinterfacetype\+\_\+t\+::digital\+\_\+\+S\+PI}}, 
+\newline
+\mbox{\hyperlink{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129da7f24114a30b09e61a760c0eb2dda5868}{sensorinterfacetype\+\_\+t\+::digital\+\_\+1\+Wire}}, 
+\mbox{\hyperlink{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129daef2f074826fb812299ff10f80b397e55}{sensorinterfacetype\+\_\+t\+::digital\+\_\+\+U\+A\+RT}}, 
+\mbox{\hyperlink{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129da693e5c5121348998fc76533d63f4c9b4}{sensorinterfacetype\+\_\+t\+::digital\+\_\+\+C\+AN}}
+ \}
+\item 
+enum \mbox{\hyperlink{sensors__base_8h_a05e945687a4429a0e0833dfb567a1f89}{moisturesensortype\+\_\+t}} \{ \mbox{\hyperlink{sensors__base_8h_a05e945687a4429a0e0833dfb567a1f89a3d517f8924ac7fd03699a29d97dc52d9}{moisturesensortype\+\_\+t\+::generic}}, 
+\mbox{\hyperlink{sensors__base_8h_a05e945687a4429a0e0833dfb567a1f89aa59216b0df086952fa076d9fcea7e097}{moisturesensortype\+\_\+t\+::capacitive\+\_\+noshield}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{sensors__base_8h_a9d7d3ed6022589458c04fc22a5df7ea9}\label{sensors__base_8h_a9d7d3ed6022589458c04fc22a5df7ea9}} 
+\index{sensors\_base.h@{sensors\_base.h}!fixedwaterlevelsensorstate\_t@{fixedwaterlevelsensorstate\_t}}
+\index{fixedwaterlevelsensorstate\_t@{fixedwaterlevelsensorstate\_t}!sensors\_base.h@{sensors\_base.h}}
+\doxysubsubsection{\texorpdfstring{fixedwaterlevelsensorstate\_t}{fixedwaterlevelsensorstate\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{sensors__base_8h_a9d7d3ed6022589458c04fc22a5df7ea9}{fixedwaterlevelsensorstate\+\_\+t}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{undetermined@{undetermined}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!undetermined@{undetermined}}}\mbox{\Hypertarget{sensors__base_8h_a9d7d3ed6022589458c04fc22a5df7ea9a276fc71ddbf2483a3842cdcef417e03d}\label{sensors__base_8h_a9d7d3ed6022589458c04fc22a5df7ea9a276fc71ddbf2483a3842cdcef417e03d}} 
+undetermined&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{wet@{wet}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!wet@{wet}}}\mbox{\Hypertarget{sensors__base_8h_a9d7d3ed6022589458c04fc22a5df7ea9a9ff49c6a11b0ed72fa190e9b55ec4f6d}\label{sensors__base_8h_a9d7d3ed6022589458c04fc22a5df7ea9a9ff49c6a11b0ed72fa190e9b55ec4f6d}} 
+wet&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{dry@{dry}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!dry@{dry}}}\mbox{\Hypertarget{sensors__base_8h_a9d7d3ed6022589458c04fc22a5df7ea9a81e047aa9039b5428b6d6f5c440f4670}\label{sensors__base_8h_a9d7d3ed6022589458c04fc22a5df7ea9a81e047aa9039b5428b6d6f5c440f4670}} 
+dry&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 10 of file sensors\+\_\+base.\+h.
+
+\mbox{\Hypertarget{sensors__base_8h_a05e945687a4429a0e0833dfb567a1f89}\label{sensors__base_8h_a05e945687a4429a0e0833dfb567a1f89}} 
+\index{sensors\_base.h@{sensors\_base.h}!moisturesensortype\_t@{moisturesensortype\_t}}
+\index{moisturesensortype\_t@{moisturesensortype\_t}!sensors\_base.h@{sensors\_base.h}}
+\doxysubsubsection{\texorpdfstring{moisturesensortype\_t}{moisturesensortype\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{sensors__base_8h_a05e945687a4429a0e0833dfb567a1f89}{moisturesensortype\+\_\+t}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{generic@{generic}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!generic@{generic}}}\mbox{\Hypertarget{sensors__base_8h_a05e945687a4429a0e0833dfb567a1f89a3d517f8924ac7fd03699a29d97dc52d9}\label{sensors__base_8h_a05e945687a4429a0e0833dfb567a1f89a3d517f8924ac7fd03699a29d97dc52d9}} 
+generic&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{capacitive\_noshield@{capacitive\_noshield}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!capacitive\_noshield@{capacitive\_noshield}}}\mbox{\Hypertarget{sensors__base_8h_a05e945687a4429a0e0833dfb567a1f89aa59216b0df086952fa076d9fcea7e097}\label{sensors__base_8h_a05e945687a4429a0e0833dfb567a1f89aa59216b0df086952fa076d9fcea7e097}} 
+capacitive\+\_\+noshield&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 39 of file sensors\+\_\+base.\+h.
+
+\mbox{\Hypertarget{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129d}\label{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129d}} 
+\index{sensors\_base.h@{sensors\_base.h}!sensorinterfacetype\_t@{sensorinterfacetype\_t}}
+\index{sensorinterfacetype\_t@{sensorinterfacetype\_t}!sensors\_base.h@{sensors\_base.h}}
+\doxysubsubsection{\texorpdfstring{sensorinterfacetype\_t}{sensorinterfacetype\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129d}{sensorinterfacetype\+\_\+t}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{gpio@{gpio}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!gpio@{gpio}}}\mbox{\Hypertarget{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129da955871c9778abe2297251e689899dcdc}\label{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129da955871c9778abe2297251e689899dcdc}} 
+gpio&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{analog@{analog}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!analog@{analog}}}\mbox{\Hypertarget{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129da02c9adc0d63e270f7ea08ef4008e81bf}\label{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129da02c9adc0d63e270f7ea08ef4008e81bf}} 
+analog&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{digital\_I2C@{digital\_I2C}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!digital\_I2C@{digital\_I2C}}}\mbox{\Hypertarget{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129dad98a5d59eb76d52e07bdb5eb430fce9a}\label{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129dad98a5d59eb76d52e07bdb5eb430fce9a}} 
+digital\+\_\+\+I2C&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{digital\_SPI@{digital\_SPI}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!digital\_SPI@{digital\_SPI}}}\mbox{\Hypertarget{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129daa452d1a43e6d68905c6dd12f8d3e2417}\label{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129daa452d1a43e6d68905c6dd12f8d3e2417}} 
+digital\+\_\+\+S\+PI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{digital\_1Wire@{digital\_1Wire}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!digital\_1Wire@{digital\_1Wire}}}\mbox{\Hypertarget{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129da7f24114a30b09e61a760c0eb2dda5868}\label{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129da7f24114a30b09e61a760c0eb2dda5868}} 
+digital\+\_\+1\+Wire&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{digital\_UART@{digital\_UART}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!digital\_UART@{digital\_UART}}}\mbox{\Hypertarget{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129daef2f074826fb812299ff10f80b397e55}\label{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129daef2f074826fb812299ff10f80b397e55}} 
+digital\+\_\+\+U\+A\+RT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{digital\_CAN@{digital\_CAN}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!digital\_CAN@{digital\_CAN}}}\mbox{\Hypertarget{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129da693e5c5121348998fc76533d63f4c9b4}\label{sensors__base_8h_a287a9d89c733cfc86998f5f1af49129da693e5c5121348998fc76533d63f4c9b4}} 
+digital\+\_\+\+C\+AN&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 29 of file sensors\+\_\+base.\+h.
+
+\mbox{\Hypertarget{sensors__base_8h_a3e0f80498e26c947d9e05aa859013d31}\label{sensors__base_8h_a3e0f80498e26c947d9e05aa859013d31}} 
+\index{sensors\_base.h@{sensors\_base.h}!temperaturesensortype\_t@{temperaturesensortype\_t}}
+\index{temperaturesensortype\_t@{temperaturesensortype\_t}!sensors\_base.h@{sensors\_base.h}}
+\doxysubsubsection{\texorpdfstring{temperaturesensortype\_t}{temperaturesensortype\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{sensors__base_8h_a3e0f80498e26c947d9e05aa859013d31}{temperaturesensortype\+\_\+t}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{generic@{generic}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!generic@{generic}}}\mbox{\Hypertarget{sensors__base_8h_a3e0f80498e26c947d9e05aa859013d31a3d517f8924ac7fd03699a29d97dc52d9}\label{sensors__base_8h_a3e0f80498e26c947d9e05aa859013d31a3d517f8924ac7fd03699a29d97dc52d9}} 
+generic&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ds18b20@{ds18b20}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!ds18b20@{ds18b20}}}\mbox{\Hypertarget{sensors__base_8h_a3e0f80498e26c947d9e05aa859013d31af34d53d31dc1f6b0501853227ea8476b}\label{sensors__base_8h_a3e0f80498e26c947d9e05aa859013d31af34d53d31dc1f6b0501853227ea8476b}} 
+ds18b20&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 5 of file sensors\+\_\+base.\+h.
+
+\mbox{\Hypertarget{sensors__base_8h_acccc74d38e7f319fbe3e209ef80b067e}\label{sensors__base_8h_acccc74d38e7f319fbe3e209ef80b067e}} 
+\index{sensors\_base.h@{sensors\_base.h}!waterlevelsensorsubtype\_t@{waterlevelsensorsubtype\_t}}
+\index{waterlevelsensorsubtype\_t@{waterlevelsensorsubtype\_t}!sensors\_base.h@{sensors\_base.h}}
+\doxysubsubsection{\texorpdfstring{waterlevelsensorsubtype\_t}{waterlevelsensorsubtype\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{sensors__base_8h_acccc74d38e7f319fbe3e209ef80b067e}{waterlevelsensorsubtype\+\_\+t}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{unknown@{unknown}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!unknown@{unknown}}}\mbox{\Hypertarget{sensors__base_8h_acccc74d38e7f319fbe3e209ef80b067eaad921d60486366258809553a3db49a4a}\label{sensors__base_8h_acccc74d38e7f319fbe3e209ef80b067eaad921d60486366258809553a3db49a4a}} 
+unknown&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fixed@{fixed}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!fixed@{fixed}}}\mbox{\Hypertarget{sensors__base_8h_acccc74d38e7f319fbe3e209ef80b067eacec315e3d0975e5cc2811d5d8725f149}\label{sensors__base_8h_acccc74d38e7f319fbe3e209ef80b067eacec315e3d0975e5cc2811d5d8725f149}} 
+fixed&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{floating@{floating}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!floating@{floating}}}\mbox{\Hypertarget{sensors__base_8h_acccc74d38e7f319fbe3e209ef80b067ea374515b23d6f106696387776a6077d17}\label{sensors__base_8h_acccc74d38e7f319fbe3e209ef80b067ea374515b23d6f106696387776a6077d17}} 
+floating&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 16 of file sensors\+\_\+base.\+h.
+
+\mbox{\Hypertarget{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821}\label{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821}} 
+\index{sensors\_base.h@{sensors\_base.h}!waterlevelsensortype\_t@{waterlevelsensortype\_t}}
+\index{waterlevelsensortype\_t@{waterlevelsensortype\_t}!sensors\_base.h@{sensors\_base.h}}
+\doxysubsubsection{\texorpdfstring{waterlevelsensortype\_t}{waterlevelsensortype\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821}{waterlevelsensortype\+\_\+t}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{unknown@{unknown}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!unknown@{unknown}}}\mbox{\Hypertarget{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821aad921d60486366258809553a3db49a4a}\label{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821aad921d60486366258809553a3db49a4a}} 
+unknown&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{optical@{optical}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!optical@{optical}}}\mbox{\Hypertarget{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821a4313277ed1d56c552d84008ff59b3d64}\label{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821a4313277ed1d56c552d84008ff59b3d64}} 
+optical&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{capacitive@{capacitive}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!capacitive@{capacitive}}}\mbox{\Hypertarget{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821a94382e2ffdbc8bf80aa15fe17b1898e9}\label{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821a94382e2ffdbc8bf80aa15fe17b1898e9}} 
+capacitive&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{resistive@{resistive}!sensors\_base.h@{sensors\_base.h}}\index{sensors\_base.h@{sensors\_base.h}!resistive@{resistive}}}\mbox{\Hypertarget{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821a8443351218dbc276777b1b5522352406}\label{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821a8443351218dbc276777b1b5522352406}} 
+resistive&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 22 of file sensors\+\_\+base.\+h.
+

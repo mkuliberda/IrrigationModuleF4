@@ -1,0 +1,142 @@
+\hypertarget{class_pump_controller}{}\doxysection{Pump\+Controller Class Reference}
+\label{class_pump_controller}\index{PumpController@{PumpController}}
+
+
+{\ttfamily \#include $<$irrigation.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pump_controller_a66521c007e00a03d8008d0b1d58cb75f}{Pump\+Controller}} ()
+\item 
+\mbox{\hyperlink{class_pump_controller_a56b90b01b371d8f6b4a6c8121377a348}{$\sim$\+Pump\+Controller}} ()
+\item 
+bool \mbox{\hyperlink{class_pump_controller_af5e79d1b581f0019c6a0d9a8942df136}{update}} (const double \&\+\_\+dt, bool \&\+\_\+activate\+\_\+watering)
+\item 
+bool \mbox{\hyperlink{class_pump_controller_aae689c1ea21539e0f9aed1a3dd137cbb}{create\+Pump}} (const \mbox{\hyperlink{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64}{pumptype\+\_\+t}} \&\+\_\+pumptype)
+\item 
+bool \mbox{\hyperlink{class_pump_controller_a6eb6ded2a32bd776f93da4702c68fc7e}{set\+Mode}} (const \mbox{\hyperlink{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71ca}{pumpcontrollermode\+\_\+t}} \&\+\_\+mode)
+\item 
+const \mbox{\hyperlink{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71ca}{pumpcontrollermode\+\_\+t}} \& \mbox{\hyperlink{class_pump_controller_aa6c359fa88a3a7c69cc4539686cf6cd9}{get\+Mode}} (void)
+\item 
+uint8\+\_\+t \& \mbox{\hyperlink{class_pump_controller_acc4ce0b59d5e1ad59ef9b232d3d4f0e4}{get\+Pump\+Status\+Encoded}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_binary_pump}{Binary\+Pump}} $\ast$ \mbox{\hyperlink{class_pump_controller_a9eba57eced4789166b4744726375fa5e}{p\+Bin\+Pump}} = nullptr
+\item 
+\mbox{\hyperlink{class_d_r_v8833_pump}{D\+R\+V8833\+Pump}} $\ast$ \mbox{\hyperlink{class_pump_controller_a35532581e21af46d5433568b4af32b87}{p8833\+Pump}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 267 of file irrigation.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_pump_controller_a66521c007e00a03d8008d0b1d58cb75f}\label{class_pump_controller_a66521c007e00a03d8008d0b1d58cb75f}} 
+\index{PumpController@{PumpController}!PumpController@{PumpController}}
+\index{PumpController@{PumpController}!PumpController@{PumpController}}
+\doxysubsubsection{\texorpdfstring{PumpController()}{PumpController()}}
+{\footnotesize\ttfamily Pump\+Controller\+::\+Pump\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 281 of file irrigation.\+h.
+
+\mbox{\Hypertarget{class_pump_controller_a56b90b01b371d8f6b4a6c8121377a348}\label{class_pump_controller_a56b90b01b371d8f6b4a6c8121377a348}} 
+\index{PumpController@{PumpController}!````~PumpController@{$\sim$PumpController}}
+\index{````~PumpController@{$\sim$PumpController}!PumpController@{PumpController}}
+\doxysubsubsection{\texorpdfstring{$\sim$PumpController()}{~PumpController()}}
+{\footnotesize\ttfamily Pump\+Controller\+::$\sim$\+Pump\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 289 of file irrigation.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pump_controller_aae689c1ea21539e0f9aed1a3dd137cbb}\label{class_pump_controller_aae689c1ea21539e0f9aed1a3dd137cbb}} 
+\index{PumpController@{PumpController}!createPump@{createPump}}
+\index{createPump@{createPump}!PumpController@{PumpController}}
+\doxysubsubsection{\texorpdfstring{createPump()}{createPump()}}
+{\footnotesize\ttfamily bool Pump\+Controller\+::create\+Pump (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64}{pumptype\+\_\+t}} \&}]{\+\_\+pumptype }\end{DoxyParamCaption})}
+
+
+
+Definition at line 900 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_pump_controller_aa6c359fa88a3a7c69cc4539686cf6cd9}\label{class_pump_controller_aa6c359fa88a3a7c69cc4539686cf6cd9}} 
+\index{PumpController@{PumpController}!getMode@{getMode}}
+\index{getMode@{getMode}!PumpController@{PumpController}}
+\doxysubsubsection{\texorpdfstring{getMode()}{getMode()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71ca}{pumpcontrollermode\+\_\+t}} \& Pump\+Controller\+::get\+Mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 995 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_pump_controller_acc4ce0b59d5e1ad59ef9b232d3d4f0e4}\label{class_pump_controller_acc4ce0b59d5e1ad59ef9b232d3d4f0e4}} 
+\index{PumpController@{PumpController}!getPumpStatusEncoded@{getPumpStatusEncoded}}
+\index{getPumpStatusEncoded@{getPumpStatusEncoded}!PumpController@{PumpController}}
+\doxysubsubsection{\texorpdfstring{getPumpStatusEncoded()}{getPumpStatusEncoded()}}
+{\footnotesize\ttfamily uint8\+\_\+t \& Pump\+Controller\+::get\+Pump\+Status\+Encoded (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 999 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_pump_controller_a6eb6ded2a32bd776f93da4702c68fc7e}\label{class_pump_controller_a6eb6ded2a32bd776f93da4702c68fc7e}} 
+\index{PumpController@{PumpController}!setMode@{setMode}}
+\index{setMode@{setMode}!PumpController@{PumpController}}
+\doxysubsubsection{\texorpdfstring{setMode()}{setMode()}}
+{\footnotesize\ttfamily bool Pump\+Controller\+::set\+Mode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71ca}{pumpcontrollermode\+\_\+t}} \&}]{\+\_\+mode }\end{DoxyParamCaption})}
+
+
+
+Definition at line 982 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_pump_controller_af5e79d1b581f0019c6a0d9a8942df136}\label{class_pump_controller_af5e79d1b581f0019c6a0d9a8942df136}} 
+\index{PumpController@{PumpController}!update@{update}}
+\index{update@{update}!PumpController@{PumpController}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily bool Pump\+Controller\+::update (\begin{DoxyParamCaption}\item[{const double \&}]{\+\_\+dt,  }\item[{bool \&}]{\+\_\+activate\+\_\+watering }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_pump_controller}{Pump\+Controller}} class implementation 
+
+Definition at line 799 of file irrigation.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_pump_controller_a35532581e21af46d5433568b4af32b87}\label{class_pump_controller_a35532581e21af46d5433568b4af32b87}} 
+\index{PumpController@{PumpController}!p8833Pump@{p8833Pump}}
+\index{p8833Pump@{p8833Pump}!PumpController@{PumpController}}
+\doxysubsubsection{\texorpdfstring{p8833Pump}{p8833Pump}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_d_r_v8833_pump}{D\+R\+V8833\+Pump}}$\ast$ Pump\+Controller\+::p8833\+Pump = nullptr}
+
+
+
+Definition at line 296 of file irrigation.\+h.
+
+\mbox{\Hypertarget{class_pump_controller_a9eba57eced4789166b4744726375fa5e}\label{class_pump_controller_a9eba57eced4789166b4744726375fa5e}} 
+\index{PumpController@{PumpController}!pBinPump@{pBinPump}}
+\index{pBinPump@{pBinPump}!PumpController@{PumpController}}
+\doxysubsubsection{\texorpdfstring{pBinPump}{pBinPump}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_binary_pump}{Binary\+Pump}}$\ast$ Pump\+Controller\+::p\+Bin\+Pump = nullptr}
+
+
+
+Definition at line 295 of file irrigation.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Inc/\mbox{\hyperlink{irrigation_8h}{irrigation.\+h}}\item 
+Src/\mbox{\hyperlink{irrigation_8cpp}{irrigation.\+cpp}}\end{DoxyCompactItemize}

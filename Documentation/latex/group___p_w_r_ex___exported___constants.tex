@@ -1,0 +1,55 @@
+\hypertarget{group___p_w_r_ex___exported___constants}{}\doxysection{P\+W\+R\+Ex Exported Constants}
+\label{group___p_w_r_ex___exported___constants}\index{PWREx Exported Constants@{PWREx Exported Constants}}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_w_r_ex___regulator___voltage___scale}{P\+W\+R\+Ex Regulator Voltage Scale}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___exported___constants_ga1ee778f7ff494723bd0ef04ec44b0f77}{\+\_\+\+\_\+\+H\+A\+L\+\_\+\+P\+W\+R\+\_\+\+V\+O\+L\+T\+A\+G\+E\+S\+C\+A\+L\+I\+N\+G\+\_\+\+C\+O\+N\+F\+IG}}(\+\_\+\+\_\+\+R\+E\+G\+U\+L\+A\+T\+O\+R\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em macros configure the main internal regulator output voltage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___p_w_r_ex___exported___constants_ga1ee778f7ff494723bd0ef04ec44b0f77}\label{group___p_w_r_ex___exported___constants_ga1ee778f7ff494723bd0ef04ec44b0f77}} 
+\index{PWREx Exported Constants@{PWREx Exported Constants}!\_\_HAL\_PWR\_VOLTAGESCALING\_CONFIG@{\_\_HAL\_PWR\_VOLTAGESCALING\_CONFIG}}
+\index{\_\_HAL\_PWR\_VOLTAGESCALING\_CONFIG@{\_\_HAL\_PWR\_VOLTAGESCALING\_CONFIG}!PWREx Exported Constants@{PWREx Exported Constants}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_PWR\_VOLTAGESCALING\_CONFIG}{\_\_HAL\_PWR\_VOLTAGESCALING\_CONFIG}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+H\+A\+L\+\_\+\+P\+W\+R\+\_\+\+V\+O\+L\+T\+A\+G\+E\+S\+C\+A\+L\+I\+N\+G\+\_\+\+C\+O\+N\+F\+IG(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+R\+E\+G\+U\+L\+A\+T\+O\+R\+\_\+\+\_\+ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{do} \{                                                     \(\backslash\)}
+\DoxyCodeLine{                                                            \_\_IO uint32\_t tmpreg = 0x00U;                        \(\backslash\)}
+\DoxyCodeLine{                                                            MODIFY\_REG(\mbox{\hyperlink{group___peripheral__declaration_ga04651c526497822a859942b928e57f8e}{PWR}}-\/>CR, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaccc33f1ba4e374e116ffa50f3a503030}{PWR\_CR\_VOS}}, (\_\_REGULATOR\_\_));   \(\backslash\)}
+\DoxyCodeLine{                                                            \textcolor{comment}{/* Delay after an RCC peripheral clock enabling */}  \(\backslash\)}
+\DoxyCodeLine{                                                            tmpreg = \mbox{\hyperlink{group___exported__macro_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(\mbox{\hyperlink{group___peripheral__declaration_ga04651c526497822a859942b928e57f8e}{PWR}}-\/>CR, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaccc33f1ba4e374e116ffa50f3a503030}{PWR\_CR\_VOS}});             \(\backslash\)}
+\DoxyCodeLine{                                                            UNUSED(tmpreg);                                     \(\backslash\)}
+\DoxyCodeLine{                                                          \} \textcolor{keywordflow}{while}(0U)}
+
+\end{DoxyCode}
+
+
+macros configure the main internal regulator output voltage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$strong$>$\+R\+E\+G\+U\+L\+A\+T\+O\+R$<$/strong$>$} & specifies the regulator output voltage to achieve a tradeoff between performance and power consumption when the device does not operate at the maximum frequency (refer to the datasheets for more details). This parameter can be one of the following values\+: \begin{DoxyItemize}
+\item P\+W\+R\+\_\+\+R\+E\+G\+U\+L\+A\+T\+O\+R\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+S\+C\+A\+L\+E1\+: Regulator voltage output Scale 1 mode \item P\+W\+R\+\_\+\+R\+E\+G\+U\+L\+A\+T\+O\+R\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+S\+C\+A\+L\+E2\+: Regulator voltage output Scale 2 mode \item P\+W\+R\+\_\+\+R\+E\+G\+U\+L\+A\+T\+O\+R\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+S\+C\+A\+L\+E3\+: Regulator voltage output Scale 3 mode \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 137 of file stm32f4xx\+\_\+hal\+\_\+pwr\+\_\+ex.\+h.
+

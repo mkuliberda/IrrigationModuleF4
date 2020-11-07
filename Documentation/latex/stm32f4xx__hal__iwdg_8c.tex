@@ -1,0 +1,87 @@
+\hypertarget{stm32f4xx__hal__iwdg_8c}{}\doxysection{Drivers/\+S\+T\+M32\+F4xx\+\_\+\+H\+A\+L\+\_\+\+Driver/\+Src/stm32f4xx\+\_\+hal\+\_\+iwdg.c File Reference}
+\label{stm32f4xx__hal__iwdg_8c}\index{Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_iwdg.c@{Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_iwdg.c}}
+
+
+I\+W\+DG H\+AL module driver. This file provides firmware functions to manage the following functionalities of the Independent Watchdog (I\+W\+DG) peripheral\+:  
+
+
+{\ttfamily \#include \char`\"{}stm32f4xx\+\_\+hal.\+h\char`\"{}}\newline
+
+
+\doxysubsection{Detailed Description}
+I\+W\+DG H\+AL module driver. This file provides firmware functions to manage the following functionalities of the Independent Watchdog (I\+W\+DG) peripheral\+: 
+
+\begin{DoxyAuthor}{Author}
+M\+CD Application Team
+\begin{DoxyItemize}
+\item Initialization and Start functions
+\item IO operation functions
+\end{DoxyItemize}
+\end{DoxyAuthor}
+\begin{DoxyVerb}==============================================================================
+                  ##### IWDG Generic features #####
+==============================================================================
+[..]
+  (+) The IWDG can be started by either software or hardware (configurable
+      through option byte).
+
+  (+) The IWDG is clocked by Low-Speed clock (LSI) and thus stays active even
+      if the main clock fails.
+
+  (+) Once the IWDG is started, the LSI is forced ON and both can not be
+      disabled. The counter starts counting down from the reset value (0xFFF).
+      When it reaches the end of count value (0x000) a reset signal is
+      generated (IWDG reset).
+
+  (+) Whenever the key value 0x0000 AAAA is written in the IWDG_KR register,
+      the IWDG_RLR value is reloaded in the counter and the watchdog reset is
+      prevented.
+
+  (+) The IWDG is implemented in the VDD voltage domain that is still functional
+      in STOP and STANDBY mode (IWDG reset can wake-up from STANDBY).
+      IWDGRST flag in RCC_CSR register can be used to inform when an IWDG
+      reset occurs.
+
+  (+) Debug mode : When the microcontroller enters debug mode (core halted),
+      the IWDG counter either continues to work normally or stops, depending
+      on DBG_IWDG_STOP configuration bit in DBG module, accessible through
+      __HAL_DBGMCU_FREEZE_IWDG() and __HAL_DBGMCU_UNFREEZE_IWDG() macros.
+
+  [..] Min-max timeout value @32KHz (LSI): ~125us / ~32.7s
+       The IWDG timeout may vary due to LSI frequency dispersion. STM32F4xx
+       devices provide the capability to measure the LSI frequency (LSI clock
+       connected internally to TIM5 CH4 input capture). The measured value
+       can be used to have an IWDG timeout with an acceptable accuracy.
+
+                   ##### How to use this driver #####
+==============================================================================
+[..]
+  (#) Use IWDG using HAL_IWDG_Init() function to :
+    (++) Enable instance by writing Start keyword in IWDG_KEY register. LSI
+         clock is forced ON and IWDG counter starts counting down.
+    (++) Enable write access to configuration registers:
+        IWDG_PR and IWDG_RLR.
+    (++) Configure the IWDG prescaler and counter reload value. This reload
+         value will be loaded in the IWDG counter each time the watchdog is
+         reloaded, then the IWDG will start counting down from this value.
+    (++) Wait for status flags to be reset.
+
+  (#) Then the application program must refresh the IWDG counter at regular
+      intervals during normal operation to prevent an MCU reset, using
+      HAL_IWDG_Refresh() function.
+
+   *** IWDG HAL driver macros list ***
+   ====================================
+   [..]
+     Below the list of most used macros in IWDG HAL driver:
+    (+) __HAL_IWDG_START: Enable the IWDG peripheral
+    (+) __HAL_IWDG_RELOAD_COUNTER: Reloads IWDG counter with value defined in
+        the reload register\end{DoxyVerb}
+
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+\doxysubsubsection*{\begin{center}\copyright{} Copyright (c) 2016 S\+T\+Microelectronics. All rights reserved.\end{center} }
+
+This software component is licensed by ST under B\+SD 3-\/Clause license, the \char`\"{}\+License\char`\"{}; You may not use this file except in compliance with the License. You may obtain a copy of the License at\+: opensource.\+org/licenses/\+B\+S\+D-\/3-\/\+Clause 

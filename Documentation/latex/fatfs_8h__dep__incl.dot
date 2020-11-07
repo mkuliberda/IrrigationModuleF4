@@ -1,0 +1,16 @@
+digraph "Inc/fatfs.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Inc/fatfs.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Header for fatfs applications."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Inc/freertos_tasks.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$freertos__tasks_8h_source.html",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Src/freertos_tasks.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$freertos__tasks_8cpp_source.html",tooltip=" "];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Src/main.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp_source.html",tooltip=" "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Src/fatfs.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$fatfs_8c.html",tooltip="Code for fatfs applications."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

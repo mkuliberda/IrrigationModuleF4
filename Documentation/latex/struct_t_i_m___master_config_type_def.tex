@@ -1,0 +1,56 @@
+\hypertarget{struct_t_i_m___master_config_type_def}{}\doxysection{T\+I\+M\+\_\+\+Master\+Config\+Type\+Def Struct Reference}
+\label{struct_t_i_m___master_config_type_def}\index{TIM\_MasterConfigTypeDef@{TIM\_MasterConfigTypeDef}}
+
+
+T\+IM Master configuration Structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32f4xx\+\_\+hal\+\_\+tim.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___master_config_type_def_a908a6c1b46cb203c0b8b59b490e1114e}{Master\+Output\+Trigger}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___master_config_type_def_a45ddfca310a1180e19fc24b36f8e9585}{Master\+Slave\+Mode}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+T\+IM Master configuration Structure definition. 
+
+Definition at line 229 of file stm32f4xx\+\_\+hal\+\_\+tim.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_t_i_m___master_config_type_def_a908a6c1b46cb203c0b8b59b490e1114e}\label{struct_t_i_m___master_config_type_def_a908a6c1b46cb203c0b8b59b490e1114e}} 
+\index{TIM\_MasterConfigTypeDef@{TIM\_MasterConfigTypeDef}!MasterOutputTrigger@{MasterOutputTrigger}}
+\index{MasterOutputTrigger@{MasterOutputTrigger}!TIM\_MasterConfigTypeDef@{TIM\_MasterConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{MasterOutputTrigger}{MasterOutputTrigger}}
+{\footnotesize\ttfamily uint32\+\_\+t T\+I\+M\+\_\+\+Master\+Config\+Type\+Def\+::\+Master\+Output\+Trigger}
+
+Trigger output (T\+R\+GO) selection This parameter can be a value of \mbox{\hyperlink{group___t_i_m___master___mode___selection}{T\+IM Master Mode Selection}} 
+
+Definition at line 231 of file stm32f4xx\+\_\+hal\+\_\+tim.\+h.
+
+\mbox{\Hypertarget{struct_t_i_m___master_config_type_def_a45ddfca310a1180e19fc24b36f8e9585}\label{struct_t_i_m___master_config_type_def_a45ddfca310a1180e19fc24b36f8e9585}} 
+\index{TIM\_MasterConfigTypeDef@{TIM\_MasterConfigTypeDef}!MasterSlaveMode@{MasterSlaveMode}}
+\index{MasterSlaveMode@{MasterSlaveMode}!TIM\_MasterConfigTypeDef@{TIM\_MasterConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{MasterSlaveMode}{MasterSlaveMode}}
+{\footnotesize\ttfamily uint32\+\_\+t T\+I\+M\+\_\+\+Master\+Config\+Type\+Def\+::\+Master\+Slave\+Mode}
+
+Master/slave mode selection This parameter can be a value of \mbox{\hyperlink{group___t_i_m___master___slave___mode}{T\+IM Master/\+Slave Mode}} \begin{DoxyNote}{Note}
+When the Master/slave mode is enabled, the effect of an event on the trigger input (T\+R\+GI) is delayed to allow a perfect synchronization between the current timer and its slaves (through T\+R\+GO). It is not mandatory in case of timer synchronization mode. 
+\end{DoxyNote}
+
+
+Definition at line 233 of file stm32f4xx\+\_\+hal\+\_\+tim.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Drivers/\+S\+T\+M32\+F4xx\+\_\+\+H\+A\+L\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32f4xx__hal__tim_8h}{stm32f4xx\+\_\+hal\+\_\+tim.\+h}}\end{DoxyCompactItemize}

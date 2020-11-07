@@ -1,0 +1,200 @@
+\hypertarget{diskio_8c}{}\doxysection{Middlewares/\+Third\+\_\+\+Party/\+Fat\+Fs/src/diskio.c File Reference}
+\label{diskio_8c}\index{Middlewares/Third\_Party/FatFs/src/diskio.c@{Middlewares/Third\_Party/FatFs/src/diskio.c}}
+{\ttfamily \#include \char`\"{}diskio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ff\+\_\+gen\+\_\+drv.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{diskio_8h_adba6790898ce4029c20a34b898ce73c1}{D\+S\+T\+A\+T\+US}} \mbox{\hyperlink{diskio_8c_a8348ac5ee6d709420c02e45c111f4793}{disk\+\_\+status}} (\mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}} pdrv)
+\begin{DoxyCompactList}\small\item\em Gets Disk Status. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{diskio_8h_adba6790898ce4029c20a34b898ce73c1}{D\+S\+T\+A\+T\+US}} \mbox{\hyperlink{diskio_8c_a09cdaa6f36fa409bdf002727bff98eb1}{disk\+\_\+initialize}} (\mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}} pdrv)
+\begin{DoxyCompactList}\small\item\em Initializes a Drive. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{diskio_8h_aacdfef1dad6565f65c26d12fe0ea4b2b}{D\+R\+E\+S\+U\+LT}} \mbox{\hyperlink{diskio_8c_a075d27f59f550e2cee07d00abcff32e0}{disk\+\_\+read}} (\mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}} pdrv, \mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}} $\ast$buff, \mbox{\hyperlink{integer_8h_ad342ac907eb044443153a22f964bf0af}{D\+W\+O\+RD}} sector, \mbox{\hyperlink{integer_8h_a36cb3b01d81ffd844bbbfb54003e06ec}{U\+I\+NT}} count)
+\begin{DoxyCompactList}\small\item\em Reads Sector(s) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{diskio_8h_aacdfef1dad6565f65c26d12fe0ea4b2b}{D\+R\+E\+S\+U\+LT}} \mbox{\hyperlink{diskio_8c_a0fe56ee4831a44b09cfd96856e069634}{disk\+\_\+write}} (\mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}} pdrv, const \mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}} $\ast$buff, \mbox{\hyperlink{integer_8h_ad342ac907eb044443153a22f964bf0af}{D\+W\+O\+RD}} sector, \mbox{\hyperlink{integer_8h_a36cb3b01d81ffd844bbbfb54003e06ec}{U\+I\+NT}} count)
+\begin{DoxyCompactList}\small\item\em Writes Sector(s) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{diskio_8h_aacdfef1dad6565f65c26d12fe0ea4b2b}{D\+R\+E\+S\+U\+LT}} \mbox{\hyperlink{diskio_8c_ab00fa450a811dbdabe3c655c1a36fab4}{disk\+\_\+ioctl}} (\mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}} pdrv, \mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}} cmd, void $\ast$buff)
+\begin{DoxyCompactList}\small\item\em I/O control operation. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak \mbox{\hyperlink{integer_8h_ad342ac907eb044443153a22f964bf0af}{D\+W\+O\+RD}} \mbox{\hyperlink{diskio_8c_a256b4d335e1e6a0cc9f3e6ed6c5405c4}{get\+\_\+fattime}} (void)
+\begin{DoxyCompactList}\small\item\em Gets Time from R\+TC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_disk__drv_type_def}{Disk\+\_\+drv\+Type\+Def}} \mbox{\hyperlink{diskio_8c_a8f7b47d38580804ca8176a57cc78cb89}{disk}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{diskio_8c_a09cdaa6f36fa409bdf002727bff98eb1}\label{diskio_8c_a09cdaa6f36fa409bdf002727bff98eb1}} 
+\index{diskio.c@{diskio.c}!disk\_initialize@{disk\_initialize}}
+\index{disk\_initialize@{disk\_initialize}!diskio.c@{diskio.c}}
+\doxysubsubsection{\texorpdfstring{disk\_initialize()}{disk\_initialize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{diskio_8h_adba6790898ce4029c20a34b898ce73c1}{D\+S\+T\+A\+T\+US}} disk\+\_\+initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}}}]{pdrv }\end{DoxyParamCaption})}
+
+
+
+Initializes a Drive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdrv} & Physical drive number (0..) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em D\+S\+T\+A\+T\+US} & Operation status \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 51 of file diskio.\+c.
+
+\mbox{\Hypertarget{diskio_8c_ab00fa450a811dbdabe3c655c1a36fab4}\label{diskio_8c_ab00fa450a811dbdabe3c655c1a36fab4}} 
+\index{diskio.c@{diskio.c}!disk\_ioctl@{disk\_ioctl}}
+\index{disk\_ioctl@{disk\_ioctl}!diskio.c@{diskio.c}}
+\doxysubsubsection{\texorpdfstring{disk\_ioctl()}{disk\_ioctl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{diskio_8h_aacdfef1dad6565f65c26d12fe0ea4b2b}{D\+R\+E\+S\+U\+LT}} disk\+\_\+ioctl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}}}]{pdrv,  }\item[{\mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}}}]{cmd,  }\item[{void $\ast$}]{buff }\end{DoxyParamCaption})}
+
+
+
+I/O control operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdrv} & Physical drive number (0..) \\
+\hline
+{\em cmd} & Control code \\
+\hline
+{\em $\ast$buff} & Buffer to send/receive control data \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em D\+R\+E\+S\+U\+LT} & Operation result \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 117 of file diskio.\+c.
+
+\mbox{\Hypertarget{diskio_8c_a075d27f59f550e2cee07d00abcff32e0}\label{diskio_8c_a075d27f59f550e2cee07d00abcff32e0}} 
+\index{diskio.c@{diskio.c}!disk\_read@{disk\_read}}
+\index{disk\_read@{disk\_read}!diskio.c@{diskio.c}}
+\doxysubsubsection{\texorpdfstring{disk\_read()}{disk\_read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{diskio_8h_aacdfef1dad6565f65c26d12fe0ea4b2b}{D\+R\+E\+S\+U\+LT}} disk\+\_\+read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}}}]{pdrv,  }\item[{\mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}} $\ast$}]{buff,  }\item[{\mbox{\hyperlink{integer_8h_ad342ac907eb044443153a22f964bf0af}{D\+W\+O\+RD}}}]{sector,  }\item[{\mbox{\hyperlink{integer_8h_a36cb3b01d81ffd844bbbfb54003e06ec}{U\+I\+NT}}}]{count }\end{DoxyParamCaption})}
+
+
+
+Reads Sector(s) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdrv} & Physical drive number (0..) \\
+\hline
+{\em $\ast$buff} & Data buffer to store read data \\
+\hline
+{\em sector} & Sector address (L\+BA) \\
+\hline
+{\em count} & Number of sectors to read (1..128) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em D\+R\+E\+S\+U\+LT} & Operation result \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 73 of file diskio.\+c.
+
+\mbox{\Hypertarget{diskio_8c_a8348ac5ee6d709420c02e45c111f4793}\label{diskio_8c_a8348ac5ee6d709420c02e45c111f4793}} 
+\index{diskio.c@{diskio.c}!disk\_status@{disk\_status}}
+\index{disk\_status@{disk\_status}!diskio.c@{diskio.c}}
+\doxysubsubsection{\texorpdfstring{disk\_status()}{disk\_status()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{diskio_8h_adba6790898ce4029c20a34b898ce73c1}{D\+S\+T\+A\+T\+US}} disk\+\_\+status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}}}]{pdrv }\end{DoxyParamCaption})}
+
+
+
+Gets Disk Status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdrv} & Physical drive number (0..) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em D\+S\+T\+A\+T\+US} & Operation status \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 36 of file diskio.\+c.
+
+\mbox{\Hypertarget{diskio_8c_a0fe56ee4831a44b09cfd96856e069634}\label{diskio_8c_a0fe56ee4831a44b09cfd96856e069634}} 
+\index{diskio.c@{diskio.c}!disk\_write@{disk\_write}}
+\index{disk\_write@{disk\_write}!diskio.c@{diskio.c}}
+\doxysubsubsection{\texorpdfstring{disk\_write()}{disk\_write()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{diskio_8h_aacdfef1dad6565f65c26d12fe0ea4b2b}{D\+R\+E\+S\+U\+LT}} disk\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}}}]{pdrv,  }\item[{const \mbox{\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE}} $\ast$}]{buff,  }\item[{\mbox{\hyperlink{integer_8h_ad342ac907eb044443153a22f964bf0af}{D\+W\+O\+RD}}}]{sector,  }\item[{\mbox{\hyperlink{integer_8h_a36cb3b01d81ffd844bbbfb54003e06ec}{U\+I\+NT}}}]{count }\end{DoxyParamCaption})}
+
+
+
+Writes Sector(s) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdrv} & Physical drive number (0..) \\
+\hline
+{\em $\ast$buff} & Data to be written \\
+\hline
+{\em sector} & Sector address (L\+BA) \\
+\hline
+{\em count} & Number of sectors to write (1..128) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em D\+R\+E\+S\+U\+LT} & Operation result \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 95 of file diskio.\+c.
+
+\mbox{\Hypertarget{diskio_8c_a256b4d335e1e6a0cc9f3e6ed6c5405c4}\label{diskio_8c_a256b4d335e1e6a0cc9f3e6ed6c5405c4}} 
+\index{diskio.c@{diskio.c}!get\_fattime@{get\_fattime}}
+\index{get\_fattime@{get\_fattime}!diskio.c@{diskio.c}}
+\doxysubsubsection{\texorpdfstring{get\_fattime()}{get\_fattime()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak \mbox{\hyperlink{integer_8h_ad342ac907eb044443153a22f964bf0af}{D\+W\+O\+RD}} get\+\_\+fattime (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gets Time from R\+TC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Time} & in D\+W\+O\+RD \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 135 of file diskio.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{diskio_8c_a8f7b47d38580804ca8176a57cc78cb89}\label{diskio_8c_a8f7b47d38580804ca8176a57cc78cb89}} 
+\index{diskio.c@{diskio.c}!disk@{disk}}
+\index{disk@{disk}!diskio.c@{diskio.c}}
+\doxysubsubsection{\texorpdfstring{disk}{disk}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_disk__drv_type_def}{Disk\+\_\+drv\+Type\+Def}} disk}
+
+
+
+Definition at line 24 of file ff\+\_\+gen\+\_\+drv.\+c.
+

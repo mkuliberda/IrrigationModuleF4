@@ -1,0 +1,10 @@
+digraph "BSP_SD_Init"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="BSP_SD_Init",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Initializes the SD card device."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="BSP_SD_IsDetected",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bsp__driver__sd_8c.html#a80c0a2c6722e29b76aa3e3d8a57ee27a",tooltip="Detects if SD card is correctly plugged in the memory slot or not."];
+}

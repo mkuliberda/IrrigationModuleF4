@@ -1,0 +1,312 @@
+\hypertarget{class_irrigation_message}{}\doxysection{Irrigation\+Message Class Reference}
+\label{class_irrigation_message}\index{IrrigationMessage@{IrrigationMessage}}
+
+
+{\ttfamily \#include $<$msg\+\_\+definitions\+\_\+irrigation.\+h$>$}
+
+Inheritance diagram for Irrigation\+Message\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_irrigation_message}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_irrigation_message_ac1c560e1087e9ab9495303911909ec69}{Irrigation\+Message}} (const \mbox{\hyperlink{msg__definitions__irrigation_8h_a8e4feaca9a4e5c1fb9beced03f81cd86}{direction\+\_\+t}} \&\+\_\+commdirection)
+\item 
+\mbox{\hyperlink{class_irrigation_message_a3458356521fa0c315b88afaf3ea29f25}{$\sim$\+Irrigation\+Message}} ()
+\item 
+bool \mbox{\hyperlink{class_irrigation_message_aa528a1363eb8cede627b4f4808b43c2d}{validate\+C\+RC}} () override
+\item 
+bool \mbox{\hyperlink{class_irrigation_message_a4859c04be49f9be1eb6f764cfeb25468}{set\+Buffer}} (uint8\+\_\+t $\ast$\+\_\+frame, const size\+\_\+t \&\+\_\+buffer\+\_\+size) override
+\item 
+std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& \mbox{\hyperlink{class_irrigation_message_a36fa4f0dbce20cc9dc9eeeee4d9d09c2}{get\+Buffer}} ()
+\item 
+struct \mbox{\hyperlink{structcmd__s}{cmd\+\_\+s}} \mbox{\hyperlink{class_irrigation_message_a3a593a415cc5ab0e992903720164aec9}{decode\+Command}} ()
+\item 
+struct \mbox{\hyperlink{structtankstatus__s}{tankstatus\+\_\+s}} \mbox{\hyperlink{class_irrigation_message_a2b7685f053acee66af3a6a6696b9bbc7}{decode\+Tank}} ()
+\item 
+struct \mbox{\hyperlink{structpumpstatus__s}{pumpstatus\+\_\+s}} \mbox{\hyperlink{class_irrigation_message_ab05fb11f8efac49be35f93deab153bf7}{decode\+Pump}} ()
+\item 
+struct \mbox{\hyperlink{structplantstatus__s}{plantstatus\+\_\+s}} \mbox{\hyperlink{class_irrigation_message_ae167bcce8609ee7f115043a7cbbb2b33}{decode\+Plant}} ()
+\item 
+struct \mbox{\hyperlink{structsectorstatus__s}{sectorstatus\+\_\+s}} \mbox{\hyperlink{class_irrigation_message_aab1dd42bb4ee678f7f1f2f606745e9fa}{decode\+Sector}} ()
+\item 
+struct \mbox{\hyperlink{structbatterystatus__s}{batterystatus\+\_\+s}} \mbox{\hyperlink{class_irrigation_message_a392bd792c284ffa74eeefc1fd0a4d0e6}{decode\+Battery}} ()
+\item 
+struct \mbox{\hyperlink{structconfirmation__s}{confirmation\+\_\+s}} \mbox{\hyperlink{class_irrigation_message_a2e7f38c06ee1db2f66e7e624450ac6ed}{decode\+Confirmation}} ()
+\item 
+std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& \mbox{\hyperlink{class_irrigation_message_a0746b77d33c01d69ca0a1933e159a7c4}{encode}} (const struct \mbox{\hyperlink{structcmd__s}{cmd\+\_\+s}} \&\+\_\+cmd)
+\item 
+std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& \mbox{\hyperlink{class_irrigation_message_a0a86132b9e0a43951d3d9ecab69f1f8b}{encode}} (const struct \mbox{\hyperlink{structconfirmation__s}{confirmation\+\_\+s}} \&\+\_\+confirmation)
+\item 
+std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& \mbox{\hyperlink{class_irrigation_message_a7d1c817a144f74e4b4c18541cf6b1d77}{encode}} (const struct \mbox{\hyperlink{structtankstatus__s}{tankstatus\+\_\+s}} \&\+\_\+tank)
+\item 
+std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& \mbox{\hyperlink{class_irrigation_message_ac48f4b8bdffa38a1ac7de165b3709009}{encode}} (const struct \mbox{\hyperlink{structpumpstatus__s}{pumpstatus\+\_\+s}} \&\+\_\+pump)
+\item 
+std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& \mbox{\hyperlink{class_irrigation_message_ac39c5ee646fb3b9c4af29b22b604dc07}{encode}} (const struct \mbox{\hyperlink{structplantstatus__s}{plantstatus\+\_\+s}} \&\+\_\+plant)
+\item 
+std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& \mbox{\hyperlink{class_irrigation_message_abcd862e19f85301e0e394d5607a847ab}{encode}} (const struct \mbox{\hyperlink{structsectorstatus__s}{sectorstatus\+\_\+s}} \&\+\_\+sector)
+\item 
+std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& \mbox{\hyperlink{class_irrigation_message_a5f8f3ffd65028003cdb07820a2094710}{encode}} (const struct \mbox{\hyperlink{structbatterystatus__s}{batterystatus\+\_\+s}} \&\+\_\+battery)
+\item 
+std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& \mbox{\hyperlink{class_irrigation_message_a9548d15495dfd5780dc80b20658cd226}{encode\+Generic}} (const \mbox{\hyperlink{msg__definitions__irrigation_8h_a035693b52a36a19d7df58f980ff4e1c2}{target\+\_\+t}} \&\+\_\+target, const uint8\+\_\+t \&\+\_\+id, const uint32\+\_\+t \&\+\_\+state)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{uniondlframe32byte__u}{dlframe32byte\+\_\+u}} $\ast$ \mbox{\hyperlink{class_irrigation_message_ad9d0a06563feda711483295ee1ffd4de}{downlinkframe}} = nullptr
+\item 
+\mbox{\hyperlink{unionulframe32byte__u}{ulframe32byte\+\_\+u}} $\ast$ \mbox{\hyperlink{class_irrigation_message_a4ef75fbe77602f63163a4d3ac5fb6c34}{uplinkframe}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 189 of file msg\+\_\+definitions\+\_\+irrigation.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_irrigation_message_ac1c560e1087e9ab9495303911909ec69}\label{class_irrigation_message_ac1c560e1087e9ab9495303911909ec69}} 
+\index{IrrigationMessage@{IrrigationMessage}!IrrigationMessage@{IrrigationMessage}}
+\index{IrrigationMessage@{IrrigationMessage}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{IrrigationMessage()}{IrrigationMessage()}}
+{\footnotesize\ttfamily Irrigation\+Message\+::\+Irrigation\+Message (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{msg__definitions__irrigation_8h_a8e4feaca9a4e5c1fb9beced03f81cd86}{direction\+\_\+t}} \&}]{\+\_\+commdirection }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 201 of file msg\+\_\+definitions\+\_\+irrigation.\+h.
+
+\mbox{\Hypertarget{class_irrigation_message_a3458356521fa0c315b88afaf3ea29f25}\label{class_irrigation_message_a3458356521fa0c315b88afaf3ea29f25}} 
+\index{IrrigationMessage@{IrrigationMessage}!````~IrrigationMessage@{$\sim$IrrigationMessage}}
+\index{````~IrrigationMessage@{$\sim$IrrigationMessage}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{$\sim$IrrigationMessage()}{~IrrigationMessage()}}
+{\footnotesize\ttfamily Irrigation\+Message\+::$\sim$\+Irrigation\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 214 of file msg\+\_\+definitions\+\_\+irrigation.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_irrigation_message_a392bd792c284ffa74eeefc1fd0a4d0e6}\label{class_irrigation_message_a392bd792c284ffa74eeefc1fd0a4d0e6}} 
+\index{IrrigationMessage@{IrrigationMessage}!decodeBattery@{decodeBattery}}
+\index{decodeBattery@{decodeBattery}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{decodeBattery()}{decodeBattery()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structbatterystatus__s}{batterystatus\+\_\+s}} Irrigation\+Message\+::decode\+Battery (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 108 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_a3a593a415cc5ab0e992903720164aec9}\label{class_irrigation_message_a3a593a415cc5ab0e992903720164aec9}} 
+\index{IrrigationMessage@{IrrigationMessage}!decodeCommand@{decodeCommand}}
+\index{decodeCommand@{decodeCommand}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{decodeCommand()}{decodeCommand()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structcmd__s}{cmd\+\_\+s}} Irrigation\+Message\+::decode\+Command (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 37 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_a2e7f38c06ee1db2f66e7e624450ac6ed}\label{class_irrigation_message_a2e7f38c06ee1db2f66e7e624450ac6ed}} 
+\index{IrrigationMessage@{IrrigationMessage}!decodeConfirmation@{decodeConfirmation}}
+\index{decodeConfirmation@{decodeConfirmation}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{decodeConfirmation()}{decodeConfirmation()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structconfirmation__s}{confirmation\+\_\+s}} Irrigation\+Message\+::decode\+Confirmation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 50 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_ae167bcce8609ee7f115043a7cbbb2b33}\label{class_irrigation_message_ae167bcce8609ee7f115043a7cbbb2b33}} 
+\index{IrrigationMessage@{IrrigationMessage}!decodePlant@{decodePlant}}
+\index{decodePlant@{decodePlant}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{decodePlant()}{decodePlant()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structplantstatus__s}{plantstatus\+\_\+s}} Irrigation\+Message\+::decode\+Plant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 84 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_ab05fb11f8efac49be35f93deab153bf7}\label{class_irrigation_message_ab05fb11f8efac49be35f93deab153bf7}} 
+\index{IrrigationMessage@{IrrigationMessage}!decodePump@{decodePump}}
+\index{decodePump@{decodePump}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{decodePump()}{decodePump()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structpumpstatus__s}{pumpstatus\+\_\+s}} Irrigation\+Message\+::decode\+Pump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 74 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_aab1dd42bb4ee678f7f1f2f606745e9fa}\label{class_irrigation_message_aab1dd42bb4ee678f7f1f2f606745e9fa}} 
+\index{IrrigationMessage@{IrrigationMessage}!decodeSector@{decodeSector}}
+\index{decodeSector@{decodeSector}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{decodeSector()}{decodeSector()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structsectorstatus__s}{sectorstatus\+\_\+s}} Irrigation\+Message\+::decode\+Sector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 96 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_a2b7685f053acee66af3a6a6696b9bbc7}\label{class_irrigation_message_a2b7685f053acee66af3a6a6696b9bbc7}} 
+\index{IrrigationMessage@{IrrigationMessage}!decodeTank@{decodeTank}}
+\index{decodeTank@{decodeTank}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{decodeTank()}{decodeTank()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structtankstatus__s}{tankstatus\+\_\+s}} Irrigation\+Message\+::decode\+Tank (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 64 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_a5f8f3ffd65028003cdb07820a2094710}\label{class_irrigation_message_a5f8f3ffd65028003cdb07820a2094710}} 
+\index{IrrigationMessage@{IrrigationMessage}!encode@{encode}}
+\index{encode@{encode}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& Irrigation\+Message\+::encode (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structbatterystatus__s}{batterystatus\+\_\+s}} \&}]{\+\_\+battery }\end{DoxyParamCaption})}
+
+
+
+Definition at line 211 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_a0746b77d33c01d69ca0a1933e159a7c4}\label{class_irrigation_message_a0746b77d33c01d69ca0a1933e159a7c4}} 
+\index{IrrigationMessage@{IrrigationMessage}!encode@{encode}}
+\index{encode@{encode}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& Irrigation\+Message\+::encode (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structcmd__s}{cmd\+\_\+s}} \&}]{\+\_\+cmd }\end{DoxyParamCaption})}
+
+
+
+Definition at line 120 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_a0a86132b9e0a43951d3d9ecab69f1f8b}\label{class_irrigation_message_a0a86132b9e0a43951d3d9ecab69f1f8b}} 
+\index{IrrigationMessage@{IrrigationMessage}!encode@{encode}}
+\index{encode@{encode}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& Irrigation\+Message\+::encode (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structconfirmation__s}{confirmation\+\_\+s}} \&}]{\+\_\+confirmation }\end{DoxyParamCaption})}
+
+
+
+Definition at line 133 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_ac39c5ee646fb3b9c4af29b22b604dc07}\label{class_irrigation_message_ac39c5ee646fb3b9c4af29b22b604dc07}} 
+\index{IrrigationMessage@{IrrigationMessage}!encode@{encode}}
+\index{encode@{encode}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& Irrigation\+Message\+::encode (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structplantstatus__s}{plantstatus\+\_\+s}} \&}]{\+\_\+plant }\end{DoxyParamCaption})}
+
+
+
+Definition at line 181 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_ac48f4b8bdffa38a1ac7de165b3709009}\label{class_irrigation_message_ac48f4b8bdffa38a1ac7de165b3709009}} 
+\index{IrrigationMessage@{IrrigationMessage}!encode@{encode}}
+\index{encode@{encode}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& Irrigation\+Message\+::encode (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structpumpstatus__s}{pumpstatus\+\_\+s}} \&}]{\+\_\+pump }\end{DoxyParamCaption})}
+
+
+
+Definition at line 163 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_abcd862e19f85301e0e394d5607a847ab}\label{class_irrigation_message_abcd862e19f85301e0e394d5607a847ab}} 
+\index{IrrigationMessage@{IrrigationMessage}!encode@{encode}}
+\index{encode@{encode}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& Irrigation\+Message\+::encode (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structsectorstatus__s}{sectorstatus\+\_\+s}} \&}]{\+\_\+sector }\end{DoxyParamCaption})}
+
+
+
+Definition at line 196 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_a7d1c817a144f74e4b4c18541cf6b1d77}\label{class_irrigation_message_a7d1c817a144f74e4b4c18541cf6b1d77}} 
+\index{IrrigationMessage@{IrrigationMessage}!encode@{encode}}
+\index{encode@{encode}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& Irrigation\+Message\+::encode (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structtankstatus__s}{tankstatus\+\_\+s}} \&}]{\+\_\+tank }\end{DoxyParamCaption})}
+
+
+
+Definition at line 150 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_a9548d15495dfd5780dc80b20658cd226}\label{class_irrigation_message_a9548d15495dfd5780dc80b20658cd226}} 
+\index{IrrigationMessage@{IrrigationMessage}!encodeGeneric@{encodeGeneric}}
+\index{encodeGeneric@{encodeGeneric}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{encodeGeneric()}{encodeGeneric()}}
+{\footnotesize\ttfamily std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& Irrigation\+Message\+::encode\+Generic (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{msg__definitions__irrigation_8h_a035693b52a36a19d7df58f980ff4e1c2}{target\+\_\+t}} \&}]{\+\_\+target,  }\item[{const uint8\+\_\+t \&}]{\+\_\+id,  }\item[{const uint32\+\_\+t \&}]{\+\_\+state }\end{DoxyParamCaption})}
+
+
+
+Definition at line 228 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_a36fa4f0dbce20cc9dc9eeeee4d9d09c2}\label{class_irrigation_message_a36fa4f0dbce20cc9dc9eeeee4d9d09c2}} 
+\index{IrrigationMessage@{IrrigationMessage}!getBuffer@{getBuffer}}
+\index{getBuffer@{getBuffer}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{getBuffer()}{getBuffer()}}
+{\footnotesize\ttfamily std\+::array$<$ uint8\+\_\+t, \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}} $>$ \& Irrigation\+Message\+::get\+Buffer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 277 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_a4859c04be49f9be1eb6f764cfeb25468}\label{class_irrigation_message_a4859c04be49f9be1eb6f764cfeb25468}} 
+\index{IrrigationMessage@{IrrigationMessage}!setBuffer@{setBuffer}}
+\index{setBuffer@{setBuffer}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{setBuffer()}{setBuffer()}}
+{\footnotesize\ttfamily bool Irrigation\+Message\+::set\+Buffer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{\+\_\+frame,  }\item[{const size\+\_\+t \&}]{\+\_\+buffer\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_message_ac6f1d984cd1e5965a2316b4d7368ff64}{Message}}.
+
+
+
+Definition at line 243 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_message_aa528a1363eb8cede627b4f4808b43c2d}\label{class_irrigation_message_aa528a1363eb8cede627b4f4808b43c2d}} 
+\index{IrrigationMessage@{IrrigationMessage}!validateCRC@{validateCRC}}
+\index{validateCRC@{validateCRC}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{validateCRC()}{validateCRC()}}
+{\footnotesize\ttfamily bool Irrigation\+Message\+::validate\+C\+RC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_message_a9d2679c59c7d64a5ee59d03c7d74319d}{Message}}.
+
+
+
+Definition at line 13 of file msg\+\_\+definitions\+\_\+irrigation.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_irrigation_message_ad9d0a06563feda711483295ee1ffd4de}\label{class_irrigation_message_ad9d0a06563feda711483295ee1ffd4de}} 
+\index{IrrigationMessage@{IrrigationMessage}!downlinkframe@{downlinkframe}}
+\index{downlinkframe@{downlinkframe}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{downlinkframe}{downlinkframe}}
+{\footnotesize\ttfamily \mbox{\hyperlink{uniondlframe32byte__u}{dlframe32byte\+\_\+u}}$\ast$ Irrigation\+Message\+::downlinkframe = nullptr}
+
+
+
+Definition at line 198 of file msg\+\_\+definitions\+\_\+irrigation.\+h.
+
+\mbox{\Hypertarget{class_irrigation_message_a4ef75fbe77602f63163a4d3ac5fb6c34}\label{class_irrigation_message_a4ef75fbe77602f63163a4d3ac5fb6c34}} 
+\index{IrrigationMessage@{IrrigationMessage}!uplinkframe@{uplinkframe}}
+\index{uplinkframe@{uplinkframe}!IrrigationMessage@{IrrigationMessage}}
+\doxysubsubsection{\texorpdfstring{uplinkframe}{uplinkframe}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unionulframe32byte__u}{ulframe32byte\+\_\+u}}$\ast$ Irrigation\+Message\+::uplinkframe = nullptr}
+
+
+
+Definition at line 199 of file msg\+\_\+definitions\+\_\+irrigation.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Middlewares/\+Wireless\+Comm/\mbox{\hyperlink{msg__definitions__irrigation_8h}{msg\+\_\+definitions\+\_\+irrigation.\+h}}\item 
+Middlewares/\+Wireless\+Comm/\mbox{\hyperlink{msg__definitions__irrigation_8cpp}{msg\+\_\+definitions\+\_\+irrigation.\+cpp}}\end{DoxyCompactItemize}

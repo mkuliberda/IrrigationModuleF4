@@ -1,0 +1,27 @@
+digraph "EventGroup"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=box];
+  rankdir=LR;
+  Node4 [label="xEventGroupWaitBits",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__x_event_group_wait_bits.html",tooltip=" "];
+  Node8 [label="xEventGroupSetBitsFromISR",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__x_event_group_set_bits_from_i_s_r.html",tooltip=" "];
+  Node7 [label="xEventGroupSetBits",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__x_event_group_set_bits.html",tooltip=" "];
+  Node2 [label="EventGroupHandle_t",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___event_group_handle__t.html",tooltip=" "];
+  Node9 [label="xEventGroupSync",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__x_event_group_sync.html",tooltip=" "];
+  Node5 [label="xEventGroupClearBits",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__x_event_group_clear_bits.html",tooltip=" "];
+  Node6 [label="xEventGroupClearBitsFromISR",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__x_event_group_clear_bits_from_i_s_r.html",tooltip=" "];
+  Node3 [label="xEventGroupCreate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__x_event_group_create.html",tooltip=" "];
+  Node10 [label="xEventGroupGetBits",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__x_event_group_get_bits.html",tooltip=" "];
+  Node1 [label="EventGroup",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node11 [label="xEventGroupGetBitsFromISR",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__x_event_group_get_bits_from_i_s_r.html",tooltip=" "];
+  Node1->Node2 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node3 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node4 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node5 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node6 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node7 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node8 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node9 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node10 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node11 [shape=plaintext, dir="back", style="solid"];
+}

@@ -1,0 +1,8 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="A_BLOCK_LINK",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_a___b_l_o_c_k___l_i_n_k.html",tooltip=" "];
+}

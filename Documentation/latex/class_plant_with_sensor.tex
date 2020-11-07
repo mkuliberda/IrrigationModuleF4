@@ -1,0 +1,154 @@
+\hypertarget{class_plant_with_sensor}{}\doxysection{Plant\+With\+Sensor Class Reference}
+\label{class_plant_with_sensor}\index{PlantWithSensor@{PlantWithSensor}}
+
+
+{\ttfamily \#include $<$plants.\+h$>$}
+
+Inheritance diagram for Plant\+With\+Sensor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_plant_with_sensor}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plant_with_sensor_ac3a733ceb296bc4af642bd9ebb7bb5e7}{Plant\+With\+Sensor}} (\mbox{\hyperlink{class_plant_interface}{Plant\+Interface}} $\ast$inner)
+\item 
+\mbox{\hyperlink{class_plant_with_sensor_aeb18476bb2cedbe6c71af47e5253cbfd}{$\sim$\+Plant\+With\+Sensor}} ()
+\item 
+float \mbox{\hyperlink{class_plant_with_sensor_ae942a7c920efae260d67ba6f6ac0b810}{get\+Moisture\+Percent}} ()
+\item 
+bool \mbox{\hyperlink{class_plant_with_sensor_a6b805e3d50214e933d29a2e975a84a26}{set\+Moisture\+Percent}} (const float \&\+\_\+moisture)
+\item 
+std\+::string \mbox{\hyperlink{class_plant_with_sensor_a092f2ada9ca3fba6b721c6dedfe70eb4}{get\+Name}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_plant_with_sensor_a0a4643b3ec08507e7ee4a1517a00b39a}{get\+Id}} ()
+\item 
+void \mbox{\hyperlink{class_plant_with_sensor_abe41768d3c254520f04bafb01c9c986c}{update\+Raw}} (const uint32\+\_\+t \&\+\_\+raw\+\_\+measurement)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 70 of file plants.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_plant_with_sensor_ac3a733ceb296bc4af642bd9ebb7bb5e7}\label{class_plant_with_sensor_ac3a733ceb296bc4af642bd9ebb7bb5e7}} 
+\index{PlantWithSensor@{PlantWithSensor}!PlantWithSensor@{PlantWithSensor}}
+\index{PlantWithSensor@{PlantWithSensor}!PlantWithSensor@{PlantWithSensor}}
+\doxysubsubsection{\texorpdfstring{PlantWithSensor()}{PlantWithSensor()}}
+{\footnotesize\ttfamily Plant\+With\+Sensor\+::\+Plant\+With\+Sensor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant_interface}{Plant\+Interface}} $\ast$}]{inner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 72 of file plants.\+h.
+
+\mbox{\Hypertarget{class_plant_with_sensor_aeb18476bb2cedbe6c71af47e5253cbfd}\label{class_plant_with_sensor_aeb18476bb2cedbe6c71af47e5253cbfd}} 
+\index{PlantWithSensor@{PlantWithSensor}!````~PlantWithSensor@{$\sim$PlantWithSensor}}
+\index{````~PlantWithSensor@{$\sim$PlantWithSensor}!PlantWithSensor@{PlantWithSensor}}
+\doxysubsubsection{\texorpdfstring{$\sim$PlantWithSensor()}{~PlantWithSensor()}}
+{\footnotesize\ttfamily Plant\+With\+Sensor\+::$\sim$\+Plant\+With\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 75 of file plants.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_plant_with_sensor_a0a4643b3ec08507e7ee4a1517a00b39a}\label{class_plant_with_sensor_a0a4643b3ec08507e7ee4a1517a00b39a}} 
+\index{PlantWithSensor@{PlantWithSensor}!getId@{getId}}
+\index{getId@{getId}!PlantWithSensor@{PlantWithSensor}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily uint8\+\_\+t Plant\+With\+Sensor\+::get\+Id (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_plant_interface_af64d7eb5c6a6729b74ab04ce03977d7b}{Plant\+Interface}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_plant_with_d_m_a_moisture_sensor_ac632f77cc644fab774002008bdcef253}{Plant\+With\+D\+M\+A\+Moisture\+Sensor}}.
+
+
+
+Definition at line 51 of file plants.\+cpp.
+
+\mbox{\Hypertarget{class_plant_with_sensor_ae942a7c920efae260d67ba6f6ac0b810}\label{class_plant_with_sensor_ae942a7c920efae260d67ba6f6ac0b810}} 
+\index{PlantWithSensor@{PlantWithSensor}!getMoisturePercent@{getMoisturePercent}}
+\index{getMoisturePercent@{getMoisturePercent}!PlantWithSensor@{PlantWithSensor}}
+\doxysubsubsection{\texorpdfstring{getMoisturePercent()}{getMoisturePercent()}}
+{\footnotesize\ttfamily float Plant\+With\+Sensor\+::get\+Moisture\+Percent (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\hyperlink{class_plant_with_sensor}{Plant\+With\+Sensor}} class implementation 
+
+Implements \mbox{\hyperlink{class_plant_interface_a724794db8aa488714e92c19f19ef14f2}{Plant\+Interface}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_plant_with_d_m_a_moisture_sensor_a5bdd864e49f1b848e32567417667117a}{Plant\+With\+D\+M\+A\+Moisture\+Sensor}}.
+
+
+
+Definition at line 39 of file plants.\+cpp.
+
+\mbox{\Hypertarget{class_plant_with_sensor_a092f2ada9ca3fba6b721c6dedfe70eb4}\label{class_plant_with_sensor_a092f2ada9ca3fba6b721c6dedfe70eb4}} 
+\index{PlantWithSensor@{PlantWithSensor}!getName@{getName}}
+\index{getName@{getName}!PlantWithSensor@{PlantWithSensor}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Plant\+With\+Sensor\+::get\+Name (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_plant_interface_abcce0188c5318517c954756f63b5001f}{Plant\+Interface}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_plant_with_d_m_a_moisture_sensor_a1680cf99e1eaceb77fd746c5911abb78}{Plant\+With\+D\+M\+A\+Moisture\+Sensor}}.
+
+
+
+Definition at line 47 of file plants.\+cpp.
+
+\mbox{\Hypertarget{class_plant_with_sensor_a6b805e3d50214e933d29a2e975a84a26}\label{class_plant_with_sensor_a6b805e3d50214e933d29a2e975a84a26}} 
+\index{PlantWithSensor@{PlantWithSensor}!setMoisturePercent@{setMoisturePercent}}
+\index{setMoisturePercent@{setMoisturePercent}!PlantWithSensor@{PlantWithSensor}}
+\doxysubsubsection{\texorpdfstring{setMoisturePercent()}{setMoisturePercent()}}
+{\footnotesize\ttfamily bool Plant\+With\+Sensor\+::set\+Moisture\+Percent (\begin{DoxyParamCaption}\item[{const float \&}]{\+\_\+moisture }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_plant_interface_a22730c029a236b03c311416f33f1e616}{Plant\+Interface}}.
+
+
+
+Definition at line 43 of file plants.\+cpp.
+
+\mbox{\Hypertarget{class_plant_with_sensor_abe41768d3c254520f04bafb01c9c986c}\label{class_plant_with_sensor_abe41768d3c254520f04bafb01c9c986c}} 
+\index{PlantWithSensor@{PlantWithSensor}!updateRaw@{updateRaw}}
+\index{updateRaw@{updateRaw}!PlantWithSensor@{PlantWithSensor}}
+\doxysubsubsection{\texorpdfstring{updateRaw()}{updateRaw()}}
+{\footnotesize\ttfamily void Plant\+With\+Sensor\+::update\+Raw (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t \&}]{\+\_\+raw\+\_\+measurement }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_plant_interface_a9a6c05126f4747800c85d819819638dc}{Plant\+Interface}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_plant_with_d_m_a_moisture_sensor_a4c6629a0be390407beb494d1d81da184}{Plant\+With\+D\+M\+A\+Moisture\+Sensor}}.
+
+
+
+Definition at line 55 of file plants.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Inc/\mbox{\hyperlink{plants_8h}{plants.\+h}}\item 
+Src/\mbox{\hyperlink{plants_8cpp}{plants.\+cpp}}\end{DoxyCompactItemize}

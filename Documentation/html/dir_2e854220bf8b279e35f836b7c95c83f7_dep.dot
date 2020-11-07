@@ -1,0 +1,11 @@
+digraph "Drivers/CMSIS/Device/ST/STM32F4xx/Include" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_e960970896f0528bcce5c2af1fd987f8 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="STM32F4xx" fontname="Helvetica", fontsize="10", URL="dir_e960970896f0528bcce5c2af1fd987f8.html"]
+  dir_2e854220bf8b279e35f836b7c95c83f7 [shape=box, label="Include", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_2e854220bf8b279e35f836b7c95c83f7.html"];
+  }
+  dir_5d6a8c3e4e61116f4938be35d8adfd18 [shape=box label="Include" URL="dir_5d6a8c3e4e61116f4938be35d8adfd18.html"];
+  dir_2e854220bf8b279e35f836b7c95c83f7->dir_5d6a8c3e4e61116f4938be35d8adfd18 [headlabel="1", labeldistance=1.5 headhref="dir_000005_000006.html"];
+}

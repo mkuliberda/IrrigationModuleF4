@@ -1,0 +1,97 @@
+\hypertarget{class_message}{}\doxysection{Message Class Reference}
+\label{class_message}\index{Message@{Message}}
+
+
+{\ttfamily \#include $<$communication\+\_\+base.\+h$>$}
+
+Inheritance diagram for Message\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_message}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_message_a4fc4f717b634e66070366cb7722d7761}{Message}} ()
+\item 
+virtual \mbox{\hyperlink{class_message_acee46f6aed7e93e244460565079a5c48}{$\sim$\+Message}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_message_a9d2679c59c7d64a5ee59d03c7d74319d}{validate\+C\+RC}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{class_message_ac6f1d984cd1e5965a2316b4d7368ff64}{set\+Buffer}} (uint8\+\_\+t $\ast$\+\_\+frame, const size\+\_\+t \&\+\_\+buffer\+\_\+size)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_message_afd864c88644f422ad788b72293a2ee8a}{calculate\+C\+R\+C8}} (uint8\+\_\+t $\ast$data, const size\+\_\+t \&\+\_\+payload\+\_\+size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 57 of file communication\+\_\+base.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_message_a4fc4f717b634e66070366cb7722d7761}\label{class_message_a4fc4f717b634e66070366cb7722d7761}} 
+\index{Message@{Message}!Message@{Message}}
+\index{Message@{Message}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{Message()}{Message()}}
+{\footnotesize\ttfamily Message\+::\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 65 of file communication\+\_\+base.\+h.
+
+\mbox{\Hypertarget{class_message_acee46f6aed7e93e244460565079a5c48}\label{class_message_acee46f6aed7e93e244460565079a5c48}} 
+\index{Message@{Message}!````~Message@{$\sim$Message}}
+\index{````~Message@{$\sim$Message}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{$\sim$Message()}{~Message()}}
+{\footnotesize\ttfamily virtual Message\+::$\sim$\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 67 of file communication\+\_\+base.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_message_afd864c88644f422ad788b72293a2ee8a}\label{class_message_afd864c88644f422ad788b72293a2ee8a}} 
+\index{Message@{Message}!calculateCRC8@{calculateCRC8}}
+\index{calculateCRC8@{calculateCRC8}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{calculateCRC8()}{calculateCRC8()}}
+{\footnotesize\ttfamily uint8\+\_\+t Message\+::calculate\+C\+R\+C8 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{const size\+\_\+t \&}]{\+\_\+payload\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 22 of file communication\+\_\+base.\+cpp.
+
+\mbox{\Hypertarget{class_message_ac6f1d984cd1e5965a2316b4d7368ff64}\label{class_message_ac6f1d984cd1e5965a2316b4d7368ff64}} 
+\index{Message@{Message}!setBuffer@{setBuffer}}
+\index{setBuffer@{setBuffer}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{setBuffer()}{setBuffer()}}
+{\footnotesize\ttfamily virtual bool Message\+::set\+Buffer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{\+\_\+frame,  }\item[{const size\+\_\+t \&}]{\+\_\+buffer\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_irrigation_message_a4859c04be49f9be1eb6f764cfeb25468}{Irrigation\+Message}}.
+
+\mbox{\Hypertarget{class_message_a9d2679c59c7d64a5ee59d03c7d74319d}\label{class_message_a9d2679c59c7d64a5ee59d03c7d74319d}} 
+\index{Message@{Message}!validateCRC@{validateCRC}}
+\index{validateCRC@{validateCRC}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{validateCRC()}{validateCRC()}}
+{\footnotesize\ttfamily virtual bool Message\+::validate\+C\+RC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_irrigation_message_aa528a1363eb8cede627b4f4808b43c2d}{Irrigation\+Message}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Middlewares/\+Wireless\+Comm/\mbox{\hyperlink{communication__base_8h}{communication\+\_\+base.\+h}}\item 
+Middlewares/\+Wireless\+Comm/\mbox{\hyperlink{communication__base_8cpp}{communication\+\_\+base.\+cpp}}\end{DoxyCompactItemize}

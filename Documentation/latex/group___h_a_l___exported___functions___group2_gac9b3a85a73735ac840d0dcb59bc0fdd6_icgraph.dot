@@ -1,0 +1,10 @@
+digraph "HAL_GetTick"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="HAL_GetTick",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Provides a tick value in millisecond."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="HAL_Delay",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___h_a_l___exported___functions___group2.html#gab1dc1e6b438daacfe38a312a90221330",tooltip="This function provides minimum delay (in milliseconds) based on variable incremented."];
+}

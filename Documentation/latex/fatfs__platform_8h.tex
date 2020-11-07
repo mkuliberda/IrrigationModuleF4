@@ -1,0 +1,90 @@
+\hypertarget{fatfs__platform_8h}{}\doxysection{Inc/fatfs\+\_\+platform.h File Reference}
+\label{fatfs__platform_8h}\index{Inc/fatfs\_platform.h@{Inc/fatfs\_platform.h}}
+
+
+\+: fatfs\+\_\+platform header file  
+
+
+{\ttfamily \#include \char`\"{}stm32f4xx\+\_\+hal.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fatfs__platform_8h_a44beec2a536fb750d2401d7bb7c227b6}{S\+D\+\_\+\+P\+R\+E\+S\+E\+NT}}~((uint8\+\_\+t)0x01)  /$\ast$ also in bsp\+\_\+driver\+\_\+sd.\+h $\ast$/
+\item 
+\#define \mbox{\hyperlink{fatfs__platform_8h_a342b72a630b1c5c90e2fd95c93dd686b}{S\+D\+\_\+\+N\+O\+T\+\_\+\+P\+R\+E\+S\+E\+NT}}~((uint8\+\_\+t)0x00)  /$\ast$ also in bsp\+\_\+driver\+\_\+sd.\+h $\ast$/
+\item 
+\#define \mbox{\hyperlink{fatfs__platform_8h_a11c087819e50383ac825b9234dcde76c}{S\+D\+\_\+\+D\+E\+T\+E\+C\+T\+\_\+\+P\+IN}}~\mbox{\hyperlink{group___g_p_i_o__pins__define_ga176efbf43a259b7bb0a85a47401505be}{G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+0}}
+\item 
+\#define \mbox{\hyperlink{fatfs__platform_8h_aba1b417a85b8cd191c6ba44251a84f53}{S\+D\+\_\+\+D\+E\+T\+E\+C\+T\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT}}~\mbox{\hyperlink{group___peripheral__declaration_ga7580b1a929ea9df59725ba9c18eba6ac}{G\+P\+I\+OD}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{fatfs__platform_8h_aa64443bad1703927b76af9ab0ddd443d}{B\+S\+P\+\_\+\+Platform\+Is\+Detected}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: fatfs\+\_\+platform header file 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+\doxysubsubsection*{\begin{center}\copyright{} Copyright (c) 2020 S\+T\+Microelectronics. All rights reserved.\end{center} }
+
+This software component is licensed by ST under Ultimate Liberty license S\+L\+A0044, the \char`\"{}\+License\char`\"{}; You may not use this file except in compliance with the License. You may obtain a copy of the License at\+: www.\+st.\+com/\+S\+L\+A0044 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{fatfs__platform_8h_aba1b417a85b8cd191c6ba44251a84f53}\label{fatfs__platform_8h_aba1b417a85b8cd191c6ba44251a84f53}} 
+\index{fatfs\_platform.h@{fatfs\_platform.h}!SD\_DETECT\_GPIO\_PORT@{SD\_DETECT\_GPIO\_PORT}}
+\index{SD\_DETECT\_GPIO\_PORT@{SD\_DETECT\_GPIO\_PORT}!fatfs\_platform.h@{fatfs\_platform.h}}
+\doxysubsubsection{\texorpdfstring{SD\_DETECT\_GPIO\_PORT}{SD\_DETECT\_GPIO\_PORT}}
+{\footnotesize\ttfamily \#define S\+D\+\_\+\+D\+E\+T\+E\+C\+T\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT~\mbox{\hyperlink{group___peripheral__declaration_ga7580b1a929ea9df59725ba9c18eba6ac}{G\+P\+I\+OD}}}
+
+
+
+Definition at line 24 of file fatfs\+\_\+platform.\+h.
+
+\mbox{\Hypertarget{fatfs__platform_8h_a11c087819e50383ac825b9234dcde76c}\label{fatfs__platform_8h_a11c087819e50383ac825b9234dcde76c}} 
+\index{fatfs\_platform.h@{fatfs\_platform.h}!SD\_DETECT\_PIN@{SD\_DETECT\_PIN}}
+\index{SD\_DETECT\_PIN@{SD\_DETECT\_PIN}!fatfs\_platform.h@{fatfs\_platform.h}}
+\doxysubsubsection{\texorpdfstring{SD\_DETECT\_PIN}{SD\_DETECT\_PIN}}
+{\footnotesize\ttfamily \#define S\+D\+\_\+\+D\+E\+T\+E\+C\+T\+\_\+\+P\+IN~\mbox{\hyperlink{group___g_p_i_o__pins__define_ga176efbf43a259b7bb0a85a47401505be}{G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+0}}}
+
+
+
+Definition at line 23 of file fatfs\+\_\+platform.\+h.
+
+\mbox{\Hypertarget{fatfs__platform_8h_a342b72a630b1c5c90e2fd95c93dd686b}\label{fatfs__platform_8h_a342b72a630b1c5c90e2fd95c93dd686b}} 
+\index{fatfs\_platform.h@{fatfs\_platform.h}!SD\_NOT\_PRESENT@{SD\_NOT\_PRESENT}}
+\index{SD\_NOT\_PRESENT@{SD\_NOT\_PRESENT}!fatfs\_platform.h@{fatfs\_platform.h}}
+\doxysubsubsection{\texorpdfstring{SD\_NOT\_PRESENT}{SD\_NOT\_PRESENT}}
+{\footnotesize\ttfamily \#define S\+D\+\_\+\+N\+O\+T\+\_\+\+P\+R\+E\+S\+E\+NT~((uint8\+\_\+t)0x00)  /$\ast$ also in bsp\+\_\+driver\+\_\+sd.\+h $\ast$/}
+
+
+
+Definition at line 22 of file fatfs\+\_\+platform.\+h.
+
+\mbox{\Hypertarget{fatfs__platform_8h_a44beec2a536fb750d2401d7bb7c227b6}\label{fatfs__platform_8h_a44beec2a536fb750d2401d7bb7c227b6}} 
+\index{fatfs\_platform.h@{fatfs\_platform.h}!SD\_PRESENT@{SD\_PRESENT}}
+\index{SD\_PRESENT@{SD\_PRESENT}!fatfs\_platform.h@{fatfs\_platform.h}}
+\doxysubsubsection{\texorpdfstring{SD\_PRESENT}{SD\_PRESENT}}
+{\footnotesize\ttfamily \#define S\+D\+\_\+\+P\+R\+E\+S\+E\+NT~((uint8\+\_\+t)0x01)  /$\ast$ also in bsp\+\_\+driver\+\_\+sd.\+h $\ast$/}
+
+
+
+Definition at line 21 of file fatfs\+\_\+platform.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fatfs__platform_8h_aa64443bad1703927b76af9ab0ddd443d}\label{fatfs__platform_8h_aa64443bad1703927b76af9ab0ddd443d}} 
+\index{fatfs\_platform.h@{fatfs\_platform.h}!BSP\_PlatformIsDetected@{BSP\_PlatformIsDetected}}
+\index{BSP\_PlatformIsDetected@{BSP\_PlatformIsDetected}!fatfs\_platform.h@{fatfs\_platform.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_PlatformIsDetected()}{BSP\_PlatformIsDetected()}}
+{\footnotesize\ttfamily uint8\+\_\+t B\+S\+P\+\_\+\+Platform\+Is\+Detected (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 20 of file fatfs\+\_\+platform.\+c.
+

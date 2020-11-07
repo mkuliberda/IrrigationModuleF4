@@ -1,0 +1,146 @@
+\hypertarget{class_binary_pump}{}\doxysection{Binary\+Pump Class Reference}
+\label{class_binary_pump}\index{BinaryPump@{BinaryPump}}
+
+
+{\ttfamily \#include $<$irrigation.\+h$>$}
+
+Inheritance diagram for Binary\+Pump\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_binary_pump}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_binary_pump_ab91012a40672518d5412a805ff123213}{Binary\+Pump}} ()
+\item 
+bool \mbox{\hyperlink{class_binary_pump_a912dcdf82d6613529a571709d9a6cb65}{init}} (const uint8\+\_\+t \&\+\_\+id, const uint32\+\_\+t \&\+\_\+idletime\+Required\+Seconds, const uint32\+\_\+t \&\+\_\+runtime\+Limit\+Seconds, const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&\+\_\+pinout, const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&\+\_\+led)
+\item 
+void \mbox{\hyperlink{class_binary_pump_a67958c716a37c968259de34c58b56b81}{run}} (const double \&\+\_\+dt, const \mbox{\hyperlink{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6}{pumpcmd\+\_\+t}} \&\+\_\+cmd, bool \&cmd\+\_\+consumed)
+\item 
+void \mbox{\hyperlink{class_binary_pump_afc76c63eb0e08a319ed174ba4adc26be}{set\+State}} (const \mbox{\hyperlink{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018}{pumpstate\+\_\+t}} \&\+\_\+st) override
+\item 
+void \mbox{\hyperlink{class_binary_pump_a15a6781b50406b3e4a26d080ee4e20b2}{forcestart}} (void)
+\item 
+void \mbox{\hyperlink{class_binary_pump_af0c654909b35f9140a65244c678abd5a}{forcestop}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_binary_pump_a7500c98150ca757b0bf474344ed21c09}{start}} (void) override
+\item 
+bool \mbox{\hyperlink{class_binary_pump_aee1ad06392572fe17659efe1a187f841}{stop}} (void) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 123 of file irrigation.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_binary_pump_ab91012a40672518d5412a805ff123213}\label{class_binary_pump_ab91012a40672518d5412a805ff123213}} 
+\index{BinaryPump@{BinaryPump}!BinaryPump@{BinaryPump}}
+\index{BinaryPump@{BinaryPump}!BinaryPump@{BinaryPump}}
+\doxysubsubsection{\texorpdfstring{BinaryPump()}{BinaryPump()}}
+{\footnotesize\ttfamily Binary\+Pump\+::\+Binary\+Pump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 137 of file irrigation.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_binary_pump_a15a6781b50406b3e4a26d080ee4e20b2}\label{class_binary_pump_a15a6781b50406b3e4a26d080ee4e20b2}} 
+\index{BinaryPump@{BinaryPump}!forcestart@{forcestart}}
+\index{forcestart@{forcestart}!BinaryPump@{BinaryPump}}
+\doxysubsubsection{\texorpdfstring{forcestart()}{forcestart()}}
+{\footnotesize\ttfamily void Binary\+Pump\+::forcestart (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 171 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_binary_pump_af0c654909b35f9140a65244c678abd5a}\label{class_binary_pump_af0c654909b35f9140a65244c678abd5a}} 
+\index{BinaryPump@{BinaryPump}!forcestop@{forcestop}}
+\index{forcestop@{forcestop}!BinaryPump@{BinaryPump}}
+\doxysubsubsection{\texorpdfstring{forcestop()}{forcestop()}}
+{\footnotesize\ttfamily void Binary\+Pump\+::forcestop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 180 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_binary_pump_a912dcdf82d6613529a571709d9a6cb65}\label{class_binary_pump_a912dcdf82d6613529a571709d9a6cb65}} 
+\index{BinaryPump@{BinaryPump}!init@{init}}
+\index{init@{init}!BinaryPump@{BinaryPump}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool Binary\+Pump\+::init (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \&}]{\+\_\+id,  }\item[{const uint32\+\_\+t \&}]{\+\_\+idletime\+Required\+Seconds,  }\item[{const uint32\+\_\+t \&}]{\+\_\+runtime\+Limit\+Seconds,  }\item[{const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&}]{\+\_\+pinout,  }\item[{const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&}]{\+\_\+led }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_binary_pump}{Binary\+Pump}} class implementation 
+
+Definition at line 66 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_binary_pump_a67958c716a37c968259de34c58b56b81}\label{class_binary_pump_a67958c716a37c968259de34c58b56b81}} 
+\index{BinaryPump@{BinaryPump}!run@{run}}
+\index{run@{run}!BinaryPump@{BinaryPump}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Binary\+Pump\+::run (\begin{DoxyParamCaption}\item[{const double \&}]{\+\_\+dt,  }\item[{const \mbox{\hyperlink{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6}{pumpcmd\+\_\+t}} \&}]{\+\_\+cmd,  }\item[{bool \&}]{cmd\+\_\+consumed }\end{DoxyParamCaption})}
+
+
+
+Definition at line 82 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_binary_pump_afc76c63eb0e08a319ed174ba4adc26be}\label{class_binary_pump_afc76c63eb0e08a319ed174ba4adc26be}} 
+\index{BinaryPump@{BinaryPump}!setState@{setState}}
+\index{setState@{setState}!BinaryPump@{BinaryPump}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void Binary\+Pump\+::set\+State (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018}{pumpstate\+\_\+t}} \&}]{\+\_\+st }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_pump_aaec5cd16d69f1f1c6b1573a22d51c26a}{Pump}}.
+
+
+
+Definition at line 190 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_binary_pump_a7500c98150ca757b0bf474344ed21c09}\label{class_binary_pump_a7500c98150ca757b0bf474344ed21c09}} 
+\index{BinaryPump@{BinaryPump}!start@{start}}
+\index{start@{start}!BinaryPump@{BinaryPump}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily bool Binary\+Pump\+::start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_pump_a57322bce30bd286abeec51c44446395f}{Pump}}.
+
+
+
+Definition at line 135 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_binary_pump_aee1ad06392572fe17659efe1a187f841}\label{class_binary_pump_aee1ad06392572fe17659efe1a187f841}} 
+\index{BinaryPump@{BinaryPump}!stop@{stop}}
+\index{stop@{stop}!BinaryPump@{BinaryPump}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily bool Binary\+Pump\+::stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_pump_a3f9162bdae99dc25536e4f65e7968209}{Pump}}.
+
+
+
+Definition at line 153 of file irrigation.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Inc/\mbox{\hyperlink{irrigation_8h}{irrigation.\+h}}\item 
+Src/\mbox{\hyperlink{irrigation_8cpp}{irrigation.\+cpp}}\end{DoxyCompactItemize}

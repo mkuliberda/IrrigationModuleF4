@@ -1,0 +1,307 @@
+\hypertarget{class_n_r_f24_l01}{}\doxysection{N\+R\+F24\+L01 Class Reference}
+\label{class_n_r_f24_l01}\index{NRF24L01@{NRF24L01}}
+
+
+{\ttfamily \#include $<$nrf24l01.\+h$>$}
+
+Inheritance diagram for N\+R\+F24\+L01\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_n_r_f24_l01}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_n_r_f24_l01_ad3e6263e0afaa974637d1450b6c8cb37}{N\+R\+F24\+L01}} ()
+\item 
+void \mbox{\hyperlink{class_n_r_f24_l01_a2a9b996af3bf167d8ce6c139d901a87a}{Init}} (\mbox{\hyperlink{group___s_p_i___exported___types_gab3bd115785297692c125528b7293566b}{S\+P\+I\+\_\+\+Handle\+Type\+Def}} $\ast$\+\_\+spi, const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&\+\_\+ce, const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&\+\_\+csn)
+\item 
+void \mbox{\hyperlink{class_n_r_f24_l01_a5df41fe4b78149e200a2187e5ad19d69}{Init}} (\mbox{\hyperlink{group___s_p_i___exported___types_gab3bd115785297692c125528b7293566b}{S\+P\+I\+\_\+\+Handle\+Type\+Def}} $\ast$\+\_\+spi, const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&\+\_\+ce, const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&\+\_\+csn, const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&\+\_\+irq)
+\item 
+bool \& \mbox{\hyperlink{class_n_r_f24_l01_a87b91805d8c9ed3343bb2cca02f8f655}{Config}} (const uint8\+\_\+t \&\+\_\+payloadsize, const uint8\+\_\+t \&\+\_\+channel, const \mbox{\hyperlink{nrf24l01_8h_ade6809b668feae0707fcf552757d175d}{N\+R\+F24\+L01\+\_\+\+Output\+Power\+\_\+t}} \&\+\_\+outpwr, const \mbox{\hyperlink{nrf24l01_8h_af2978c02d2ce9a0d4a2b1d60f7e77d10}{N\+R\+F24\+L01\+\_\+\+Data\+Rate\+\_\+t}} \&\+\_\+datarate)
+\item 
+bool \mbox{\hyperlink{class_n_r_f24_l01_a14395046d00f6d3d25109abf55b01793}{Set\+RF}} (const \mbox{\hyperlink{nrf24l01_8h_af2978c02d2ce9a0d4a2b1d60f7e77d10}{N\+R\+F24\+L01\+\_\+\+Data\+Rate\+\_\+t}} \&\+\_\+datarate, const \mbox{\hyperlink{nrf24l01_8h_ade6809b668feae0707fcf552757d175d}{N\+R\+F24\+L01\+\_\+\+Output\+Power\+\_\+t}} \&\+\_\+outpwr)
+\item 
+uint8\+\_\+t \& \mbox{\hyperlink{class_n_r_f24_l01_aede733f1fb36b63a0755ee2a56a9f442}{Get\+Payload\+Size}} (void)
+\item 
+bool \mbox{\hyperlink{class_n_r_f24_l01_a1376a71f54e9e50d4d8f7c0932fb1850}{Set\+Channel}} (const uint8\+\_\+t \&\+\_\+channel)
+\item 
+void \mbox{\hyperlink{class_n_r_f24_l01_a98aeacec7790d41445f0690fece6156c}{Set\+My\+Address}} (uint8\+\_\+t $\ast$adr)
+\item 
+void \mbox{\hyperlink{class_n_r_f24_l01_a8ee15f967384ca6bb2b8a6e1284cf7e1}{Set\+Tx\+Address}} (uint8\+\_\+t $\ast$adr)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_n_r_f24_l01_acccf3dc150f2ba2513e93c75e156139d}{Data\+Ready}} (void)
+\item 
+void \mbox{\hyperlink{class_n_r_f24_l01_ac02989e058df4917e305041ef58194cb}{Get\+Payload}} (uint8\+\_\+t $\ast$data)
+\item 
+void \mbox{\hyperlink{class_n_r_f24_l01_afb71b71a4785e6af67667fdd2dc121ad}{Transmit\+Payload}} (uint8\+\_\+t $\ast$data)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_n_r_f24_l01_a46ed8b8245e4c489fcaf22160727eb2a}{Get\+Retransmissions\+Count}} (void)
+\item 
+\mbox{\hyperlink{nrf24l01_8h_a3a155f9ad84edbaded809999d9f1ffb3}{N\+R\+F24\+L01\+\_\+\+Transmit\+\_\+\+Status\+\_\+t}} \mbox{\hyperlink{class_n_r_f24_l01_a79d23d26d56b55dc0909b80adf8a428f}{Get\+Transmission\+Status}} (void)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_n_r_f24_l01_a235838a7189d9214d5f0d8ac2174de21}{Get\+Status}} (void)
+\item 
+void \mbox{\hyperlink{class_n_r_f24_l01_ad39fbccf6486e7202ca8f9d5c8396d37}{Power\+Up\+Tx}} (void)
+\item 
+void \mbox{\hyperlink{class_n_r_f24_l01_ac39dd071ecde54848e01d2a3ca76993a}{Power\+Up\+Rx}} (void)
+\item 
+void \mbox{\hyperlink{class_n_r_f24_l01_a8aaaa391a13b88d5daa7d8cb78799ee1}{Power\+Down}} (void)
+\item 
+uint8\+\_\+t \& \mbox{\hyperlink{class_n_r_f24_l01_a23550f1671ae4f4088297529a43549b3}{Read\+Interrupts}} (void)
+\item 
+void \mbox{\hyperlink{class_n_r_f24_l01_ad8acacecc2037583f27177e8936ce03b}{Clear\+Interrupts}} (void)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_n_r_f24_l01_a159b5a930ca8a19a160f3d11156eeb71}{Read\+Register\+Test}} (const uint8\+\_\+t \&\+\_\+reg)
+\item 
+bool \mbox{\hyperlink{class_n_r_f24_l01_a685a495539661b75764fb512010f5021}{is\+Receiver}} (void)
+\item 
+bool \mbox{\hyperlink{class_n_r_f24_l01_aa5b563022b0e12e81e5e082e9a9a144a}{is\+Transmitter}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 274 of file nrf24l01.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_n_r_f24_l01_ad3e6263e0afaa974637d1450b6c8cb37}\label{class_n_r_f24_l01_ad3e6263e0afaa974637d1450b6c8cb37}} 
+\index{NRF24L01@{NRF24L01}!NRF24L01@{NRF24L01}}
+\index{NRF24L01@{NRF24L01}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{NRF24L01()}{NRF24L01()}}
+{\footnotesize\ttfamily N\+R\+F24\+L01\+::\+N\+R\+F24\+L01 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 311 of file nrf24l01.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_n_r_f24_l01_ad8acacecc2037583f27177e8936ce03b}\label{class_n_r_f24_l01_ad8acacecc2037583f27177e8936ce03b}} 
+\index{NRF24L01@{NRF24L01}!ClearInterrupts@{ClearInterrupts}}
+\index{ClearInterrupts@{ClearInterrupts}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{ClearInterrupts()}{ClearInterrupts()}}
+{\footnotesize\ttfamily void N\+R\+F24\+L01\+::\+Clear\+Interrupts (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 423 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_a87b91805d8c9ed3343bb2cca02f8f655}\label{class_n_r_f24_l01_a87b91805d8c9ed3343bb2cca02f8f655}} 
+\index{NRF24L01@{NRF24L01}!Config@{Config}}
+\index{Config@{Config}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{Config()}{Config()}}
+{\footnotesize\ttfamily bool \& N\+R\+F24\+L01\+::\+Config (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \&}]{\+\_\+payloadsize,  }\item[{const uint8\+\_\+t \&}]{\+\_\+channel,  }\item[{const \mbox{\hyperlink{nrf24l01_8h_ade6809b668feae0707fcf552757d175d}{N\+R\+F24\+L01\+\_\+\+Output\+Power\+\_\+t}} \&}]{\+\_\+outpwr,  }\item[{const \mbox{\hyperlink{nrf24l01_8h_af2978c02d2ce9a0d4a2b1d60f7e77d10}{N\+R\+F24\+L01\+\_\+\+Data\+Rate\+\_\+t}} \&}]{\+\_\+datarate }\end{DoxyParamCaption})}
+
+
+
+Definition at line 50 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_acccf3dc150f2ba2513e93c75e156139d}\label{class_n_r_f24_l01_acccf3dc150f2ba2513e93c75e156139d}} 
+\index{NRF24L01@{NRF24L01}!DataReady@{DataReady}}
+\index{DataReady@{DataReady}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{DataReady()}{DataReady()}}
+{\footnotesize\ttfamily uint8\+\_\+t N\+R\+F24\+L01\+::\+Data\+Ready (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 263 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_ac02989e058df4917e305041ef58194cb}\label{class_n_r_f24_l01_ac02989e058df4917e305041ef58194cb}} 
+\index{NRF24L01@{NRF24L01}!GetPayload@{GetPayload}}
+\index{GetPayload@{GetPayload}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{GetPayload()}{GetPayload()}}
+{\footnotesize\ttfamily void N\+R\+F24\+L01\+::\+Get\+Payload (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line 232 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_aede733f1fb36b63a0755ee2a56a9f442}\label{class_n_r_f24_l01_aede733f1fb36b63a0755ee2a56a9f442}} 
+\index{NRF24L01@{NRF24L01}!GetPayloadSize@{GetPayloadSize}}
+\index{GetPayloadSize@{GetPayloadSize}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{GetPayloadSize()}{GetPayloadSize()}}
+{\footnotesize\ttfamily uint8\+\_\+t \& N\+R\+F24\+L01\+::\+Get\+Payload\+Size (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 259 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_a46ed8b8245e4c489fcaf22160727eb2a}\label{class_n_r_f24_l01_a46ed8b8245e4c489fcaf22160727eb2a}} 
+\index{NRF24L01@{NRF24L01}!GetRetransmissionsCount@{GetRetransmissionsCount}}
+\index{GetRetransmissionsCount@{GetRetransmissionsCount}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{GetRetransmissionsCount()}{GetRetransmissionsCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t N\+R\+F24\+L01\+::\+Get\+Retransmissions\+Count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 368 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_a235838a7189d9214d5f0d8ac2174de21}\label{class_n_r_f24_l01_a235838a7189d9214d5f0d8ac2174de21}} 
+\index{NRF24L01@{NRF24L01}!GetStatus@{GetStatus}}
+\index{GetStatus@{GetStatus}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{GetStatus()}{GetStatus()}}
+{\footnotesize\ttfamily uint8\+\_\+t N\+R\+F24\+L01\+::\+Get\+Status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 278 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_a79d23d26d56b55dc0909b80adf8a428f}\label{class_n_r_f24_l01_a79d23d26d56b55dc0909b80adf8a428f}} 
+\index{NRF24L01@{NRF24L01}!GetTransmissionStatus@{GetTransmissionStatus}}
+\index{GetTransmissionStatus@{GetTransmissionStatus}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{GetTransmissionStatus()}{GetTransmissionStatus()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nrf24l01_8h_a3a155f9ad84edbaded809999d9f1ffb3}{N\+R\+F24\+L01\+\_\+\+Transmit\+\_\+\+Status\+\_\+t}} N\+R\+F24\+L01\+::\+Get\+Transmission\+Status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 297 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_a2a9b996af3bf167d8ce6c139d901a87a}\label{class_n_r_f24_l01_a2a9b996af3bf167d8ce6c139d901a87a}} 
+\index{NRF24L01@{NRF24L01}!Init@{Init}}
+\index{Init@{Init}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void N\+R\+F24\+L01\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___s_p_i___exported___types_gab3bd115785297692c125528b7293566b}{S\+P\+I\+\_\+\+Handle\+Type\+Def}} $\ast$}]{\+\_\+spi,  }\item[{const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&}]{\+\_\+ce,  }\item[{const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&}]{\+\_\+csn }\end{DoxyParamCaption})}
+
+
+
+Definition at line 7 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_a5df41fe4b78149e200a2187e5ad19d69}\label{class_n_r_f24_l01_a5df41fe4b78149e200a2187e5ad19d69}} 
+\index{NRF24L01@{NRF24L01}!Init@{Init}}
+\index{Init@{Init}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void N\+R\+F24\+L01\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___s_p_i___exported___types_gab3bd115785297692c125528b7293566b}{S\+P\+I\+\_\+\+Handle\+Type\+Def}} $\ast$}]{\+\_\+spi,  }\item[{const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&}]{\+\_\+ce,  }\item[{const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&}]{\+\_\+csn,  }\item[{const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&}]{\+\_\+irq }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_n_r_f24_l01_a685a495539661b75764fb512010f5021}\label{class_n_r_f24_l01_a685a495539661b75764fb512010f5021}} 
+\index{NRF24L01@{NRF24L01}!isReceiver@{isReceiver}}
+\index{isReceiver@{isReceiver}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{isReceiver()}{isReceiver()}}
+{\footnotesize\ttfamily bool N\+R\+F24\+L01\+::is\+Receiver (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 544 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_aa5b563022b0e12e81e5e082e9a9a144a}\label{class_n_r_f24_l01_aa5b563022b0e12e81e5e082e9a9a144a}} 
+\index{NRF24L01@{NRF24L01}!isTransmitter@{isTransmitter}}
+\index{isTransmitter@{isTransmitter}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{isTransmitter()}{isTransmitter()}}
+{\footnotesize\ttfamily bool N\+R\+F24\+L01\+::is\+Transmitter (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 548 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_a8aaaa391a13b88d5daa7d8cb78799ee1}\label{class_n_r_f24_l01_a8aaaa391a13b88d5daa7d8cb78799ee1}} 
+\index{NRF24L01@{NRF24L01}!PowerDown@{PowerDown}}
+\index{PowerDown@{PowerDown}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{PowerDown()}{PowerDown()}}
+{\footnotesize\ttfamily void N\+R\+F24\+L01\+::\+Power\+Down (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 197 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_ac39dd071ecde54848e01d2a3ca76993a}\label{class_n_r_f24_l01_ac39dd071ecde54848e01d2a3ca76993a}} 
+\index{NRF24L01@{NRF24L01}!PowerUpRx@{PowerUpRx}}
+\index{PowerUpRx@{PowerUpRx}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{PowerUpRx()}{PowerUpRx()}}
+{\footnotesize\ttfamily void N\+R\+F24\+L01\+::\+Power\+Up\+Rx (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 184 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_ad39fbccf6486e7202ca8f9d5c8396d37}\label{class_n_r_f24_l01_ad39fbccf6486e7202ca8f9d5c8396d37}} 
+\index{NRF24L01@{NRF24L01}!PowerUpTx@{PowerUpTx}}
+\index{PowerUpTx@{PowerUpTx}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{PowerUpTx()}{PowerUpTx()}}
+{\footnotesize\ttfamily void N\+R\+F24\+L01\+::\+Power\+Up\+Tx (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 179 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_a23550f1671ae4f4088297529a43549b3}\label{class_n_r_f24_l01_a23550f1671ae4f4088297529a43549b3}} 
+\index{NRF24L01@{NRF24L01}!ReadInterrupts@{ReadInterrupts}}
+\index{ReadInterrupts@{ReadInterrupts}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{ReadInterrupts()}{ReadInterrupts()}}
+{\footnotesize\ttfamily uint8\+\_\+t \& N\+R\+F24\+L01\+::\+Read\+Interrupts (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 418 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_a159b5a930ca8a19a160f3d11156eeb71}\label{class_n_r_f24_l01_a159b5a930ca8a19a160f3d11156eeb71}} 
+\index{NRF24L01@{NRF24L01}!ReadRegisterTest@{ReadRegisterTest}}
+\index{ReadRegisterTest@{ReadRegisterTest}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{ReadRegisterTest()}{ReadRegisterTest()}}
+{\footnotesize\ttfamily uint8\+\_\+t N\+R\+F24\+L01\+::\+Read\+Register\+Test (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \&}]{\+\_\+reg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 524 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_a1376a71f54e9e50d4d8f7c0932fb1850}\label{class_n_r_f24_l01_a1376a71f54e9e50d4d8f7c0932fb1850}} 
+\index{NRF24L01@{NRF24L01}!SetChannel@{SetChannel}}
+\index{SetChannel@{SetChannel}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{SetChannel()}{SetChannel()}}
+{\footnotesize\ttfamily bool N\+R\+F24\+L01\+::\+Set\+Channel (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \&}]{\+\_\+channel }\end{DoxyParamCaption})}
+
+
+
+Definition at line 373 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_a98aeacec7790d41445f0690fece6156c}\label{class_n_r_f24_l01_a98aeacec7790d41445f0690fece6156c}} 
+\index{NRF24L01@{NRF24L01}!SetMyAddress@{SetMyAddress}}
+\index{SetMyAddress@{SetMyAddress}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{SetMyAddress()}{SetMyAddress()}}
+{\footnotesize\ttfamily void N\+R\+F24\+L01\+::\+Set\+My\+Address (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{adr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 110 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_a14395046d00f6d3d25109abf55b01793}\label{class_n_r_f24_l01_a14395046d00f6d3d25109abf55b01793}} 
+\index{NRF24L01@{NRF24L01}!SetRF@{SetRF}}
+\index{SetRF@{SetRF}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{SetRF()}{SetRF()}}
+{\footnotesize\ttfamily bool N\+R\+F24\+L01\+::\+Set\+RF (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{nrf24l01_8h_af2978c02d2ce9a0d4a2b1d60f7e77d10}{N\+R\+F24\+L01\+\_\+\+Data\+Rate\+\_\+t}} \&}]{\+\_\+datarate,  }\item[{const \mbox{\hyperlink{nrf24l01_8h_ade6809b668feae0707fcf552757d175d}{N\+R\+F24\+L01\+\_\+\+Output\+Power\+\_\+t}} \&}]{\+\_\+outpwr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 391 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_a8ee15f967384ca6bb2b8a6e1284cf7e1}\label{class_n_r_f24_l01_a8ee15f967384ca6bb2b8a6e1284cf7e1}} 
+\index{NRF24L01@{NRF24L01}!SetTxAddress@{SetTxAddress}}
+\index{SetTxAddress@{SetTxAddress}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{SetTxAddress()}{SetTxAddress()}}
+{\footnotesize\ttfamily void N\+R\+F24\+L01\+::\+Set\+Tx\+Address (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{adr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 118 of file nrf24l01.\+cpp.
+
+\mbox{\Hypertarget{class_n_r_f24_l01_afb71b71a4785e6af67667fdd2dc121ad}\label{class_n_r_f24_l01_afb71b71a4785e6af67667fdd2dc121ad}} 
+\index{NRF24L01@{NRF24L01}!TransmitPayload@{TransmitPayload}}
+\index{TransmitPayload@{TransmitPayload}!NRF24L01@{NRF24L01}}
+\doxysubsubsection{\texorpdfstring{TransmitPayload()}{TransmitPayload()}}
+{\footnotesize\ttfamily void N\+R\+F24\+L01\+::\+Transmit\+Payload (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line 202 of file nrf24l01.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Middlewares/\+Wireless\+Comm/\mbox{\hyperlink{nrf24l01_8h}{nrf24l01.\+h}}\item 
+Middlewares/\+Wireless\+Comm/\mbox{\hyperlink{nrf24l01_8cpp}{nrf24l01.\+cpp}}\end{DoxyCompactItemize}

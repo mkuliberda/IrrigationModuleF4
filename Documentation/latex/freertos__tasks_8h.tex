@@ -1,0 +1,205 @@
+\hypertarget{freertos__tasks_8h}{}\doxysection{Inc/freertos\+\_\+tasks.h File Reference}
+\label{freertos__tasks_8h}\index{Inc/freertos\_tasks.h@{Inc/freertos\_tasks.h}}
+{\ttfamily \#include \char`\"{}scheduler.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include \char`\"{}stm32f4xx\+\_\+hal.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cmsis\+\_\+os.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}adc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fatfs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}iwdg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sdio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}spi.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tim.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}usart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sd\+\_\+diskio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f4xx\+\_\+hal\+\_\+rtc.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structactivity__msg}{activity\+\_\+msg}}
+\item 
+struct \mbox{\hyperlink{structexception__msg}{exception\+\_\+msg}}
+\item 
+struct \mbox{\hyperlink{structlog__time}{log\+\_\+time}}
+\item 
+struct \mbox{\hyperlink{structlog__msg}{log\+\_\+msg}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{freertos__tasks_8h_a3c44f2364a36e72b6161fa51dcea12df}{L\+O\+G\+\_\+\+T\+E\+X\+T\+\_\+\+L\+EN}}~26
+\item 
+\#define \mbox{\hyperlink{freertos__tasks_8h_abf98cf0751acc730ea451ef31335004a}{L\+O\+G\+\_\+\+F\+O\+R\+M\+AT}}~\char`\"{}\%02d-\/\%02d-\/\%02d \%02d\+:\%02d\+:\%02d \%s\+: \%s\textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{freertos__tasks_8h_a899228976a4465f36ac32e98793259a3}{S\+E\+C\+T\+O\+R\+S\+\_\+\+A\+M\+O\+U\+NT}}~4
+\item 
+\#define \mbox{\hyperlink{freertos__tasks_8h_ac3e32fb2e2b7f2ada265e60b8700a52f}{R\+E\+P\+O\+R\+T\+E\+RS}}~\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Sector1)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Sector2)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Sector3)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Sector4)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Task\+\_\+\+S\+D\+Card)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Task\+\_\+\+Irrigation)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Task\+\_\+\+Wireless)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Task\+\_\+\+Sys\+Monitor)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(\mbox{\hyperlink{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca9683fc965be285edded4502f972f9d19}{Generic}})
+\item 
+\#define \mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(x)~x,
+\item 
+\#define \mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(x)~\#x,
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{freertos__tasks_8h_a00d5ca41988eef2eb3bdf0c9de1b9272}{reporter\+\_\+t}} \{ \mbox{\hyperlink{freertos__tasks_8h_a00d5ca41988eef2eb3bdf0c9de1b9272a0ad44897a70fba309c24a5b6007de3e3}{T\+OP}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{freertos__tasks_8h_a1988aa923b19fa6f31c93afa7773f793}{v\+Application\+Get\+Idle\+Task\+Memory}} (\mbox{\hyperlink{_free_r_t_o_s_8h_a1af40d1b7ab8cb328bac2d92d7378c38}{Static\+Task\+\_\+t}} $\ast$$\ast$ppx\+Idle\+Task\+T\+C\+B\+Buffer, \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}} $\ast$$\ast$ppx\+Idle\+Task\+Stack\+Buffer, uint32\+\_\+t $\ast$pul\+Idle\+Task\+Stack\+Size)
+\item 
+void \mbox{\hyperlink{freertos__tasks_8h_a1e80ecbd3fc2d04f18d6409ffa893a86}{v\+Application\+Get\+Timer\+Task\+Memory}} (\mbox{\hyperlink{_free_r_t_o_s_8h_a1af40d1b7ab8cb328bac2d92d7378c38}{Static\+Task\+\_\+t}} $\ast$$\ast$ppx\+Timer\+Task\+T\+C\+B\+Buffer, \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}} $\ast$$\ast$ppx\+Timer\+Task\+Stack\+Buffer, uint32\+\_\+t $\ast$pul\+Timer\+Task\+Stack\+Size)
+\item 
+void \mbox{\hyperlink{freertos__tasks_8h_abade755e13d07c10889ae83143656158}{M\+X\+\_\+\+F\+R\+E\+E\+R\+T\+O\+S\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Free\+R\+T\+OS initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$const \mbox{\hyperlink{freertos__tasks_8h_a65bd34c59f7e2586e3c86b89a11f284d}{reporter}} \mbox{[}$\,$\mbox{]} = \{ \mbox{\hyperlink{freertos__tasks_8h_ac3e32fb2e2b7f2ada265e60b8700a52f}{R\+E\+P\+O\+R\+T\+E\+RS}} \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}\label{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}} 
+\index{freertos\_tasks.h@{freertos\_tasks.h}!C@{C}}
+\index{C@{C}!freertos\_tasks.h@{freertos\_tasks.h}}
+\doxysubsubsection{\texorpdfstring{C}{C}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~x,}
+
+
+
+Definition at line 35 of file freertos\+\_\+tasks.\+h.
+
+\mbox{\Hypertarget{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}\label{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}} 
+\index{freertos\_tasks.h@{freertos\_tasks.h}!C@{C}}
+\index{C@{C}!freertos\_tasks.h@{freertos\_tasks.h}}
+\doxysubsubsection{\texorpdfstring{C}{C}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\#x,}
+
+
+
+Definition at line 35 of file freertos\+\_\+tasks.\+h.
+
+\mbox{\Hypertarget{freertos__tasks_8h_abf98cf0751acc730ea451ef31335004a}\label{freertos__tasks_8h_abf98cf0751acc730ea451ef31335004a}} 
+\index{freertos\_tasks.h@{freertos\_tasks.h}!LOG\_FORMAT@{LOG\_FORMAT}}
+\index{LOG\_FORMAT@{LOG\_FORMAT}!freertos\_tasks.h@{freertos\_tasks.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_FORMAT}{LOG\_FORMAT}}
+{\footnotesize\ttfamily \#define L\+O\+G\+\_\+\+F\+O\+R\+M\+AT~\char`\"{}\%02d-\/\%02d-\/\%02d \%02d\+:\%02d\+:\%02d \%s\+: \%s\textbackslash{}n\char`\"{}}
+
+
+
+Definition at line 28 of file freertos\+\_\+tasks.\+h.
+
+\mbox{\Hypertarget{freertos__tasks_8h_a3c44f2364a36e72b6161fa51dcea12df}\label{freertos__tasks_8h_a3c44f2364a36e72b6161fa51dcea12df}} 
+\index{freertos\_tasks.h@{freertos\_tasks.h}!LOG\_TEXT\_LEN@{LOG\_TEXT\_LEN}}
+\index{LOG\_TEXT\_LEN@{LOG\_TEXT\_LEN}!freertos\_tasks.h@{freertos\_tasks.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_TEXT\_LEN}{LOG\_TEXT\_LEN}}
+{\footnotesize\ttfamily \#define L\+O\+G\+\_\+\+T\+E\+X\+T\+\_\+\+L\+EN~26}
+
+
+
+Definition at line 27 of file freertos\+\_\+tasks.\+h.
+
+\mbox{\Hypertarget{freertos__tasks_8h_ac3e32fb2e2b7f2ada265e60b8700a52f}\label{freertos__tasks_8h_ac3e32fb2e2b7f2ada265e60b8700a52f}} 
+\index{freertos\_tasks.h@{freertos\_tasks.h}!REPORTERS@{REPORTERS}}
+\index{REPORTERS@{REPORTERS}!freertos\_tasks.h@{freertos\_tasks.h}}
+\doxysubsubsection{\texorpdfstring{REPORTERS}{REPORTERS}}
+{\footnotesize\ttfamily \#define R\+E\+P\+O\+R\+T\+E\+RS~\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Sector1)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Sector2)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Sector3)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Sector4)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Task\+\_\+\+S\+D\+Card)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Task\+\_\+\+Irrigation)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Task\+\_\+\+Wireless)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(Task\+\_\+\+Sys\+Monitor)\mbox{\hyperlink{freertos__tasks_8h_ac54ae397901fe700628cafadea3c5208}{C}}(\mbox{\hyperlink{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca9683fc965be285edded4502f972f9d19}{Generic}})}
+
+
+
+Definition at line 31 of file freertos\+\_\+tasks.\+h.
+
+\mbox{\Hypertarget{freertos__tasks_8h_a899228976a4465f36ac32e98793259a3}\label{freertos__tasks_8h_a899228976a4465f36ac32e98793259a3}} 
+\index{freertos\_tasks.h@{freertos\_tasks.h}!SECTORS\_AMOUNT@{SECTORS\_AMOUNT}}
+\index{SECTORS\_AMOUNT@{SECTORS\_AMOUNT}!freertos\_tasks.h@{freertos\_tasks.h}}
+\doxysubsubsection{\texorpdfstring{SECTORS\_AMOUNT}{SECTORS\_AMOUNT}}
+{\footnotesize\ttfamily \#define S\+E\+C\+T\+O\+R\+S\+\_\+\+A\+M\+O\+U\+NT~4}
+
+
+
+Definition at line 29 of file freertos\+\_\+tasks.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{freertos__tasks_8h_a00d5ca41988eef2eb3bdf0c9de1b9272}\label{freertos__tasks_8h_a00d5ca41988eef2eb3bdf0c9de1b9272}} 
+\index{freertos\_tasks.h@{freertos\_tasks.h}!reporter\_t@{reporter\_t}}
+\index{reporter\_t@{reporter\_t}!freertos\_tasks.h@{freertos\_tasks.h}}
+\doxysubsubsection{\texorpdfstring{reporter\_t}{reporter\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{freertos__tasks_8h_a00d5ca41988eef2eb3bdf0c9de1b9272}{reporter\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TOP@{TOP}!freertos\_tasks.h@{freertos\_tasks.h}}\index{freertos\_tasks.h@{freertos\_tasks.h}!TOP@{TOP}}}\mbox{\Hypertarget{freertos__tasks_8h_a00d5ca41988eef2eb3bdf0c9de1b9272a0ad44897a70fba309c24a5b6007de3e3}\label{freertos__tasks_8h_a00d5ca41988eef2eb3bdf0c9de1b9272a0ad44897a70fba309c24a5b6007de3e3}} 
+T\+OP&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 33 of file freertos\+\_\+tasks.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{freertos__tasks_8h_abade755e13d07c10889ae83143656158}\label{freertos__tasks_8h_abade755e13d07c10889ae83143656158}} 
+\index{freertos\_tasks.h@{freertos\_tasks.h}!MX\_FREERTOS\_Init@{MX\_FREERTOS\_Init}}
+\index{MX\_FREERTOS\_Init@{MX\_FREERTOS\_Init}!freertos\_tasks.h@{freertos\_tasks.h}}
+\doxysubsubsection{\texorpdfstring{MX\_FREERTOS\_Init()}{MX\_FREERTOS\_Init()}}
+{\footnotesize\ttfamily void M\+X\+\_\+\+F\+R\+E\+E\+R\+T\+O\+S\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Free\+R\+T\+OS initialization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 166 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8h_a1988aa923b19fa6f31c93afa7773f793}\label{freertos__tasks_8h_a1988aa923b19fa6f31c93afa7773f793}} 
+\index{freertos\_tasks.h@{freertos\_tasks.h}!vApplicationGetIdleTaskMemory@{vApplicationGetIdleTaskMemory}}
+\index{vApplicationGetIdleTaskMemory@{vApplicationGetIdleTaskMemory}!freertos\_tasks.h@{freertos\_tasks.h}}
+\doxysubsubsection{\texorpdfstring{vApplicationGetIdleTaskMemory()}{vApplicationGetIdleTaskMemory()}}
+{\footnotesize\ttfamily void v\+Application\+Get\+Idle\+Task\+Memory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_free_r_t_o_s_8h_a1af40d1b7ab8cb328bac2d92d7378c38}{Static\+Task\+\_\+t}} $\ast$$\ast$}]{ppx\+Idle\+Task\+T\+C\+B\+Buffer,  }\item[{\mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}} $\ast$$\ast$}]{ppx\+Idle\+Task\+Stack\+Buffer,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Idle\+Task\+Stack\+Size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 41 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8h_a1e80ecbd3fc2d04f18d6409ffa893a86}\label{freertos__tasks_8h_a1e80ecbd3fc2d04f18d6409ffa893a86}} 
+\index{freertos\_tasks.h@{freertos\_tasks.h}!vApplicationGetTimerTaskMemory@{vApplicationGetTimerTaskMemory}}
+\index{vApplicationGetTimerTaskMemory@{vApplicationGetTimerTaskMemory}!freertos\_tasks.h@{freertos\_tasks.h}}
+\doxysubsubsection{\texorpdfstring{vApplicationGetTimerTaskMemory()}{vApplicationGetTimerTaskMemory()}}
+{\footnotesize\ttfamily void v\+Application\+Get\+Timer\+Task\+Memory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_free_r_t_o_s_8h_a1af40d1b7ab8cb328bac2d92d7378c38}{Static\+Task\+\_\+t}} $\ast$$\ast$}]{ppx\+Timer\+Task\+T\+C\+B\+Buffer,  }\item[{\mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}} $\ast$$\ast$}]{ppx\+Timer\+Task\+Stack\+Buffer,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Timer\+Task\+Stack\+Size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 54 of file freertos\+\_\+tasks.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{freertos__tasks_8h_a65bd34c59f7e2586e3c86b89a11f284d}\label{freertos__tasks_8h_a65bd34c59f7e2586e3c86b89a11f284d}} 
+\index{freertos\_tasks.h@{freertos\_tasks.h}!reporter@{reporter}}
+\index{reporter@{reporter}!freertos\_tasks.h@{freertos\_tasks.h}}
+\doxysubsubsection{\texorpdfstring{reporter}{reporter}}
+{\footnotesize\ttfamily const char$\ast$ const reporter\mbox{[}$\,$\mbox{]} = \{ \mbox{\hyperlink{freertos__tasks_8h_ac3e32fb2e2b7f2ada265e60b8700a52f}{R\+E\+P\+O\+R\+T\+E\+RS}} \}}
+
+
+
+Definition at line 36 of file freertos\+\_\+tasks.\+h.
+

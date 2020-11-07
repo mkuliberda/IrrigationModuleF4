@@ -1,0 +1,41 @@
+digraph "RTC Exported Constants"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=box];
+  rankdir=LR;
+  Node16 [label="RTC Alarm Sub Seconds\l Masks Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___alarm___sub___seconds___masks___definitions.html",tooltip=" "];
+  Node13 [label="RTC Alarm Date WeekDay\l Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___alarm_date_week_day___definitions.html",tooltip=" "];
+  Node11 [label="RTC Month Date Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___month___date___definitions.html",tooltip=" "];
+  Node4 [label="RTC Output Selection\l Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___output__selection___definitions.html",tooltip=" "];
+  Node8 [label="RTC DayLight Saving\l Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___day_light_saving___definitions.html",tooltip=" "];
+  Node10 [label="RTC Input Parameter\l Format Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___input__parameter__format__definitions.html",tooltip=" "];
+  Node2 [label="RTC",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c.html",tooltip="RTC HAL module driver."];
+  Node14 [label="RTC Alarm Mask Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___alarm_mask___definitions.html",tooltip=" "];
+  Node17 [label="RTC Interrupts Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___interrupts___definitions.html",tooltip=" "];
+  Node15 [label="RTC Alarms Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___alarms___definitions.html",tooltip=" "];
+  Node3 [label="RTC Hour Formats",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___hour___formats.html",tooltip=" "];
+  Node18 [label="RTC Flags Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___flags___definitions.html",tooltip=" "];
+  Node7 [label="RTC AM PM Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___a_m___p_m___definitions.html",tooltip=" "];
+  Node6 [label="RTC Output Type ALARM OUT",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___output___type___a_l_a_r_m___o_u_t.html",tooltip=" "];
+  Node5 [label="RTC Output Polarity\l Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___output___polarity___definitions.html",tooltip=" "];
+  Node9 [label="RTC Store Operation\l Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___store_operation___definitions.html",tooltip=" "];
+  Node12 [label="RTC WeekDay Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c___week_day___definitions.html",tooltip=" "];
+  Node1 [label="RTC Exported Constants",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2->Node1 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node3 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node4 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node5 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node6 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node7 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node8 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node9 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node10 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node11 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node12 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node13 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node14 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node15 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node16 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node17 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node18 [shape=plaintext, dir="back", style="solid"];
+}

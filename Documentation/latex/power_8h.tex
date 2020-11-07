@@ -1,0 +1,154 @@
+\hypertarget{power_8h}{}\doxysection{Inc/power.h File Reference}
+\label{power_8h}\index{Inc/power.h@{Inc/power.h}}
+{\ttfamily \#include \char`\"{}stm32f4xx\+\_\+hal.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$utilities.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$bitset$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbatteryerror__t}{batteryerror\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structbatterystatus__s}{batterystatus\+\_\+s}}
+\item 
+class \mbox{\hyperlink{class_battery}{Battery}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46}{batterytype\+\_\+t}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46a5e543256c480ac577d30f76f9120eb74}{batterytype\+\_\+t\+::undefined}}, 
+\mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46ad743d31e4fb0abd3dc7a575705d69e58}{batterytype\+\_\+t\+::lipo}}, 
+\mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46a333bf063bb604c42bfe516244e70856e}{batterytype\+\_\+t\+::lipo\+\_\+hv}}, 
+\mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46aa6edece03c32a74fe295c8d97d743575}{batterytype\+\_\+t\+::liion}}, 
+\newline
+\mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46a3234c65a9e5ecd3be200333b683340b6}{batterytype\+\_\+t\+::liion\+\_\+hv}}, 
+\mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46a288abc768aa9579a2c280ea37d84e86a}{batterytype\+\_\+t\+::nimh}}
+ \}
+\item 
+enum \mbox{\hyperlink{power_8h_a98366dd685bd051388d1fcbf43ed48e4}{batterystate\+\_\+t}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{power_8h_a98366dd685bd051388d1fcbf43ed48e4a276fc71ddbf2483a3842cdcef417e03d}{batterystate\+\_\+t\+::undetermined}}, 
+\mbox{\hyperlink{power_8h_a98366dd685bd051388d1fcbf43ed48e4a05a0c26d8e746429c786c8e53378b9c9}{batterystate\+\_\+t\+::charging}}, 
+\mbox{\hyperlink{power_8h_a98366dd685bd051388d1fcbf43ed48e4ac5506d5a14acd50bb34956446899fe2f}{batterystate\+\_\+t\+::discharging}}, 
+\mbox{\hyperlink{power_8h_a98366dd685bd051388d1fcbf43ed48e4a276fc71ddbf2483a3842cdcef417e03d}{batterystate\+\_\+t\+::undetermined}}, 
+\newline
+\mbox{\hyperlink{power_8h_a98366dd685bd051388d1fcbf43ed48e4a05a0c26d8e746429c786c8e53378b9c9}{batterystate\+\_\+t\+::charging}}, 
+\mbox{\hyperlink{power_8h_a98366dd685bd051388d1fcbf43ed48e4ac5506d5a14acd50bb34956446899fe2f}{batterystate\+\_\+t\+::discharging}}
+ \}
+\item 
+enum \mbox{\hyperlink{power_8h_a932f26acba1950ea2759584d29f12163}{batteryinterface\+\_\+t}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{power_8h_a932f26acba1950ea2759584d29f12163a5e543256c480ac577d30f76f9120eb74}{batteryinterface\+\_\+t\+::undefined}}, 
+\mbox{\hyperlink{power_8h_a932f26acba1950ea2759584d29f12163a225e8a3fe20e95f6cd9b9e10bfe5eb69}{batteryinterface\+\_\+t\+::adc}}, 
+\mbox{\hyperlink{power_8h_a932f26acba1950ea2759584d29f12163aab36abef0cdebd2f84424ad4d17e286b}{batteryinterface\+\_\+t\+::i2c}}, 
+\mbox{\hyperlink{power_8h_a932f26acba1950ea2759584d29f12163a2c61ebff5a7f675451467527df66788d}{batteryinterface\+\_\+t\+::can}}, 
+\newline
+\mbox{\hyperlink{power_8h_a932f26acba1950ea2759584d29f12163a0b0760e072413088ea8460c3b4f43dbe}{batteryinterface\+\_\+t\+::spi}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{power_8h_a932f26acba1950ea2759584d29f12163}\label{power_8h_a932f26acba1950ea2759584d29f12163}} 
+\index{power.h@{power.h}!batteryinterface\_t@{batteryinterface\_t}}
+\index{batteryinterface\_t@{batteryinterface\_t}!power.h@{power.h}}
+\doxysubsubsection{\texorpdfstring{batteryinterface\_t}{batteryinterface\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{power_8h_a932f26acba1950ea2759584d29f12163}{batteryinterface\+\_\+t}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{undefined@{undefined}!power.h@{power.h}}\index{power.h@{power.h}!undefined@{undefined}}}\mbox{\Hypertarget{power_8h_a932f26acba1950ea2759584d29f12163a5e543256c480ac577d30f76f9120eb74}\label{power_8h_a932f26acba1950ea2759584d29f12163a5e543256c480ac577d30f76f9120eb74}} 
+undefined&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{adc@{adc}!power.h@{power.h}}\index{power.h@{power.h}!adc@{adc}}}\mbox{\Hypertarget{power_8h_a932f26acba1950ea2759584d29f12163a225e8a3fe20e95f6cd9b9e10bfe5eb69}\label{power_8h_a932f26acba1950ea2759584d29f12163a225e8a3fe20e95f6cd9b9e10bfe5eb69}} 
+adc&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{i2c@{i2c}!power.h@{power.h}}\index{power.h@{power.h}!i2c@{i2c}}}\mbox{\Hypertarget{power_8h_a932f26acba1950ea2759584d29f12163aab36abef0cdebd2f84424ad4d17e286b}\label{power_8h_a932f26acba1950ea2759584d29f12163aab36abef0cdebd2f84424ad4d17e286b}} 
+i2c&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{can@{can}!power.h@{power.h}}\index{power.h@{power.h}!can@{can}}}\mbox{\Hypertarget{power_8h_a932f26acba1950ea2759584d29f12163a2c61ebff5a7f675451467527df66788d}\label{power_8h_a932f26acba1950ea2759584d29f12163a2c61ebff5a7f675451467527df66788d}} 
+can&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{spi@{spi}!power.h@{power.h}}\index{power.h@{power.h}!spi@{spi}}}\mbox{\Hypertarget{power_8h_a932f26acba1950ea2759584d29f12163a0b0760e072413088ea8460c3b4f43dbe}\label{power_8h_a932f26acba1950ea2759584d29f12163a0b0760e072413088ea8460c3b4f43dbe}} 
+spi&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 42 of file power.\+h.
+
+\mbox{\Hypertarget{power_8h_a98366dd685bd051388d1fcbf43ed48e4}\label{power_8h_a98366dd685bd051388d1fcbf43ed48e4}} 
+\index{power.h@{power.h}!batterystate\_t@{batterystate\_t}}
+\index{batterystate\_t@{batterystate\_t}!power.h@{power.h}}
+\doxysubsubsection{\texorpdfstring{batterystate\_t}{batterystate\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{power_8h_a98366dd685bd051388d1fcbf43ed48e4}{batterystate\+\_\+t}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{undetermined@{undetermined}!power.h@{power.h}}\index{power.h@{power.h}!undetermined@{undetermined}}}\mbox{\Hypertarget{power_8h_a98366dd685bd051388d1fcbf43ed48e4a276fc71ddbf2483a3842cdcef417e03d}\label{power_8h_a98366dd685bd051388d1fcbf43ed48e4a276fc71ddbf2483a3842cdcef417e03d}} 
+undetermined&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{charging@{charging}!power.h@{power.h}}\index{power.h@{power.h}!charging@{charging}}}\mbox{\Hypertarget{power_8h_a98366dd685bd051388d1fcbf43ed48e4a05a0c26d8e746429c786c8e53378b9c9}\label{power_8h_a98366dd685bd051388d1fcbf43ed48e4a05a0c26d8e746429c786c8e53378b9c9}} 
+charging&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{discharging@{discharging}!power.h@{power.h}}\index{power.h@{power.h}!discharging@{discharging}}}\mbox{\Hypertarget{power_8h_a98366dd685bd051388d1fcbf43ed48e4ac5506d5a14acd50bb34956446899fe2f}\label{power_8h_a98366dd685bd051388d1fcbf43ed48e4ac5506d5a14acd50bb34956446899fe2f}} 
+discharging&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{undetermined@{undetermined}!power.h@{power.h}}\index{power.h@{power.h}!undetermined@{undetermined}}}\mbox{\Hypertarget{power_8h_a98366dd685bd051388d1fcbf43ed48e4a276fc71ddbf2483a3842cdcef417e03d}\label{power_8h_a98366dd685bd051388d1fcbf43ed48e4a276fc71ddbf2483a3842cdcef417e03d}} 
+undetermined&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{charging@{charging}!power.h@{power.h}}\index{power.h@{power.h}!charging@{charging}}}\mbox{\Hypertarget{power_8h_a98366dd685bd051388d1fcbf43ed48e4a05a0c26d8e746429c786c8e53378b9c9}\label{power_8h_a98366dd685bd051388d1fcbf43ed48e4a05a0c26d8e746429c786c8e53378b9c9}} 
+charging&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{discharging@{discharging}!power.h@{power.h}}\index{power.h@{power.h}!discharging@{discharging}}}\mbox{\Hypertarget{power_8h_a98366dd685bd051388d1fcbf43ed48e4ac5506d5a14acd50bb34956446899fe2f}\label{power_8h_a98366dd685bd051388d1fcbf43ed48e4ac5506d5a14acd50bb34956446899fe2f}} 
+discharging&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 25 of file power.\+h.
+
+\mbox{\Hypertarget{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46}\label{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46}} 
+\index{power.h@{power.h}!batterytype\_t@{batterytype\_t}}
+\index{batterytype\_t@{batterytype\_t}!power.h@{power.h}}
+\doxysubsubsection{\texorpdfstring{batterytype\_t}{batterytype\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46}{batterytype\+\_\+t}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{undefined@{undefined}!power.h@{power.h}}\index{power.h@{power.h}!undefined@{undefined}}}\mbox{\Hypertarget{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46a5e543256c480ac577d30f76f9120eb74}\label{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46a5e543256c480ac577d30f76f9120eb74}} 
+undefined&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{lipo@{lipo}!power.h@{power.h}}\index{power.h@{power.h}!lipo@{lipo}}}\mbox{\Hypertarget{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46ad743d31e4fb0abd3dc7a575705d69e58}\label{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46ad743d31e4fb0abd3dc7a575705d69e58}} 
+lipo&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{lipo\_hv@{lipo\_hv}!power.h@{power.h}}\index{power.h@{power.h}!lipo\_hv@{lipo\_hv}}}\mbox{\Hypertarget{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46a333bf063bb604c42bfe516244e70856e}\label{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46a333bf063bb604c42bfe516244e70856e}} 
+lipo\+\_\+hv&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{liion@{liion}!power.h@{power.h}}\index{power.h@{power.h}!liion@{liion}}}\mbox{\Hypertarget{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46aa6edece03c32a74fe295c8d97d743575}\label{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46aa6edece03c32a74fe295c8d97d743575}} 
+liion&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{liion\_hv@{liion\_hv}!power.h@{power.h}}\index{power.h@{power.h}!liion\_hv@{liion\_hv}}}\mbox{\Hypertarget{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46a3234c65a9e5ecd3be200333b683340b6}\label{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46a3234c65a9e5ecd3be200333b683340b6}} 
+liion\+\_\+hv&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{nimh@{nimh}!power.h@{power.h}}\index{power.h@{power.h}!nimh@{nimh}}}\mbox{\Hypertarget{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46a288abc768aa9579a2c280ea37d84e86a}\label{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46a288abc768aa9579a2c280ea37d84e86a}} 
+nimh&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 16 of file power.\+h.
+

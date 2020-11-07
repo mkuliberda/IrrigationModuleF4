@@ -1,0 +1,159 @@
+\hypertarget{class_moisture_sensor}{}\doxysection{Moisture\+Sensor Class Reference}
+\label{class_moisture_sensor}\index{MoistureSensor@{MoistureSensor}}
+
+
+{\ttfamily \#include $<$sensors\+\_\+base.\+h$>$}
+
+Inheritance diagram for Moisture\+Sensor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_moisture_sensor}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_moisture_sensor_ac68323d25ae5b3b1b4b0cda1554f9c26}{Moisture\+Sensor}} ()
+\item 
+virtual \mbox{\hyperlink{class_moisture_sensor_a8dde747ff729ea98ba682439c9474ff3}{$\sim$\+Moisture\+Sensor}} ()
+\item 
+virtual float \mbox{\hyperlink{class_moisture_sensor_a73aa2d9bdd00a7603d3852ee932db055}{read}} (void)=0
+\item 
+virtual bool \& \mbox{\hyperlink{class_moisture_sensor_ad448ed837911e41a4d534d9b0ce587ab}{is\+Valid}} (void)=0
+\item 
+float \& \mbox{\hyperlink{class_moisture_sensor_a1917590b418f79bc3fe8d127ed366638}{get\+Moisture\+Percent}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{sensors__base_8h_a05e945687a4429a0e0833dfb567a1f89}{moisturesensortype\+\_\+t}} \& \mbox{\hyperlink{class_moisture_sensor_aa66983f8c200bcf0878f609ca75665bd}{get\+Type}} (void)
+\item 
+virtual void \mbox{\hyperlink{class_moisture_sensor_ac88f3b53430da6c8b0d8e928cefdf278}{update\+Percent}} (void)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{sensors__base_8h_a05e945687a4429a0e0833dfb567a1f89}{moisturesensortype\+\_\+t}} \mbox{\hyperlink{class_moisture_sensor_a22a0c8e4e7936e11b13aa5d83bbe299f}{type}}
+\item 
+float \mbox{\hyperlink{class_moisture_sensor_a43be985f56fb350d5864bf93333ecf2b}{moisture\+Percent}}
+\item 
+bool \mbox{\hyperlink{class_moisture_sensor_a816f120bdcf6895ac2d69f1d5dcf99d1}{valid}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 75 of file sensors\+\_\+base.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_moisture_sensor_ac68323d25ae5b3b1b4b0cda1554f9c26}\label{class_moisture_sensor_ac68323d25ae5b3b1b4b0cda1554f9c26}} 
+\index{MoistureSensor@{MoistureSensor}!MoistureSensor@{MoistureSensor}}
+\index{MoistureSensor@{MoistureSensor}!MoistureSensor@{MoistureSensor}}
+\doxysubsubsection{\texorpdfstring{MoistureSensor()}{MoistureSensor()}}
+{\footnotesize\ttfamily Moisture\+Sensor\+::\+Moisture\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 88 of file sensors\+\_\+base.\+h.
+
+\mbox{\Hypertarget{class_moisture_sensor_a8dde747ff729ea98ba682439c9474ff3}\label{class_moisture_sensor_a8dde747ff729ea98ba682439c9474ff3}} 
+\index{MoistureSensor@{MoistureSensor}!````~MoistureSensor@{$\sim$MoistureSensor}}
+\index{````~MoistureSensor@{$\sim$MoistureSensor}!MoistureSensor@{MoistureSensor}}
+\doxysubsubsection{\texorpdfstring{$\sim$MoistureSensor()}{~MoistureSensor()}}
+{\footnotesize\ttfamily virtual Moisture\+Sensor\+::$\sim$\+Moisture\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 95 of file sensors\+\_\+base.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_moisture_sensor_a1917590b418f79bc3fe8d127ed366638}\label{class_moisture_sensor_a1917590b418f79bc3fe8d127ed366638}} 
+\index{MoistureSensor@{MoistureSensor}!getMoisturePercent@{getMoisturePercent}}
+\index{getMoisturePercent@{getMoisturePercent}!MoistureSensor@{MoistureSensor}}
+\doxysubsubsection{\texorpdfstring{getMoisturePercent()}{getMoisturePercent()}}
+{\footnotesize\ttfamily float \& Moisture\+Sensor\+::get\+Moisture\+Percent (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 45 of file sensors\+\_\+base.\+cpp.
+
+\mbox{\Hypertarget{class_moisture_sensor_aa66983f8c200bcf0878f609ca75665bd}\label{class_moisture_sensor_aa66983f8c200bcf0878f609ca75665bd}} 
+\index{MoistureSensor@{MoistureSensor}!getType@{getType}}
+\index{getType@{getType}!MoistureSensor@{MoistureSensor}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{sensors__base_8h_a05e945687a4429a0e0833dfb567a1f89}{moisturesensortype\+\_\+t}} \& Moisture\+Sensor\+::get\+Type (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\hyperlink{class_moisture_sensor}{Moisture\+Sensor}} class implementation 
+
+Definition at line 37 of file sensors\+\_\+base.\+cpp.
+
+\mbox{\Hypertarget{class_moisture_sensor_ad448ed837911e41a4d534d9b0ce587ab}\label{class_moisture_sensor_ad448ed837911e41a4d534d9b0ce587ab}} 
+\index{MoistureSensor@{MoistureSensor}!isValid@{isValid}}
+\index{isValid@{isValid}!MoistureSensor@{MoistureSensor}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily virtual bool\& Moisture\+Sensor\+::is\+Valid (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_analog_d_m_a_moisture_sensor_a05d2f47c4c918c8be7de3b580153c719}{Analog\+D\+M\+A\+Moisture\+Sensor}}.
+
+\mbox{\Hypertarget{class_moisture_sensor_a73aa2d9bdd00a7603d3852ee932db055}\label{class_moisture_sensor_a73aa2d9bdd00a7603d3852ee932db055}} 
+\index{MoistureSensor@{MoistureSensor}!read@{read}}
+\index{read@{read}!MoistureSensor@{MoistureSensor}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily virtual float Moisture\+Sensor\+::read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_analog_d_m_a_moisture_sensor_a94501500756dc332ad2aa53efc4ee602}{Analog\+D\+M\+A\+Moisture\+Sensor}}.
+
+\mbox{\Hypertarget{class_moisture_sensor_ac88f3b53430da6c8b0d8e928cefdf278}\label{class_moisture_sensor_ac88f3b53430da6c8b0d8e928cefdf278}} 
+\index{MoistureSensor@{MoistureSensor}!updatePercent@{updatePercent}}
+\index{updatePercent@{updatePercent}!MoistureSensor@{MoistureSensor}}
+\doxysubsubsection{\texorpdfstring{updatePercent()}{updatePercent()}}
+{\footnotesize\ttfamily virtual void Moisture\+Sensor\+::update\+Percent (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_moisture_sensor_a43be985f56fb350d5864bf93333ecf2b}\label{class_moisture_sensor_a43be985f56fb350d5864bf93333ecf2b}} 
+\index{MoistureSensor@{MoistureSensor}!moisturePercent@{moisturePercent}}
+\index{moisturePercent@{moisturePercent}!MoistureSensor@{MoistureSensor}}
+\doxysubsubsection{\texorpdfstring{moisturePercent}{moisturePercent}}
+{\footnotesize\ttfamily float Moisture\+Sensor\+::moisture\+Percent\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 80 of file sensors\+\_\+base.\+h.
+
+\mbox{\Hypertarget{class_moisture_sensor_a22a0c8e4e7936e11b13aa5d83bbe299f}\label{class_moisture_sensor_a22a0c8e4e7936e11b13aa5d83bbe299f}} 
+\index{MoistureSensor@{MoistureSensor}!type@{type}}
+\index{type@{type}!MoistureSensor@{MoistureSensor}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{sensors__base_8h_a05e945687a4429a0e0833dfb567a1f89}{moisturesensortype\+\_\+t}} Moisture\+Sensor\+::type\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 79 of file sensors\+\_\+base.\+h.
+
+\mbox{\Hypertarget{class_moisture_sensor_a816f120bdcf6895ac2d69f1d5dcf99d1}\label{class_moisture_sensor_a816f120bdcf6895ac2d69f1d5dcf99d1}} 
+\index{MoistureSensor@{MoistureSensor}!valid@{valid}}
+\index{valid@{valid}!MoistureSensor@{MoistureSensor}}
+\doxysubsubsection{\texorpdfstring{valid}{valid}}
+{\footnotesize\ttfamily bool Moisture\+Sensor\+::valid\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 81 of file sensors\+\_\+base.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Inc/\mbox{\hyperlink{sensors__base_8h}{sensors\+\_\+base.\+h}}\item 
+Src/\mbox{\hyperlink{sensors__base_8cpp}{sensors\+\_\+base.\+cpp}}\end{DoxyCompactItemize}

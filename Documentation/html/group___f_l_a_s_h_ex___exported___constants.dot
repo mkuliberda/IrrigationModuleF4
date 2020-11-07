@@ -1,0 +1,45 @@
+digraph "FLASH Exported Constants"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=box];
+  rankdir=LR;
+  Node19 [label="FLASH Dual Boot",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___dual___boot.html",tooltip=" "];
+  Node18 [label="FLASH Option Bytes\l PC ReadWrite Protection",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___option___bytes___p_c___read_write___protection.html",tooltip=" "];
+  Node5 [label="FLASH WRP State",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___w_r_p___state.html",tooltip=" "];
+  Node17 [label="FLASH Option Bytes\l Write Protection",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___option___bytes___write___protection.html",tooltip=" "];
+  Node1 [label="FLASH Exported Constants",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node8 [label="FLASH Option Bytes\l IWatchdog",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___option___bytes___i_watchdog.html",tooltip=" "];
+  Node12 [label="FLASH Advanced Option Type",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___advanced___option___type.html",tooltip=" "];
+  Node3 [label="FLASH Type Erase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___type___erase.html",tooltip=" "];
+  Node14 [label="FLASH Banks",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___banks.html",tooltip=" "];
+  Node9 [label="FLASH Option Bytes\l nRST_STOP",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___option___bytes__n_r_s_t___s_t_o_p.html",tooltip=" "];
+  Node16 [label="FLASH Sectors",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___sectors.html",tooltip=" "];
+  Node2 [label="FLASHEx",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex.html",tooltip="FLASH HAL Extension module driver."];
+  Node7 [label="FLASH Option Bytes\l Read Protection",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___option___bytes___read___protection.html",tooltip=" "];
+  Node11 [label="FLASH BOR Reset Level",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___b_o_r___reset___level.html",tooltip=" "];
+  Node13 [label="FLASH Latency",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h___latency.html",tooltip=" "];
+  Node6 [label="FLASH Option Type",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___option___type.html",tooltip=" "];
+  Node4 [label="FLASH Voltage Range",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___voltage___range.html",tooltip=" "];
+  Node20 [label="FLASH Selection Protection Mode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___selection___protection___mode.html",tooltip=" "];
+  Node15 [label="FLASH Mass Erase bit",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___mass_erase__bit.html",tooltip=" "];
+  Node10 [label="FLASH Option Bytes\l nRST_STDBY",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_l_a_s_h_ex___option___bytes__n_r_s_t___s_t_d_b_y.html",tooltip=" "];
+  Node2->Node1 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node3 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node4 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node5 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node6 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node7 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node8 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node9 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node10 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node11 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node12 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node13 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node14 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node15 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node16 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node17 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node18 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node19 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node20 [shape=plaintext, dir="back", style="solid"];
+}

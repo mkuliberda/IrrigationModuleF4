@@ -1,0 +1,246 @@
+\hypertarget{group___r_t_c_ex___timestamp}{}\doxysection{R\+TC Timestamp}
+\label{group___r_t_c_ex___timestamp}\index{RTC Timestamp@{RTC Timestamp}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___r_t_c_ex___timestamp_gad8400feb7b3dae2c552f2f4a7556bc6d}{\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+E\+N\+A\+B\+LE}}(\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)~((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$CR $\vert$= (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga94fa98ca8cac9078b9bb82c89593d3c0}{R\+T\+C\+\_\+\+C\+R\+\_\+\+T\+SE}}))
+\begin{DoxyCompactList}\small\item\em Enable the R\+TC Time\+Stamp peripheral. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___r_t_c_ex___timestamp_ga7281d85b199bee5eb74cc135208051fa}{\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+D\+I\+S\+A\+B\+LE}}(\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)~((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$CR \&= $\sim$(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga94fa98ca8cac9078b9bb82c89593d3c0}{R\+T\+C\+\_\+\+C\+R\+\_\+\+T\+SE}}))
+\begin{DoxyCompactList}\small\item\em Disable the R\+TC Time\+Stamp peripheral. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___r_t_c_ex___timestamp_ga054429581f55a80d922bb5c1e982c06f}{\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+IT}}(\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+,  \+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+)~((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$CR $\vert$= (\+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Enable the R\+TC Time\+Stamp interrupt. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___r_t_c_ex___timestamp_gab455d21f8afb5b3d49f2c25e34ce90c2}{\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+IT}}(\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+,  \+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+)~((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$CR \&= $\sim$(\+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Disable the R\+TC Time\+Stamp interrupt. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___r_t_c_ex___timestamp_gaaf023d7dd4c3068e8297187f2cc6b16e}{\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+G\+E\+T\+\_\+\+IT}}(\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+,  \+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+)~(((((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$I\+SR) \& ((\+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+)$>$$>$ 4U)) != \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{R\+E\+S\+ET}})? \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffab44c8101cc294c074709ec1b14211792}{S\+ET}} \+: \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{R\+E\+S\+ET}})
+\begin{DoxyCompactList}\small\item\em Check whether the specified R\+TC Time\+Stamp interrupt has occurred or not. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___r_t_c_ex___timestamp_ga54100a14a01e1ebe8af226385d12ee57}{\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+G\+E\+T\+\_\+\+I\+T\+\_\+\+S\+O\+U\+R\+CE}}(\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+,  \+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+)~(((((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$CR) \& (\+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+)) != \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{R\+E\+S\+ET}}) ? \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffab44c8101cc294c074709ec1b14211792}{S\+ET}} \+: \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{R\+E\+S\+ET}})
+\begin{DoxyCompactList}\small\item\em Check whether the specified R\+TC Time Stamp interrupt has been enabled or not. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___r_t_c_ex___timestamp_ga72799940c34e70df0d33eca772794813}{\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+G\+E\+T\+\_\+\+F\+L\+AG}}(\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+,  \+\_\+\+\_\+\+F\+L\+A\+G\+\_\+\+\_\+)~(((((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$I\+SR) \& (\+\_\+\+\_\+\+F\+L\+A\+G\+\_\+\+\_\+)) != \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{R\+E\+S\+ET}})? \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffab44c8101cc294c074709ec1b14211792}{S\+ET}} \+: \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{R\+E\+S\+ET}})
+\begin{DoxyCompactList}\small\item\em Get the selected R\+TC Time\+Stamp\textquotesingle{}s flag status. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___r_t_c_ex___timestamp_gac9d386e61a572b0c9d0e58a04e1819ef}{\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+C\+L\+E\+A\+R\+\_\+\+F\+L\+AG}}(\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+,  \+\_\+\+\_\+\+F\+L\+A\+G\+\_\+\+\_\+)~((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$I\+SR) = ($\sim$((\+\_\+\+\_\+\+F\+L\+A\+G\+\_\+\+\_\+) $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae0eb2f998cd3e7325974347cb2a3d25a}{R\+T\+C\+\_\+\+I\+S\+R\+\_\+\+I\+N\+IT}})$\vert$((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$I\+SR \& \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae0eb2f998cd3e7325974347cb2a3d25a}{R\+T\+C\+\_\+\+I\+S\+R\+\_\+\+I\+N\+IT}}))
+\begin{DoxyCompactList}\small\item\em Clear the R\+TC Time Stamp\textquotesingle{}s pending flags. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___r_t_c_ex___timestamp_gac9d386e61a572b0c9d0e58a04e1819ef}\label{group___r_t_c_ex___timestamp_gac9d386e61a572b0c9d0e58a04e1819ef}} 
+\index{RTC Timestamp@{RTC Timestamp}!\_\_HAL\_RTC\_TIMESTAMP\_CLEAR\_FLAG@{\_\_HAL\_RTC\_TIMESTAMP\_CLEAR\_FLAG}}
+\index{\_\_HAL\_RTC\_TIMESTAMP\_CLEAR\_FLAG@{\_\_HAL\_RTC\_TIMESTAMP\_CLEAR\_FLAG}!RTC Timestamp@{RTC Timestamp}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_RTC\_TIMESTAMP\_CLEAR\_FLAG}{\_\_HAL\_RTC\_TIMESTAMP\_CLEAR\_FLAG}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+C\+L\+E\+A\+R\+\_\+\+F\+L\+AG(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+,  }\item[{}]{\+\_\+\+\_\+\+F\+L\+A\+G\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$I\+SR) = ($\sim$((\+\_\+\+\_\+\+F\+L\+A\+G\+\_\+\+\_\+) $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae0eb2f998cd3e7325974347cb2a3d25a}{R\+T\+C\+\_\+\+I\+S\+R\+\_\+\+I\+N\+IT}})$\vert$((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$I\+SR \& \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae0eb2f998cd3e7325974347cb2a3d25a}{R\+T\+C\+\_\+\+I\+S\+R\+\_\+\+I\+N\+IT}}))}
+
+
+
+Clear the R\+TC Time Stamp\textquotesingle{}s pending flags. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$strong$>$\+H\+A\+N\+D\+L\+E$<$/strong$>$} & specifies the R\+TC handle. \\
+\hline
+{\em $<$strong$>$\+F\+L\+A\+G$<$/strong$>$} & specifies the R\+TC Alarm Flag sources to be enabled or disabled. This parameter can be\+: \begin{DoxyItemize}
+\item R\+T\+C\+\_\+\+F\+L\+A\+G\+\_\+\+T\+SF ~\newline
+ \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 578 of file stm32f4xx\+\_\+hal\+\_\+rtc\+\_\+ex.\+h.
+
+\mbox{\Hypertarget{group___r_t_c_ex___timestamp_ga7281d85b199bee5eb74cc135208051fa}\label{group___r_t_c_ex___timestamp_ga7281d85b199bee5eb74cc135208051fa}} 
+\index{RTC Timestamp@{RTC Timestamp}!\_\_HAL\_RTC\_TIMESTAMP\_DISABLE@{\_\_HAL\_RTC\_TIMESTAMP\_DISABLE}}
+\index{\_\_HAL\_RTC\_TIMESTAMP\_DISABLE@{\_\_HAL\_RTC\_TIMESTAMP\_DISABLE}!RTC Timestamp@{RTC Timestamp}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_RTC\_TIMESTAMP\_DISABLE}{\_\_HAL\_RTC\_TIMESTAMP\_DISABLE}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+D\+I\+S\+A\+B\+LE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$CR \&= $\sim$(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga94fa98ca8cac9078b9bb82c89593d3c0}{R\+T\+C\+\_\+\+C\+R\+\_\+\+T\+SE}}))}
+
+
+
+Disable the R\+TC Time\+Stamp peripheral. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$strong$>$\+H\+A\+N\+D\+L\+E$<$/strong$>$} & specifies the R\+TC handle. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 517 of file stm32f4xx\+\_\+hal\+\_\+rtc\+\_\+ex.\+h.
+
+\mbox{\Hypertarget{group___r_t_c_ex___timestamp_gab455d21f8afb5b3d49f2c25e34ce90c2}\label{group___r_t_c_ex___timestamp_gab455d21f8afb5b3d49f2c25e34ce90c2}} 
+\index{RTC Timestamp@{RTC Timestamp}!\_\_HAL\_RTC\_TIMESTAMP\_DISABLE\_IT@{\_\_HAL\_RTC\_TIMESTAMP\_DISABLE\_IT}}
+\index{\_\_HAL\_RTC\_TIMESTAMP\_DISABLE\_IT@{\_\_HAL\_RTC\_TIMESTAMP\_DISABLE\_IT}!RTC Timestamp@{RTC Timestamp}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_RTC\_TIMESTAMP\_DISABLE\_IT}{\_\_HAL\_RTC\_TIMESTAMP\_DISABLE\_IT}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+IT(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+,  }\item[{}]{\+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$CR \&= $\sim$(\+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+))}
+
+
+
+Disable the R\+TC Time\+Stamp interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$strong$>$\+H\+A\+N\+D\+L\+E$<$/strong$>$} & specifies the R\+TC handle. \\
+\hline
+{\em $<$strong$>$\+I\+N\+T\+E\+R\+R\+U\+P\+T$<$/strong$>$} & specifies the R\+TC Time\+Stamp interrupt sources to be enabled or disabled. This parameter can be\+: \begin{DoxyItemize}
+\item R\+T\+C\+\_\+\+I\+T\+\_\+\+TS\+: Time\+Stamp interrupt \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 537 of file stm32f4xx\+\_\+hal\+\_\+rtc\+\_\+ex.\+h.
+
+\mbox{\Hypertarget{group___r_t_c_ex___timestamp_gad8400feb7b3dae2c552f2f4a7556bc6d}\label{group___r_t_c_ex___timestamp_gad8400feb7b3dae2c552f2f4a7556bc6d}} 
+\index{RTC Timestamp@{RTC Timestamp}!\_\_HAL\_RTC\_TIMESTAMP\_ENABLE@{\_\_HAL\_RTC\_TIMESTAMP\_ENABLE}}
+\index{\_\_HAL\_RTC\_TIMESTAMP\_ENABLE@{\_\_HAL\_RTC\_TIMESTAMP\_ENABLE}!RTC Timestamp@{RTC Timestamp}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_RTC\_TIMESTAMP\_ENABLE}{\_\_HAL\_RTC\_TIMESTAMP\_ENABLE}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+E\+N\+A\+B\+LE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$CR $\vert$= (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga94fa98ca8cac9078b9bb82c89593d3c0}{R\+T\+C\+\_\+\+C\+R\+\_\+\+T\+SE}}))}
+
+
+
+Enable the R\+TC Time\+Stamp peripheral. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$strong$>$\+H\+A\+N\+D\+L\+E$<$/strong$>$} & specifies the R\+TC handle. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 510 of file stm32f4xx\+\_\+hal\+\_\+rtc\+\_\+ex.\+h.
+
+\mbox{\Hypertarget{group___r_t_c_ex___timestamp_ga054429581f55a80d922bb5c1e982c06f}\label{group___r_t_c_ex___timestamp_ga054429581f55a80d922bb5c1e982c06f}} 
+\index{RTC Timestamp@{RTC Timestamp}!\_\_HAL\_RTC\_TIMESTAMP\_ENABLE\_IT@{\_\_HAL\_RTC\_TIMESTAMP\_ENABLE\_IT}}
+\index{\_\_HAL\_RTC\_TIMESTAMP\_ENABLE\_IT@{\_\_HAL\_RTC\_TIMESTAMP\_ENABLE\_IT}!RTC Timestamp@{RTC Timestamp}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_RTC\_TIMESTAMP\_ENABLE\_IT}{\_\_HAL\_RTC\_TIMESTAMP\_ENABLE\_IT}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+IT(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+,  }\item[{}]{\+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$CR $\vert$= (\+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+))}
+
+
+
+Enable the R\+TC Time\+Stamp interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$strong$>$\+H\+A\+N\+D\+L\+E$<$/strong$>$} & specifies the R\+TC handle. \\
+\hline
+{\em $<$strong$>$\+I\+N\+T\+E\+R\+R\+U\+P\+T$<$/strong$>$} & specifies the R\+TC Time\+Stamp interrupt sources to be enabled or disabled. This parameter can be\+: \begin{DoxyItemize}
+\item R\+T\+C\+\_\+\+I\+T\+\_\+\+TS\+: Time\+Stamp interrupt \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 527 of file stm32f4xx\+\_\+hal\+\_\+rtc\+\_\+ex.\+h.
+
+\mbox{\Hypertarget{group___r_t_c_ex___timestamp_ga72799940c34e70df0d33eca772794813}\label{group___r_t_c_ex___timestamp_ga72799940c34e70df0d33eca772794813}} 
+\index{RTC Timestamp@{RTC Timestamp}!\_\_HAL\_RTC\_TIMESTAMP\_GET\_FLAG@{\_\_HAL\_RTC\_TIMESTAMP\_GET\_FLAG}}
+\index{\_\_HAL\_RTC\_TIMESTAMP\_GET\_FLAG@{\_\_HAL\_RTC\_TIMESTAMP\_GET\_FLAG}!RTC Timestamp@{RTC Timestamp}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_RTC\_TIMESTAMP\_GET\_FLAG}{\_\_HAL\_RTC\_TIMESTAMP\_GET\_FLAG}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+G\+E\+T\+\_\+\+F\+L\+AG(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+,  }\item[{}]{\+\_\+\+\_\+\+F\+L\+A\+G\+\_\+\+\_\+ }\end{DoxyParamCaption})~(((((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$I\+SR) \& (\+\_\+\+\_\+\+F\+L\+A\+G\+\_\+\+\_\+)) != \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{R\+E\+S\+ET}})? \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffab44c8101cc294c074709ec1b14211792}{S\+ET}} \+: \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{R\+E\+S\+ET}})}
+
+
+
+Get the selected R\+TC Time\+Stamp\textquotesingle{}s flag status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$strong$>$\+H\+A\+N\+D\+L\+E$<$/strong$>$} & specifies the R\+TC handle. \\
+\hline
+{\em $<$strong$>$\+F\+L\+A\+G$<$/strong$>$} & specifies the R\+TC Time\+Stamp flag to check. This parameter can be\+: \begin{DoxyItemize}
+\item R\+T\+C\+\_\+\+F\+L\+A\+G\+\_\+\+T\+SF ~\newline
+ \item R\+T\+C\+\_\+\+F\+L\+A\+G\+\_\+\+T\+S\+O\+VF ~\newline
+ \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 568 of file stm32f4xx\+\_\+hal\+\_\+rtc\+\_\+ex.\+h.
+
+\mbox{\Hypertarget{group___r_t_c_ex___timestamp_gaaf023d7dd4c3068e8297187f2cc6b16e}\label{group___r_t_c_ex___timestamp_gaaf023d7dd4c3068e8297187f2cc6b16e}} 
+\index{RTC Timestamp@{RTC Timestamp}!\_\_HAL\_RTC\_TIMESTAMP\_GET\_IT@{\_\_HAL\_RTC\_TIMESTAMP\_GET\_IT}}
+\index{\_\_HAL\_RTC\_TIMESTAMP\_GET\_IT@{\_\_HAL\_RTC\_TIMESTAMP\_GET\_IT}!RTC Timestamp@{RTC Timestamp}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_RTC\_TIMESTAMP\_GET\_IT}{\_\_HAL\_RTC\_TIMESTAMP\_GET\_IT}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+G\+E\+T\+\_\+\+IT(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+,  }\item[{}]{\+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+ }\end{DoxyParamCaption})~(((((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$I\+SR) \& ((\+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+)$>$$>$ 4U)) != \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{R\+E\+S\+ET}})? \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffab44c8101cc294c074709ec1b14211792}{S\+ET}} \+: \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{R\+E\+S\+ET}})}
+
+
+
+Check whether the specified R\+TC Time\+Stamp interrupt has occurred or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$strong$>$\+H\+A\+N\+D\+L\+E$<$/strong$>$} & specifies the R\+TC handle. \\
+\hline
+{\em $<$strong$>$\+I\+N\+T\+E\+R\+R\+U\+P\+T$<$/strong$>$} & specifies the R\+TC Time\+Stamp interrupt to check. This parameter can be\+: \begin{DoxyItemize}
+\item R\+T\+C\+\_\+\+I\+T\+\_\+\+TS\+: Time\+Stamp interrupt \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 547 of file stm32f4xx\+\_\+hal\+\_\+rtc\+\_\+ex.\+h.
+
+\mbox{\Hypertarget{group___r_t_c_ex___timestamp_ga54100a14a01e1ebe8af226385d12ee57}\label{group___r_t_c_ex___timestamp_ga54100a14a01e1ebe8af226385d12ee57}} 
+\index{RTC Timestamp@{RTC Timestamp}!\_\_HAL\_RTC\_TIMESTAMP\_GET\_IT\_SOURCE@{\_\_HAL\_RTC\_TIMESTAMP\_GET\_IT\_SOURCE}}
+\index{\_\_HAL\_RTC\_TIMESTAMP\_GET\_IT\_SOURCE@{\_\_HAL\_RTC\_TIMESTAMP\_GET\_IT\_SOURCE}!RTC Timestamp@{RTC Timestamp}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_RTC\_TIMESTAMP\_GET\_IT\_SOURCE}{\_\_HAL\_RTC\_TIMESTAMP\_GET\_IT\_SOURCE}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+T\+C\+\_\+\+T\+I\+M\+E\+S\+T\+A\+M\+P\+\_\+\+G\+E\+T\+\_\+\+I\+T\+\_\+\+S\+O\+U\+R\+CE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+,  }\item[{}]{\+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+ }\end{DoxyParamCaption})~(((((\+\_\+\+\_\+\+H\+A\+N\+D\+L\+E\+\_\+\+\_\+)-\/$>$Instance-\/$>$CR) \& (\+\_\+\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+\_\+)) != \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{R\+E\+S\+ET}}) ? \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffab44c8101cc294c074709ec1b14211792}{S\+ET}} \+: \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{R\+E\+S\+ET}})}
+
+
+
+Check whether the specified R\+TC Time Stamp interrupt has been enabled or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $<$strong$>$\+H\+A\+N\+D\+L\+E$<$/strong$>$} & specifies the R\+TC handle. \\
+\hline
+{\em $<$strong$>$\+I\+N\+T\+E\+R\+R\+U\+P\+T$<$/strong$>$} & specifies the R\+TC Time Stamp interrupt source to check. This parameter can be\+: \begin{DoxyItemize}
+\item R\+T\+C\+\_\+\+I\+T\+\_\+\+TS\+: Time\+Stamp interrupt \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 557 of file stm32f4xx\+\_\+hal\+\_\+rtc\+\_\+ex.\+h.
+

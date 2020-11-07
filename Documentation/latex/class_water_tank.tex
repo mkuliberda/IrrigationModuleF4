@@ -1,0 +1,166 @@
+\hypertarget{class_water_tank}{}\doxysection{Water\+Tank Class Reference}
+\label{class_water_tank}\index{WaterTank@{WaterTank}}
+
+
+{\ttfamily \#include $<$irrigation.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_water_tank_af5256cf7bff7c431b1bb3804690290d1}{Water\+Tank}} (const double \&\+\_\+tankheight\+Meters, const double \&\+\_\+tankvolume\+Liters, const uint8\+\_\+t \&\+\_\+id)
+\item 
+\mbox{\hyperlink{class_water_tank_a8e1b22c98dc185da18aae9a825dc1ad9}{$\sim$\+Water\+Tank}} ()
+\item 
+bool \mbox{\hyperlink{class_water_tank_a606ac2f3a99c57728d828272f33063c7}{init}} (void)
+\item 
+bool \mbox{\hyperlink{class_water_tank_a59ac85ea1c744f5063b6d05498ddacea}{check\+State\+OK}} (const double \&\+\_\+dt, uint32\+\_\+t \&errcode\+Bitmask)
+\item 
+float \& \mbox{\hyperlink{class_water_tank_a31e80920f25501efad5c279d2e18bd31}{get\+Temperature\+Celsius}} (void)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_water_tank_a8dce21c4e28ae4f298d77aea05daa0f2}{get\+Water\+Level\+Percent}} (void)
+\item 
+bool \mbox{\hyperlink{class_water_tank_a0d53e71df8f4eafb995c23f8001c3b03}{create\+Water\+Level\+Sensor}} (const \mbox{\hyperlink{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821}{waterlevelsensortype\+\_\+t}} \&\+\_\+sensortype)
+\item 
+bool \mbox{\hyperlink{class_water_tank_a234240815137ddc1f78010f4f0d7a771}{create\+Temperature\+Sensor}} (const \mbox{\hyperlink{sensors__base_8h_a3e0f80498e26c947d9e05aa859013d31}{temperaturesensortype\+\_\+t}} \&\+\_\+sensortype)
+\item 
+uint8\+\_\+t \& \mbox{\hyperlink{class_water_tank_a07635d726d483fe4c59bba6f614a7e83}{get\+Id}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_optical_water_level_sensor}{Optical\+Water\+Level\+Sensor}} $>$ \mbox{\hyperlink{class_water_tank_adb9b9df9c76bd4c758d3f21041d72d34}{v\+Optical\+W\+L\+Sensors}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_d_s18_b20}{D\+S18\+B20}} $>$ \mbox{\hyperlink{class_water_tank_a20fbfbeb06fe2725e420902543a2c565}{v\+Temperature\+Sensors}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 193 of file irrigation.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_water_tank_af5256cf7bff7c431b1bb3804690290d1}\label{class_water_tank_af5256cf7bff7c431b1bb3804690290d1}} 
+\index{WaterTank@{WaterTank}!WaterTank@{WaterTank}}
+\index{WaterTank@{WaterTank}!WaterTank@{WaterTank}}
+\doxysubsubsection{\texorpdfstring{WaterTank()}{WaterTank()}}
+{\footnotesize\ttfamily Water\+Tank\+::\+Water\+Tank (\begin{DoxyParamCaption}\item[{const double \&}]{\+\_\+tankheight\+Meters,  }\item[{const double \&}]{\+\_\+tankvolume\+Liters,  }\item[{const uint8\+\_\+t \&}]{\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 238 of file irrigation.\+h.
+
+\mbox{\Hypertarget{class_water_tank_a8e1b22c98dc185da18aae9a825dc1ad9}\label{class_water_tank_a8e1b22c98dc185da18aae9a825dc1ad9}} 
+\index{WaterTank@{WaterTank}!````~WaterTank@{$\sim$WaterTank}}
+\index{````~WaterTank@{$\sim$WaterTank}!WaterTank@{WaterTank}}
+\doxysubsubsection{\texorpdfstring{$\sim$WaterTank()}{~WaterTank()}}
+{\footnotesize\ttfamily Water\+Tank\+::$\sim$\+Water\+Tank (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 251 of file irrigation.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_water_tank_a59ac85ea1c744f5063b6d05498ddacea}\label{class_water_tank_a59ac85ea1c744f5063b6d05498ddacea}} 
+\index{WaterTank@{WaterTank}!checkStateOK@{checkStateOK}}
+\index{checkStateOK@{checkStateOK}!WaterTank@{WaterTank}}
+\doxysubsubsection{\texorpdfstring{checkStateOK()}{checkStateOK()}}
+{\footnotesize\ttfamily bool Water\+Tank\+::check\+State\+OK (\begin{DoxyParamCaption}\item[{const double \&}]{\+\_\+dt,  }\item[{uint32\+\_\+t \&}]{errcode\+Bitmask }\end{DoxyParamCaption})}
+
+
+
+Definition at line 616 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_water_tank_a234240815137ddc1f78010f4f0d7a771}\label{class_water_tank_a234240815137ddc1f78010f4f0d7a771}} 
+\index{WaterTank@{WaterTank}!createTemperatureSensor@{createTemperatureSensor}}
+\index{createTemperatureSensor@{createTemperatureSensor}!WaterTank@{WaterTank}}
+\doxysubsubsection{\texorpdfstring{createTemperatureSensor()}{createTemperatureSensor()}}
+{\footnotesize\ttfamily bool Water\+Tank\+::create\+Temperature\+Sensor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{sensors__base_8h_a3e0f80498e26c947d9e05aa859013d31}{temperaturesensortype\+\_\+t}} \&}]{\+\_\+sensortype }\end{DoxyParamCaption})}
+
+
+
+Definition at line 760 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_water_tank_a0d53e71df8f4eafb995c23f8001c3b03}\label{class_water_tank_a0d53e71df8f4eafb995c23f8001c3b03}} 
+\index{WaterTank@{WaterTank}!createWaterLevelSensor@{createWaterLevelSensor}}
+\index{createWaterLevelSensor@{createWaterLevelSensor}!WaterTank@{WaterTank}}
+\doxysubsubsection{\texorpdfstring{createWaterLevelSensor()}{createWaterLevelSensor()}}
+{\footnotesize\ttfamily bool Water\+Tank\+::create\+Water\+Level\+Sensor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{sensors__base_8h_af9ea22e6bb50f3ec8a128ce8b6ca6821}{waterlevelsensortype\+\_\+t}} \&}]{\+\_\+sensortype }\end{DoxyParamCaption})}
+
+
+
+Definition at line 725 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_water_tank_a07635d726d483fe4c59bba6f614a7e83}\label{class_water_tank_a07635d726d483fe4c59bba6f614a7e83}} 
+\index{WaterTank@{WaterTank}!getId@{getId}}
+\index{getId@{getId}!WaterTank@{WaterTank}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily uint8\+\_\+t \& Water\+Tank\+::get\+Id (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 791 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_water_tank_a31e80920f25501efad5c279d2e18bd31}\label{class_water_tank_a31e80920f25501efad5c279d2e18bd31}} 
+\index{WaterTank@{WaterTank}!getTemperatureCelsius@{getTemperatureCelsius}}
+\index{getTemperatureCelsius@{getTemperatureCelsius}!WaterTank@{WaterTank}}
+\doxysubsubsection{\texorpdfstring{getTemperatureCelsius()}{getTemperatureCelsius()}}
+{\footnotesize\ttfamily float \& Water\+Tank\+::get\+Temperature\+Celsius (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 596 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_water_tank_a8dce21c4e28ae4f298d77aea05daa0f2}\label{class_water_tank_a8dce21c4e28ae4f298d77aea05daa0f2}} 
+\index{WaterTank@{WaterTank}!getWaterLevelPercent@{getWaterLevelPercent}}
+\index{getWaterLevelPercent@{getWaterLevelPercent}!WaterTank@{WaterTank}}
+\doxysubsubsection{\texorpdfstring{getWaterLevelPercent()}{getWaterLevelPercent()}}
+{\footnotesize\ttfamily uint8\+\_\+t Water\+Tank\+::get\+Water\+Level\+Percent (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 721 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_water_tank_a606ac2f3a99c57728d828272f33063c7}\label{class_water_tank_a606ac2f3a99c57728d828272f33063c7}} 
+\index{WaterTank@{WaterTank}!init@{init}}
+\index{init@{init}!WaterTank@{WaterTank}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool Water\+Tank\+::init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_water_tank}{Water\+Tank}} class implementation 
+
+Definition at line 592 of file irrigation.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_water_tank_adb9b9df9c76bd4c758d3f21041d72d34}\label{class_water_tank_adb9b9df9c76bd4c758d3f21041d72d34}} 
+\index{WaterTank@{WaterTank}!vOpticalWLSensors@{vOpticalWLSensors}}
+\index{vOpticalWLSensors@{vOpticalWLSensors}!WaterTank@{WaterTank}}
+\doxysubsubsection{\texorpdfstring{vOpticalWLSensors}{vOpticalWLSensors}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_optical_water_level_sensor}{Optical\+Water\+Level\+Sensor}}$>$ Water\+Tank\+::v\+Optical\+W\+L\+Sensors}
+
+
+
+Definition at line 252 of file irrigation.\+h.
+
+\mbox{\Hypertarget{class_water_tank_a20fbfbeb06fe2725e420902543a2c565}\label{class_water_tank_a20fbfbeb06fe2725e420902543a2c565}} 
+\index{WaterTank@{WaterTank}!vTemperatureSensors@{vTemperatureSensors}}
+\index{vTemperatureSensors@{vTemperatureSensors}!WaterTank@{WaterTank}}
+\doxysubsubsection{\texorpdfstring{vTemperatureSensors}{vTemperatureSensors}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_d_s18_b20}{D\+S18\+B20}}$>$ Water\+Tank\+::v\+Temperature\+Sensors}
+
+
+
+Definition at line 255 of file irrigation.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Inc/\mbox{\hyperlink{irrigation_8h}{irrigation.\+h}}\item 
+Src/\mbox{\hyperlink{irrigation_8cpp}{irrigation.\+cpp}}\end{DoxyCompactItemize}

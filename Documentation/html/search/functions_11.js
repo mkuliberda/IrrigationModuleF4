@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['ucqueuegetqueuetype_23385',['ucQueueGetQueueType',['../queue_8h.html#a9730db0a2f63acbf7197fa4150d7fe08',1,'queue.h']]],
+  ['ultasknotifytake_23386',['ulTaskNotifyTake',['../task_8h.html#a66540bef602522a01a519f776e4c07d8',1,'task.h']]],
+  ['update_23387',['update',['../class_analog_d_m_a_moisture_sensor.html#a58302598748f3aca02e52f1ea8fd145a',1,'AnalogDMAMoistureSensor::update()'],['../class_pump_controller.html#af5e79d1b581f0019c6a0d9a8942df136',1,'PumpController::update()'],['../class_irrigation_sector.html#a019be38d5f9fbee317429f1b14dd0c73',1,'IrrigationSector::update()'],['../class_battery.html#a90aee175bb84f7bc343b609173c77be8',1,'Battery::update(const float &amp;_dt)'],['../class_battery.html#ab01d53053c15308d39a38d561683d0aa',1,'Battery::update(const float &amp;_dt, uint16_t *_raw_adc_values, const uint8_t &amp;_adc_values_count)'],['../class_scheduler.html#a6facd6685ff4d1107baf1cef5994df69',1,'Scheduler::update()']]],
+  ['updatepercent_23388',['updatePercent',['../class_moisture_sensor.html#ac88f3b53430da6c8b0d8e928cefdf278',1,'MoistureSensor']]],
+  ['updateraw_23389',['updateRaw',['../class_plant_interface.html#a9a6c05126f4747800c85d819819638dc',1,'PlantInterface::updateRaw()'],['../class_plant.html#a86f30ebe0307d09d249616a10032c4ce',1,'Plant::updateRaw()'],['../class_plant_with_sensor.html#abe41768d3c254520f04bafb01c9c986c',1,'PlantWithSensor::updateRaw()'],['../class_plant_with_d_m_a_moisture_sensor.html#a4c6629a0be390407beb494d1d81da184',1,'PlantWithDMAMoistureSensor::updateRaw()']]],
+  ['updatesectorsactivities_23390',['updateSectorsActivities',['../freertos__tasks_8cpp.html#a2ef98838d6878c8e3744a24e7000c05d',1,'freertos_tasks.cpp']]],
+  ['updatesectorsexceptions_23391',['updateSectorsExceptions',['../freertos__tasks_8cpp.html#a367097394cb5d7ff51f01dfa9181332c',1,'freertos_tasks.cpp']]],
+  ['uxlistremove_23392',['uxListRemove',['../list_8h.html#a2eb1558482076fff8cafc63419c2d34a',1,'uxListRemove(ListItem_t *const pxItemToRemove) PRIVILEGED_FUNCTION:&#160;list.c'],['../list_8c.html#a274fdced76bbdd9d8a4c4840ded2920c',1,'uxListRemove(ListItem_t *const pxItemToRemove):&#160;list.c']]],
+  ['uxqueuegetqueuenumber_23393',['uxQueueGetQueueNumber',['../queue_8h.html#a7f7a4d9b75dcfbcefb2384da5df5290e',1,'queue.h']]],
+  ['uxqueuemessageswaiting_23394',['uxQueueMessagesWaiting',['../queue_8h.html#add7ee0701ba35904d190811b9e5a4eda',1,'uxQueueMessagesWaiting(const QueueHandle_t xQueue) PRIVILEGED_FUNCTION:&#160;queue.c'],['../queue_8c.html#a4158a6134c9d1c60ffdb18d279d475b1',1,'uxQueueMessagesWaiting(const QueueHandle_t xQueue):&#160;queue.c']]],
+  ['uxqueuemessageswaitingfromisr_23395',['uxQueueMessagesWaitingFromISR',['../queue_8h.html#a3e89b6189166f9544f283435e2732f9a',1,'uxQueueMessagesWaitingFromISR(const QueueHandle_t xQueue) PRIVILEGED_FUNCTION:&#160;queue.c'],['../queue_8c.html#ad5d110bc27c691ff8da238e0116bf92a',1,'uxQueueMessagesWaitingFromISR(const QueueHandle_t xQueue):&#160;queue.c']]],
+  ['uxqueuespacesavailable_23396',['uxQueueSpacesAvailable',['../queue_8h.html#aae75791e91707c1e0bb31d761921531c',1,'uxQueueSpacesAvailable(const QueueHandle_t xQueue) PRIVILEGED_FUNCTION:&#160;queue.c'],['../queue_8c.html#a27d6fb77ce7a0b5a16f6471730d33201',1,'uxQueueSpacesAvailable(const QueueHandle_t xQueue):&#160;queue.c']]],
+  ['uxtaskgetnumberoftasks_23397',['uxTaskGetNumberOfTasks',['../task_8h.html#a70a89a0f07c7db5d695707d1f6f44a4a',1,'uxTaskGetNumberOfTasks(void) PRIVILEGED_FUNCTION:&#160;tasks.c'],['../tasks_8c.html#a4b660446c721df74158dddb9fc189c1e',1,'uxTaskGetNumberOfTasks(void):&#160;tasks.c']]],
+  ['uxtaskgetstackhighwatermark_23398',['uxTaskGetStackHighWaterMark',['../task_8h.html#a799967af01d328132cde814e47733437',1,'task.h']]],
+  ['uxtaskgetstackhighwatermark2_23399',['uxTaskGetStackHighWaterMark2',['../task_8h.html#a7fd88fa038a89eb539bd41ce64a93744',1,'task.h']]],
+  ['uxtaskgetsystemstate_23400',['uxTaskGetSystemState',['../task_8h.html#aa4603f3de3d809e9beb18d10fbac005d',1,'task.h']]],
+  ['uxtaskgettasknumber_23401',['uxTaskGetTaskNumber',['../task_8h.html#ad8bb91e2267905f0069918802fa7f8b8',1,'task.h']]],
+  ['uxtaskpriorityget_23402',['uxTaskPriorityGet',['../task_8h.html#a18d1148c845f5c4bff3b9e5b2077e058',1,'task.h']]],
+  ['uxtaskprioritygetfromisr_23403',['uxTaskPriorityGetFromISR',['../task_8h.html#a772bdcb1ae3cb58b0f12a172357f4a06',1,'task.h']]],
+  ['uxtaskreseteventitemvalue_23404',['uxTaskResetEventItemValue',['../task_8h.html#a7793b4bbe45c10d4c5104c126b89e87c',1,'uxTaskResetEventItemValue(void) PRIVILEGED_FUNCTION:&#160;tasks.c'],['../tasks_8c.html#a7ffe39eff8b9037b2de04f15a10ba717',1,'uxTaskResetEventItemValue(void):&#160;tasks.c']]]
+];

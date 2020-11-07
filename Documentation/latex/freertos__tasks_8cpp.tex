@@ -1,0 +1,313 @@
+\hypertarget{freertos__tasks_8cpp}{}\doxysection{Src/freertos\+\_\+tasks.cpp File Reference}
+\label{freertos__tasks_8cpp}\index{Src/freertos\_tasks.cpp@{Src/freertos\_tasks.cpp}}
+{\ttfamily \#include \char`\"{}freertos\+\_\+tasks.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos\+\_\+memory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}plants.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{freertos__tasks_8cpp_a611d7dcdc6338dfdce0b53422309e4f7}{os\+Mail\+Q\+Def}} (\mbox{\hyperlink{freertos__tasks_8cpp_ad77b76f9c74b68e3b95afb47d94839d7}{activities\+\_\+box}}, 42, \mbox{\hyperlink{structactivity__msg}{activity\+\_\+msg}})
+\item 
+\mbox{\hyperlink{freertos__tasks_8cpp_a50743d5fee17184663e1575373db3d3c}{os\+Mail\+Q\+Def}} (\mbox{\hyperlink{freertos__tasks_8cpp_a9adb301d40aa26e8696a301871ce7a04}{exceptions\+\_\+box}}, 6, \mbox{\hyperlink{structexception__msg}{exception\+\_\+msg}})
+\item 
+\mbox{\hyperlink{freertos__tasks_8cpp_ab69110e696c458f21d59badb873c0217}{os\+Mail\+Q\+Def}} (\mbox{\hyperlink{freertos__tasks_8cpp_abd45c6c2f43b656ddffa72b48ba99a11}{sys\+\_\+logs\+\_\+box}}, 10, \mbox{\hyperlink{structlog__msg}{log\+\_\+msg}})
+\item 
+\mbox{\hyperlink{freertos__tasks_8cpp_a1644d68c5ca3a204f134a77fbc39e045}{os\+Mail\+Q\+Def}} (\mbox{\hyperlink{freertos__tasks_8cpp_a6c8ac01b0ae8417bbeb01d1664edd2c1}{irg\+\_\+logs\+\_\+box}}, 10, \mbox{\hyperlink{structlog__msg}{log\+\_\+msg}})
+\item 
+\mbox{\hyperlink{freertos__tasks_8cpp_ab4f76661d769e52b22e97e632a46418d}{os\+Mail\+Q\+Def}} (\mbox{\hyperlink{freertos__tasks_8cpp_ad0ebe9dd3ce90e4332dc61c8f4c959f1}{wls\+\_\+logs\+\_\+box}}, 10, \mbox{\hyperlink{structlog__msg}{log\+\_\+msg}})
+\item 
+void \mbox{\hyperlink{freertos__tasks_8cpp_a41fe7d1bf2b416ea1cf01d3933cf2c6d}{Sys\+Monitor\+Task}} (void const $\ast$argument)
+\begin{DoxyCompactList}\small\item\em Function implementing the default\+Task thread. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{freertos__tasks_8cpp_ad4c2b7127783ba64ea2a66adf36b9a95}{S\+D\+Card\+Task}} (void const $\ast$argument)
+\item 
+void \mbox{\hyperlink{freertos__tasks_8cpp_a3cf05d09df5c751f3112f35007b7cbdc}{Wireless\+Comm\+Task}} (void const $\ast$argument)
+\item 
+void \mbox{\hyperlink{freertos__tasks_8cpp_a6f3ebbc6f8fc847d18b68e30d39e5fdf}{Irrigation\+Control\+Task}} (void const $\ast$argument)
+\item 
+void \mbox{\hyperlink{freertos__tasks_8cpp_abade755e13d07c10889ae83143656158}{M\+X\+\_\+\+F\+R\+E\+E\+R\+T\+O\+S\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Free\+R\+T\+OS initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{freertos__tasks_8cpp_a1988aa923b19fa6f31c93afa7773f793}{v\+Application\+Get\+Idle\+Task\+Memory}} (\mbox{\hyperlink{_free_r_t_o_s_8h_a1af40d1b7ab8cb328bac2d92d7378c38}{Static\+Task\+\_\+t}} $\ast$$\ast$ppx\+Idle\+Task\+T\+C\+B\+Buffer, \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}} $\ast$$\ast$ppx\+Idle\+Task\+Stack\+Buffer, uint32\+\_\+t $\ast$pul\+Idle\+Task\+Stack\+Size)
+\item 
+void \mbox{\hyperlink{freertos__tasks_8cpp_a1e80ecbd3fc2d04f18d6409ffa893a86}{v\+Application\+Get\+Timer\+Task\+Memory}} (\mbox{\hyperlink{_free_r_t_o_s_8h_a1af40d1b7ab8cb328bac2d92d7378c38}{Static\+Task\+\_\+t}} $\ast$$\ast$ppx\+Timer\+Task\+T\+C\+B\+Buffer, \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}} $\ast$$\ast$ppx\+Timer\+Task\+Stack\+Buffer, uint32\+\_\+t $\ast$pul\+Timer\+Task\+Stack\+Size)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{freertos__tasks_8cpp_a4431f4339f3e69be13d8159eb6151215}{publish\+Log\+Message}} (std\+::string msg\+\_\+txt, \mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} \&mail\+\_\+box, const \mbox{\hyperlink{freertos__tasks_8h_a00d5ca41988eef2eb3bdf0c9de1b9272}{reporter\+\_\+t}} \&\+\_\+reporter, const uint8\+\_\+t \&\+\_\+maxlen)
+\item 
+\mbox{\hyperlink{structos_event}{os\+Event}} \mbox{\hyperlink{freertos__tasks_8cpp_a2ef98838d6878c8e3744a24e7000c05d}{update\+Sectors\+Activities}} (\mbox{\hyperlink{class_scheduler}{Scheduler}} $\ast$schedule, \mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} \&mail\+\_\+box)
+\item 
+\mbox{\hyperlink{structos_event}{os\+Event}} \mbox{\hyperlink{freertos__tasks_8cpp_a367097394cb5d7ff51f01dfa9181332c}{update\+Sectors\+Exceptions}} (\mbox{\hyperlink{class_scheduler}{Scheduler}} $\ast$schedule, \mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} \&mail\+\_\+box)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{cmsis__os_8h_a217fdd2811440d39a6e8c868a0b8ec82}{os\+Thread\+Id}} \mbox{\hyperlink{freertos__tasks_8cpp_aec9cc055a555170de64dc2f359fa0362}{Sys\+Monitor\+Task\+Handle}}
+\item 
+\mbox{\hyperlink{cmsis__os_8h_a217fdd2811440d39a6e8c868a0b8ec82}{os\+Thread\+Id}} \mbox{\hyperlink{freertos__tasks_8cpp_aabd02924e9b57b38d7b58914c951f9c0}{S\+D\+Card\+Task\+Handle}}
+\item 
+\mbox{\hyperlink{cmsis__os_8h_a217fdd2811440d39a6e8c868a0b8ec82}{os\+Thread\+Id}} \mbox{\hyperlink{freertos__tasks_8cpp_a494e1e5f80e03d48d47f0113f2693e2c}{Wireless\+Comm\+Task\+Handle}}
+\item 
+\mbox{\hyperlink{cmsis__os_8h_a217fdd2811440d39a6e8c868a0b8ec82}{os\+Thread\+Id}} \mbox{\hyperlink{freertos__tasks_8cpp_abb6c6d1c60de2486ba7a67b43446abc5}{Irrigation\+Control\+Task\+Handle}}
+\item 
+\mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} \mbox{\hyperlink{freertos__tasks_8cpp_ad77b76f9c74b68e3b95afb47d94839d7}{activities\+\_\+box}}
+\item 
+\mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} \mbox{\hyperlink{freertos__tasks_8cpp_a9adb301d40aa26e8696a301871ce7a04}{exceptions\+\_\+box}}
+\item 
+\mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} \mbox{\hyperlink{freertos__tasks_8cpp_abd45c6c2f43b656ddffa72b48ba99a11}{sys\+\_\+logs\+\_\+box}}
+\item 
+\mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} \mbox{\hyperlink{freertos__tasks_8cpp_a6c8ac01b0ae8417bbeb01d1664edd2c1}{irg\+\_\+logs\+\_\+box}}
+\item 
+\mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} \mbox{\hyperlink{freertos__tasks_8cpp_ad0ebe9dd3ce90e4332dc61c8f4c959f1}{wls\+\_\+logs\+\_\+box}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{freertos__tasks_8cpp_a6f3ebbc6f8fc847d18b68e30d39e5fdf}\label{freertos__tasks_8cpp_a6f3ebbc6f8fc847d18b68e30d39e5fdf}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!IrrigationControlTask@{IrrigationControlTask}}
+\index{IrrigationControlTask@{IrrigationControlTask}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{IrrigationControlTask()}{IrrigationControlTask()}}
+{\footnotesize\ttfamily void Irrigation\+Control\+Task (\begin{DoxyParamCaption}\item[{void const $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+Definition at line 422 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_abade755e13d07c10889ae83143656158}\label{freertos__tasks_8cpp_abade755e13d07c10889ae83143656158}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!MX\_FREERTOS\_Init@{MX\_FREERTOS\_Init}}
+\index{MX\_FREERTOS\_Init@{MX\_FREERTOS\_Init}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{MX\_FREERTOS\_Init()}{MX\_FREERTOS\_Init()}}
+{\footnotesize\ttfamily void M\+X\+\_\+\+F\+R\+E\+E\+R\+T\+O\+S\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Free\+R\+T\+OS initialization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 166 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_a611d7dcdc6338dfdce0b53422309e4f7}\label{freertos__tasks_8cpp_a611d7dcdc6338dfdce0b53422309e4f7}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!osMailQDef@{osMailQDef}}
+\index{osMailQDef@{osMailQDef}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{osMailQDef()}{osMailQDef()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily os\+Mail\+Q\+Def (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{freertos__tasks_8cpp_ad77b76f9c74b68e3b95afb47d94839d7}{activities\+\_\+box}}}]{,  }\item[{42}]{,  }\item[{\mbox{\hyperlink{structactivity__msg}{activity\+\_\+msg}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_a50743d5fee17184663e1575373db3d3c}\label{freertos__tasks_8cpp_a50743d5fee17184663e1575373db3d3c}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!osMailQDef@{osMailQDef}}
+\index{osMailQDef@{osMailQDef}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{osMailQDef()}{osMailQDef()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily os\+Mail\+Q\+Def (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{freertos__tasks_8cpp_a9adb301d40aa26e8696a301871ce7a04}{exceptions\+\_\+box}}}]{,  }\item[{6}]{,  }\item[{\mbox{\hyperlink{structexception__msg}{exception\+\_\+msg}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_a1644d68c5ca3a204f134a77fbc39e045}\label{freertos__tasks_8cpp_a1644d68c5ca3a204f134a77fbc39e045}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!osMailQDef@{osMailQDef}}
+\index{osMailQDef@{osMailQDef}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{osMailQDef()}{osMailQDef()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily os\+Mail\+Q\+Def (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{freertos__tasks_8cpp_a6c8ac01b0ae8417bbeb01d1664edd2c1}{irg\+\_\+logs\+\_\+box}}}]{,  }\item[{10}]{,  }\item[{\mbox{\hyperlink{structlog__msg}{log\+\_\+msg}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_ab69110e696c458f21d59badb873c0217}\label{freertos__tasks_8cpp_ab69110e696c458f21d59badb873c0217}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!osMailQDef@{osMailQDef}}
+\index{osMailQDef@{osMailQDef}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{osMailQDef()}{osMailQDef()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily os\+Mail\+Q\+Def (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{freertos__tasks_8cpp_abd45c6c2f43b656ddffa72b48ba99a11}{sys\+\_\+logs\+\_\+box}}}]{,  }\item[{10}]{,  }\item[{\mbox{\hyperlink{structlog__msg}{log\+\_\+msg}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_ab4f76661d769e52b22e97e632a46418d}\label{freertos__tasks_8cpp_ab4f76661d769e52b22e97e632a46418d}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!osMailQDef@{osMailQDef}}
+\index{osMailQDef@{osMailQDef}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{osMailQDef()}{osMailQDef()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily os\+Mail\+Q\+Def (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{freertos__tasks_8cpp_ad0ebe9dd3ce90e4332dc61c8f4c959f1}{wls\+\_\+logs\+\_\+box}}}]{,  }\item[{10}]{,  }\item[{\mbox{\hyperlink{structlog__msg}{log\+\_\+msg}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_a4431f4339f3e69be13d8159eb6151215}\label{freertos__tasks_8cpp_a4431f4339f3e69be13d8159eb6151215}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!publishLogMessage@{publishLogMessage}}
+\index{publishLogMessage@{publishLogMessage}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{publishLogMessage()}{publishLogMessage()}}
+{\footnotesize\ttfamily uint16\+\_\+t publish\+Log\+Message (\begin{DoxyParamCaption}\item[{std\+::string}]{msg\+\_\+txt,  }\item[{\mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} \&}]{mail\+\_\+box,  }\item[{const \mbox{\hyperlink{freertos__tasks_8h_a00d5ca41988eef2eb3bdf0c9de1b9272}{reporter\+\_\+t}} \&}]{\+\_\+reporter,  }\item[{const uint8\+\_\+t \&}]{\+\_\+maxlen }\end{DoxyParamCaption})}
+
+
+
+Definition at line 62 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_ad4c2b7127783ba64ea2a66adf36b9a95}\label{freertos__tasks_8cpp_ad4c2b7127783ba64ea2a66adf36b9a95}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!SDCardTask@{SDCardTask}}
+\index{SDCardTask@{SDCardTask}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{SDCardTask()}{SDCardTask()}}
+{\footnotesize\ttfamily void S\+D\+Card\+Task (\begin{DoxyParamCaption}\item[{void const $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+Definition at line 226 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_a41fe7d1bf2b416ea1cf01d3933cf2c6d}\label{freertos__tasks_8cpp_a41fe7d1bf2b416ea1cf01d3933cf2c6d}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!SysMonitorTask@{SysMonitorTask}}
+\index{SysMonitorTask@{SysMonitorTask}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{SysMonitorTask()}{SysMonitorTask()}}
+{\footnotesize\ttfamily void Sys\+Monitor\+Task (\begin{DoxyParamCaption}\item[{void const $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+Function implementing the default\+Task thread. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argument} & Not used \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 213 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_a2ef98838d6878c8e3744a24e7000c05d}\label{freertos__tasks_8cpp_a2ef98838d6878c8e3744a24e7000c05d}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!updateSectorsActivities@{updateSectorsActivities}}
+\index{updateSectorsActivities@{updateSectorsActivities}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{updateSectorsActivities()}{updateSectorsActivities()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_event}{os\+Event}} update\+Sectors\+Activities (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_scheduler}{Scheduler}} $\ast$}]{schedule,  }\item[{\mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} \&}]{mail\+\_\+box }\end{DoxyParamCaption})}
+
+
+
+Definition at line 94 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_a367097394cb5d7ff51f01dfa9181332c}\label{freertos__tasks_8cpp_a367097394cb5d7ff51f01dfa9181332c}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!updateSectorsExceptions@{updateSectorsExceptions}}
+\index{updateSectorsExceptions@{updateSectorsExceptions}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{updateSectorsExceptions()}{updateSectorsExceptions()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_event}{os\+Event}} update\+Sectors\+Exceptions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_scheduler}{Scheduler}} $\ast$}]{schedule,  }\item[{\mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} \&}]{mail\+\_\+box }\end{DoxyParamCaption})}
+
+
+
+Definition at line 126 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_a1988aa923b19fa6f31c93afa7773f793}\label{freertos__tasks_8cpp_a1988aa923b19fa6f31c93afa7773f793}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!vApplicationGetIdleTaskMemory@{vApplicationGetIdleTaskMemory}}
+\index{vApplicationGetIdleTaskMemory@{vApplicationGetIdleTaskMemory}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{vApplicationGetIdleTaskMemory()}{vApplicationGetIdleTaskMemory()}}
+{\footnotesize\ttfamily void v\+Application\+Get\+Idle\+Task\+Memory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_free_r_t_o_s_8h_a1af40d1b7ab8cb328bac2d92d7378c38}{Static\+Task\+\_\+t}} $\ast$$\ast$}]{ppx\+Idle\+Task\+T\+C\+B\+Buffer,  }\item[{\mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}} $\ast$$\ast$}]{ppx\+Idle\+Task\+Stack\+Buffer,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Idle\+Task\+Stack\+Size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 41 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_a1e80ecbd3fc2d04f18d6409ffa893a86}\label{freertos__tasks_8cpp_a1e80ecbd3fc2d04f18d6409ffa893a86}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!vApplicationGetTimerTaskMemory@{vApplicationGetTimerTaskMemory}}
+\index{vApplicationGetTimerTaskMemory@{vApplicationGetTimerTaskMemory}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{vApplicationGetTimerTaskMemory()}{vApplicationGetTimerTaskMemory()}}
+{\footnotesize\ttfamily void v\+Application\+Get\+Timer\+Task\+Memory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_free_r_t_o_s_8h_a1af40d1b7ab8cb328bac2d92d7378c38}{Static\+Task\+\_\+t}} $\ast$$\ast$}]{ppx\+Timer\+Task\+T\+C\+B\+Buffer,  }\item[{\mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}} $\ast$$\ast$}]{ppx\+Timer\+Task\+Stack\+Buffer,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Timer\+Task\+Stack\+Size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 54 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_a3cf05d09df5c751f3112f35007b7cbdc}\label{freertos__tasks_8cpp_a3cf05d09df5c751f3112f35007b7cbdc}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!WirelessCommTask@{WirelessCommTask}}
+\index{WirelessCommTask@{WirelessCommTask}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{WirelessCommTask()}{WirelessCommTask()}}
+{\footnotesize\ttfamily void Wireless\+Comm\+Task (\begin{DoxyParamCaption}\item[{void const $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+Definition at line 392 of file freertos\+\_\+tasks.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{freertos__tasks_8cpp_ad77b76f9c74b68e3b95afb47d94839d7}\label{freertos__tasks_8cpp_ad77b76f9c74b68e3b95afb47d94839d7}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!activities\_box@{activities\_box}}
+\index{activities\_box@{activities\_box}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{activities\_box}{activities\_box}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} activities\+\_\+box}
+
+
+
+Definition at line 12 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_a9adb301d40aa26e8696a301871ce7a04}\label{freertos__tasks_8cpp_a9adb301d40aa26e8696a301871ce7a04}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!exceptions\_box@{exceptions\_box}}
+\index{exceptions\_box@{exceptions\_box}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{exceptions\_box}{exceptions\_box}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} exceptions\+\_\+box}
+
+
+
+Definition at line 14 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_a6c8ac01b0ae8417bbeb01d1664edd2c1}\label{freertos__tasks_8cpp_a6c8ac01b0ae8417bbeb01d1664edd2c1}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!irg\_logs\_box@{irg\_logs\_box}}
+\index{irg\_logs\_box@{irg\_logs\_box}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{irg\_logs\_box}{irg\_logs\_box}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} irg\+\_\+logs\+\_\+box}
+
+
+
+Definition at line 18 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_abb6c6d1c60de2486ba7a67b43446abc5}\label{freertos__tasks_8cpp_abb6c6d1c60de2486ba7a67b43446abc5}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!IrrigationControlTaskHandle@{IrrigationControlTaskHandle}}
+\index{IrrigationControlTaskHandle@{IrrigationControlTaskHandle}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{IrrigationControlTaskHandle}{IrrigationControlTaskHandle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cmsis__os_8h_a217fdd2811440d39a6e8c868a0b8ec82}{os\+Thread\+Id}} Irrigation\+Control\+Task\+Handle}
+
+
+
+Definition at line 10 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_aabd02924e9b57b38d7b58914c951f9c0}\label{freertos__tasks_8cpp_aabd02924e9b57b38d7b58914c951f9c0}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!SDCardTaskHandle@{SDCardTaskHandle}}
+\index{SDCardTaskHandle@{SDCardTaskHandle}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{SDCardTaskHandle}{SDCardTaskHandle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cmsis__os_8h_a217fdd2811440d39a6e8c868a0b8ec82}{os\+Thread\+Id}} S\+D\+Card\+Task\+Handle}
+
+
+
+Definition at line 8 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_abd45c6c2f43b656ddffa72b48ba99a11}\label{freertos__tasks_8cpp_abd45c6c2f43b656ddffa72b48ba99a11}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!sys\_logs\_box@{sys\_logs\_box}}
+\index{sys\_logs\_box@{sys\_logs\_box}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{sys\_logs\_box}{sys\_logs\_box}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} sys\+\_\+logs\+\_\+box}
+
+
+
+Definition at line 16 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_aec9cc055a555170de64dc2f359fa0362}\label{freertos__tasks_8cpp_aec9cc055a555170de64dc2f359fa0362}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!SysMonitorTaskHandle@{SysMonitorTaskHandle}}
+\index{SysMonitorTaskHandle@{SysMonitorTaskHandle}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{SysMonitorTaskHandle}{SysMonitorTaskHandle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cmsis__os_8h_a217fdd2811440d39a6e8c868a0b8ec82}{os\+Thread\+Id}} Sys\+Monitor\+Task\+Handle}
+
+
+
+Definition at line 7 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_a494e1e5f80e03d48d47f0113f2693e2c}\label{freertos__tasks_8cpp_a494e1e5f80e03d48d47f0113f2693e2c}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!WirelessCommTaskHandle@{WirelessCommTaskHandle}}
+\index{WirelessCommTaskHandle@{WirelessCommTaskHandle}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{WirelessCommTaskHandle}{WirelessCommTaskHandle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cmsis__os_8h_a217fdd2811440d39a6e8c868a0b8ec82}{os\+Thread\+Id}} Wireless\+Comm\+Task\+Handle}
+
+
+
+Definition at line 9 of file freertos\+\_\+tasks.\+cpp.
+
+\mbox{\Hypertarget{freertos__tasks_8cpp_ad0ebe9dd3ce90e4332dc61c8f4c959f1}\label{freertos__tasks_8cpp_ad0ebe9dd3ce90e4332dc61c8f4c959f1}} 
+\index{freertos\_tasks.cpp@{freertos\_tasks.cpp}!wls\_logs\_box@{wls\_logs\_box}}
+\index{wls\_logs\_box@{wls\_logs\_box}!freertos\_tasks.cpp@{freertos\_tasks.cpp}}
+\doxysubsubsection{\texorpdfstring{wls\_logs\_box}{wls\_logs\_box}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} wls\+\_\+logs\+\_\+box}
+
+
+
+Definition at line 20 of file freertos\+\_\+tasks.\+cpp.
+

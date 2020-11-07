@@ -1,0 +1,81 @@
+\hypertarget{stm32f4xx__hal__rtc__ex_8c}{}\doxysection{Drivers/\+S\+T\+M32\+F4xx\+\_\+\+H\+A\+L\+\_\+\+Driver/\+Src/stm32f4xx\+\_\+hal\+\_\+rtc\+\_\+ex.c File Reference}
+\label{stm32f4xx__hal__rtc__ex_8c}\index{Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_rtc\_ex.c@{Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_rtc\_ex.c}}
+
+
+R\+TC H\+AL module driver. This file provides firmware functions to manage the following functionalities of the Real Time Clock (R\+TC) Extension peripheral\+:  
+
+
+{\ttfamily \#include \char`\"{}stm32f4xx\+\_\+hal.\+h\char`\"{}}\newline
+
+
+\doxysubsection{Detailed Description}
+R\+TC H\+AL module driver. This file provides firmware functions to manage the following functionalities of the Real Time Clock (R\+TC) Extension peripheral\+: 
+
+\begin{DoxyAuthor}{Author}
+M\+CD Application Team
+\begin{DoxyItemize}
+\item R\+TC Time Stamp functions
+\item R\+TC Tamper functions
+\item R\+TC Wake-\/up functions
+\item Extension Control functions
+\item Extension R\+TC features functions
+\end{DoxyItemize}
+\end{DoxyAuthor}
+\begin{DoxyVerb}==============================================================================
+                ##### How to use this driver #####
+==============================================================================
+[..]
+  (+) Enable the RTC domain access.
+  (+) Configure the RTC Prescaler (Asynchronous and Synchronous) and RTC hour
+      format using the HAL_RTC_Init() function.
+
+*** RTC Wake-up configuration ***
+================================
+[..]
+  (+) To configure the RTC Wake-up Clock source and Counter use the HAL_RTCEx_SetWakeUpTimer()
+      function. You can also configure the RTC Wake-up timer in interrupt mode
+      using the HAL_RTCEx_SetWakeUpTimer_IT() function.
+  (+) To read the RTC Wake-up Counter register, use the HAL_RTCEx_GetWakeUpTimer()
+      function.
+
+*** TimeStamp configuration ***
+===============================
+[..]
+  (+) Configure the RTC_AFx trigger and enable the RTC TimeStamp using the
+      HAL_RTCEx_SetTimeStamp() function. You can also configure the RTC TimeStamp with
+      interrupt mode using the HAL_RTCEx_SetTimeStamp_IT() function.
+  (+) To read the RTC TimeStamp Time and Date register, use the HAL_RTCEx_GetTimeStamp()
+      function.
+  (+) The TIMESTAMP alternate function can be mapped either to RTC_AF1 (PC13)
+      or RTC_AF2 (PI8 or PA0 only for STM32F446xx devices) depending on the value of TSINSEL bit in
+      RTC_TAFCR register. The corresponding pin is also selected by HAL_RTCEx_SetTimeStamp()
+      or HAL_RTCEx_SetTimeStamp_IT() function.
+
+*** Tamper configuration ***
+============================
+[..]
+  (+) Enable the RTC Tamper and configure the Tamper filter count, trigger Edge
+      or Level according to the Tamper filter (if equal to 0 Edge else Level)
+      value, sampling frequency, precharge or discharge and Pull-UP using the
+      HAL_RTCEx_SetTamper() function. You can configure RTC Tamper in interrupt
+      mode using HAL_RTCEx_SetTamper_IT() function.
+  (+) The TAMPER1 alternate function can be mapped either to RTC_AF1 (PC13)
+      or RTC_AF2 (PI8 or PA0 only for STM32F446xx devices) depending on the value of TAMP1INSEL bit in
+      RTC_TAFCR register. The corresponding pin is also selected by HAL_RTCEx_SetTamper()
+      or HAL_RTCEx_SetTamper_IT() function.
+
+*** Backup Data Registers configuration ***
+===========================================
+[..]
+  (+) To write to the RTC Backup Data registers, use the HAL_RTCEx_BKUPWrite()
+      function.
+  (+) To read the RTC Backup Data registers, use the HAL_RTCEx_BKUPRead()
+      function.\end{DoxyVerb}
+
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+\doxysubsubsection*{\begin{center}\copyright{} Copyright (c) 2017 S\+T\+Microelectronics. All rights reserved.\end{center} }
+
+This software component is licensed by ST under B\+SD 3-\/Clause license, the \char`\"{}\+License\char`\"{}; You may not use this file except in compliance with the License. You may obtain a copy of the License at\+: opensource.\+org/licenses/\+B\+S\+D-\/3-\/\+Clause 

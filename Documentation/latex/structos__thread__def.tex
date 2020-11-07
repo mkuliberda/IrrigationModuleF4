@@ -1,0 +1,107 @@
+\hypertarget{structos__thread__def}{}\doxysection{os\+\_\+thread\+\_\+def Struct Reference}
+\label{structos__thread__def}\index{os\_thread\_def@{os\_thread\_def}}
+
+
+{\ttfamily \#include $<$cmsis\+\_\+os.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{structos__thread__def_a4d5b1b8556ab113f3b891f93d3d8c409}{name}}
+\begin{DoxyCompactList}\small\item\em Thread name. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__os_8h_a3a96994ab8318050b476d72d890ce765}{os\+\_\+pthread}} \mbox{\hyperlink{structos__thread__def_a0df2a4614d013387de75eebe66a6e3f9}{pthread}}
+\begin{DoxyCompactList}\small\item\em start address of thread function \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__os_8h_a7f2b42f1983b9107775ec2a1c69a849a}{os\+Priority}} \mbox{\hyperlink{structos__thread__def_a5e4e35a5f44d174a558a289688022e64}{tpriority}}
+\begin{DoxyCompactList}\small\item\em initial thread priority \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structos__thread__def_afd50a1965f6fb28cc37fdfdca5d07e4e}{instances}}
+\begin{DoxyCompactList}\small\item\em maximum number of instances of that thread function \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structos__thread__def_aa0dd2cff64a499a08f422dd159fe5780}{stacksize}}
+\begin{DoxyCompactList}\small\item\em stack size requirements in bytes; 0 is default stack size \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Thread Definition structure contains startup information of a thread. \begin{DoxyNote}{Note}
+C\+AN BE C\+H\+A\+N\+G\+ED\+: {\bfseries{\mbox{\hyperlink{structos__thread__def}{os\+\_\+thread\+\_\+def}}}} is implementation specific in every C\+M\+S\+I\+S-\/\+R\+T\+OS. 
+\end{DoxyNote}
+
+
+Definition at line 280 of file cmsis\+\_\+os.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structos__thread__def_afd50a1965f6fb28cc37fdfdca5d07e4e}\label{structos__thread__def_afd50a1965f6fb28cc37fdfdca5d07e4e}} 
+\index{os\_thread\_def@{os\_thread\_def}!instances@{instances}}
+\index{instances@{instances}!os\_thread\_def@{os\_thread\_def}}
+\doxysubsubsection{\texorpdfstring{instances}{instances}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+\_\+thread\+\_\+def\+::instances}
+
+
+
+maximum number of instances of that thread function 
+
+
+
+Definition at line 284 of file cmsis\+\_\+os.\+h.
+
+\mbox{\Hypertarget{structos__thread__def_a4d5b1b8556ab113f3b891f93d3d8c409}\label{structos__thread__def_a4d5b1b8556ab113f3b891f93d3d8c409}} 
+\index{os\_thread\_def@{os\_thread\_def}!name@{name}}
+\index{name@{name}!os\_thread\_def@{os\_thread\_def}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily char$\ast$ os\+\_\+thread\+\_\+def\+::name}
+
+
+
+Thread name. 
+
+
+
+Definition at line 281 of file cmsis\+\_\+os.\+h.
+
+\mbox{\Hypertarget{structos__thread__def_a0df2a4614d013387de75eebe66a6e3f9}\label{structos__thread__def_a0df2a4614d013387de75eebe66a6e3f9}} 
+\index{os\_thread\_def@{os\_thread\_def}!pthread@{pthread}}
+\index{pthread@{pthread}!os\_thread\_def@{os\_thread\_def}}
+\doxysubsubsection{\texorpdfstring{pthread}{pthread}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cmsis__os_8h_a3a96994ab8318050b476d72d890ce765}{os\+\_\+pthread}} os\+\_\+thread\+\_\+def\+::pthread}
+
+
+
+start address of thread function 
+
+
+
+Definition at line 282 of file cmsis\+\_\+os.\+h.
+
+\mbox{\Hypertarget{structos__thread__def_aa0dd2cff64a499a08f422dd159fe5780}\label{structos__thread__def_aa0dd2cff64a499a08f422dd159fe5780}} 
+\index{os\_thread\_def@{os\_thread\_def}!stacksize@{stacksize}}
+\index{stacksize@{stacksize}!os\_thread\_def@{os\_thread\_def}}
+\doxysubsubsection{\texorpdfstring{stacksize}{stacksize}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+\_\+thread\+\_\+def\+::stacksize}
+
+
+
+stack size requirements in bytes; 0 is default stack size 
+
+
+
+Definition at line 285 of file cmsis\+\_\+os.\+h.
+
+\mbox{\Hypertarget{structos__thread__def_a5e4e35a5f44d174a558a289688022e64}\label{structos__thread__def_a5e4e35a5f44d174a558a289688022e64}} 
+\index{os\_thread\_def@{os\_thread\_def}!tpriority@{tpriority}}
+\index{tpriority@{tpriority}!os\_thread\_def@{os\_thread\_def}}
+\doxysubsubsection{\texorpdfstring{tpriority}{tpriority}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cmsis__os_8h_a7f2b42f1983b9107775ec2a1c69a849a}{os\+Priority}} os\+\_\+thread\+\_\+def\+::tpriority}
+
+
+
+initial thread priority 
+
+
+
+Definition at line 283 of file cmsis\+\_\+os.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Middlewares/\+Third\+\_\+\+Party/\+Free\+R\+T\+O\+S/\+Source/\+C\+M\+S\+I\+S\+\_\+\+R\+T\+O\+S/\mbox{\hyperlink{cmsis__os_8h}{cmsis\+\_\+os.\+h}}\end{DoxyCompactItemize}

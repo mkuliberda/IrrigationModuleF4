@@ -1,0 +1,268 @@
+\hypertarget{class_battery}{}\doxysection{Battery Class Reference}
+\label{class_battery}\index{Battery@{Battery}}
+
+
+{\ttfamily \#include $<$power.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_battery_a77f9feab6e6778ec22b24266d5f6dc61}{Battery}} (const uint8\+\_\+t \&\+\_\+id, const \mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46}{batterytype\+\_\+t}} \&\+\_\+type, const \mbox{\hyperlink{power_8h_a932f26acba1950ea2759584d29f12163}{batteryinterface\+\_\+t}} \&\+\_\+interface, const uint8\+\_\+t \&\+\_\+cell\+\_\+count)
+\item 
+\mbox{\hyperlink{class_battery_a50b7641018dcbc67858e35e1c5503cb0}{Battery}} (const uint8\+\_\+t \&\+\_\+id, const \mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46}{batterytype\+\_\+t}} \&\+\_\+type, const \mbox{\hyperlink{power_8h_a932f26acba1950ea2759584d29f12163}{batteryinterface\+\_\+t}} \&\+\_\+interface, const uint8\+\_\+t \&\+\_\+cell\+\_\+count, const float \&\+\_\+capacity\+\_\+full)
+\item 
+\mbox{\hyperlink{class_battery_aa67810dc473bd5d030d339d6b20b3fd7}{Battery}} (const uint8\+\_\+t \&\+\_\+id, const \mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46}{batterytype\+\_\+t}} \&\+\_\+type, const \mbox{\hyperlink{power_8h_a932f26acba1950ea2759584d29f12163}{batteryinterface\+\_\+t}} \&\+\_\+interface, const uint8\+\_\+t \&\+\_\+cell\+\_\+count, const float \&\+\_\+capacity\+\_\+full, const float \&\+\_\+internal\+\_\+resistance)
+\item 
+\mbox{\hyperlink{class_battery_a637d8766eb5cbdb33ab2a19a30622bc3}{$\sim$\+Battery}} ()
+\item 
+bool \& \mbox{\hyperlink{class_battery_a7ad704bf14d389375b485a60aa48f74d}{is\+Valid}} (void)
+\item 
+bool \mbox{\hyperlink{class_battery_ac64f051fc62fa60c9b9a5716c9bea19b}{is\+Charging}} (void)
+\item 
+const uint8\+\_\+t \& \mbox{\hyperlink{class_battery_aec1272e23d8e693306042da95055d152}{get\+Id}} (void)
+\item 
+const \mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46}{batterytype\+\_\+t}} \& \mbox{\hyperlink{class_battery_a3f87d127fbc0d0e427eb1eae17771cec}{get\+Type}} (void)
+\item 
+float \& \mbox{\hyperlink{class_battery_ad300fddd2c11ab66361942190599125c}{get\+Voltage}} (void)
+\item 
+float \& \mbox{\hyperlink{class_battery_ae114f814652003fff51b44d1d581d0d8}{get\+Current}} (void)
+\item 
+float \mbox{\hyperlink{class_battery_a877683d700e3e1c8cdda9ae4ff43af5f}{get\+Remaining\+Capacity}} (void)
+\item 
+float \& \mbox{\hyperlink{class_battery_ad2ff206c170f44fea03212d0fb342c69}{get\+Percentage}} (void)
+\item 
+const uint8\+\_\+t \& \mbox{\hyperlink{class_battery_ad4fdcc57260779f27b2e64462975c192}{get\+Cell\+Count}} (void)
+\item 
+uint16\+\_\+t \& \mbox{\hyperlink{class_battery_ac2028e82b965398cf255af4f99d70c47}{get\+Remaining\+Time\+Minutes}} (void)
+\item 
+\mbox{\hyperlink{power_8h_a98366dd685bd051388d1fcbf43ed48e4}{batterystate\+\_\+t}} \& \mbox{\hyperlink{class_battery_aca01f862a8b9eb3e2de9b6edd87bae02}{get\+State}} (void)
+\item 
+\mbox{\hyperlink{structbatteryerror__t}{batteryerror\+\_\+t}} \& \mbox{\hyperlink{class_battery_a9f79f5cd1c16bd7932a91010cc93ad93}{get\+Errors}} (void)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_battery_ac003505d324abc46c3f122aefa4d712b}{get\+Status}} (void)
+\item 
+void \mbox{\hyperlink{class_battery_a799a0cb3669a3d7f89306646ddc024a6}{configure\+Adc\+Characteristics}} (const float \&\+\_\+adc\+\_\+voltage\+\_\+divider\+\_\+error\+\_\+factor, const float \&\+\_\+adc\+\_\+reference\+\_\+voltage, const uint32\+\_\+t \&\+\_\+adc\+\_\+levels)
+\item 
+bool \mbox{\hyperlink{class_battery_a90aee175bb84f7bc343b609173c77be8}{update}} (const float \&\+\_\+dt)
+\item 
+bool \mbox{\hyperlink{class_battery_ab01d53053c15308d39a38d561683d0aa}{update}} (const float \&\+\_\+dt, uint16\+\_\+t $\ast$\+\_\+raw\+\_\+adc\+\_\+values, const uint8\+\_\+t \&\+\_\+adc\+\_\+values\+\_\+count)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 58 of file power.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_battery_a77f9feab6e6778ec22b24266d5f6dc61}\label{class_battery_a77f9feab6e6778ec22b24266d5f6dc61}} 
+\index{Battery@{Battery}!Battery@{Battery}}
+\index{Battery@{Battery}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{Battery()}{Battery()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Battery\+::\+Battery (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \&}]{\+\_\+id,  }\item[{const \mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46}{batterytype\+\_\+t}} \&}]{\+\_\+type,  }\item[{const \mbox{\hyperlink{power_8h_a932f26acba1950ea2759584d29f12163}{batteryinterface\+\_\+t}} \&}]{\+\_\+interface,  }\item[{const uint8\+\_\+t \&}]{\+\_\+cell\+\_\+count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 94 of file power.\+h.
+
+\mbox{\Hypertarget{class_battery_a50b7641018dcbc67858e35e1c5503cb0}\label{class_battery_a50b7641018dcbc67858e35e1c5503cb0}} 
+\index{Battery@{Battery}!Battery@{Battery}}
+\index{Battery@{Battery}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{Battery()}{Battery()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Battery\+::\+Battery (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \&}]{\+\_\+id,  }\item[{const \mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46}{batterytype\+\_\+t}} \&}]{\+\_\+type,  }\item[{const \mbox{\hyperlink{power_8h_a932f26acba1950ea2759584d29f12163}{batteryinterface\+\_\+t}} \&}]{\+\_\+interface,  }\item[{const uint8\+\_\+t \&}]{\+\_\+cell\+\_\+count,  }\item[{const float \&}]{\+\_\+capacity\+\_\+full }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 128 of file power.\+h.
+
+\mbox{\Hypertarget{class_battery_aa67810dc473bd5d030d339d6b20b3fd7}\label{class_battery_aa67810dc473bd5d030d339d6b20b3fd7}} 
+\index{Battery@{Battery}!Battery@{Battery}}
+\index{Battery@{Battery}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{Battery()}{Battery()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Battery\+::\+Battery (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \&}]{\+\_\+id,  }\item[{const \mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46}{batterytype\+\_\+t}} \&}]{\+\_\+type,  }\item[{const \mbox{\hyperlink{power_8h_a932f26acba1950ea2759584d29f12163}{batteryinterface\+\_\+t}} \&}]{\+\_\+interface,  }\item[{const uint8\+\_\+t \&}]{\+\_\+cell\+\_\+count,  }\item[{const float \&}]{\+\_\+capacity\+\_\+full,  }\item[{const float \&}]{\+\_\+internal\+\_\+resistance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 162 of file power.\+h.
+
+\mbox{\Hypertarget{class_battery_a637d8766eb5cbdb33ab2a19a30622bc3}\label{class_battery_a637d8766eb5cbdb33ab2a19a30622bc3}} 
+\index{Battery@{Battery}!````~Battery@{$\sim$Battery}}
+\index{````~Battery@{$\sim$Battery}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{$\sim$Battery()}{~Battery()}}
+{\footnotesize\ttfamily Battery\+::$\sim$\+Battery (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 196 of file power.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_battery_a799a0cb3669a3d7f89306646ddc024a6}\label{class_battery_a799a0cb3669a3d7f89306646ddc024a6}} 
+\index{Battery@{Battery}!configureAdcCharacteristics@{configureAdcCharacteristics}}
+\index{configureAdcCharacteristics@{configureAdcCharacteristics}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{configureAdcCharacteristics()}{configureAdcCharacteristics()}}
+{\footnotesize\ttfamily void Battery\+::configure\+Adc\+Characteristics (\begin{DoxyParamCaption}\item[{const float \&}]{\+\_\+adc\+\_\+voltage\+\_\+divider\+\_\+error\+\_\+factor,  }\item[{const float \&}]{\+\_\+adc\+\_\+reference\+\_\+voltage,  }\item[{const uint32\+\_\+t \&}]{\+\_\+adc\+\_\+levels }\end{DoxyParamCaption})}
+
+
+
+Definition at line 71 of file power.\+cpp.
+
+\mbox{\Hypertarget{class_battery_ad4fdcc57260779f27b2e64462975c192}\label{class_battery_ad4fdcc57260779f27b2e64462975c192}} 
+\index{Battery@{Battery}!getCellCount@{getCellCount}}
+\index{getCellCount@{getCellCount}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{getCellCount()}{getCellCount()}}
+{\footnotesize\ttfamily const uint8\+\_\+t \& Battery\+::get\+Cell\+Count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 38 of file power.\+cpp.
+
+\mbox{\Hypertarget{class_battery_ae114f814652003fff51b44d1d581d0d8}\label{class_battery_ae114f814652003fff51b44d1d581d0d8}} 
+\index{Battery@{Battery}!getCurrent@{getCurrent}}
+\index{getCurrent@{getCurrent}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{getCurrent()}{getCurrent()}}
+{\footnotesize\ttfamily float \& Battery\+::get\+Current (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 28 of file power.\+cpp.
+
+\mbox{\Hypertarget{class_battery_a9f79f5cd1c16bd7932a91010cc93ad93}\label{class_battery_a9f79f5cd1c16bd7932a91010cc93ad93}} 
+\index{Battery@{Battery}!getErrors@{getErrors}}
+\index{getErrors@{getErrors}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{getErrors()}{getErrors()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structbatteryerror__t}{batteryerror\+\_\+t}} \& Battery\+::get\+Errors (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 47 of file power.\+cpp.
+
+\mbox{\Hypertarget{class_battery_aec1272e23d8e693306042da95055d152}\label{class_battery_aec1272e23d8e693306042da95055d152}} 
+\index{Battery@{Battery}!getId@{getId}}
+\index{getId@{getId}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily const uint8\+\_\+t \& Battery\+::get\+Id (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 19 of file power.\+cpp.
+
+\mbox{\Hypertarget{class_battery_ad2ff206c170f44fea03212d0fb342c69}\label{class_battery_ad2ff206c170f44fea03212d0fb342c69}} 
+\index{Battery@{Battery}!getPercentage@{getPercentage}}
+\index{getPercentage@{getPercentage}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{getPercentage()}{getPercentage()}}
+{\footnotesize\ttfamily float \& Battery\+::get\+Percentage (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 35 of file power.\+cpp.
+
+\mbox{\Hypertarget{class_battery_a877683d700e3e1c8cdda9ae4ff43af5f}\label{class_battery_a877683d700e3e1c8cdda9ae4ff43af5f}} 
+\index{Battery@{Battery}!getRemainingCapacity@{getRemainingCapacity}}
+\index{getRemainingCapacity@{getRemainingCapacity}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{getRemainingCapacity()}{getRemainingCapacity()}}
+{\footnotesize\ttfamily float Battery\+::get\+Remaining\+Capacity (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 31 of file power.\+cpp.
+
+\mbox{\Hypertarget{class_battery_ac2028e82b965398cf255af4f99d70c47}\label{class_battery_ac2028e82b965398cf255af4f99d70c47}} 
+\index{Battery@{Battery}!getRemainingTimeMinutes@{getRemainingTimeMinutes}}
+\index{getRemainingTimeMinutes@{getRemainingTimeMinutes}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{getRemainingTimeMinutes()}{getRemainingTimeMinutes()}}
+{\footnotesize\ttfamily uint16\+\_\+t \& Battery\+::get\+Remaining\+Time\+Minutes (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 41 of file power.\+cpp.
+
+\mbox{\Hypertarget{class_battery_aca01f862a8b9eb3e2de9b6edd87bae02}\label{class_battery_aca01f862a8b9eb3e2de9b6edd87bae02}} 
+\index{Battery@{Battery}!getState@{getState}}
+\index{getState@{getState}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{power_8h_a98366dd685bd051388d1fcbf43ed48e4}{batterystate\+\_\+t}} \& Battery\+::get\+State (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 44 of file power.\+cpp.
+
+\mbox{\Hypertarget{class_battery_ac003505d324abc46c3f122aefa4d712b}\label{class_battery_ac003505d324abc46c3f122aefa4d712b}} 
+\index{Battery@{Battery}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily uint8\+\_\+t Battery\+::get\+Status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 50 of file power.\+cpp.
+
+\mbox{\Hypertarget{class_battery_a3f87d127fbc0d0e427eb1eae17771cec}\label{class_battery_a3f87d127fbc0d0e427eb1eae17771cec}} 
+\index{Battery@{Battery}!getType@{getType}}
+\index{getType@{getType}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{power_8h_ad51e8c2b736a0fadaa80bb54ae26db46}{batterytype\+\_\+t}} \& Battery\+::get\+Type (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file power.\+cpp.
+
+\mbox{\Hypertarget{class_battery_ad300fddd2c11ab66361942190599125c}\label{class_battery_ad300fddd2c11ab66361942190599125c}} 
+\index{Battery@{Battery}!getVoltage@{getVoltage}}
+\index{getVoltage@{getVoltage}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{getVoltage()}{getVoltage()}}
+{\footnotesize\ttfamily float \& Battery\+::get\+Voltage (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 25 of file power.\+cpp.
+
+\mbox{\Hypertarget{class_battery_ac64f051fc62fa60c9b9a5716c9bea19b}\label{class_battery_ac64f051fc62fa60c9b9a5716c9bea19b}} 
+\index{Battery@{Battery}!isCharging@{isCharging}}
+\index{isCharging@{isCharging}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{isCharging()}{isCharging()}}
+{\footnotesize\ttfamily bool Battery\+::is\+Charging (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 16 of file power.\+cpp.
+
+\mbox{\Hypertarget{class_battery_a7ad704bf14d389375b485a60aa48f74d}\label{class_battery_a7ad704bf14d389375b485a60aa48f74d}} 
+\index{Battery@{Battery}!isValid@{isValid}}
+\index{isValid@{isValid}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool \& Battery\+::is\+Valid (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file power.\+cpp.
+
+\mbox{\Hypertarget{class_battery_a90aee175bb84f7bc343b609173c77be8}\label{class_battery_a90aee175bb84f7bc343b609173c77be8}} 
+\index{Battery@{Battery}!update@{update}}
+\index{update@{update}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Battery\+::update (\begin{DoxyParamCaption}\item[{const float \&}]{\+\_\+dt }\end{DoxyParamCaption})}
+
+
+
+Definition at line 113 of file power.\+cpp.
+
+\mbox{\Hypertarget{class_battery_ab01d53053c15308d39a38d561683d0aa}\label{class_battery_ab01d53053c15308d39a38d561683d0aa}} 
+\index{Battery@{Battery}!update@{update}}
+\index{update@{update}!Battery@{Battery}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Battery\+::update (\begin{DoxyParamCaption}\item[{const float \&}]{\+\_\+dt,  }\item[{uint16\+\_\+t $\ast$}]{\+\_\+raw\+\_\+adc\+\_\+values,  }\item[{const uint8\+\_\+t \&}]{\+\_\+adc\+\_\+values\+\_\+count }\end{DoxyParamCaption})}
+
+
+
+Definition at line 117 of file power.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Inc/\mbox{\hyperlink{power_8h}{power.\+h}}\item 
+Src/\mbox{\hyperlink{power_8cpp}{power.\+cpp}}\end{DoxyCompactItemize}

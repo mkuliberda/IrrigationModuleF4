@@ -1,0 +1,68 @@
+var msg__definitions__irrigation_8h =
+[
+    [ "batteryerror_t", "structbatteryerror__t.html", "structbatteryerror__t" ],
+    [ "pumpstatus_s", "structpumpstatus__s.html", "structpumpstatus__s" ],
+    [ "tankstatus_s", "structtankstatus__s.html", "structtankstatus__s" ],
+    [ "plantstatus_s", "structplantstatus__s.html", "structplantstatus__s" ],
+    [ "sectorstatus_s", "structsectorstatus__s.html", "structsectorstatus__s" ],
+    [ "batterystatus_s", "structbatterystatus__s.html", "structbatterystatus__s" ],
+    [ "servicecode_s", "structservicecode__s.html", "structservicecode__s" ],
+    [ "wframeDl_s", "structwframe_dl__s.html", "structwframe_dl__s" ],
+    [ "wframeUl_s", "structwframe_ul__s.html", "structwframe_ul__s" ],
+    [ "cmd_s", "structcmd__s.html", "structcmd__s" ],
+    [ "confirmation_s", "structconfirmation__s.html", "structconfirmation__s" ],
+    [ "singlevalue_s", "structsinglevalue__s.html", "structsinglevalue__s" ],
+    [ "servicecode_u", "unionservicecode__u.html", "unionservicecode__u" ],
+    [ "ulframe32byte_u", "unionulframe32byte__u.html", "unionulframe32byte__u" ],
+    [ "dlframe32byte_u", "uniondlframe32byte__u.html", "uniondlframe32byte__u" ],
+    [ "IrrigationMessage", "class_irrigation_message.html", "class_irrigation_message" ],
+    [ "NAME_LENGTH", "msg__definitions__irrigation_8h.html#af71324c57f05ff9e24bd384925dd6b17", null ],
+    [ "PAYLOAD_SIZE", "msg__definitions__irrigation_8h.html#a3fb2dea7d964f6ed95dfac2897c4001d", null ],
+    [ "PLANTS_LENGTH", "msg__definitions__irrigation_8h.html#ae7c50713c89a8f8627e53bff5644bcc5", null ],
+    [ "command_t", "msg__definitions__irrigation_8h.html#a425be7c2fa6d9ba383d4129ae8eaf61d", null ],
+    [ "direction_t", "msg__definitions__irrigation_8h.html#a8e4feaca9a4e5c1fb9beced03f81cd86", null ],
+    [ "target_t", "msg__definitions__irrigation_8h.html#a035693b52a36a19d7df58f980ff4e1c2", null ],
+    [ "_command_t", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732e", [
+      [ "None", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732eac9d3e887722f2bc482bcca9d41c512af", null ],
+      [ "Start", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732eabd5f9c956752ce4dc707b4624b3a36f7", null ],
+      [ "Stop", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732eaf98d707eb4ed173ccfdbaf4eaa87100d", null ],
+      [ "ForceStart", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732ea865194198c23be0bd5b6331f1e32e477", null ],
+      [ "ForceStop", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732ea26c74884fd97f3300396173af35d8e7c", null ],
+      [ "StartRev", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732ea54fb5fa4bdf04d28c751f0c2ebad559d", null ],
+      [ "ForceStartRev", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732ea523086a1a5fa44a06a9b9a9cf04d48fe", null ],
+      [ "GetLiquidLevel", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732ea679a3b877310a7211e5a8039e11d7282", null ],
+      [ "GetTemperature", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732ea19de9c37793093d5c344e87a4a07bc7d", null ],
+      [ "GetMoisture", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732ea10e6c3f7aa727f77fef0b569d13cc531", null ],
+      [ "GetVoltage", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732ea2c3041d951c1accac5a12d72752881cc", null ],
+      [ "GetCurrent", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732ea0622ce9e3a779843a57eb6fe423d7da2", null ],
+      [ "GetChargeLevel", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732ea9e8d4c89d7a4dc066e55944ac6d1639a", null ],
+      [ "GetCycles", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732eaabba6e82e66011f1a215fd911f7668a8", null ],
+      [ "GetDescription", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732ea1867eb4b8320faf08b78f303b3478398", null ],
+      [ "SetSleep", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732ea34a4592975ade2a995d42136a3f3e874", null ],
+      [ "SetStandby", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732eabd714273dda054414e5056604a8f51a4", null ],
+      [ "GetState", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732ea30bac602cdfae0e31d80d2342ba86beb", null ],
+      [ "GetStatus", "msg__definitions__irrigation_8h.html#af3d714e79cdba1156d93b8b768b8732ea050d7c8b46c7296173d8c6f565695cb0", null ]
+    ] ],
+    [ "_direction_t", "msg__definitions__irrigation_8h.html#a520a493c0f8c6cd607e84878c23f125e", [
+      [ "RPiToIRM", "msg__definitions__irrigation_8h.html#a520a493c0f8c6cd607e84878c23f125eab347927af93313b88efceebd60e54ae2", null ],
+      [ "IRMToRPi", "msg__definitions__irrigation_8h.html#a520a493c0f8c6cd607e84878c23f125ea693e492064f900fda4100e6cf73cd88d", null ]
+    ] ],
+    [ "_target_t", "msg__definitions__irrigation_8h.html#a0930e8b2ddeeb5eed520aa10e14e03cc", [
+      [ "Generic", "msg__definitions__irrigation_8h.html#a0930e8b2ddeeb5eed520aa10e14e03cca9683fc965be285edded4502f972f9d19", null ],
+      [ "Pump", "msg__definitions__irrigation_8h.html#a0930e8b2ddeeb5eed520aa10e14e03cca544e273c1acb1c6dbaa19e1567fad982", null ],
+      [ "Tank", "msg__definitions__irrigation_8h.html#a0930e8b2ddeeb5eed520aa10e14e03cca1c0a2dd616bf809071539063cc96617a", null ],
+      [ "Plant", "msg__definitions__irrigation_8h.html#a0930e8b2ddeeb5eed520aa10e14e03cca1d50ebd5fa95607cb803791e69868d7e", null ],
+      [ "Sector", "msg__definitions__irrigation_8h.html#a0930e8b2ddeeb5eed520aa10e14e03cca77567e82f18deafcef81c25822bf6c3c", null ],
+      [ "Power", "msg__definitions__irrigation_8h.html#a0930e8b2ddeeb5eed520aa10e14e03ccaeaf106a8b179fcfe2585c7efd72ed55a", null ],
+      [ "System", "msg__definitions__irrigation_8h.html#a0930e8b2ddeeb5eed520aa10e14e03ccaacd40056f9fbe11dadadeba269eb2034", null ],
+      [ "All", "msg__definitions__irrigation_8h.html#a0930e8b2ddeeb5eed520aa10e14e03cca54991d225c58ce0af43461d4e9a82312", null ]
+    ] ],
+    [ "batterystate_t", "msg__definitions__irrigation_8h.html#a98366dd685bd051388d1fcbf43ed48e4", [
+      [ "undetermined", "msg__definitions__irrigation_8h.html#a98366dd685bd051388d1fcbf43ed48e4a276fc71ddbf2483a3842cdcef417e03d", null ],
+      [ "charging", "msg__definitions__irrigation_8h.html#a98366dd685bd051388d1fcbf43ed48e4a05a0c26d8e746429c786c8e53378b9c9", null ],
+      [ "discharging", "msg__definitions__irrigation_8h.html#a98366dd685bd051388d1fcbf43ed48e4ac5506d5a14acd50bb34956446899fe2f", null ],
+      [ "undetermined", "msg__definitions__irrigation_8h.html#a98366dd685bd051388d1fcbf43ed48e4a276fc71ddbf2483a3842cdcef417e03d", null ],
+      [ "charging", "msg__definitions__irrigation_8h.html#a98366dd685bd051388d1fcbf43ed48e4a05a0c26d8e746429c786c8e53378b9c9", null ],
+      [ "discharging", "msg__definitions__irrigation_8h.html#a98366dd685bd051388d1fcbf43ed48e4ac5506d5a14acd50bb34956446899fe2f", null ]
+    ] ]
+];

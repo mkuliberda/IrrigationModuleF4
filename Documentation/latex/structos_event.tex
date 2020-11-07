@@ -1,0 +1,155 @@
+\hypertarget{structos_event}{}\doxysection{os\+Event Struct Reference}
+\label{structos_event}\index{osEvent@{osEvent}}
+
+
+{\ttfamily \#include $<$cmsis\+\_\+os.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99e}{os\+Status}} \mbox{\hyperlink{structos_event_aafcd2cedd08e033f9df25fd9875caaf2}{status}}
+\begin{DoxyCompactList}\small\item\em status code\+: event or error information \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uint32\_t \mbox{\hyperlink{structos_event_a5d2bb38f7be9c75f508646c24d2de4b1}{v}}\\
+\>\>{\em message as 32-\/bit value }\\
+\>void $\ast$ \mbox{\hyperlink{structos_event_a70b8f3f364cf158c9e538c5f590d1393}{p}}\\
+\>\>{\em message or mail as void pointer }\\
+\>int32\_t \mbox{\hyperlink{structos_event_ad63c33b8b5d3bb37b45433d7c67d1e09}{signals}}\\
+\>\>{\em signal flags }\\
+\} \mbox{\hyperlink{structos_event_a502e30fdca0457e8c3f964dd7f0d35ca}{value}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em event value \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{osMailQId}} \mbox{\hyperlink{structos_event_aeeccddfa51120e20a2316e73bdba099a}{mail\_id}}\\
+\>\>{\em mail id obtained by \mbox{\hyperlink{cmsis__os_8h_aa177e7fe5820dd70d8c9e46ded131174}{osMailCreate}} }\\
+\>\mbox{\hyperlink{cmsis__os_8h_a8c191fd2b1369c8942873496a186a022}{osMessageQId}} \mbox{\hyperlink{structos_event_af759bde42477c29f56ed1bf8a19c4db8}{message\_id}}\\
+\>\>{\em message id obtained by \mbox{\hyperlink{cmsis__os_8h_af3b9345cf426304d46565152bc26fb78}{osMessageCreate}} }\\
+\} \mbox{\hyperlink{structos_event_ad86265316e573e8212ec19cb008c5896}{def}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em event definition \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Event structure contains detailed information about an event. \begin{DoxyNote}{Note}
+M\+U\+ST R\+E\+M\+A\+IN U\+N\+C\+H\+A\+N\+G\+ED\+: {\bfseries{os\+\_\+event}} shall be consistent in every C\+M\+S\+I\+S-\/\+R\+T\+OS. However the struct may be extended at the end. 
+\end{DoxyNote}
+
+
+Definition at line 350 of file cmsis\+\_\+os.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structos_event_ad86265316e573e8212ec19cb008c5896}\label{structos_event_ad86265316e573e8212ec19cb008c5896}} 
+\index{osEvent@{osEvent}!def@{def}}
+\index{def@{def}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{def}{def}}
+{\footnotesize\ttfamily union \{ ... \}   os\+Event\+::def}
+
+
+
+event definition 
+
+\mbox{\Hypertarget{structos_event_aeeccddfa51120e20a2316e73bdba099a}\label{structos_event_aeeccddfa51120e20a2316e73bdba099a}} 
+\index{osEvent@{osEvent}!mail\_id@{mail\_id}}
+\index{mail\_id@{mail\_id}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{mail\_id}{mail\_id}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{os\+Mail\+Q\+Id}} os\+Event\+::mail\+\_\+id}
+
+
+
+mail id obtained by \mbox{\hyperlink{cmsis__os_8h_aa177e7fe5820dd70d8c9e46ded131174}{os\+Mail\+Create}} 
+
+
+
+Definition at line 358 of file cmsis\+\_\+os.\+h.
+
+\mbox{\Hypertarget{structos_event_af759bde42477c29f56ed1bf8a19c4db8}\label{structos_event_af759bde42477c29f56ed1bf8a19c4db8}} 
+\index{osEvent@{osEvent}!message\_id@{message\_id}}
+\index{message\_id@{message\_id}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{message\_id}{message\_id}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cmsis__os_8h_a8c191fd2b1369c8942873496a186a022}{os\+Message\+Q\+Id}} os\+Event\+::message\+\_\+id}
+
+
+
+message id obtained by \mbox{\hyperlink{cmsis__os_8h_af3b9345cf426304d46565152bc26fb78}{os\+Message\+Create}} 
+
+
+
+Definition at line 359 of file cmsis\+\_\+os.\+h.
+
+\mbox{\Hypertarget{structos_event_a70b8f3f364cf158c9e538c5f590d1393}\label{structos_event_a70b8f3f364cf158c9e538c5f590d1393}} 
+\index{osEvent@{osEvent}!p@{p}}
+\index{p@{p}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily void$\ast$ os\+Event\+::p}
+
+
+
+message or mail as void pointer 
+
+
+
+Definition at line 354 of file cmsis\+\_\+os.\+h.
+
+\mbox{\Hypertarget{structos_event_ad63c33b8b5d3bb37b45433d7c67d1e09}\label{structos_event_ad63c33b8b5d3bb37b45433d7c67d1e09}} 
+\index{osEvent@{osEvent}!signals@{signals}}
+\index{signals@{signals}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{signals}{signals}}
+{\footnotesize\ttfamily int32\+\_\+t os\+Event\+::signals}
+
+
+
+signal flags 
+
+
+
+Definition at line 355 of file cmsis\+\_\+os.\+h.
+
+\mbox{\Hypertarget{structos_event_aafcd2cedd08e033f9df25fd9875caaf2}\label{structos_event_aafcd2cedd08e033f9df25fd9875caaf2}} 
+\index{osEvent@{osEvent}!status@{status}}
+\index{status@{status}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99e}{os\+Status}} os\+Event\+::status}
+
+
+
+status code\+: event or error information 
+
+
+
+Definition at line 351 of file cmsis\+\_\+os.\+h.
+
+\mbox{\Hypertarget{structos_event_a5d2bb38f7be9c75f508646c24d2de4b1}\label{structos_event_a5d2bb38f7be9c75f508646c24d2de4b1}} 
+\index{osEvent@{osEvent}!v@{v}}
+\index{v@{v}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{v}{v}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+Event\+::v}
+
+
+
+message as 32-\/bit value 
+
+
+
+Definition at line 353 of file cmsis\+\_\+os.\+h.
+
+\mbox{\Hypertarget{structos_event_a502e30fdca0457e8c3f964dd7f0d35ca}\label{structos_event_a502e30fdca0457e8c3f964dd7f0d35ca}} 
+\index{osEvent@{osEvent}!value@{value}}
+\index{value@{value}!osEvent@{osEvent}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily union \{ ... \}   os\+Event\+::value}
+
+
+
+event value 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Middlewares/\+Third\+\_\+\+Party/\+Free\+R\+T\+O\+S/\+Source/\+C\+M\+S\+I\+S\+\_\+\+R\+T\+O\+S/\mbox{\hyperlink{cmsis__os_8h}{cmsis\+\_\+os.\+h}}\end{DoxyCompactItemize}

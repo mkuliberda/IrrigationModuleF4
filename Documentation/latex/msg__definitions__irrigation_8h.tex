@@ -1,0 +1,388 @@
+\hypertarget{msg__definitions__irrigation_8h}{}\doxysection{Middlewares/\+Wireless\+Comm/msg\+\_\+definitions\+\_\+irrigation.h File Reference}
+\label{msg__definitions__irrigation_8h}\index{Middlewares/WirelessComm/msg\_definitions\_irrigation.h@{Middlewares/WirelessComm/msg\_definitions\_irrigation.h}}
+{\ttfamily \#include \char`\"{}communication\+\_\+base.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include \char`\"{}../defines.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbatteryerror__t}{batteryerror\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structpumpstatus__s}{pumpstatus\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structtankstatus__s}{tankstatus\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structplantstatus__s}{plantstatus\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structsectorstatus__s}{sectorstatus\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structbatterystatus__s}{batterystatus\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structservicecode__s}{servicecode\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structwframe_dl__s}{wframe\+Dl\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structwframe_ul__s}{wframe\+Ul\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structcmd__s}{cmd\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structconfirmation__s}{confirmation\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structsinglevalue__s}{singlevalue\+\_\+s}}
+\item 
+union \mbox{\hyperlink{unionservicecode__u}{servicecode\+\_\+u}}
+\item 
+union \mbox{\hyperlink{unionulframe32byte__u}{ulframe32byte\+\_\+u}}
+\item 
+union \mbox{\hyperlink{uniondlframe32byte__u}{dlframe32byte\+\_\+u}}
+\item 
+class \mbox{\hyperlink{class_irrigation_message}{Irrigation\+Message}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{msg__definitions__irrigation_8h_af71324c57f05ff9e24bd384925dd6b17}{N\+A\+M\+E\+\_\+\+L\+E\+N\+G\+TH}}~20
+\begin{DoxyCompactList}\small\item\em Project specific communication protocol defines and enums. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{msg__definitions__irrigation_8h_ae7c50713c89a8f8627e53bff5644bcc5}{P\+L\+A\+N\+T\+S\+\_\+\+L\+E\+N\+G\+TH}}~20
+\item 
+\#define \mbox{\hyperlink{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}{P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}}~32
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cc}{\+\_\+target\+\_\+t}} \mbox{\hyperlink{msg__definitions__irrigation_8h_a035693b52a36a19d7df58f980ff4e1c2}{target\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Targets. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{msg__definitions__irrigation_8h_a520a493c0f8c6cd607e84878c23f125e}{\+\_\+direction\+\_\+t}} \mbox{\hyperlink{msg__definitions__irrigation_8h_a8e4feaca9a4e5c1fb9beced03f81cd86}{direction\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Directions. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732e}{\+\_\+command\+\_\+t}} \mbox{\hyperlink{msg__definitions__irrigation_8h_a425be7c2fa6d9ba383d4129ae8eaf61d}{command\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Commands, 0x1X -\/ \mbox{\hyperlink{class_pump}{Pump}}, 0x2X -\/ Tank, 0x3X -\/ \mbox{\hyperlink{class_plant}{Plant}}, 0x\+DX -\/ Power Supply, 0x\+EX -\/ System. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4}{batterystate\+\_\+t}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4a276fc71ddbf2483a3842cdcef417e03d}{batterystate\+\_\+t\+::undetermined}}, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4a05a0c26d8e746429c786c8e53378b9c9}{batterystate\+\_\+t\+::charging}}, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4ac5506d5a14acd50bb34956446899fe2f}{batterystate\+\_\+t\+::discharging}}, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4a276fc71ddbf2483a3842cdcef417e03d}{batterystate\+\_\+t\+::undetermined}}, 
+\newline
+\mbox{\hyperlink{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4a05a0c26d8e746429c786c8e53378b9c9}{batterystate\+\_\+t\+::charging}}, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4ac5506d5a14acd50bb34956446899fe2f}{batterystate\+\_\+t\+::discharging}}
+ \}
+\item 
+enum \mbox{\hyperlink{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cc}{\+\_\+target\+\_\+t}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca9683fc965be285edded4502f972f9d19}{Generic}} = 0x00, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca544e273c1acb1c6dbaa19e1567fad982}{Pump}} = 0x01, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca1c0a2dd616bf809071539063cc96617a}{Tank}} = 0x02, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca1d50ebd5fa95607cb803791e69868d7e}{Plant}} = 0x03, 
+\newline
+\mbox{\hyperlink{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca77567e82f18deafcef81c25822bf6c3c}{Sector}} = 0x04, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03ccaeaf106a8b179fcfe2585c7efd72ed55a}{Power}} = 0x0D, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03ccaacd40056f9fbe11dadadeba269eb2034}{System}} = 0x0E, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca54991d225c58ce0af43461d4e9a82312}{All}} = 0x\+FF
+ \}
+\begin{DoxyCompactList}\small\item\em Targets. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{msg__definitions__irrigation_8h_a520a493c0f8c6cd607e84878c23f125e}{\+\_\+direction\+\_\+t}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{msg__definitions__irrigation_8h_a520a493c0f8c6cd607e84878c23f125eab347927af93313b88efceebd60e54ae2}{R\+Pi\+To\+I\+RM}} = 0x\+AA, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_a520a493c0f8c6cd607e84878c23f125ea693e492064f900fda4100e6cf73cd88d}{I\+R\+M\+To\+R\+Pi}} = 0x\+BB
+ \}
+\begin{DoxyCompactList}\small\item\em Directions. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732e}{\+\_\+command\+\_\+t}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732eac9d3e887722f2bc482bcca9d41c512af}{None}} = 0x00, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732eabd5f9c956752ce4dc707b4624b3a36f7}{Start}} = 0x10, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732eaf98d707eb4ed173ccfdbaf4eaa87100d}{Stop}} = 0x11, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea865194198c23be0bd5b6331f1e32e477}{Force\+Start}} = 0x12, 
+\newline
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea26c74884fd97f3300396173af35d8e7c}{Force\+Stop}} = 0x13, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea54fb5fa4bdf04d28c751f0c2ebad559d}{Start\+Rev}} = 0x14, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea523086a1a5fa44a06a9b9a9cf04d48fe}{Force\+Start\+Rev}} = 0x15, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea679a3b877310a7211e5a8039e11d7282}{Get\+Liquid\+Level}} = 0x20, 
+\newline
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea19de9c37793093d5c344e87a4a07bc7d}{Get\+Temperature}} = 0x21, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea10e6c3f7aa727f77fef0b569d13cc531}{Get\+Moisture}} = 0x30, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea2c3041d951c1accac5a12d72752881cc}{Get\+Voltage}} = 0x\+D0, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea0622ce9e3a779843a57eb6fe423d7da2}{Get\+Current}} = 0x\+D1, 
+\newline
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea9e8d4c89d7a4dc066e55944ac6d1639a}{Get\+Charge\+Level}} = 0x\+D2, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732eaabba6e82e66011f1a215fd911f7668a8}{Get\+Cycles}} = 0x\+D3, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea1867eb4b8320faf08b78f303b3478398}{Get\+Description}} = 0x\+FB, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea34a4592975ade2a995d42136a3f3e874}{Set\+Sleep}} = 0x\+FC, 
+\newline
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732eabd714273dda054414e5056604a8f51a4}{Set\+Standby}} = 0x\+FD, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea30bac602cdfae0e31d80d2342ba86beb}{Get\+State}} = 0x\+FE, 
+\mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea050d7c8b46c7296173d8c6f565695cb0}{Get\+Status}} = 0x\+FF
+ \}
+\begin{DoxyCompactList}\small\item\em Commands, 0x1X -\/ \mbox{\hyperlink{class_pump}{Pump}}, 0x2X -\/ Tank, 0x3X -\/ \mbox{\hyperlink{class_plant}{Plant}}, 0x\+DX -\/ Power Supply, 0x\+EX -\/ System. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{msg__definitions__irrigation_8h_af71324c57f05ff9e24bd384925dd6b17}\label{msg__definitions__irrigation_8h_af71324c57f05ff9e24bd384925dd6b17}} 
+\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!NAME\_LENGTH@{NAME\_LENGTH}}
+\index{NAME\_LENGTH@{NAME\_LENGTH}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}
+\doxysubsubsection{\texorpdfstring{NAME\_LENGTH}{NAME\_LENGTH}}
+{\footnotesize\ttfamily \#define N\+A\+M\+E\+\_\+\+L\+E\+N\+G\+TH~20}
+
+
+
+Project specific communication protocol defines and enums. 
+
+
+
+Definition at line 21 of file msg\+\_\+definitions\+\_\+irrigation.\+h.
+
+\mbox{\Hypertarget{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}\label{msg__definitions__irrigation_8h_a3fb2dea7d964f6ed95dfac2897c4001d}} 
+\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!PAYLOAD\_SIZE@{PAYLOAD\_SIZE}}
+\index{PAYLOAD\_SIZE@{PAYLOAD\_SIZE}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}
+\doxysubsubsection{\texorpdfstring{PAYLOAD\_SIZE}{PAYLOAD\_SIZE}}
+{\footnotesize\ttfamily \#define P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE~32}
+
+
+
+Definition at line 75 of file msg\+\_\+definitions\+\_\+irrigation.\+h.
+
+\mbox{\Hypertarget{msg__definitions__irrigation_8h_ae7c50713c89a8f8627e53bff5644bcc5}\label{msg__definitions__irrigation_8h_ae7c50713c89a8f8627e53bff5644bcc5}} 
+\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!PLANTS\_LENGTH@{PLANTS\_LENGTH}}
+\index{PLANTS\_LENGTH@{PLANTS\_LENGTH}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}
+\doxysubsubsection{\texorpdfstring{PLANTS\_LENGTH}{PLANTS\_LENGTH}}
+{\footnotesize\ttfamily \#define P\+L\+A\+N\+T\+S\+\_\+\+L\+E\+N\+G\+TH~20}
+
+
+
+Definition at line 22 of file msg\+\_\+definitions\+\_\+irrigation.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{msg__definitions__irrigation_8h_a425be7c2fa6d9ba383d4129ae8eaf61d}\label{msg__definitions__irrigation_8h_a425be7c2fa6d9ba383d4129ae8eaf61d}} 
+\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!command\_t@{command\_t}}
+\index{command\_t@{command\_t}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}
+\doxysubsubsection{\texorpdfstring{command\_t}{command\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732e}{\+\_\+command\+\_\+t}}  \mbox{\hyperlink{msg__definitions__irrigation_8h_a425be7c2fa6d9ba383d4129ae8eaf61d}{command\+\_\+t}}}
+
+
+
+Commands, 0x1X -\/ \mbox{\hyperlink{class_pump}{Pump}}, 0x2X -\/ Tank, 0x3X -\/ \mbox{\hyperlink{class_plant}{Plant}}, 0x\+DX -\/ Power Supply, 0x\+EX -\/ System. 
+
+\mbox{\Hypertarget{msg__definitions__irrigation_8h_a8e4feaca9a4e5c1fb9beced03f81cd86}\label{msg__definitions__irrigation_8h_a8e4feaca9a4e5c1fb9beced03f81cd86}} 
+\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!direction\_t@{direction\_t}}
+\index{direction\_t@{direction\_t}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}
+\doxysubsubsection{\texorpdfstring{direction\_t}{direction\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{msg__definitions__irrigation_8h_a520a493c0f8c6cd607e84878c23f125e}{\+\_\+direction\+\_\+t}}  \mbox{\hyperlink{msg__definitions__irrigation_8h_a8e4feaca9a4e5c1fb9beced03f81cd86}{direction\+\_\+t}}}
+
+
+
+Directions. 
+
+\mbox{\Hypertarget{msg__definitions__irrigation_8h_a035693b52a36a19d7df58f980ff4e1c2}\label{msg__definitions__irrigation_8h_a035693b52a36a19d7df58f980ff4e1c2}} 
+\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!target\_t@{target\_t}}
+\index{target\_t@{target\_t}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}
+\doxysubsubsection{\texorpdfstring{target\_t}{target\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cc}{\+\_\+target\+\_\+t}} \mbox{\hyperlink{msg__definitions__irrigation_8h_a035693b52a36a19d7df58f980ff4e1c2}{target\+\_\+t}}}
+
+
+
+Targets. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732e}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732e}} 
+\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!\_command\_t@{\_command\_t}}
+\index{\_command\_t@{\_command\_t}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}
+\doxysubsubsection{\texorpdfstring{\_command\_t}{\_command\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732e}{\+\_\+command\+\_\+t}} \+: uint8\+\_\+t}
+
+
+
+Commands, 0x1X -\/ \mbox{\hyperlink{class_pump}{Pump}}, 0x2X -\/ Tank, 0x3X -\/ \mbox{\hyperlink{class_plant}{Plant}}, 0x\+DX -\/ Power Supply, 0x\+EX -\/ System. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{None@{None}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!None@{None}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732eac9d3e887722f2bc482bcca9d41c512af}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732eac9d3e887722f2bc482bcca9d41c512af}} 
+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Start@{Start}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!Start@{Start}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732eabd5f9c956752ce4dc707b4624b3a36f7}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732eabd5f9c956752ce4dc707b4624b3a36f7}} 
+Start&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Stop@{Stop}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!Stop@{Stop}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732eaf98d707eb4ed173ccfdbaf4eaa87100d}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732eaf98d707eb4ed173ccfdbaf4eaa87100d}} 
+Stop&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ForceStart@{ForceStart}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!ForceStart@{ForceStart}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea865194198c23be0bd5b6331f1e32e477}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea865194198c23be0bd5b6331f1e32e477}} 
+Force\+Start&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ForceStop@{ForceStop}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!ForceStop@{ForceStop}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea26c74884fd97f3300396173af35d8e7c}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea26c74884fd97f3300396173af35d8e7c}} 
+Force\+Stop&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{StartRev@{StartRev}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!StartRev@{StartRev}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea54fb5fa4bdf04d28c751f0c2ebad559d}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea54fb5fa4bdf04d28c751f0c2ebad559d}} 
+Start\+Rev&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ForceStartRev@{ForceStartRev}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!ForceStartRev@{ForceStartRev}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea523086a1a5fa44a06a9b9a9cf04d48fe}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea523086a1a5fa44a06a9b9a9cf04d48fe}} 
+Force\+Start\+Rev&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GetLiquidLevel@{GetLiquidLevel}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!GetLiquidLevel@{GetLiquidLevel}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea679a3b877310a7211e5a8039e11d7282}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea679a3b877310a7211e5a8039e11d7282}} 
+Get\+Liquid\+Level&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GetTemperature@{GetTemperature}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!GetTemperature@{GetTemperature}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea19de9c37793093d5c344e87a4a07bc7d}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea19de9c37793093d5c344e87a4a07bc7d}} 
+Get\+Temperature&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GetMoisture@{GetMoisture}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!GetMoisture@{GetMoisture}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea10e6c3f7aa727f77fef0b569d13cc531}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea10e6c3f7aa727f77fef0b569d13cc531}} 
+Get\+Moisture&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GetVoltage@{GetVoltage}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!GetVoltage@{GetVoltage}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea2c3041d951c1accac5a12d72752881cc}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea2c3041d951c1accac5a12d72752881cc}} 
+Get\+Voltage&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GetCurrent@{GetCurrent}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!GetCurrent@{GetCurrent}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea0622ce9e3a779843a57eb6fe423d7da2}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea0622ce9e3a779843a57eb6fe423d7da2}} 
+Get\+Current&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GetChargeLevel@{GetChargeLevel}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!GetChargeLevel@{GetChargeLevel}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea9e8d4c89d7a4dc066e55944ac6d1639a}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea9e8d4c89d7a4dc066e55944ac6d1639a}} 
+Get\+Charge\+Level&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GetCycles@{GetCycles}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!GetCycles@{GetCycles}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732eaabba6e82e66011f1a215fd911f7668a8}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732eaabba6e82e66011f1a215fd911f7668a8}} 
+Get\+Cycles&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GetDescription@{GetDescription}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!GetDescription@{GetDescription}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea1867eb4b8320faf08b78f303b3478398}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea1867eb4b8320faf08b78f303b3478398}} 
+Get\+Description&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SetSleep@{SetSleep}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!SetSleep@{SetSleep}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea34a4592975ade2a995d42136a3f3e874}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea34a4592975ade2a995d42136a3f3e874}} 
+Set\+Sleep&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SetStandby@{SetStandby}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!SetStandby@{SetStandby}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732eabd714273dda054414e5056604a8f51a4}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732eabd714273dda054414e5056604a8f51a4}} 
+Set\+Standby&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GetState@{GetState}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!GetState@{GetState}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea30bac602cdfae0e31d80d2342ba86beb}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea30bac602cdfae0e31d80d2342ba86beb}} 
+Get\+State&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GetStatus@{GetStatus}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!GetStatus@{GetStatus}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea050d7c8b46c7296173d8c6f565695cb0}\label{msg__definitions__irrigation_8h_af3d714e79cdba1156d93b8b768b8732ea050d7c8b46c7296173d8c6f565695cb0}} 
+Get\+Status&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 101 of file msg\+\_\+definitions\+\_\+irrigation.\+h.
+
+\mbox{\Hypertarget{msg__definitions__irrigation_8h_a520a493c0f8c6cd607e84878c23f125e}\label{msg__definitions__irrigation_8h_a520a493c0f8c6cd607e84878c23f125e}} 
+\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!\_direction\_t@{\_direction\_t}}
+\index{\_direction\_t@{\_direction\_t}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}
+\doxysubsubsection{\texorpdfstring{\_direction\_t}{\_direction\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{msg__definitions__irrigation_8h_a520a493c0f8c6cd607e84878c23f125e}{\+\_\+direction\+\_\+t}} \+: uint8\+\_\+t}
+
+
+
+Directions. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RPiToIRM@{RPiToIRM}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!RPiToIRM@{RPiToIRM}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a520a493c0f8c6cd607e84878c23f125eab347927af93313b88efceebd60e54ae2}\label{msg__definitions__irrigation_8h_a520a493c0f8c6cd607e84878c23f125eab347927af93313b88efceebd60e54ae2}} 
+R\+Pi\+To\+I\+RM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IRMToRPi@{IRMToRPi}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!IRMToRPi@{IRMToRPi}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a520a493c0f8c6cd607e84878c23f125ea693e492064f900fda4100e6cf73cd88d}\label{msg__definitions__irrigation_8h_a520a493c0f8c6cd607e84878c23f125ea693e492064f900fda4100e6cf73cd88d}} 
+I\+R\+M\+To\+R\+Pi&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 93 of file msg\+\_\+definitions\+\_\+irrigation.\+h.
+
+\mbox{\Hypertarget{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cc}\label{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cc}} 
+\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!\_target\_t@{\_target\_t}}
+\index{\_target\_t@{\_target\_t}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}
+\doxysubsubsection{\texorpdfstring{\_target\_t}{\_target\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cc}{\+\_\+target\+\_\+t}} \+: uint8\+\_\+t}
+
+
+
+Targets. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Generic@{Generic}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!Generic@{Generic}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca9683fc965be285edded4502f972f9d19}\label{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca9683fc965be285edded4502f972f9d19}} 
+Generic&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Pump@{Pump}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!Pump@{Pump}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca544e273c1acb1c6dbaa19e1567fad982}\label{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca544e273c1acb1c6dbaa19e1567fad982}} 
+Pump&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Tank@{Tank}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!Tank@{Tank}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca1c0a2dd616bf809071539063cc96617a}\label{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca1c0a2dd616bf809071539063cc96617a}} 
+Tank&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Plant@{Plant}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!Plant@{Plant}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca1d50ebd5fa95607cb803791e69868d7e}\label{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca1d50ebd5fa95607cb803791e69868d7e}} 
+Plant&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Sector@{Sector}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!Sector@{Sector}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca77567e82f18deafcef81c25822bf6c3c}\label{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca77567e82f18deafcef81c25822bf6c3c}} 
+Sector&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Power@{Power}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!Power@{Power}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03ccaeaf106a8b179fcfe2585c7efd72ed55a}\label{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03ccaeaf106a8b179fcfe2585c7efd72ed55a}} 
+Power&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{System@{System}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!System@{System}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03ccaacd40056f9fbe11dadadeba269eb2034}\label{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03ccaacd40056f9fbe11dadadeba269eb2034}} 
+System&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{All@{All}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!All@{All}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca54991d225c58ce0af43461d4e9a82312}\label{msg__definitions__irrigation_8h_a0930e8b2ddeeb5eed520aa10e14e03cca54991d225c58ce0af43461d4e9a82312}} 
+All&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 79 of file msg\+\_\+definitions\+\_\+irrigation.\+h.
+
+\mbox{\Hypertarget{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4}\label{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4}} 
+\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!batterystate\_t@{batterystate\_t}}
+\index{batterystate\_t@{batterystate\_t}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}
+\doxysubsubsection{\texorpdfstring{batterystate\_t}{batterystate\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{power_8h_a98366dd685bd051388d1fcbf43ed48e4}{batterystate\+\_\+t}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{undetermined@{undetermined}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!undetermined@{undetermined}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4a276fc71ddbf2483a3842cdcef417e03d}\label{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4a276fc71ddbf2483a3842cdcef417e03d}} 
+undetermined&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{charging@{charging}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!charging@{charging}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4a05a0c26d8e746429c786c8e53378b9c9}\label{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4a05a0c26d8e746429c786c8e53378b9c9}} 
+charging&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{discharging@{discharging}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!discharging@{discharging}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4ac5506d5a14acd50bb34956446899fe2f}\label{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4ac5506d5a14acd50bb34956446899fe2f}} 
+discharging&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{undetermined@{undetermined}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!undetermined@{undetermined}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4a276fc71ddbf2483a3842cdcef417e03d}\label{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4a276fc71ddbf2483a3842cdcef417e03d}} 
+undetermined&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{charging@{charging}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!charging@{charging}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4a05a0c26d8e746429c786c8e53378b9c9}\label{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4a05a0c26d8e746429c786c8e53378b9c9}} 
+charging&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{discharging@{discharging}!msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}}\index{msg\_definitions\_irrigation.h@{msg\_definitions\_irrigation.h}!discharging@{discharging}}}\mbox{\Hypertarget{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4ac5506d5a14acd50bb34956446899fe2f}\label{msg__definitions__irrigation_8h_a98366dd685bd051388d1fcbf43ed48e4ac5506d5a14acd50bb34956446899fe2f}} 
+discharging&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 24 of file msg\+\_\+definitions\+\_\+irrigation.\+h.
+

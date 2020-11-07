@@ -1,0 +1,43 @@
+digraph "RTCEx Exported Constants"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=box];
+  rankdir=LR;
+  Node9 [label="RTC Tamper Filter Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___tamper___filter___definitions.html",tooltip=" "];
+  Node8 [label="RTC Tamper Triggers\l Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___tamper___trigger___definitions.html",tooltip=" "];
+  Node10 [label="RTC Tamper Sampling\l Frequencies Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___tamper___sampling___frequencies___definitions.html",tooltip=" "];
+  Node2 [label="RTCEx",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex.html",tooltip="RTC HAL module driver."];
+  Node17 [label="RTC Smooth Calib Plus\l Pulses Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___smooth__calib___plus__pulses___definitions.html",tooltip=" "];
+  Node6 [label="RTC tamper Pins Selection",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___tamper___pins___selection.html",tooltip=" "];
+  Node18 [label="RTC Add 1 Second Parameter\l Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___add__1___second___parameter___definitions.html",tooltip=" "];
+  Node3 [label="RTC Backup Registers\l Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___backup___registers___definitions.html",tooltip=" "];
+  Node15 [label="RTC Digital Calib Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___digital___calibration___definitions.html",tooltip=" "];
+  Node4 [label="RTC TimeStamp Edges\l Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___time___stamp___edges__definitions.html",tooltip=" "];
+  Node14 [label="RTC Wake-up Timer Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___wakeup___timer___definitions.html",tooltip=" "];
+  Node19 [label="RTC Calib Output Selection\l Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___calib___output__selection___definitions.html",tooltip=" "];
+  Node7 [label="RTC TimeStamp Pins\l Selection",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___time_stamp___pin___selection.html",tooltip=" "];
+  Node13 [label="RTC Tamper Pull Up\l Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___tamper___pull___u_p___definitions.html",tooltip=" "];
+  Node1 [label="RTCEx Exported Constants",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node12 [label="RTC Tamper TimeStamp\l On Tamper Detection\l Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___tamper___time_stamp_on_tamper_detection___definitions.html",tooltip=" "];
+  Node5 [label="RTC Tamper Pins Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___tamper___pins___definitions.html",tooltip=" "];
+  Node16 [label="RTC Smooth Calib Period\l Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___smooth__calib__period___definitions.html",tooltip=" "];
+  Node11 [label="RTC Tamper Pin Precharge\l Duration Definitions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___r_t_c_ex___tamper___pin___precharge___duration___definitions.html",tooltip=" "];
+  Node2->Node1 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node3 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node4 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node5 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node6 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node7 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node8 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node9 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node10 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node11 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node12 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node13 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node14 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node15 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node16 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node17 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node18 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node19 [shape=plaintext, dir="back", style="solid"];
+}

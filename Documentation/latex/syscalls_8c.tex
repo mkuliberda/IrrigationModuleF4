@@ -1,0 +1,305 @@
+\hypertarget{syscalls_8c}{}\doxysection{Src/syscalls.c File Reference}
+\label{syscalls_8c}\index{Src/syscalls.c@{Src/syscalls.c}}
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include $<$sys/times.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{syscalls_8c_aa53ed4b191897a1bfc205aa1da005d24}{\+\_\+\+\_\+io\+\_\+putchar}} (int ch) \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((weak))
+\item 
+int \mbox{\hyperlink{syscalls_8c_ad0122671640a3af49792ddaa59e8294e}{\+\_\+\+\_\+io\+\_\+getchar}} (void)
+\item 
+void \mbox{\hyperlink{syscalls_8c_a25c7f100d498300fff65568c2fcfe639}{initialise\+\_\+monitor\+\_\+handles}} ()
+\item 
+int \mbox{\hyperlink{syscalls_8c_a945e539df8e0f66d3c73c533fe1968ee}{\+\_\+getpid}} (void)
+\item 
+int \mbox{\hyperlink{syscalls_8c_a062a5101199c3128edd5170f2575bb10}{\+\_\+kill}} (int pid, int sig)
+\item 
+void \mbox{\hyperlink{syscalls_8c_abc96bd69b58b2deaddb484478d911c1b}{\+\_\+exit}} (int status)
+\item 
+\mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((weak))
+\item 
+caddr\+\_\+t \mbox{\hyperlink{syscalls_8c_aae54d7b9578ba1fc171ce6f30f4c68a3}{\+\_\+sbrk}} (int incr)
+\item 
+int \mbox{\hyperlink{syscalls_8c_a5aab5e2acfd600e3667dc915a2bbc7cb}{\+\_\+close}} (int file)
+\item 
+int \mbox{\hyperlink{syscalls_8c_a41eef54307912a82d20e71c3d47315aa}{\+\_\+fstat}} (int file, struct stat $\ast$st)
+\item 
+int \mbox{\hyperlink{syscalls_8c_ad3134a3dc296622b8d1c5456e481505b}{\+\_\+isatty}} (int file)
+\item 
+int \mbox{\hyperlink{syscalls_8c_a7a61311bdf1cb025fc07dc2bdae22ce4}{\+\_\+lseek}} (int file, int ptr, int dir)
+\item 
+int \mbox{\hyperlink{syscalls_8c_a270c9113047edd8d64186710ad76062b}{\+\_\+open}} (char $\ast$path, int flags,...)
+\item 
+int \mbox{\hyperlink{syscalls_8c_aeef0c3372d04caa1bcc99fed2ab6ec72}{\+\_\+wait}} (int $\ast$status)
+\item 
+int \mbox{\hyperlink{syscalls_8c_a70b2f211d665cded5637065aa2bb89dc}{\+\_\+unlink}} (char $\ast$name)
+\item 
+int \mbox{\hyperlink{syscalls_8c_aaf727ebf57cd64d6c58b23e6ee4a4a69}{\+\_\+times}} (struct tms $\ast$buf)
+\item 
+int \mbox{\hyperlink{syscalls_8c_a4711e961db985ed2c850a8be6597af50}{\+\_\+stat}} (char $\ast$file, struct stat $\ast$st)
+\item 
+int \mbox{\hyperlink{syscalls_8c_a31da4cd5328defa76a9e2246992aba12}{\+\_\+link}} (char $\ast$old, char $\ast$new)
+\item 
+int \mbox{\hyperlink{syscalls_8c_a6cb6331c9d166180903d5fb78b9c9dd7}{\+\_\+fork}} (void)
+\item 
+int \mbox{\hyperlink{syscalls_8c_ad2a07db8fdf26151eb98ba5711fad8c5}{\+\_\+execve}} (char $\ast$name, char $\ast$$\ast$argv, char $\ast$$\ast$env)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{syscalls_8c_ad65a8842cc674e3ddf69355898c0ecbf}{errno}}
+\item 
+char $\ast$$\ast$ \mbox{\hyperlink{syscalls_8c_aa006daaf11f1e2e45a6ababaf463212b}{environ}} = \+\_\+\+\_\+env
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}\label{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}} 
+\index{syscalls.c@{syscalls.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(weak)}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 94 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_ad0122671640a3af49792ddaa59e8294e}\label{syscalls_8c_ad0122671640a3af49792ddaa59e8294e}} 
+\index{syscalls.c@{syscalls.c}!\_\_io\_getchar@{\_\_io\_getchar}}
+\index{\_\_io\_getchar@{\_\_io\_getchar}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_\_io\_getchar()}{\_\_io\_getchar()}}
+{\footnotesize\ttfamily int \+\_\+\+\_\+io\+\_\+getchar (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 64 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_aa53ed4b191897a1bfc205aa1da005d24}\label{syscalls_8c_aa53ed4b191897a1bfc205aa1da005d24}} 
+\index{syscalls.c@{syscalls.c}!\_\_io\_putchar@{\_\_io\_putchar}}
+\index{\_\_io\_putchar@{\_\_io\_putchar}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_\_io\_putchar()}{\_\_io\_putchar()}}
+{\footnotesize\ttfamily int \+\_\+\+\_\+io\+\_\+putchar (\begin{DoxyParamCaption}\item[{int}]{ch }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{syscalls_8c_a5aab5e2acfd600e3667dc915a2bbc7cb}\label{syscalls_8c_a5aab5e2acfd600e3667dc915a2bbc7cb}} 
+\index{syscalls.c@{syscalls.c}!\_close@{\_close}}
+\index{\_close@{\_close}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_close()}{\_close()}}
+{\footnotesize\ttfamily int \+\_\+close (\begin{DoxyParamCaption}\item[{int}]{file }\end{DoxyParamCaption})}
+
+
+
+Definition at line 140 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_ad2a07db8fdf26151eb98ba5711fad8c5}\label{syscalls_8c_ad2a07db8fdf26151eb98ba5711fad8c5}} 
+\index{syscalls.c@{syscalls.c}!\_execve@{\_execve}}
+\index{\_execve@{\_execve}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_execve()}{\_execve()}}
+{\footnotesize\ttfamily int \+\_\+execve (\begin{DoxyParamCaption}\item[{char $\ast$}]{name,  }\item[{char $\ast$$\ast$}]{argv,  }\item[{char $\ast$$\ast$}]{env }\end{DoxyParamCaption})}
+
+
+
+Definition at line 203 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_abc96bd69b58b2deaddb484478d911c1b}\label{syscalls_8c_abc96bd69b58b2deaddb484478d911c1b}} 
+\index{syscalls.c@{syscalls.c}!\_exit@{\_exit}}
+\index{\_exit@{\_exit}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_exit()}{\_exit()}}
+{\footnotesize\ttfamily void \+\_\+exit (\begin{DoxyParamCaption}\item[{int}]{status }\end{DoxyParamCaption})}
+
+
+
+Definition at line 88 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_a6cb6331c9d166180903d5fb78b9c9dd7}\label{syscalls_8c_a6cb6331c9d166180903d5fb78b9c9dd7}} 
+\index{syscalls.c@{syscalls.c}!\_fork@{\_fork}}
+\index{\_fork@{\_fork}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_fork()}{\_fork()}}
+{\footnotesize\ttfamily int \+\_\+fork (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 197 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_a41eef54307912a82d20e71c3d47315aa}\label{syscalls_8c_a41eef54307912a82d20e71c3d47315aa}} 
+\index{syscalls.c@{syscalls.c}!\_fstat@{\_fstat}}
+\index{\_fstat@{\_fstat}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_fstat()}{\_fstat()}}
+{\footnotesize\ttfamily int \+\_\+fstat (\begin{DoxyParamCaption}\item[{int}]{file,  }\item[{struct stat $\ast$}]{st }\end{DoxyParamCaption})}
+
+
+
+Definition at line 146 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_a945e539df8e0f66d3c73c533fe1968ee}\label{syscalls_8c_a945e539df8e0f66d3c73c533fe1968ee}} 
+\index{syscalls.c@{syscalls.c}!\_getpid@{\_getpid}}
+\index{\_getpid@{\_getpid}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_getpid()}{\_getpid()}}
+{\footnotesize\ttfamily int \+\_\+getpid (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 77 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_ad3134a3dc296622b8d1c5456e481505b}\label{syscalls_8c_ad3134a3dc296622b8d1c5456e481505b}} 
+\index{syscalls.c@{syscalls.c}!\_isatty@{\_isatty}}
+\index{\_isatty@{\_isatty}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_isatty()}{\_isatty()}}
+{\footnotesize\ttfamily int \+\_\+isatty (\begin{DoxyParamCaption}\item[{int}]{file }\end{DoxyParamCaption})}
+
+
+
+Definition at line 152 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_a062a5101199c3128edd5170f2575bb10}\label{syscalls_8c_a062a5101199c3128edd5170f2575bb10}} 
+\index{syscalls.c@{syscalls.c}!\_kill@{\_kill}}
+\index{\_kill@{\_kill}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_kill()}{\_kill()}}
+{\footnotesize\ttfamily int \+\_\+kill (\begin{DoxyParamCaption}\item[{int}]{pid,  }\item[{int}]{sig }\end{DoxyParamCaption})}
+
+
+
+Definition at line 82 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_a31da4cd5328defa76a9e2246992aba12}\label{syscalls_8c_a31da4cd5328defa76a9e2246992aba12}} 
+\index{syscalls.c@{syscalls.c}!\_link@{\_link}}
+\index{\_link@{\_link}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_link()}{\_link()}}
+{\footnotesize\ttfamily int \+\_\+link (\begin{DoxyParamCaption}\item[{char $\ast$}]{old,  }\item[{char $\ast$}]{new }\end{DoxyParamCaption})}
+
+
+
+Definition at line 191 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_a7a61311bdf1cb025fc07dc2bdae22ce4}\label{syscalls_8c_a7a61311bdf1cb025fc07dc2bdae22ce4}} 
+\index{syscalls.c@{syscalls.c}!\_lseek@{\_lseek}}
+\index{\_lseek@{\_lseek}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_lseek()}{\_lseek()}}
+{\footnotesize\ttfamily int \+\_\+lseek (\begin{DoxyParamCaption}\item[{int}]{file,  }\item[{int}]{ptr,  }\item[{int}]{dir }\end{DoxyParamCaption})}
+
+
+
+Definition at line 157 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_a270c9113047edd8d64186710ad76062b}\label{syscalls_8c_a270c9113047edd8d64186710ad76062b}} 
+\index{syscalls.c@{syscalls.c}!\_open@{\_open}}
+\index{\_open@{\_open}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_open()}{\_open()}}
+{\footnotesize\ttfamily int \+\_\+open (\begin{DoxyParamCaption}\item[{char $\ast$}]{path,  }\item[{int}]{flags,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line 162 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_aae54d7b9578ba1fc171ce6f30f4c68a3}\label{syscalls_8c_aae54d7b9578ba1fc171ce6f30f4c68a3}} 
+\index{syscalls.c@{syscalls.c}!\_sbrk@{\_sbrk}}
+\index{\_sbrk@{\_sbrk}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_sbrk()}{\_sbrk()}}
+{\footnotesize\ttfamily caddr\+\_\+t \+\_\+sbrk (\begin{DoxyParamCaption}\item[{int}]{incr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 117 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_a4711e961db985ed2c850a8be6597af50}\label{syscalls_8c_a4711e961db985ed2c850a8be6597af50}} 
+\index{syscalls.c@{syscalls.c}!\_stat@{\_stat}}
+\index{\_stat@{\_stat}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_stat()}{\_stat()}}
+{\footnotesize\ttfamily int \+\_\+stat (\begin{DoxyParamCaption}\item[{char $\ast$}]{file,  }\item[{struct stat $\ast$}]{st }\end{DoxyParamCaption})}
+
+
+
+Definition at line 185 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_aaf727ebf57cd64d6c58b23e6ee4a4a69}\label{syscalls_8c_aaf727ebf57cd64d6c58b23e6ee4a4a69}} 
+\index{syscalls.c@{syscalls.c}!\_times@{\_times}}
+\index{\_times@{\_times}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_times()}{\_times()}}
+{\footnotesize\ttfamily int \+\_\+times (\begin{DoxyParamCaption}\item[{struct tms $\ast$}]{buf }\end{DoxyParamCaption})}
+
+
+
+Definition at line 180 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_a70b2f211d665cded5637065aa2bb89dc}\label{syscalls_8c_a70b2f211d665cded5637065aa2bb89dc}} 
+\index{syscalls.c@{syscalls.c}!\_unlink@{\_unlink}}
+\index{\_unlink@{\_unlink}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_unlink()}{\_unlink()}}
+{\footnotesize\ttfamily int \+\_\+unlink (\begin{DoxyParamCaption}\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Definition at line 174 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_aeef0c3372d04caa1bcc99fed2ab6ec72}\label{syscalls_8c_aeef0c3372d04caa1bcc99fed2ab6ec72}} 
+\index{syscalls.c@{syscalls.c}!\_wait@{\_wait}}
+\index{\_wait@{\_wait}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{\_wait()}{\_wait()}}
+{\footnotesize\ttfamily int \+\_\+wait (\begin{DoxyParamCaption}\item[{int $\ast$}]{status }\end{DoxyParamCaption})}
+
+
+
+Definition at line 168 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_a25c7f100d498300fff65568c2fcfe639}\label{syscalls_8c_a25c7f100d498300fff65568c2fcfe639}} 
+\index{syscalls.c@{syscalls.c}!initialise\_monitor\_handles@{initialise\_monitor\_handles}}
+\index{initialise\_monitor\_handles@{initialise\_monitor\_handles}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{initialise\_monitor\_handles()}{initialise\_monitor\_handles()}}
+{\footnotesize\ttfamily void initialise\+\_\+monitor\+\_\+handles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 73 of file syscalls.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{syscalls_8c_aa006daaf11f1e2e45a6ababaf463212b}\label{syscalls_8c_aa006daaf11f1e2e45a6ababaf463212b}} 
+\index{syscalls.c@{syscalls.c}!environ@{environ}}
+\index{environ@{environ}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{environ}{environ}}
+{\footnotesize\ttfamily char$\ast$$\ast$ environ = \+\_\+\+\_\+env}
+
+
+
+Definition at line 69 of file syscalls.\+c.
+
+\mbox{\Hypertarget{syscalls_8c_ad65a8842cc674e3ddf69355898c0ecbf}\label{syscalls_8c_ad65a8842cc674e3ddf69355898c0ecbf}} 
+\index{syscalls.c@{syscalls.c}!errno@{errno}}
+\index{errno@{errno}!syscalls.c@{syscalls.c}}
+\doxysubsubsection{\texorpdfstring{errno}{errno}}
+{\footnotesize\ttfamily int errno}
+
+File \+: \mbox{\hyperlink{syscalls_8c}{syscalls.\+c}}
+
+Author \+: Auto-\/generated by True\+S\+T\+U\+D\+IO for S\+T\+M32
+
+Abstract \+: True\+S\+T\+U\+D\+IO Minimal System calls file \begin{DoxyVerb}             For more information about which c-functions
+          need which of these lowlevel functions
+          please consult the Newlib libc-manual
+\end{DoxyVerb}
+
+
+Target \+: S\+T\+Microelectronics S\+T\+M32
+
+Distribution\+: The file is distributed “as is,” without any warranty of any kind.
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+\doxysubsubsection*{\begin{center}\copyright{} C\+O\+P\+Y\+R\+I\+G\+H\+T(c) 2019 S\+T\+Microelectronics\end{center} }
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of S\+T\+Microelectronics nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyEnumerate}
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED BY T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS A\+ND C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS \char`\"{}\+A\+S I\+S\char`\"{} A\+ND A\+NY E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, T\+HE I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+RE D\+I\+S\+C\+L\+A\+I\+M\+ED. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+ER OR C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY D\+I\+R\+E\+CT, I\+N\+D\+I\+R\+E\+CT, I\+N\+C\+I\+D\+E\+N\+T\+AL, S\+P\+E\+C\+I\+AL, E\+X\+E\+M\+P\+L\+A\+RY, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES (I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, P\+R\+O\+C\+U\+R\+E\+M\+E\+NT OF S\+U\+B\+S\+T\+I\+T\+U\+TE G\+O\+O\+DS OR S\+E\+R\+V\+I\+C\+ES; L\+O\+SS OF U\+SE, D\+A\+TA, OR P\+R\+O\+F\+I\+TS; OR B\+U\+S\+I\+N\+E\+SS I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+ON) H\+O\+W\+E\+V\+ER C\+A\+U\+S\+ED A\+ND ON A\+NY T\+H\+E\+O\+RY OF L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN C\+O\+N\+T\+R\+A\+CT, S\+T\+R\+I\+CT L\+I\+A\+B\+I\+L\+I\+TY, OR T\+O\+RT (I\+N\+C\+L\+U\+D\+I\+NG N\+E\+G\+L\+I\+G\+E\+N\+CE OR O\+T\+H\+E\+R\+W\+I\+SE) A\+R\+I\+S\+I\+NG IN A\+NY W\+AY O\+UT OF T\+HE U\+SE OF T\+H\+IS S\+O\+F\+T\+W\+A\+RE, E\+V\+EN IF A\+D\+V\+I\+S\+ED OF T\+HE P\+O\+S\+S\+I\+B\+I\+L\+I\+TY OF S\+U\+CH D\+A\+M\+A\+GE. 

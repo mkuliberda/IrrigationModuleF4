@@ -1,0 +1,11 @@
+digraph "RTC_HandleTypeDef"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="RTC_HandleTypeDef",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="RTC Handle Structure definition."];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Instance" ,fontname="Helvetica"];
+  Node2 [label="RTC_TypeDef",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_r_t_c___type_def.html",tooltip="Real-Time Clock."];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Init" ,fontname="Helvetica"];
+  Node3 [label="RTC_InitTypeDef",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct_r_t_c___init_type_def.html",tooltip="RTC Configuration Structure definition."];
+}

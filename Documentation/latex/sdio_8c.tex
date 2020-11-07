@@ -1,0 +1,94 @@
+\hypertarget{sdio_8c}{}\doxysection{Src/sdio.c File Reference}
+\label{sdio_8c}\index{Src/sdio.c@{Src/sdio.c}}
+{\ttfamily \#include \char`\"{}sdio.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sdio_8c_a4e76294e27e4d4955797651c4e2bb278}{M\+X\+\_\+\+S\+D\+I\+O\+\_\+\+S\+D\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{sdio_8c_a3fb8da589f9c19bb61e051dfc0ccbdd3}{H\+A\+L\+\_\+\+S\+D\+\_\+\+Msp\+Init}} (S\+D\+\_\+\+Handle\+Type\+Def $\ast$sd\+Handle)
+\item 
+void \mbox{\hyperlink{sdio_8c_acafafee9f1c5f66225de3dea76ce80c8}{H\+A\+L\+\_\+\+S\+D\+\_\+\+Msp\+De\+Init}} (S\+D\+\_\+\+Handle\+Type\+Def $\ast$sd\+Handle)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+S\+D\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{sdio_8c_ae81fa362038e2e56bce3dd2e6416c78e}{hsd}}
+\item 
+\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{D\+M\+A\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{sdio_8c_adb8978634f4a0fd26c3d9d39cc63d490}{hdma\+\_\+sdio\+\_\+rx}}
+\item 
+\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{D\+M\+A\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{sdio_8c_aa83f62f831cb1aa0d1005e9dcc0c275d}{hdma\+\_\+sdio\+\_\+tx}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sdio_8c_acafafee9f1c5f66225de3dea76ce80c8}\label{sdio_8c_acafafee9f1c5f66225de3dea76ce80c8}} 
+\index{sdio.c@{sdio.c}!HAL\_SD\_MspDeInit@{HAL\_SD\_MspDeInit}}
+\index{HAL\_SD\_MspDeInit@{HAL\_SD\_MspDeInit}!sdio.c@{sdio.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_SD\_MspDeInit()}{HAL\_SD\_MspDeInit()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+S\+D\+\_\+\+Msp\+De\+Init (\begin{DoxyParamCaption}\item[{S\+D\+\_\+\+Handle\+Type\+Def $\ast$}]{sd\+Handle }\end{DoxyParamCaption})}
+
+S\+D\+IO G\+P\+IO Configuration P\+C8 -\/-\/-\/---$>$ S\+D\+I\+O\+\_\+\+D0 P\+C9 -\/-\/-\/---$>$ S\+D\+I\+O\+\_\+\+D1 P\+C10 -\/-\/-\/---$>$ S\+D\+I\+O\+\_\+\+D2 P\+C11 -\/-\/-\/---$>$ S\+D\+I\+O\+\_\+\+D3 P\+C12 -\/-\/-\/---$>$ S\+D\+I\+O\+\_\+\+CK P\+D2 -\/-\/-\/---$>$ S\+D\+I\+O\+\_\+\+C\+MD
+
+Definition at line 135 of file sdio.\+c.
+
+\mbox{\Hypertarget{sdio_8c_a3fb8da589f9c19bb61e051dfc0ccbdd3}\label{sdio_8c_a3fb8da589f9c19bb61e051dfc0ccbdd3}} 
+\index{sdio.c@{sdio.c}!HAL\_SD\_MspInit@{HAL\_SD\_MspInit}}
+\index{HAL\_SD\_MspInit@{HAL\_SD\_MspInit}!sdio.c@{sdio.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_SD\_MspInit()}{HAL\_SD\_MspInit()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+S\+D\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{S\+D\+\_\+\+Handle\+Type\+Def $\ast$}]{sd\+Handle }\end{DoxyParamCaption})}
+
+S\+D\+IO G\+P\+IO Configuration P\+C8 -\/-\/-\/---$>$ S\+D\+I\+O\+\_\+\+D0 P\+C9 -\/-\/-\/---$>$ S\+D\+I\+O\+\_\+\+D1 P\+C10 -\/-\/-\/---$>$ S\+D\+I\+O\+\_\+\+D2 P\+C11 -\/-\/-\/---$>$ S\+D\+I\+O\+\_\+\+D3 P\+C12 -\/-\/-\/---$>$ S\+D\+I\+O\+\_\+\+CK P\+D2 -\/-\/-\/---$>$ S\+D\+I\+O\+\_\+\+C\+MD
+
+Definition at line 46 of file sdio.\+c.
+
+\mbox{\Hypertarget{sdio_8c_a4e76294e27e4d4955797651c4e2bb278}\label{sdio_8c_a4e76294e27e4d4955797651c4e2bb278}} 
+\index{sdio.c@{sdio.c}!MX\_SDIO\_SD\_Init@{MX\_SDIO\_SD\_Init}}
+\index{MX\_SDIO\_SD\_Init@{MX\_SDIO\_SD\_Init}!sdio.c@{sdio.c}}
+\doxysubsubsection{\texorpdfstring{MX\_SDIO\_SD\_Init()}{MX\_SDIO\_SD\_Init()}}
+{\footnotesize\ttfamily void M\+X\+\_\+\+S\+D\+I\+O\+\_\+\+S\+D\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 33 of file sdio.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{sdio_8c_adb8978634f4a0fd26c3d9d39cc63d490}\label{sdio_8c_adb8978634f4a0fd26c3d9d39cc63d490}} 
+\index{sdio.c@{sdio.c}!hdma\_sdio\_rx@{hdma\_sdio\_rx}}
+\index{hdma\_sdio\_rx@{hdma\_sdio\_rx}!sdio.c@{sdio.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_sdio\_rx}{hdma\_sdio\_rx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{D\+M\+A\+\_\+\+Handle\+Type\+Def}} hdma\+\_\+sdio\+\_\+rx}
+
+
+
+Definition at line 28 of file sdio.\+c.
+
+\mbox{\Hypertarget{sdio_8c_aa83f62f831cb1aa0d1005e9dcc0c275d}\label{sdio_8c_aa83f62f831cb1aa0d1005e9dcc0c275d}} 
+\index{sdio.c@{sdio.c}!hdma\_sdio\_tx@{hdma\_sdio\_tx}}
+\index{hdma\_sdio\_tx@{hdma\_sdio\_tx}!sdio.c@{sdio.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_sdio\_tx}{hdma\_sdio\_tx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{D\+M\+A\+\_\+\+Handle\+Type\+Def}} hdma\+\_\+sdio\+\_\+tx}
+
+
+
+Definition at line 29 of file sdio.\+c.
+
+\mbox{\Hypertarget{sdio_8c_ae81fa362038e2e56bce3dd2e6416c78e}\label{sdio_8c_ae81fa362038e2e56bce3dd2e6416c78e}} 
+\index{sdio.c@{sdio.c}!hsd@{hsd}}
+\index{hsd@{hsd}!sdio.c@{sdio.c}}
+\doxysubsubsection{\texorpdfstring{hsd}{hsd}}
+{\footnotesize\ttfamily S\+D\+\_\+\+Handle\+Type\+Def hsd}
+
+File Name \+: \mbox{\hyperlink{sdio_8c}{S\+D\+I\+O.\+c}} Description \+: This file provides code for the configuration of the S\+D\+IO instances.
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+\doxysubsubsection*{\begin{center}\copyright{} Copyright (c) 2020 S\+T\+Microelectronics. All rights reserved.\end{center} }
+
+This software component is licensed by ST under Ultimate Liberty license S\+L\+A0044, the \char`\"{}\+License\char`\"{}; You may not use this file except in compliance with the License. You may obtain a copy of the License at\+: www.\+st.\+com/\+S\+L\+A0044 
+
+Definition at line 27 of file sdio.\+c.
+

@@ -1,0 +1,19 @@
+digraph "SPI"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=box];
+  rankdir=LR;
+  Node4 [label="SPI Exported Constants",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___s_p_i___exported___constants.html",tooltip=" "];
+  Node6 [label="SPI Private Macros",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___s_p_i___private___macros.html",tooltip=" "];
+  Node1 [label="SPI",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="SPI HAL module driver."];
+  Node3 [label="SPI Exported Types",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___s_p_i___exported___types.html",tooltip=" "];
+  Node2 [label="STM32F4xx_HAL_Driver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___s_t_m32_f4xx___h_a_l___driver.html",tooltip=" "];
+  Node7 [label="SPI_Exported_Functions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___s_p_i___exported___functions.html",tooltip=" "];
+  Node5 [label="SPI Exported Macros",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___s_p_i___exported___macros.html",tooltip=" "];
+  Node2->Node1 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node3 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node4 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node5 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node6 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node7 [shape=plaintext, dir="back", style="solid"];
+}

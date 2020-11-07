@@ -1,0 +1,101 @@
+\hypertarget{struct_r_t_c___alarm_type_def}{}\doxysection{R\+T\+C\+\_\+\+Alarm\+Type\+Def Struct Reference}
+\label{struct_r_t_c___alarm_type_def}\index{RTC\_AlarmTypeDef@{RTC\_AlarmTypeDef}}
+
+
+R\+TC Alarm structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32f4xx\+\_\+hal\+\_\+rtc.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_r_t_c___time_type_def}{R\+T\+C\+\_\+\+Time\+Type\+Def}} \mbox{\hyperlink{struct_r_t_c___alarm_type_def_a1e50b47e1b3cb1cf09dee1b9e61028c6}{Alarm\+Time}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_t_c___alarm_type_def_a6d5665858df4c99e589beebe7f2d120b}{Alarm\+Mask}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_t_c___alarm_type_def_aa7f311cd270c215530acf93b454db223}{Alarm\+Sub\+Second\+Mask}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_t_c___alarm_type_def_a366ce4c7ad04d5a29550d30d93361324}{Alarm\+Date\+Week\+Day\+Sel}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_r_t_c___alarm_type_def_a0c437cb24f8b12e753e522bf0c48a4d7}{Alarm\+Date\+Week\+Day}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_t_c___alarm_type_def_a2f11f60569f34b15c09096928f30ab24}{Alarm}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+R\+TC Alarm structure definition. 
+
+Definition at line 138 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_r_t_c___alarm_type_def_a2f11f60569f34b15c09096928f30ab24}\label{struct_r_t_c___alarm_type_def_a2f11f60569f34b15c09096928f30ab24}} 
+\index{RTC\_AlarmTypeDef@{RTC\_AlarmTypeDef}!Alarm@{Alarm}}
+\index{Alarm@{Alarm}!RTC\_AlarmTypeDef@{RTC\_AlarmTypeDef}}
+\doxysubsubsection{\texorpdfstring{Alarm}{Alarm}}
+{\footnotesize\ttfamily uint32\+\_\+t R\+T\+C\+\_\+\+Alarm\+Type\+Def\+::\+Alarm}
+
+Specifies the alarm . This parameter can be a value of \mbox{\hyperlink{group___r_t_c___alarms___definitions}{R\+TC Alarms Definitions}} 
+
+Definition at line 155 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+\mbox{\Hypertarget{struct_r_t_c___alarm_type_def_a0c437cb24f8b12e753e522bf0c48a4d7}\label{struct_r_t_c___alarm_type_def_a0c437cb24f8b12e753e522bf0c48a4d7}} 
+\index{RTC\_AlarmTypeDef@{RTC\_AlarmTypeDef}!AlarmDateWeekDay@{AlarmDateWeekDay}}
+\index{AlarmDateWeekDay@{AlarmDateWeekDay}!RTC\_AlarmTypeDef@{RTC\_AlarmTypeDef}}
+\doxysubsubsection{\texorpdfstring{AlarmDateWeekDay}{AlarmDateWeekDay}}
+{\footnotesize\ttfamily uint8\+\_\+t R\+T\+C\+\_\+\+Alarm\+Type\+Def\+::\+Alarm\+Date\+Week\+Day}
+
+Specifies the R\+TC Alarm Date/\+Week\+Day. If the Alarm Date is selected, this parameter must be set to a value in the 1-\/31 range. If the Alarm Week\+Day is selected, this parameter can be a value of \mbox{\hyperlink{group___r_t_c___week_day___definitions}{R\+TC Week\+Day Definitions}} 
+
+Definition at line 151 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+\mbox{\Hypertarget{struct_r_t_c___alarm_type_def_a366ce4c7ad04d5a29550d30d93361324}\label{struct_r_t_c___alarm_type_def_a366ce4c7ad04d5a29550d30d93361324}} 
+\index{RTC\_AlarmTypeDef@{RTC\_AlarmTypeDef}!AlarmDateWeekDaySel@{AlarmDateWeekDaySel}}
+\index{AlarmDateWeekDaySel@{AlarmDateWeekDaySel}!RTC\_AlarmTypeDef@{RTC\_AlarmTypeDef}}
+\doxysubsubsection{\texorpdfstring{AlarmDateWeekDaySel}{AlarmDateWeekDaySel}}
+{\footnotesize\ttfamily uint32\+\_\+t R\+T\+C\+\_\+\+Alarm\+Type\+Def\+::\+Alarm\+Date\+Week\+Day\+Sel}
+
+Specifies the R\+TC Alarm is on Date or Week\+Day. This parameter can be a value of \mbox{\hyperlink{group___r_t_c___alarm_date_week_day___definitions}{R\+TC Alarm Date Week\+Day Definitions}} 
+
+Definition at line 148 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+\mbox{\Hypertarget{struct_r_t_c___alarm_type_def_a6d5665858df4c99e589beebe7f2d120b}\label{struct_r_t_c___alarm_type_def_a6d5665858df4c99e589beebe7f2d120b}} 
+\index{RTC\_AlarmTypeDef@{RTC\_AlarmTypeDef}!AlarmMask@{AlarmMask}}
+\index{AlarmMask@{AlarmMask}!RTC\_AlarmTypeDef@{RTC\_AlarmTypeDef}}
+\doxysubsubsection{\texorpdfstring{AlarmMask}{AlarmMask}}
+{\footnotesize\ttfamily uint32\+\_\+t R\+T\+C\+\_\+\+Alarm\+Type\+Def\+::\+Alarm\+Mask}
+
+Specifies the R\+TC Alarm Masks. This parameter can be a value of \mbox{\hyperlink{group___r_t_c___alarm_mask___definitions}{R\+TC Alarm Mask Definitions}} 
+
+Definition at line 142 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+\mbox{\Hypertarget{struct_r_t_c___alarm_type_def_aa7f311cd270c215530acf93b454db223}\label{struct_r_t_c___alarm_type_def_aa7f311cd270c215530acf93b454db223}} 
+\index{RTC\_AlarmTypeDef@{RTC\_AlarmTypeDef}!AlarmSubSecondMask@{AlarmSubSecondMask}}
+\index{AlarmSubSecondMask@{AlarmSubSecondMask}!RTC\_AlarmTypeDef@{RTC\_AlarmTypeDef}}
+\doxysubsubsection{\texorpdfstring{AlarmSubSecondMask}{AlarmSubSecondMask}}
+{\footnotesize\ttfamily uint32\+\_\+t R\+T\+C\+\_\+\+Alarm\+Type\+Def\+::\+Alarm\+Sub\+Second\+Mask}
+
+Specifies the R\+TC Alarm Sub\+Seconds Masks. This parameter can be a value of \mbox{\hyperlink{group___r_t_c___alarm___sub___seconds___masks___definitions}{R\+TC Alarm Sub Seconds Masks Definitions}} 
+
+Definition at line 145 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+\mbox{\Hypertarget{struct_r_t_c___alarm_type_def_a1e50b47e1b3cb1cf09dee1b9e61028c6}\label{struct_r_t_c___alarm_type_def_a1e50b47e1b3cb1cf09dee1b9e61028c6}} 
+\index{RTC\_AlarmTypeDef@{RTC\_AlarmTypeDef}!AlarmTime@{AlarmTime}}
+\index{AlarmTime@{AlarmTime}!RTC\_AlarmTypeDef@{RTC\_AlarmTypeDef}}
+\doxysubsubsection{\texorpdfstring{AlarmTime}{AlarmTime}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_r_t_c___time_type_def}{R\+T\+C\+\_\+\+Time\+Type\+Def}} R\+T\+C\+\_\+\+Alarm\+Type\+Def\+::\+Alarm\+Time}
+
+Specifies the R\+TC Alarm Time members 
+
+Definition at line 140 of file stm32f4xx\+\_\+hal\+\_\+rtc.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Drivers/\+S\+T\+M32\+F4xx\+\_\+\+H\+A\+L\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32f4xx__hal__rtc_8h}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}\end{DoxyCompactItemize}

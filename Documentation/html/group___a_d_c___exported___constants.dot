@@ -1,0 +1,39 @@
+digraph "ADC Exported Constants"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=box];
+  rankdir=LR;
+  Node13 [label="ADC Event Type",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c___event__type.html",tooltip=" "];
+  Node11 [label="ADC Sampling Times",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c__sampling__times.html",tooltip=" "];
+  Node6 [label="ADC Resolution",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c___resolution.html",tooltip=" "];
+  Node14 [label="ADC Analog Watchdog\l Selection",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c__analog__watchdog__selection.html",tooltip=" "];
+  Node15 [label="ADC Interrupts Definition",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c__interrupts__definition.html",tooltip=" "];
+  Node9 [label="ADC Data Align",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c___data__align.html",tooltip=" "];
+  Node8 [label="ADC External Trigger\l Source Regular",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c___external__trigger___source___regular.html",tooltip=" "];
+  Node4 [label="ADC Clock Prescaler",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c___clock_prescaler.html",tooltip=" "];
+  Node10 [label="ADC Common Channels",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c__channels.html",tooltip=" "];
+  Node12 [label="ADC EOC Selection",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c___e_o_c_selection.html",tooltip=" "];
+  Node7 [label="ADC External Trigger\l Edge Regular",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c___external__trigger__edge___regular.html",tooltip=" "];
+  Node2 [label="ADC",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c.html",tooltip="ADC driver modules."];
+  Node3 [label="ADC Error Code",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c___error___code.html",tooltip=" "];
+  Node5 [label="ADC Delay Between 2\l Sampling Phases",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c__delay__between__2__sampling__phases.html",tooltip=" "];
+  Node1 [label="ADC Exported Constants",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node16 [label="ADC Flags Definition",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c__flags__definition.html",tooltip=" "];
+  Node17 [label="ADC Channels Type",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c__channels__type.html",tooltip=" "];
+  Node2->Node1 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node3 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node4 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node5 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node6 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node7 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node8 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node9 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node10 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node11 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node12 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node13 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node14 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node15 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node16 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node17 [shape=plaintext, dir="back", style="solid"];
+}

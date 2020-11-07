@@ -1,0 +1,92 @@
+\hypertarget{structtsk_task_control_block}{}\doxysection{tsk\+Task\+Control\+Block Struct Reference}
+\label{structtsk_task_control_block}\index{tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+volatile \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}} $\ast$ \mbox{\hyperlink{structtsk_task_control_block_a429a186c7f8e34aba1eef5e12d215b90}{px\+Top\+Of\+Stack}}
+\item 
+\mbox{\hyperlink{list_8h_a1a62d469392f9bfe2443e7efab9c8398}{List\+Item\+\_\+t}} \mbox{\hyperlink{structtsk_task_control_block_a16e0d20425d53ac78537e1fdb8834cf6}{x\+State\+List\+Item}}
+\item 
+\mbox{\hyperlink{list_8h_a1a62d469392f9bfe2443e7efab9c8398}{List\+Item\+\_\+t}} \mbox{\hyperlink{structtsk_task_control_block_a1a1612b6081a13683808284d93a9b28f}{x\+Event\+List\+Item}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{U\+Base\+Type\+\_\+t}} \mbox{\hyperlink{structtsk_task_control_block_a79187811e3d2a15595942e3b44237d85}{ux\+Priority}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}} $\ast$ \mbox{\hyperlink{structtsk_task_control_block_a9a0d71a9f95dd0609f9911d9efd79134}{px\+Stack}}
+\item 
+char \mbox{\hyperlink{structtsk_task_control_block_a67d61291794f38afb5be5132078bc24f}{pc\+Task\+Name}} \mbox{[}\mbox{\hyperlink{_free_r_t_o_s_8h_ac388dc4041aab6997348828eb27fc1a8}{config\+M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+M\+E\+\_\+\+L\+EN}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 252 of file tasks.\+c.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structtsk_task_control_block_a67d61291794f38afb5be5132078bc24f}\label{structtsk_task_control_block_a67d61291794f38afb5be5132078bc24f}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!pcTaskName@{pcTaskName}}
+\index{pcTaskName@{pcTaskName}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{pcTaskName}{pcTaskName}}
+{\footnotesize\ttfamily char tsk\+Task\+Control\+Block\+::pc\+Task\+Name\mbox{[}\mbox{\hyperlink{_free_r_t_o_s_8h_ac388dc4041aab6997348828eb27fc1a8}{config\+M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+M\+E\+\_\+\+L\+EN}}\mbox{]}}
+
+
+
+Definition at line 264 of file tasks.\+c.
+
+\mbox{\Hypertarget{structtsk_task_control_block_a9a0d71a9f95dd0609f9911d9efd79134}\label{structtsk_task_control_block_a9a0d71a9f95dd0609f9911d9efd79134}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!pxStack@{pxStack}}
+\index{pxStack@{pxStack}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{pxStack}{pxStack}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}}$\ast$ tsk\+Task\+Control\+Block\+::px\+Stack}
+
+
+
+Definition at line 263 of file tasks.\+c.
+
+\mbox{\Hypertarget{structtsk_task_control_block_a429a186c7f8e34aba1eef5e12d215b90}\label{structtsk_task_control_block_a429a186c7f8e34aba1eef5e12d215b90}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!pxTopOfStack@{pxTopOfStack}}
+\index{pxTopOfStack@{pxTopOfStack}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{pxTopOfStack}{pxTopOfStack}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}}$\ast$ tsk\+Task\+Control\+Block\+::px\+Top\+Of\+Stack}
+
+
+
+Definition at line 254 of file tasks.\+c.
+
+\mbox{\Hypertarget{structtsk_task_control_block_a79187811e3d2a15595942e3b44237d85}\label{structtsk_task_control_block_a79187811e3d2a15595942e3b44237d85}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!uxPriority@{uxPriority}}
+\index{uxPriority@{uxPriority}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{uxPriority}{uxPriority}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{U\+Base\+Type\+\_\+t}} tsk\+Task\+Control\+Block\+::ux\+Priority}
+
+
+
+Definition at line 262 of file tasks.\+c.
+
+\mbox{\Hypertarget{structtsk_task_control_block_a1a1612b6081a13683808284d93a9b28f}\label{structtsk_task_control_block_a1a1612b6081a13683808284d93a9b28f}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!xEventListItem@{xEventListItem}}
+\index{xEventListItem@{xEventListItem}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{xEventListItem}{xEventListItem}}
+{\footnotesize\ttfamily \mbox{\hyperlink{list_8h_a1a62d469392f9bfe2443e7efab9c8398}{List\+Item\+\_\+t}} tsk\+Task\+Control\+Block\+::x\+Event\+List\+Item}
+
+
+
+Definition at line 261 of file tasks.\+c.
+
+\mbox{\Hypertarget{structtsk_task_control_block_a16e0d20425d53ac78537e1fdb8834cf6}\label{structtsk_task_control_block_a16e0d20425d53ac78537e1fdb8834cf6}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!xStateListItem@{xStateListItem}}
+\index{xStateListItem@{xStateListItem}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{xStateListItem}{xStateListItem}}
+{\footnotesize\ttfamily \mbox{\hyperlink{list_8h_a1a62d469392f9bfe2443e7efab9c8398}{List\+Item\+\_\+t}} tsk\+Task\+Control\+Block\+::x\+State\+List\+Item}
+
+
+
+Definition at line 260 of file tasks.\+c.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Middlewares/\+Third\+\_\+\+Party/\+Free\+R\+T\+O\+S/\+Source/\mbox{\hyperlink{tasks_8c}{tasks.\+c}}\end{DoxyCompactItemize}

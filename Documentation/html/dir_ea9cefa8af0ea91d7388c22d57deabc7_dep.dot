@@ -1,0 +1,15 @@
+digraph "Drivers/CMSIS/Device/ST" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_d21952a90114fc86c250d1e94e45c8f9 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Device" fontname="Helvetica", fontsize="10", URL="dir_d21952a90114fc86c250d1e94e45c8f9.html"]
+  subgraph clusterdir_ea9cefa8af0ea91d7388c22d57deabc7 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_ea9cefa8af0ea91d7388c22d57deabc7.html"];
+    dir_ea9cefa8af0ea91d7388c22d57deabc7 [shape=plaintext label="ST"];
+    dir_e960970896f0528bcce5c2af1fd987f8 [shape=box label="STM32F4xx" color="red" fillcolor="white" style="filled" URL="dir_e960970896f0528bcce5c2af1fd987f8.html"];
+  }
+  }
+  dir_5d6a8c3e4e61116f4938be35d8adfd18 [shape=box label="Include" URL="dir_5d6a8c3e4e61116f4938be35d8adfd18.html"];
+  dir_e960970896f0528bcce5c2af1fd987f8->dir_5d6a8c3e4e61116f4938be35d8adfd18 [headlabel="1", labeldistance=1.5 headhref="dir_000004_000006.html"];
+}

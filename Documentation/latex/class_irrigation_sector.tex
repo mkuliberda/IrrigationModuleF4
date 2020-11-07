@@ -1,0 +1,250 @@
+\hypertarget{class_irrigation_sector}{}\doxysection{Irrigation\+Sector Class Reference}
+\label{class_irrigation_sector}\index{IrrigationSector@{IrrigationSector}}
+
+
+{\ttfamily \#include $<$irrigation\+\_\+system.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_irrigation_sector_a06275751385f8d7234c5705dab939fe0}{Irrigation\+Sector}} (const uint8\+\_\+t \&\+\_\+id)
+\item 
+\mbox{\hyperlink{class_irrigation_sector_a64b68e5855e2454dfb516f2055254533}{$\sim$\+Irrigation\+Sector}} ()
+\item 
+const uint8\+\_\+t \& \mbox{\hyperlink{class_irrigation_sector_a5a4f88b69f95badddc4f27f72874c820}{get\+Sector}} (void)
+\item 
+bool \mbox{\hyperlink{class_irrigation_sector_a4407a6aacf98006c1b8e447217bb7525}{create\+Plant}} (const std\+::string \&\+\_\+name, const uint8\+\_\+t \&\+\_\+id)
+\item 
+uint8\+\_\+t \& \mbox{\hyperlink{class_irrigation_sector_a019be38d5f9fbee317429f1b14dd0c73}{update}} (const double \&\+\_\+dt)
+\item 
+uint8\+\_\+t \& \mbox{\hyperlink{class_irrigation_sector_a054da356b37f078958770cc52c1c7f15}{get\+Plants\+Count}} (void)
+\item 
+struct \mbox{\hyperlink{structsectorstatus__s}{sectorstatus\+\_\+s}} \mbox{\hyperlink{class_irrigation_sector_af55bab5d3b128448321fb68d27f6f1d7}{get\+Info}} (void)
+\item 
+float \mbox{\hyperlink{class_irrigation_sector_a35db6ac0c84b1d8adacbb9aa941dc37c}{get\+Plant\+Health}} (const std\+::string \&\+\_\+name)
+\item 
+float \mbox{\hyperlink{class_irrigation_sector_a0b02e4aed451c5ddcc69e2c945b11fae}{get\+Plant\+Health}} (const uint8\+\_\+t \&\+\_\+id)
+\item 
+std\+::string \mbox{\hyperlink{class_irrigation_sector_a29bb2434ba6c59b3a07a1a2897c7e21f}{get\+Plant\+Name\+By\+ID}} (const uint8\+\_\+t \&\+\_\+id)
+\item 
+void \mbox{\hyperlink{class_irrigation_sector_ad1b2170950329f4e781facb9f3ec7c7c}{set\+Measurements}} (uint16\+\_\+t $\ast$\+\_\+raw\+\_\+adc\+\_\+values\+\_\+array, const uint8\+\_\+t \&\+\_\+raw\+\_\+adc\+\_\+values\+\_\+cnt)
+\item 
+uint8\+\_\+t \& \mbox{\hyperlink{class_irrigation_sector_aa47f1cbf4f55391ac50da6700949d6fb}{get\+Status}} (void)
+\item 
+\mbox{\hyperlink{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018}{pumpstate\+\_\+t}} \mbox{\hyperlink{class_irrigation_sector_ad552ed8d8296cc3334b84aa1f7be5fae}{get\+Pump\+State}} (void)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_irrigation_sector_afe6a7a33b6229e7a49eb56a52e70ccd4}{get\+Pump\+Status\+Encoded}} (void)
+\item 
+void \mbox{\hyperlink{class_irrigation_sector_a94575bbb6bfa34bdbba2e5b97d1264e4}{watering\+Set}} (const bool \&\+\_\+activate\+\_\+watering)
+\item 
+bool \& \mbox{\hyperlink{class_irrigation_sector_a581507db70b7840ad599c252a83a1c32}{watering\+Get}} (void)
+\item 
+bool \mbox{\hyperlink{class_irrigation_sector_a93065811c674a37d0738d6b6c0affa2c}{handle\+Confirmation}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pump_controller}{Pump\+Controller}} \mbox{\hyperlink{class_irrigation_sector_ae57236f461d616138cae9e01720967b7}{irrigation\+Controller}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 20 of file irrigation\+\_\+system.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_irrigation_sector_a06275751385f8d7234c5705dab939fe0}\label{class_irrigation_sector_a06275751385f8d7234c5705dab939fe0}} 
+\index{IrrigationSector@{IrrigationSector}!IrrigationSector@{IrrigationSector}}
+\index{IrrigationSector@{IrrigationSector}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{IrrigationSector()}{IrrigationSector()}}
+{\footnotesize\ttfamily Irrigation\+Sector\+::\+Irrigation\+Sector (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \&}]{\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 35 of file irrigation\+\_\+system.\+h.
+
+\mbox{\Hypertarget{class_irrigation_sector_a64b68e5855e2454dfb516f2055254533}\label{class_irrigation_sector_a64b68e5855e2454dfb516f2055254533}} 
+\index{IrrigationSector@{IrrigationSector}!````~IrrigationSector@{$\sim$IrrigationSector}}
+\index{````~IrrigationSector@{$\sim$IrrigationSector}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{$\sim$IrrigationSector()}{~IrrigationSector()}}
+{\footnotesize\ttfamily Irrigation\+Sector\+::$\sim$\+Irrigation\+Sector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 43 of file irrigation\+\_\+system.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_irrigation_sector_a4407a6aacf98006c1b8e447217bb7525}\label{class_irrigation_sector_a4407a6aacf98006c1b8e447217bb7525}} 
+\index{IrrigationSector@{IrrigationSector}!createPlant@{createPlant}}
+\index{createPlant@{createPlant}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{createPlant()}{createPlant()}}
+{\footnotesize\ttfamily bool Irrigation\+Sector\+::create\+Plant (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{\+\_\+name,  }\item[{const uint8\+\_\+t \&}]{\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Definition at line 29 of file irrigation\+\_\+system.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_sector_af55bab5d3b128448321fb68d27f6f1d7}\label{class_irrigation_sector_af55bab5d3b128448321fb68d27f6f1d7}} 
+\index{IrrigationSector@{IrrigationSector}!getInfo@{getInfo}}
+\index{getInfo@{getInfo}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{getInfo()}{getInfo()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structsectorstatus__s}{sectorstatus\+\_\+s}} Irrigation\+Sector\+::get\+Info (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 115 of file irrigation\+\_\+system.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_sector_a35db6ac0c84b1d8adacbb9aa941dc37c}\label{class_irrigation_sector_a35db6ac0c84b1d8adacbb9aa941dc37c}} 
+\index{IrrigationSector@{IrrigationSector}!getPlantHealth@{getPlantHealth}}
+\index{getPlantHealth@{getPlantHealth}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{getPlantHealth()}{getPlantHealth()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily float Irrigation\+Sector\+::get\+Plant\+Health (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Definition at line 58 of file irrigation\+\_\+system.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_sector_a0b02e4aed451c5ddcc69e2c945b11fae}\label{class_irrigation_sector_a0b02e4aed451c5ddcc69e2c945b11fae}} 
+\index{IrrigationSector@{IrrigationSector}!getPlantHealth@{getPlantHealth}}
+\index{getPlantHealth@{getPlantHealth}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{getPlantHealth()}{getPlantHealth()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily float Irrigation\+Sector\+::get\+Plant\+Health (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \&}]{\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Definition at line 84 of file irrigation\+\_\+system.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_sector_a29bb2434ba6c59b3a07a1a2897c7e21f}\label{class_irrigation_sector_a29bb2434ba6c59b3a07a1a2897c7e21f}} 
+\index{IrrigationSector@{IrrigationSector}!getPlantNameByID@{getPlantNameByID}}
+\index{getPlantNameByID@{getPlantNameByID}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{getPlantNameByID()}{getPlantNameByID()}}
+{\footnotesize\ttfamily std\+::string Irrigation\+Sector\+::get\+Plant\+Name\+By\+ID (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \&}]{\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Definition at line 99 of file irrigation\+\_\+system.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_sector_a054da356b37f078958770cc52c1c7f15}\label{class_irrigation_sector_a054da356b37f078958770cc52c1c7f15}} 
+\index{IrrigationSector@{IrrigationSector}!getPlantsCount@{getPlantsCount}}
+\index{getPlantsCount@{getPlantsCount}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{getPlantsCount()}{getPlantsCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t \& Irrigation\+Sector\+::get\+Plants\+Count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 54 of file irrigation\+\_\+system.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_sector_ad552ed8d8296cc3334b84aa1f7be5fae}\label{class_irrigation_sector_ad552ed8d8296cc3334b84aa1f7be5fae}} 
+\index{IrrigationSector@{IrrigationSector}!getPumpState@{getPumpState}}
+\index{getPumpState@{getPumpState}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{getPumpState()}{getPumpState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018}{pumpstate\+\_\+t}} Irrigation\+Sector\+::get\+Pump\+State (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 134 of file irrigation\+\_\+system.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_sector_afe6a7a33b6229e7a49eb56a52e70ccd4}\label{class_irrigation_sector_afe6a7a33b6229e7a49eb56a52e70ccd4}} 
+\index{IrrigationSector@{IrrigationSector}!getPumpStatusEncoded@{getPumpStatusEncoded}}
+\index{getPumpStatusEncoded@{getPumpStatusEncoded}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{getPumpStatusEncoded()}{getPumpStatusEncoded()}}
+{\footnotesize\ttfamily uint8\+\_\+t Irrigation\+Sector\+::get\+Pump\+Status\+Encoded (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 146 of file irrigation\+\_\+system.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_sector_a5a4f88b69f95badddc4f27f72874c820}\label{class_irrigation_sector_a5a4f88b69f95badddc4f27f72874c820}} 
+\index{IrrigationSector@{IrrigationSector}!getSector@{getSector}}
+\index{getSector@{getSector}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{getSector()}{getSector()}}
+{\footnotesize\ttfamily const uint8\+\_\+t \& Irrigation\+Sector\+::get\+Sector (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_irrigation_sector}{Irrigation\+Sector}} class implementation 
+
+Definition at line 25 of file irrigation\+\_\+system.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_sector_aa47f1cbf4f55391ac50da6700949d6fb}\label{class_irrigation_sector_aa47f1cbf4f55391ac50da6700949d6fb}} 
+\index{IrrigationSector@{IrrigationSector}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily uint8\+\_\+t \& Irrigation\+Sector\+::get\+Status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 130 of file irrigation\+\_\+system.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_sector_a93065811c674a37d0738d6b6c0affa2c}\label{class_irrigation_sector_a93065811c674a37d0738d6b6c0affa2c}} 
+\index{IrrigationSector@{IrrigationSector}!handleConfirmation@{handleConfirmation}}
+\index{handleConfirmation@{handleConfirmation}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{handleConfirmation()}{handleConfirmation()}}
+{\footnotesize\ttfamily bool Irrigation\+Sector\+::handle\+Confirmation (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 158 of file irrigation\+\_\+system.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_sector_ad1b2170950329f4e781facb9f3ec7c7c}\label{class_irrigation_sector_ad1b2170950329f4e781facb9f3ec7c7c}} 
+\index{IrrigationSector@{IrrigationSector}!setMeasurements@{setMeasurements}}
+\index{setMeasurements@{setMeasurements}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{setMeasurements()}{setMeasurements()}}
+{\footnotesize\ttfamily void Irrigation\+Sector\+::set\+Measurements (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{\+\_\+raw\+\_\+adc\+\_\+values\+\_\+array,  }\item[{const uint8\+\_\+t \&}]{\+\_\+raw\+\_\+adc\+\_\+values\+\_\+cnt }\end{DoxyParamCaption})}
+
+
+
+Definition at line 75 of file irrigation\+\_\+system.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_sector_a019be38d5f9fbee317429f1b14dd0c73}\label{class_irrigation_sector_a019be38d5f9fbee317429f1b14dd0c73}} 
+\index{IrrigationSector@{IrrigationSector}!update@{update}}
+\index{update@{update}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily uint8\+\_\+t \& Irrigation\+Sector\+::update (\begin{DoxyParamCaption}\item[{const double \&}]{\+\_\+dt }\end{DoxyParamCaption})}
+
+
+
+Definition at line 47 of file irrigation\+\_\+system.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_sector_a581507db70b7840ad599c252a83a1c32}\label{class_irrigation_sector_a581507db70b7840ad599c252a83a1c32}} 
+\index{IrrigationSector@{IrrigationSector}!wateringGet@{wateringGet}}
+\index{wateringGet@{wateringGet}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{wateringGet()}{wateringGet()}}
+{\footnotesize\ttfamily bool \& Irrigation\+Sector\+::watering\+Get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 154 of file irrigation\+\_\+system.\+cpp.
+
+\mbox{\Hypertarget{class_irrigation_sector_a94575bbb6bfa34bdbba2e5b97d1264e4}\label{class_irrigation_sector_a94575bbb6bfa34bdbba2e5b97d1264e4}} 
+\index{IrrigationSector@{IrrigationSector}!wateringSet@{wateringSet}}
+\index{wateringSet@{wateringSet}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{wateringSet()}{wateringSet()}}
+{\footnotesize\ttfamily void Irrigation\+Sector\+::watering\+Set (\begin{DoxyParamCaption}\item[{const bool \&}]{\+\_\+activate\+\_\+watering }\end{DoxyParamCaption})}
+
+
+
+Definition at line 150 of file irrigation\+\_\+system.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_irrigation_sector_ae57236f461d616138cae9e01720967b7}\label{class_irrigation_sector_ae57236f461d616138cae9e01720967b7}} 
+\index{IrrigationSector@{IrrigationSector}!irrigationController@{irrigationController}}
+\index{irrigationController@{irrigationController}!IrrigationSector@{IrrigationSector}}
+\doxysubsubsection{\texorpdfstring{irrigationController}{irrigationController}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_pump_controller}{Pump\+Controller}} Irrigation\+Sector\+::irrigation\+Controller}
+
+
+
+Definition at line 33 of file irrigation\+\_\+system.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Inc/\mbox{\hyperlink{irrigation__system_8h}{irrigation\+\_\+system.\+h}}\item 
+Src/\mbox{\hyperlink{irrigation__system_8cpp}{irrigation\+\_\+system.\+cpp}}\end{DoxyCompactItemize}

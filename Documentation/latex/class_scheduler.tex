@@ -1,0 +1,232 @@
+\hypertarget{class_scheduler}{}\doxysection{Scheduler Class Reference}
+\label{class_scheduler}\index{Scheduler@{Scheduler}}
+
+
+{\ttfamily \#include $<$scheduler.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_scheduler_a74286f6bca1e18dbc8e3c3d736017d4e}{Scheduler}} (const std\+::string \&\+\_\+name, uint8\+\_\+t \+\_\+activities\+\_\+limit=255, uint8\+\_\+t \+\_\+exceptions\+\_\+limit=40)
+\item 
+bool \& \mbox{\hyperlink{class_scheduler_a6facd6685ff4d1107baf1cef5994df69}{update}} (const \mbox{\hyperlink{struct_time_stamp__t}{Time\+Stamp\+\_\+t}} \&\+\_\+timestamp)
+\item 
+bool \& \mbox{\hyperlink{class_scheduler_af93d92173f3011b33b803f74df7b34f7}{is\+Active}} (void)
+\item 
+bool \mbox{\hyperlink{class_scheduler_adba771e7cba14fc9206b6e8861c5be3f}{is\+Exception\+Period}} (const \mbox{\hyperlink{struct_time_stamp__t}{Time\+Stamp\+\_\+t}} \&\+\_\+timestamp)
+\item 
+bool \& \mbox{\hyperlink{class_scheduler_a32a523651dbf2615f790ba5b0d9d7fc2}{is\+Available}} (void)
+\item 
+void \mbox{\hyperlink{class_scheduler_a3de26a10ff574efbca118f4f4897f53a}{set\+Available}} (void)
+\item 
+bool \mbox{\hyperlink{class_scheduler_afadee93d665f0c5cc709795060bb0992}{add\+Activity}} (const struct \mbox{\hyperlink{structactivity__s}{activity\+\_\+s}} \&\+\_\+activity)
+\item 
+bool \mbox{\hyperlink{class_scheduler_a41bb4b2c65a18deb811bd43d2361475a}{add\+Activity}} (const char $\ast$\+\_\+activity)
+\item 
+bool \mbox{\hyperlink{class_scheduler_afa8382eb6b31acb5ef09770916d2b702}{add\+Exception}} (const struct \mbox{\hyperlink{structexception__s}{exception\+\_\+s}} \&\+\_\+exception)
+\item 
+bool \mbox{\hyperlink{class_scheduler_acee2ee1c1e86603933997869945f6d74}{add\+Exception}} (const char $\ast$\+\_\+exception)
+\item 
+bool \mbox{\hyperlink{class_scheduler_a77bb37bb8d65b3dd8714107cec403491}{add\+Line}} (const char $\ast$\+\_\+line)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structactivity__s}{activity\+\_\+s}} $>$ \& \mbox{\hyperlink{class_scheduler_a5025d02985cf1722d11788271e3b1435}{get\+Activities}} (void)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structexception__s}{exception\+\_\+s}} $>$ \& \mbox{\hyperlink{class_scheduler_aad8d55ff369fd44c22e96cca7cd07887}{get\+Exceptions}} (void)
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{class_scheduler_a2b8d7ffdd5de6e55dc9adf278fb456e1}{get\+Activities\+Count}} (void)
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{class_scheduler_a5bf0c9aeccd2537b95395d2b2da18530}{get\+Exceptions\+Count}} (void)
+\item 
+\mbox{\hyperlink{structactivity__s}{activity\+\_\+s}} \mbox{\hyperlink{class_scheduler_a3b4223706581271898f4a361be489ae6}{parse\+Activity}} (const char $\ast$\+\_\+line)
+\item 
+\mbox{\hyperlink{structexception__s}{exception\+\_\+s}} \mbox{\hyperlink{class_scheduler_a3e881176c300b6cdde68f46d2f51b19e}{parse\+Exception}} (const char $\ast$\+\_\+line)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 55 of file scheduler.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_scheduler_a74286f6bca1e18dbc8e3c3d736017d4e}\label{class_scheduler_a74286f6bca1e18dbc8e3c3d736017d4e}} 
+\index{Scheduler@{Scheduler}!Scheduler@{Scheduler}}
+\index{Scheduler@{Scheduler}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{Scheduler()}{Scheduler()}}
+{\footnotesize\ttfamily Scheduler\+::\+Scheduler (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{\+\_\+name,  }\item[{uint8\+\_\+t}]{\+\_\+activities\+\_\+limit = {\ttfamily 255},  }\item[{uint8\+\_\+t}]{\+\_\+exceptions\+\_\+limit = {\ttfamily 40} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 69 of file scheduler.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_scheduler_a41bb4b2c65a18deb811bd43d2361475a}\label{class_scheduler_a41bb4b2c65a18deb811bd43d2361475a}} 
+\index{Scheduler@{Scheduler}!addActivity@{addActivity}}
+\index{addActivity@{addActivity}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{addActivity()}{addActivity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Scheduler\+::add\+Activity (\begin{DoxyParamCaption}\item[{const char $\ast$}]{\+\_\+activity }\end{DoxyParamCaption})}
+
+
+
+Definition at line 157 of file scheduler.\+cpp.
+
+\mbox{\Hypertarget{class_scheduler_afadee93d665f0c5cc709795060bb0992}\label{class_scheduler_afadee93d665f0c5cc709795060bb0992}} 
+\index{Scheduler@{Scheduler}!addActivity@{addActivity}}
+\index{addActivity@{addActivity}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{addActivity()}{addActivity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Scheduler\+::add\+Activity (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structactivity__s}{activity\+\_\+s}} \&}]{\+\_\+activity }\end{DoxyParamCaption})}
+
+
+
+Definition at line 134 of file scheduler.\+cpp.
+
+\mbox{\Hypertarget{class_scheduler_acee2ee1c1e86603933997869945f6d74}\label{class_scheduler_acee2ee1c1e86603933997869945f6d74}} 
+\index{Scheduler@{Scheduler}!addException@{addException}}
+\index{addException@{addException}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{addException()}{addException()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Scheduler\+::add\+Exception (\begin{DoxyParamCaption}\item[{const char $\ast$}]{\+\_\+exception }\end{DoxyParamCaption})}
+
+
+
+Definition at line 231 of file scheduler.\+cpp.
+
+\mbox{\Hypertarget{class_scheduler_afa8382eb6b31acb5ef09770916d2b702}\label{class_scheduler_afa8382eb6b31acb5ef09770916d2b702}} 
+\index{Scheduler@{Scheduler}!addException@{addException}}
+\index{addException@{addException}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{addException()}{addException()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Scheduler\+::add\+Exception (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structexception__s}{exception\+\_\+s}} \&}]{\+\_\+exception }\end{DoxyParamCaption})}
+
+
+
+Definition at line 216 of file scheduler.\+cpp.
+
+\mbox{\Hypertarget{class_scheduler_a77bb37bb8d65b3dd8714107cec403491}\label{class_scheduler_a77bb37bb8d65b3dd8714107cec403491}} 
+\index{Scheduler@{Scheduler}!addLine@{addLine}}
+\index{addLine@{addLine}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{addLine()}{addLine()}}
+{\footnotesize\ttfamily bool Scheduler\+::add\+Line (\begin{DoxyParamCaption}\item[{const char $\ast$}]{\+\_\+line }\end{DoxyParamCaption})}
+
+
+
+Definition at line 263 of file scheduler.\+cpp.
+
+\mbox{\Hypertarget{class_scheduler_a5025d02985cf1722d11788271e3b1435}\label{class_scheduler_a5025d02985cf1722d11788271e3b1435}} 
+\index{Scheduler@{Scheduler}!getActivities@{getActivities}}
+\index{getActivities@{getActivities}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{getActivities()}{getActivities()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structactivity__s}{activity\+\_\+s}} $>$ \& Scheduler\+::get\+Activities (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 281 of file scheduler.\+cpp.
+
+\mbox{\Hypertarget{class_scheduler_a2b8d7ffdd5de6e55dc9adf278fb456e1}\label{class_scheduler_a2b8d7ffdd5de6e55dc9adf278fb456e1}} 
+\index{Scheduler@{Scheduler}!getActivitiesCount@{getActivitiesCount}}
+\index{getActivitiesCount@{getActivitiesCount}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{getActivitiesCount()}{getActivitiesCount()}}
+{\footnotesize\ttfamily const uint8\+\_\+t Scheduler\+::get\+Activities\+Count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 285 of file scheduler.\+cpp.
+
+\mbox{\Hypertarget{class_scheduler_aad8d55ff369fd44c22e96cca7cd07887}\label{class_scheduler_aad8d55ff369fd44c22e96cca7cd07887}} 
+\index{Scheduler@{Scheduler}!getExceptions@{getExceptions}}
+\index{getExceptions@{getExceptions}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{getExceptions()}{getExceptions()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structexception__s}{exception\+\_\+s}} $>$ \& Scheduler\+::get\+Exceptions (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 289 of file scheduler.\+cpp.
+
+\mbox{\Hypertarget{class_scheduler_a5bf0c9aeccd2537b95395d2b2da18530}\label{class_scheduler_a5bf0c9aeccd2537b95395d2b2da18530}} 
+\index{Scheduler@{Scheduler}!getExceptionsCount@{getExceptionsCount}}
+\index{getExceptionsCount@{getExceptionsCount}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{getExceptionsCount()}{getExceptionsCount()}}
+{\footnotesize\ttfamily const uint8\+\_\+t Scheduler\+::get\+Exceptions\+Count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 293 of file scheduler.\+cpp.
+
+\mbox{\Hypertarget{class_scheduler_af93d92173f3011b33b803f74df7b34f7}\label{class_scheduler_af93d92173f3011b33b803f74df7b34f7}} 
+\index{Scheduler@{Scheduler}!isActive@{isActive}}
+\index{isActive@{isActive}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{isActive()}{isActive()}}
+{\footnotesize\ttfamily bool \& Scheduler\+::is\+Active (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 77 of file scheduler.\+cpp.
+
+\mbox{\Hypertarget{class_scheduler_a32a523651dbf2615f790ba5b0d9d7fc2}\label{class_scheduler_a32a523651dbf2615f790ba5b0d9d7fc2}} 
+\index{Scheduler@{Scheduler}!isAvailable@{isAvailable}}
+\index{isAvailable@{isAvailable}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{isAvailable()}{isAvailable()}}
+{\footnotesize\ttfamily bool \& Scheduler\+::is\+Available (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 126 of file scheduler.\+cpp.
+
+\mbox{\Hypertarget{class_scheduler_adba771e7cba14fc9206b6e8861c5be3f}\label{class_scheduler_adba771e7cba14fc9206b6e8861c5be3f}} 
+\index{Scheduler@{Scheduler}!isExceptionPeriod@{isExceptionPeriod}}
+\index{isExceptionPeriod@{isExceptionPeriod}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{isExceptionPeriod()}{isExceptionPeriod()}}
+{\footnotesize\ttfamily bool Scheduler\+::is\+Exception\+Period (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_time_stamp__t}{Time\+Stamp\+\_\+t}} \&}]{\+\_\+timestamp }\end{DoxyParamCaption})}
+
+
+
+Definition at line 91 of file scheduler.\+cpp.
+
+\mbox{\Hypertarget{class_scheduler_a3b4223706581271898f4a361be489ae6}\label{class_scheduler_a3b4223706581271898f4a361be489ae6}} 
+\index{Scheduler@{Scheduler}!parseActivity@{parseActivity}}
+\index{parseActivity@{parseActivity}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{parseActivity()}{parseActivity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structactivity__s}{activity\+\_\+s}} Scheduler\+::parse\+Activity (\begin{DoxyParamCaption}\item[{const char $\ast$}]{\+\_\+line }\end{DoxyParamCaption})}
+
+
+
+Definition at line 297 of file scheduler.\+cpp.
+
+\mbox{\Hypertarget{class_scheduler_a3e881176c300b6cdde68f46d2f51b19e}\label{class_scheduler_a3e881176c300b6cdde68f46d2f51b19e}} 
+\index{Scheduler@{Scheduler}!parseException@{parseException}}
+\index{parseException@{parseException}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{parseException()}{parseException()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structexception__s}{exception\+\_\+s}} Scheduler\+::parse\+Exception (\begin{DoxyParamCaption}\item[{const char $\ast$}]{\+\_\+line }\end{DoxyParamCaption})}
+
+
+
+Definition at line 346 of file scheduler.\+cpp.
+
+\mbox{\Hypertarget{class_scheduler_a3de26a10ff574efbca118f4f4897f53a}\label{class_scheduler_a3de26a10ff574efbca118f4f4897f53a}} 
+\index{Scheduler@{Scheduler}!setAvailable@{setAvailable}}
+\index{setAvailable@{setAvailable}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{setAvailable()}{setAvailable()}}
+{\footnotesize\ttfamily void Scheduler\+::set\+Available (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 130 of file scheduler.\+cpp.
+
+\mbox{\Hypertarget{class_scheduler_a6facd6685ff4d1107baf1cef5994df69}\label{class_scheduler_a6facd6685ff4d1107baf1cef5994df69}} 
+\index{Scheduler@{Scheduler}!update@{update}}
+\index{update@{update}!Scheduler@{Scheduler}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily bool \& Scheduler\+::update (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_time_stamp__t}{Time\+Stamp\+\_\+t}} \&}]{\+\_\+timestamp }\end{DoxyParamCaption})}
+
+
+
+Definition at line 14 of file scheduler.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Inc/\mbox{\hyperlink{scheduler_8h}{scheduler.\+h}}\item 
+Src/\mbox{\hyperlink{scheduler_8cpp}{scheduler.\+cpp}}\end{DoxyCompactItemize}

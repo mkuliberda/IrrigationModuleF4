@@ -1,0 +1,16 @@
+digraph "Drivers/STM32F4xx_HAL_Driver/Inc" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_0f7073d6b1d1d49104212e142cbd4b45 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="STM32F4xx_HAL_Driver" fontname="Helvetica", fontsize="10", URL="dir_0f7073d6b1d1d49104212e142cbd4b45.html"]
+  subgraph clusterdir_fe70c8ad9f7ab4724b63ce89acbfa189 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_fe70c8ad9f7ab4724b63ce89acbfa189.html"];
+    dir_fe70c8ad9f7ab4724b63ce89acbfa189 [shape=plaintext label="Inc"];
+    dir_0826ee94bdf1215df63813a0f34b491e [shape=box label="Legacy" color="black" fillcolor="white" style="filled" URL="dir_0826ee94bdf1215df63813a0f34b491e.html"];
+  }
+  }
+  dir_bd09ff09a9c7d83a4c030dbdaee94d76 [shape=box label="CMSIS" fillcolor="white" style="filled" color="red" URL="dir_bd09ff09a9c7d83a4c030dbdaee94d76.html"];
+  dir_fe70c8ad9f7ab4724b63ce89acbfa189->dir_bd09ff09a9c7d83a4c030dbdaee94d76 [headlabel="1", labeldistance=1.5 headhref="dir_000008_000001.html"];
+  dir_fe70c8ad9f7ab4724b63ce89acbfa189->dir_0826ee94bdf1215df63813a0f34b491e [headlabel="1", labeldistance=1.5 headhref="dir_000008_000009.html"];
+}

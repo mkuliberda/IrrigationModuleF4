@@ -1,0 +1,218 @@
+\hypertarget{class_d_r_v8833_pump}{}\doxysection{D\+R\+V8833\+Pump Class Reference}
+\label{class_d_r_v8833_pump}\index{DRV8833Pump@{DRV8833Pump}}
+
+
+{\ttfamily \#include $<$irrigation.\+h$>$}
+
+Inheritance diagram for D\+R\+V8833\+Pump\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_d_r_v8833_pump}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_d_r_v8833_pump_a09ae77e4a855606e036b01e447bcc3bf}{D\+R\+V8833\+Pump}} (const \mbox{\hyperlink{irrigation_8h_a7d162f1d8a7accfefaa48b929679afc7}{motortype\+\_\+t}} \&\+\_\+type)
+\item 
+bool \mbox{\hyperlink{class_d_r_v8833_pump_a07d8c8653c4669e36cb844475edaadbc}{init}} (const uint8\+\_\+t \&\+\_\+id, const uint32\+\_\+t \&\+\_\+idletime\+Required\+Seconds, const uint32\+\_\+t \&\+\_\+runtime\+Limit\+Seconds, const std\+::array$<$ struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}}, 4 $>$ \&\+\_\+pinout, const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&\+\_\+led\+\_\+pinout, const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&\+\_\+fault\+\_\+pinout, const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&\+\_\+mode\+\_\+pinout)
+\item 
+bool \mbox{\hyperlink{class_d_r_v8833_pump_a3700a122243949600fe677785c45e60a}{init}} (const uint8\+\_\+t \&\+\_\+id, const uint32\+\_\+t \&\+\_\+idletime\+Required\+Seconds, const uint32\+\_\+t \&\+\_\+runtime\+Limit\+Seconds, const std\+::array$<$ struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}}, 2 $>$ \&\+\_\+pinout, const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&\+\_\+led\+\_\+pinout, const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&\+\_\+fault\+\_\+pinout, const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&\+\_\+mode\+\_\+pinout)
+\item 
+void \mbox{\hyperlink{class_d_r_v8833_pump_ac54d87ca4900c9a3244bd05dc75199e2}{run}} (const double \&\+\_\+dt, const \mbox{\hyperlink{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6}{pumpcmd\+\_\+t}} \&\+\_\+cmd, bool \&cmd\+\_\+consumed, bool \&fault)
+\item 
+void \mbox{\hyperlink{class_d_r_v8833_pump_a85a104dd7286b92ea97fff5517ec7143}{set\+State}} (const \mbox{\hyperlink{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018}{pumpstate\+\_\+t}} \&\+\_\+st) override
+\item 
+bool \mbox{\hyperlink{class_d_r_v8833_pump_a3c0f06a6543796d86e68fde0e9f121be}{forcestart}} (void)
+\item 
+bool \mbox{\hyperlink{class_d_r_v8833_pump_ab4283a07ebc815aab64f847463ce3495}{forcereverse}} (void)
+\item 
+bool \mbox{\hyperlink{class_d_r_v8833_pump_a32cbe984df1609b263228139a0c1f7ac}{forcestop}} (void)
+\item 
+void \mbox{\hyperlink{class_d_r_v8833_pump_a92afc354d1523a6515c3d3faddb0ab7c}{set\+Sleep}} (void)
+\item 
+void \mbox{\hyperlink{class_d_r_v8833_pump_a2f3c2b9c69871224f813cc6686589ea5}{set\+Enable}} (void)
+\item 
+bool \mbox{\hyperlink{class_d_r_v8833_pump_afc1c20d22c235596808eaa6c3c18201b}{is\+Fault}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_d_r_v8833_pump_af3b6cbe6994365e39ed9de412c95417b}{start}} (void) override
+\item 
+bool \mbox{\hyperlink{class_d_r_v8833_pump_a18530b593da2835eb5cde565f0ed5edb}{stop}} (void) override
+\item 
+bool \mbox{\hyperlink{class_d_r_v8833_pump_ab2568b390712d0d0d697953cdcf920c6}{reverse}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 151 of file irrigation.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_d_r_v8833_pump_a09ae77e4a855606e036b01e447bcc3bf}\label{class_d_r_v8833_pump_a09ae77e4a855606e036b01e447bcc3bf}} 
+\index{DRV8833Pump@{DRV8833Pump}!DRV8833Pump@{DRV8833Pump}}
+\index{DRV8833Pump@{DRV8833Pump}!DRV8833Pump@{DRV8833Pump}}
+\doxysubsubsection{\texorpdfstring{DRV8833Pump()}{DRV8833Pump()}}
+{\footnotesize\ttfamily D\+R\+V8833\+Pump\+::\+D\+R\+V8833\+Pump (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{irrigation_8h_a7d162f1d8a7accfefaa48b929679afc7}{motortype\+\_\+t}} \&}]{\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 169 of file irrigation.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_d_r_v8833_pump_ab4283a07ebc815aab64f847463ce3495}\label{class_d_r_v8833_pump_ab4283a07ebc815aab64f847463ce3495}} 
+\index{DRV8833Pump@{DRV8833Pump}!forcereverse@{forcereverse}}
+\index{forcereverse@{forcereverse}!DRV8833Pump@{DRV8833Pump}}
+\doxysubsubsection{\texorpdfstring{forcereverse()}{forcereverse()}}
+{\footnotesize\ttfamily bool D\+R\+V8833\+Pump\+::forcereverse (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 537 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_d_r_v8833_pump_a3c0f06a6543796d86e68fde0e9f121be}\label{class_d_r_v8833_pump_a3c0f06a6543796d86e68fde0e9f121be}} 
+\index{DRV8833Pump@{DRV8833Pump}!forcestart@{forcestart}}
+\index{forcestart@{forcestart}!DRV8833Pump@{DRV8833Pump}}
+\doxysubsubsection{\texorpdfstring{forcestart()}{forcestart()}}
+{\footnotesize\ttfamily bool D\+R\+V8833\+Pump\+::forcestart (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 474 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_d_r_v8833_pump_a32cbe984df1609b263228139a0c1f7ac}\label{class_d_r_v8833_pump_a32cbe984df1609b263228139a0c1f7ac}} 
+\index{DRV8833Pump@{DRV8833Pump}!forcestop@{forcestop}}
+\index{forcestop@{forcestop}!DRV8833Pump@{DRV8833Pump}}
+\doxysubsubsection{\texorpdfstring{forcestop()}{forcestop()}}
+{\footnotesize\ttfamily bool D\+R\+V8833\+Pump\+::forcestop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 505 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_d_r_v8833_pump_a3700a122243949600fe677785c45e60a}\label{class_d_r_v8833_pump_a3700a122243949600fe677785c45e60a}} 
+\index{DRV8833Pump@{DRV8833Pump}!init@{init}}
+\index{init@{init}!DRV8833Pump@{DRV8833Pump}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool D\+R\+V8833\+Pump\+::init (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \&}]{\+\_\+id,  }\item[{const uint32\+\_\+t \&}]{\+\_\+idletime\+Required\+Seconds,  }\item[{const uint32\+\_\+t \&}]{\+\_\+runtime\+Limit\+Seconds,  }\item[{const std\+::array$<$ struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}}, 2 $>$ \&}]{\+\_\+pinout,  }\item[{const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&}]{\+\_\+led\+\_\+pinout,  }\item[{const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&}]{\+\_\+fault\+\_\+pinout,  }\item[{const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&}]{\+\_\+mode\+\_\+pinout }\end{DoxyParamCaption})}
+
+
+
+Definition at line 249 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_d_r_v8833_pump_a07d8c8653c4669e36cb844475edaadbc}\label{class_d_r_v8833_pump_a07d8c8653c4669e36cb844475edaadbc}} 
+\index{DRV8833Pump@{DRV8833Pump}!init@{init}}
+\index{init@{init}!DRV8833Pump@{DRV8833Pump}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool D\+R\+V8833\+Pump\+::init (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \&}]{\+\_\+id,  }\item[{const uint32\+\_\+t \&}]{\+\_\+idletime\+Required\+Seconds,  }\item[{const uint32\+\_\+t \&}]{\+\_\+runtime\+Limit\+Seconds,  }\item[{const std\+::array$<$ struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}}, 4 $>$ \&}]{\+\_\+pinout,  }\item[{const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&}]{\+\_\+led\+\_\+pinout,  }\item[{const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&}]{\+\_\+fault\+\_\+pinout,  }\item[{const struct \mbox{\hyperlink{structgpio__s}{gpio\+\_\+s}} \&}]{\+\_\+mode\+\_\+pinout }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_d_r_v8833_pump}{D\+R\+V8833\+Pump}} class implementation 
+
+Definition at line 200 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_d_r_v8833_pump_afc1c20d22c235596808eaa6c3c18201b}\label{class_d_r_v8833_pump_afc1c20d22c235596808eaa6c3c18201b}} 
+\index{DRV8833Pump@{DRV8833Pump}!isFault@{isFault}}
+\index{isFault@{isFault}!DRV8833Pump@{DRV8833Pump}}
+\doxysubsubsection{\texorpdfstring{isFault()}{isFault()}}
+{\footnotesize\ttfamily bool D\+R\+V8833\+Pump\+::is\+Fault (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 579 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_d_r_v8833_pump_ab2568b390712d0d0d697953cdcf920c6}\label{class_d_r_v8833_pump_ab2568b390712d0d0d697953cdcf920c6}} 
+\index{DRV8833Pump@{DRV8833Pump}!reverse@{reverse}}
+\index{reverse@{reverse}!DRV8833Pump@{DRV8833Pump}}
+\doxysubsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily bool D\+R\+V8833\+Pump\+::reverse (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 444 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_d_r_v8833_pump_ac54d87ca4900c9a3244bd05dc75199e2}\label{class_d_r_v8833_pump_ac54d87ca4900c9a3244bd05dc75199e2}} 
+\index{DRV8833Pump@{DRV8833Pump}!run@{run}}
+\index{run@{run}!DRV8833Pump@{DRV8833Pump}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void D\+R\+V8833\+Pump\+::run (\begin{DoxyParamCaption}\item[{const double \&}]{\+\_\+dt,  }\item[{const \mbox{\hyperlink{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6}{pumpcmd\+\_\+t}} \&}]{\+\_\+cmd,  }\item[{bool \&}]{cmd\+\_\+consumed,  }\item[{bool \&}]{fault }\end{DoxyParamCaption})}
+
+
+
+Definition at line 300 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_d_r_v8833_pump_a2f3c2b9c69871224f813cc6686589ea5}\label{class_d_r_v8833_pump_a2f3c2b9c69871224f813cc6686589ea5}} 
+\index{DRV8833Pump@{DRV8833Pump}!setEnable@{setEnable}}
+\index{setEnable@{setEnable}!DRV8833Pump@{DRV8833Pump}}
+\doxysubsubsection{\texorpdfstring{setEnable()}{setEnable()}}
+{\footnotesize\ttfamily void D\+R\+V8833\+Pump\+::set\+Enable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 575 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_d_r_v8833_pump_a92afc354d1523a6515c3d3faddb0ab7c}\label{class_d_r_v8833_pump_a92afc354d1523a6515c3d3faddb0ab7c}} 
+\index{DRV8833Pump@{DRV8833Pump}!setSleep@{setSleep}}
+\index{setSleep@{setSleep}!DRV8833Pump@{DRV8833Pump}}
+\doxysubsubsection{\texorpdfstring{setSleep()}{setSleep()}}
+{\footnotesize\ttfamily void D\+R\+V8833\+Pump\+::set\+Sleep (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 569 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_d_r_v8833_pump_a85a104dd7286b92ea97fff5517ec7143}\label{class_d_r_v8833_pump_a85a104dd7286b92ea97fff5517ec7143}} 
+\index{DRV8833Pump@{DRV8833Pump}!setState@{setState}}
+\index{setState@{setState}!DRV8833Pump@{DRV8833Pump}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void D\+R\+V8833\+Pump\+::set\+State (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018}{pumpstate\+\_\+t}} \&}]{\+\_\+st }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_pump_aaec5cd16d69f1f1c6b1573a22d51c26a}{Pump}}.
+
+
+
+Definition at line 583 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_d_r_v8833_pump_af3b6cbe6994365e39ed9de412c95417b}\label{class_d_r_v8833_pump_af3b6cbe6994365e39ed9de412c95417b}} 
+\index{DRV8833Pump@{DRV8833Pump}!start@{start}}
+\index{start@{start}!DRV8833Pump@{DRV8833Pump}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily bool D\+R\+V8833\+Pump\+::start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_pump_a57322bce30bd286abeec51c44446395f}{Pump}}.
+
+
+
+Definition at line 386 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{class_d_r_v8833_pump_a18530b593da2835eb5cde565f0ed5edb}\label{class_d_r_v8833_pump_a18530b593da2835eb5cde565f0ed5edb}} 
+\index{DRV8833Pump@{DRV8833Pump}!stop@{stop}}
+\index{stop@{stop}!DRV8833Pump@{DRV8833Pump}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily bool D\+R\+V8833\+Pump\+::stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_pump_a3f9162bdae99dc25536e4f65e7968209}{Pump}}.
+
+
+
+Definition at line 415 of file irrigation.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Inc/\mbox{\hyperlink{irrigation_8h}{irrigation.\+h}}\item 
+Src/\mbox{\hyperlink{irrigation_8cpp}{irrigation.\+cpp}}\end{DoxyCompactItemize}

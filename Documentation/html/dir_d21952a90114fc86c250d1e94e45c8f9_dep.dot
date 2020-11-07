@@ -1,0 +1,15 @@
+digraph "Drivers/CMSIS/Device" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_bd09ff09a9c7d83a4c030dbdaee94d76 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="CMSIS" fontname="Helvetica", fontsize="10", URL="dir_bd09ff09a9c7d83a4c030dbdaee94d76.html"]
+  subgraph clusterdir_d21952a90114fc86c250d1e94e45c8f9 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_d21952a90114fc86c250d1e94e45c8f9.html"];
+    dir_d21952a90114fc86c250d1e94e45c8f9 [shape=plaintext label="Device"];
+    dir_ea9cefa8af0ea91d7388c22d57deabc7 [shape=box label="ST" color="red" fillcolor="white" style="filled" URL="dir_ea9cefa8af0ea91d7388c22d57deabc7.html"];
+  }
+  }
+  dir_5d6a8c3e4e61116f4938be35d8adfd18 [shape=box label="Include" URL="dir_5d6a8c3e4e61116f4938be35d8adfd18.html"];
+  dir_ea9cefa8af0ea91d7388c22d57deabc7->dir_5d6a8c3e4e61116f4938be35d8adfd18 [headlabel="1", labeldistance=1.5 headhref="dir_000003_000006.html"];
+}

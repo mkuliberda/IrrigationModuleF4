@@ -1,0 +1,248 @@
+\hypertarget{irrigation_8h}{}\doxysection{Inc/irrigation.h File Reference}
+\label{irrigation_8h}\index{Inc/irrigation.h@{Inc/irrigation.h}}
+{\ttfamily \#include \char`\"{}stm32f4xx\+\_\+hal.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tim.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$utilities.\+h$>$}\newline
+{\ttfamily \#include $<$bitset$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include \char`\"{}optical\+\_\+waterlevel\+\_\+sensor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}analog\+\_\+moisture\+\_\+sensor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ds18b20.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpumpstatus__s}{pumpstatus\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structtankstatus__s}{tankstatus\+\_\+s}}
+\item 
+class \mbox{\hyperlink{class_pump}{Pump}}
+\item 
+class \mbox{\hyperlink{class_binary_pump}{Binary\+Pump}}
+\item 
+class \mbox{\hyperlink{class_d_r_v8833_pump}{D\+R\+V8833\+Pump}}
+\item 
+class \mbox{\hyperlink{class_water_tank}{Water\+Tank}}
+\item 
+class \mbox{\hyperlink{class_pump_controller}{Pump\+Controller}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018}{pumpstate\+\_\+t}} \{ \newline
+\mbox{\hyperlink{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018ae37f0136aa3ffaf149b351f6a4c948e9}{pumpstate\+\_\+t\+::init}}, 
+\mbox{\hyperlink{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018a75101dcdfc88455bcafc9e53e0b06689}{pumpstate\+\_\+t\+::running}}, 
+\mbox{\hyperlink{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018a01dedb945c1f290b2b3ffcac85808d69}{pumpstate\+\_\+t\+::reversing}}, 
+\mbox{\hyperlink{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018af0a0bfe6bc7d2c58d2989034f83183e0}{pumpstate\+\_\+t\+::stopped}}, 
+\newline
+\mbox{\hyperlink{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018acb05cab65afefab8fd3831d92cfc68be}{pumpstate\+\_\+t\+::waiting}}, 
+\mbox{\hyperlink{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018a3881bfd1571f85c6562ddfac94ea80ba}{pumpstate\+\_\+t\+::fault}}, 
+\mbox{\hyperlink{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018ac9fab33e9458412c527c3fe8a13ee37d}{pumpstate\+\_\+t\+::sleep}}
+ \}
+\item 
+enum \mbox{\hyperlink{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64}{pumptype\+\_\+t}} \{ \mbox{\hyperlink{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64a3d517f8924ac7fd03699a29d97dc52d9}{pumptype\+\_\+t\+::generic}}, 
+\mbox{\hyperlink{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64a9d7183f16acce70658f686ae7f1a4d20}{pumptype\+\_\+t\+::binary}}, 
+\mbox{\hyperlink{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64aaa85a0bd0690cbda44c7bf309db27270}{pumptype\+\_\+t\+::drv8833\+\_\+dc}}, 
+\mbox{\hyperlink{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64a7408fc94e2dab506c7d8b9fde527390c}{pumptype\+\_\+t\+::drv8833\+\_\+bldc}}
+ \}
+\item 
+enum \mbox{\hyperlink{irrigation_8h_a7d162f1d8a7accfefaa48b929679afc7}{motortype\+\_\+t}} \{ \mbox{\hyperlink{irrigation_8h_a7d162f1d8a7accfefaa48b929679afc7af9d86f80d61581212c9f8a021d49eaf7}{motortype\+\_\+t\+::dc\+\_\+motor}}, 
+\mbox{\hyperlink{irrigation_8h_a7d162f1d8a7accfefaa48b929679afc7a0d4355eb9d07295656499ccf73641493}{motortype\+\_\+t\+::bldc\+\_\+motor}}
+ \}
+\item 
+enum \mbox{\hyperlink{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6}{pumpcmd\+\_\+t}} \{ \mbox{\hyperlink{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6aea2b2676c28c0db26d39331a336c6b92}{pumpcmd\+\_\+t\+::start}}, 
+\mbox{\hyperlink{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6aef399b2d446bb37b7c32ad2cc1b6045b}{pumpcmd\+\_\+t\+::stop}}, 
+\mbox{\hyperlink{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6a4d9c2073afa3c2abb817dceb22c34de6}{pumpcmd\+\_\+t\+::reverse}}
+ \}
+\item 
+enum \mbox{\hyperlink{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71ca}{pumpcontrollermode\+\_\+t}} \{ \newline
+\mbox{\hyperlink{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71caae37f0136aa3ffaf149b351f6a4c948e9}{pumpcontrollermode\+\_\+t\+::init}}, 
+\mbox{\hyperlink{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71caa2bd9c0ed00116be1258e0cc66617d7c8}{pumpcontrollermode\+\_\+t\+::automatic}}, 
+\mbox{\hyperlink{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71caa3c78b35502b2693fefdfc51cba3a53a5}{pumpcontrollermode\+\_\+t\+::manual}}, 
+\mbox{\hyperlink{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71caa6a21b6995a068148bbb65c8f949b3fb2}{pumpcontrollermode\+\_\+t\+::external}}, 
+\newline
+\mbox{\hyperlink{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71caac9fab33e9458412c527c3fe8a13ee37d}{pumpcontrollermode\+\_\+t\+::sleep}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{irrigation_8h_aff8c283c66ee770e205e7a426d4e7ced}{pump\+State\+Encode}} (const struct \mbox{\hyperlink{structpumpstatus__s}{pumpstatus\+\_\+s}} \&\+\_\+pump, uint32\+\_\+t \&status)
+\item 
+void \mbox{\hyperlink{irrigation_8h_a74f95183acddf68bdfcb96a935bbdd9a}{pump\+State\+Decode}} (std\+::array$<$ struct \mbox{\hyperlink{structpumpstatus__s}{pumpstatus\+\_\+s}}, 4 $>$ \&a\+\_\+pump, const std\+::bitset$<$ 32 $>$ \&\+\_\+status)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{irrigation_8h_a7d162f1d8a7accfefaa48b929679afc7}\label{irrigation_8h_a7d162f1d8a7accfefaa48b929679afc7}} 
+\index{irrigation.h@{irrigation.h}!motortype\_t@{motortype\_t}}
+\index{motortype\_t@{motortype\_t}!irrigation.h@{irrigation.h}}
+\doxysubsubsection{\texorpdfstring{motortype\_t}{motortype\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{irrigation_8h_a7d162f1d8a7accfefaa48b929679afc7}{motortype\+\_\+t}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{dc\_motor@{dc\_motor}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!dc\_motor@{dc\_motor}}}\mbox{\Hypertarget{irrigation_8h_a7d162f1d8a7accfefaa48b929679afc7af9d86f80d61581212c9f8a021d49eaf7}\label{irrigation_8h_a7d162f1d8a7accfefaa48b929679afc7af9d86f80d61581212c9f8a021d49eaf7}} 
+dc\+\_\+motor&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bldc\_motor@{bldc\_motor}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!bldc\_motor@{bldc\_motor}}}\mbox{\Hypertarget{irrigation_8h_a7d162f1d8a7accfefaa48b929679afc7a0d4355eb9d07295656499ccf73641493}\label{irrigation_8h_a7d162f1d8a7accfefaa48b929679afc7a0d4355eb9d07295656499ccf73641493}} 
+bldc\+\_\+motor&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 58 of file irrigation.\+h.
+
+\mbox{\Hypertarget{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6}\label{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6}} 
+\index{irrigation.h@{irrigation.h}!pumpcmd\_t@{pumpcmd\_t}}
+\index{pumpcmd\_t@{pumpcmd\_t}!irrigation.h@{irrigation.h}}
+\doxysubsubsection{\texorpdfstring{pumpcmd\_t}{pumpcmd\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6}{pumpcmd\+\_\+t}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{start@{start}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!start@{start}}}\mbox{\Hypertarget{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6aea2b2676c28c0db26d39331a336c6b92}\label{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6aea2b2676c28c0db26d39331a336c6b92}} 
+start&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{stop@{stop}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!stop@{stop}}}\mbox{\Hypertarget{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6aef399b2d446bb37b7c32ad2cc1b6045b}\label{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6aef399b2d446bb37b7c32ad2cc1b6045b}} 
+stop&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{reverse@{reverse}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!reverse@{reverse}}}\mbox{\Hypertarget{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6a4d9c2073afa3c2abb817dceb22c34de6}\label{irrigation_8h_a8cc30dd2a762b39a530f4926a14052f6a4d9c2073afa3c2abb817dceb22c34de6}} 
+reverse&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 63 of file irrigation.\+h.
+
+\mbox{\Hypertarget{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71ca}\label{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71ca}} 
+\index{irrigation.h@{irrigation.h}!pumpcontrollermode\_t@{pumpcontrollermode\_t}}
+\index{pumpcontrollermode\_t@{pumpcontrollermode\_t}!irrigation.h@{irrigation.h}}
+\doxysubsubsection{\texorpdfstring{pumpcontrollermode\_t}{pumpcontrollermode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71ca}{pumpcontrollermode\+\_\+t}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{init@{init}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!init@{init}}}\mbox{\Hypertarget{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71caae37f0136aa3ffaf149b351f6a4c948e9}\label{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71caae37f0136aa3ffaf149b351f6a4c948e9}} 
+init&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{automatic@{automatic}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!automatic@{automatic}}}\mbox{\Hypertarget{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71caa2bd9c0ed00116be1258e0cc66617d7c8}\label{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71caa2bd9c0ed00116be1258e0cc66617d7c8}} 
+automatic&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{manual@{manual}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!manual@{manual}}}\mbox{\Hypertarget{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71caa3c78b35502b2693fefdfc51cba3a53a5}\label{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71caa3c78b35502b2693fefdfc51cba3a53a5}} 
+manual&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{external@{external}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!external@{external}}}\mbox{\Hypertarget{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71caa6a21b6995a068148bbb65c8f949b3fb2}\label{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71caa6a21b6995a068148bbb65c8f949b3fb2}} 
+external&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{sleep@{sleep}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!sleep@{sleep}}}\mbox{\Hypertarget{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71caac9fab33e9458412c527c3fe8a13ee37d}\label{irrigation_8h_a46633e70a7dd81b6b1bb93240ede71caac9fab33e9458412c527c3fe8a13ee37d}} 
+sleep&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 70 of file irrigation.\+h.
+
+\mbox{\Hypertarget{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018}\label{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018}} 
+\index{irrigation.h@{irrigation.h}!pumpstate\_t@{pumpstate\_t}}
+\index{pumpstate\_t@{pumpstate\_t}!irrigation.h@{irrigation.h}}
+\doxysubsubsection{\texorpdfstring{pumpstate\_t}{pumpstate\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018}{pumpstate\+\_\+t}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{init@{init}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!init@{init}}}\mbox{\Hypertarget{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018ae37f0136aa3ffaf149b351f6a4c948e9}\label{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018ae37f0136aa3ffaf149b351f6a4c948e9}} 
+init&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{running@{running}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!running@{running}}}\mbox{\Hypertarget{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018a75101dcdfc88455bcafc9e53e0b06689}\label{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018a75101dcdfc88455bcafc9e53e0b06689}} 
+running&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{reversing@{reversing}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!reversing@{reversing}}}\mbox{\Hypertarget{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018a01dedb945c1f290b2b3ffcac85808d69}\label{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018a01dedb945c1f290b2b3ffcac85808d69}} 
+reversing&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{stopped@{stopped}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!stopped@{stopped}}}\mbox{\Hypertarget{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018af0a0bfe6bc7d2c58d2989034f83183e0}\label{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018af0a0bfe6bc7d2c58d2989034f83183e0}} 
+stopped&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{waiting@{waiting}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!waiting@{waiting}}}\mbox{\Hypertarget{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018acb05cab65afefab8fd3831d92cfc68be}\label{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018acb05cab65afefab8fd3831d92cfc68be}} 
+waiting&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fault@{fault}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!fault@{fault}}}\mbox{\Hypertarget{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018a3881bfd1571f85c6562ddfac94ea80ba}\label{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018a3881bfd1571f85c6562ddfac94ea80ba}} 
+fault&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{sleep@{sleep}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!sleep@{sleep}}}\mbox{\Hypertarget{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018ac9fab33e9458412c527c3fe8a13ee37d}\label{irrigation_8h_a78f4dc175d72c354e4acf2df4f99e018ac9fab33e9458412c527c3fe8a13ee37d}} 
+sleep&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 41 of file irrigation.\+h.
+
+\mbox{\Hypertarget{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64}\label{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64}} 
+\index{irrigation.h@{irrigation.h}!pumptype\_t@{pumptype\_t}}
+\index{pumptype\_t@{pumptype\_t}!irrigation.h@{irrigation.h}}
+\doxysubsubsection{\texorpdfstring{pumptype\_t}{pumptype\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64}{pumptype\+\_\+t}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{generic@{generic}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!generic@{generic}}}\mbox{\Hypertarget{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64a3d517f8924ac7fd03699a29d97dc52d9}\label{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64a3d517f8924ac7fd03699a29d97dc52d9}} 
+generic&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{binary@{binary}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!binary@{binary}}}\mbox{\Hypertarget{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64a9d7183f16acce70658f686ae7f1a4d20}\label{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64a9d7183f16acce70658f686ae7f1a4d20}} 
+binary&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{drv8833\_dc@{drv8833\_dc}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!drv8833\_dc@{drv8833\_dc}}}\mbox{\Hypertarget{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64aaa85a0bd0690cbda44c7bf309db27270}\label{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64aaa85a0bd0690cbda44c7bf309db27270}} 
+drv8833\+\_\+dc&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{drv8833\_bldc@{drv8833\_bldc}!irrigation.h@{irrigation.h}}\index{irrigation.h@{irrigation.h}!drv8833\_bldc@{drv8833\_bldc}}}\mbox{\Hypertarget{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64a7408fc94e2dab506c7d8b9fde527390c}\label{irrigation_8h_acb0af6f6ed2dbea29bc6b0595a4a6e64a7408fc94e2dab506c7d8b9fde527390c}} 
+drv8833\+\_\+bldc&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 51 of file irrigation.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{irrigation_8h_a74f95183acddf68bdfcb96a935bbdd9a}\label{irrigation_8h_a74f95183acddf68bdfcb96a935bbdd9a}} 
+\index{irrigation.h@{irrigation.h}!pumpStateDecode@{pumpStateDecode}}
+\index{pumpStateDecode@{pumpStateDecode}!irrigation.h@{irrigation.h}}
+\doxysubsubsection{\texorpdfstring{pumpStateDecode()}{pumpStateDecode()}}
+{\footnotesize\ttfamily void pump\+State\+Decode (\begin{DoxyParamCaption}\item[{std\+::array$<$ struct \mbox{\hyperlink{structpumpstatus__s}{pumpstatus\+\_\+s}}, 4 $>$ \&}]{a\+\_\+pump,  }\item[{const std\+::bitset$<$ 32 $>$ \&}]{\+\_\+status }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1033 of file irrigation.\+cpp.
+
+\mbox{\Hypertarget{irrigation_8h_aff8c283c66ee770e205e7a426d4e7ced}\label{irrigation_8h_aff8c283c66ee770e205e7a426d4e7ced}} 
+\index{irrigation.h@{irrigation.h}!pumpStateEncode@{pumpStateEncode}}
+\index{pumpStateEncode@{pumpStateEncode}!irrigation.h@{irrigation.h}}
+\doxysubsubsection{\texorpdfstring{pumpStateEncode()}{pumpStateEncode()}}
+{\footnotesize\ttfamily void pump\+State\+Encode (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structpumpstatus__s}{pumpstatus\+\_\+s}} \&}]{\+\_\+pump,  }\item[{uint32\+\_\+t \&}]{status }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1003 of file irrigation.\+cpp.
+

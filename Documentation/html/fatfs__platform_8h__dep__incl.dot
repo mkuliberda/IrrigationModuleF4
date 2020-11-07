@@ -1,0 +1,46 @@
+digraph "Inc/fatfs_platform.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Inc/fatfs_platform.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=": fatfs_platform header file"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Inc/bsp_driver_sd.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bsp__driver__sd_8h.html",tooltip="This file contains the common defines and functions prototypes for the bsp_driver_sd...."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Inc/ffconf.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ffconf_8h_source.html",tooltip=" "];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Middlewares/Third_Party\l/FatFs/src/ff.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ff_8h_source.html",tooltip=" "];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Inc/fatfs.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$fatfs_8h.html",tooltip="Header for fatfs applications."];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Inc/freertos_tasks.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$freertos__tasks_8h_source.html",tooltip=" "];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Src/freertos_tasks.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$freertos__tasks_8cpp_source.html",tooltip=" "];
+  Node6 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Src/main.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp_source.html",tooltip=" "];
+  Node5 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Src/fatfs.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$fatfs_8c.html",tooltip="Code for fatfs applications."];
+  Node5 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Middlewares/Third_Party\l/FatFs/src/ff.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ff_8c_source.html",tooltip=" "];
+  Node4 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="Middlewares/Third_Party\l/FatFs/src/ff_gen_drv.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ff__gen__drv_8h.html",tooltip="Header for ff_gen_drv.c module."];
+  Node11 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="Middlewares/Third_Party\l/FatFs/src/diskio.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$diskio_8c_source.html",tooltip=" "];
+  Node11 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="Middlewares/Third_Party\l/FatFs/src/ff_gen_drv.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ff__gen__drv_8c.html",tooltip="FatFs generic low level driver."];
+  Node11 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="Src/sd_diskio.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sd__diskio_8c.html",tooltip="SD Disk I/O driver."];
+  Node4 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="Middlewares/Third_Party\l/FatFs/src/option/syscall.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$syscall_8c_source.html",tooltip=" "];
+  Node2 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="Inc/sd_diskio.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sd__diskio_8h.html",tooltip="Header for sd_diskio.c module."];
+  Node16 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="Src/bsp_driver_sd.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bsp__driver__sd_8c.html",tooltip="This file includes a generic uSD card driver. To be completed by the user according to the board used..."];
+  Node1 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 [label="Src/fatfs_platform.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$fatfs__platform_8c.html",tooltip=": fatfs_platform source file"];
+}

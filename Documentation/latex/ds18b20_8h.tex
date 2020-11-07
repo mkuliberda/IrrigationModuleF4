@@ -1,0 +1,247 @@
+\hypertarget{ds18b20_8h}{}\doxysection{Inc/ds18b20.h File Reference}
+\label{ds18b20_8h}\index{Inc/ds18b20.h@{Inc/ds18b20.h}}
+{\ttfamily \#include \char`\"{}stm32f4xx\+\_\+hal.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tim.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sensors\+\_\+base.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cmsis\+\_\+os.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_d_s18_b20}{D\+S18\+B20}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_adcf2ab2569c0f6fdd31e215f56f34d97}{O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+R\+S\+C\+R\+A\+T\+C\+H\+P\+AD}}~0x\+BE
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_a27f5c744efea1d8e54e714be11a14dbe}{O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+W\+S\+C\+R\+A\+T\+C\+H\+P\+AD}}~0x4E
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_a910b28539f2b68b632eb7616cb6697dd}{O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+C\+P\+Y\+S\+C\+R\+A\+T\+C\+H\+P\+AD}}~0x48
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_adfdbfe8e746b00bfbe3a20e1b801d947}{O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+R\+E\+C\+E\+E\+P\+R\+OM}}~0x\+B8
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_a63f666afa46731d2214c42a24b022165}{O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+R\+P\+W\+R\+S\+U\+P\+P\+LY}}~0x\+B4
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_a0a93c99eebc37888b95b8ebc434d2196}{O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+S\+E\+A\+R\+C\+H\+R\+OM}}~0x\+F0
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_a9ab83bb0c1b50f23d8263163f23f06c0}{O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+R\+E\+A\+D\+R\+OM}}~0x33
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_ac963cdcd69f28372d69a75b95da80c01}{O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+M\+A\+T\+C\+H\+R\+OM}}~0x55
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_a3b3334ae9d0cf3ac8552f21fd0997761}{O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+S\+K\+I\+P\+R\+OM}}~0x\+CC
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_a1ec4e9313d3a65fc8e543bbbfc007483}{D\+S18\+B20\+\_\+\+F\+A\+M\+I\+L\+Y\+\_\+\+C\+O\+DE}}~0x28
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_a608695b71decb1d7c32ed3eaa871e495}{D\+S18\+B20\+\_\+\+C\+M\+D\+\_\+\+A\+L\+A\+R\+M\+S\+E\+A\+R\+CH}}~0x\+EC
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_a77df1586c91a763e6b5ce3ad361ac46c}{D\+S18\+B20\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+V\+E\+R\+T\+T\+E\+MP}}~0x44 	/$\ast$ Convert temperature $\ast$/
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_a0f52e6244508ffb4373634599e5dc811}{D\+S18\+B20\+\_\+\+D\+E\+C\+I\+M\+A\+L\+\_\+\+S\+T\+E\+P\+S\+\_\+12\+B\+IT}}~0.\+0625
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_af048a53b2ed8d920a61abf8b85d73c86}{D\+S18\+B20\+\_\+\+D\+E\+C\+I\+M\+A\+L\+\_\+\+S\+T\+E\+P\+S\+\_\+11\+B\+IT}}~0.\+125
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_a55083453ffe5a5c37a91012e1bef7b4c}{D\+S18\+B20\+\_\+\+D\+E\+C\+I\+M\+A\+L\+\_\+\+S\+T\+E\+P\+S\+\_\+10\+B\+IT}}~0.\+25
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_a3a8807549211bdc71a6d78120443a299}{D\+S18\+B20\+\_\+\+D\+E\+C\+I\+M\+A\+L\+\_\+\+S\+T\+E\+P\+S\+\_\+9\+B\+IT}}~0.\+5
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_a399ef86b1a04c574c3abffa54911c444}{D\+S18\+B20\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+R1}}~6
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_a6d34cae288c05b9ac2101315ca5248da}{D\+S18\+B20\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+R0}}~5
+\item 
+\#define \mbox{\hyperlink{ds18b20_8h_a8daeef1fa61dfadad3b810e9eb97fbb4}{D\+S18\+B20\+\_\+\+D\+A\+T\+A\+\_\+\+L\+EN}}~2
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ds18b20_8h_a608695b71decb1d7c32ed3eaa871e495}\label{ds18b20_8h_a608695b71decb1d7c32ed3eaa871e495}} 
+\index{ds18b20.h@{ds18b20.h}!DS18B20\_CMD\_ALARMSEARCH@{DS18B20\_CMD\_ALARMSEARCH}}
+\index{DS18B20\_CMD\_ALARMSEARCH@{DS18B20\_CMD\_ALARMSEARCH}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{DS18B20\_CMD\_ALARMSEARCH}{DS18B20\_CMD\_ALARMSEARCH}}
+{\footnotesize\ttfamily \#define D\+S18\+B20\+\_\+\+C\+M\+D\+\_\+\+A\+L\+A\+R\+M\+S\+E\+A\+R\+CH~0x\+EC}
+
+
+
+Definition at line 31 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_a77df1586c91a763e6b5ce3ad361ac46c}\label{ds18b20_8h_a77df1586c91a763e6b5ce3ad361ac46c}} 
+\index{ds18b20.h@{ds18b20.h}!DS18B20\_CMD\_CONVERTTEMP@{DS18B20\_CMD\_CONVERTTEMP}}
+\index{DS18B20\_CMD\_CONVERTTEMP@{DS18B20\_CMD\_CONVERTTEMP}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{DS18B20\_CMD\_CONVERTTEMP}{DS18B20\_CMD\_CONVERTTEMP}}
+{\footnotesize\ttfamily \#define D\+S18\+B20\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+V\+E\+R\+T\+T\+E\+MP~0x44 	/$\ast$ Convert temperature $\ast$/}
+
+
+
+Definition at line 34 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_a8daeef1fa61dfadad3b810e9eb97fbb4}\label{ds18b20_8h_a8daeef1fa61dfadad3b810e9eb97fbb4}} 
+\index{ds18b20.h@{ds18b20.h}!DS18B20\_DATA\_LEN@{DS18B20\_DATA\_LEN}}
+\index{DS18B20\_DATA\_LEN@{DS18B20\_DATA\_LEN}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{DS18B20\_DATA\_LEN}{DS18B20\_DATA\_LEN}}
+{\footnotesize\ttfamily \#define D\+S18\+B20\+\_\+\+D\+A\+T\+A\+\_\+\+L\+EN~2}
+
+
+
+Definition at line 48 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_a55083453ffe5a5c37a91012e1bef7b4c}\label{ds18b20_8h_a55083453ffe5a5c37a91012e1bef7b4c}} 
+\index{ds18b20.h@{ds18b20.h}!DS18B20\_DECIMAL\_STEPS\_10BIT@{DS18B20\_DECIMAL\_STEPS\_10BIT}}
+\index{DS18B20\_DECIMAL\_STEPS\_10BIT@{DS18B20\_DECIMAL\_STEPS\_10BIT}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{DS18B20\_DECIMAL\_STEPS\_10BIT}{DS18B20\_DECIMAL\_STEPS\_10BIT}}
+{\footnotesize\ttfamily \#define D\+S18\+B20\+\_\+\+D\+E\+C\+I\+M\+A\+L\+\_\+\+S\+T\+E\+P\+S\+\_\+10\+B\+IT~0.\+25}
+
+
+
+Definition at line 37 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_af048a53b2ed8d920a61abf8b85d73c86}\label{ds18b20_8h_af048a53b2ed8d920a61abf8b85d73c86}} 
+\index{ds18b20.h@{ds18b20.h}!DS18B20\_DECIMAL\_STEPS\_11BIT@{DS18B20\_DECIMAL\_STEPS\_11BIT}}
+\index{DS18B20\_DECIMAL\_STEPS\_11BIT@{DS18B20\_DECIMAL\_STEPS\_11BIT}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{DS18B20\_DECIMAL\_STEPS\_11BIT}{DS18B20\_DECIMAL\_STEPS\_11BIT}}
+{\footnotesize\ttfamily \#define D\+S18\+B20\+\_\+\+D\+E\+C\+I\+M\+A\+L\+\_\+\+S\+T\+E\+P\+S\+\_\+11\+B\+IT~0.\+125}
+
+
+
+Definition at line 36 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_a0f52e6244508ffb4373634599e5dc811}\label{ds18b20_8h_a0f52e6244508ffb4373634599e5dc811}} 
+\index{ds18b20.h@{ds18b20.h}!DS18B20\_DECIMAL\_STEPS\_12BIT@{DS18B20\_DECIMAL\_STEPS\_12BIT}}
+\index{DS18B20\_DECIMAL\_STEPS\_12BIT@{DS18B20\_DECIMAL\_STEPS\_12BIT}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{DS18B20\_DECIMAL\_STEPS\_12BIT}{DS18B20\_DECIMAL\_STEPS\_12BIT}}
+{\footnotesize\ttfamily \#define D\+S18\+B20\+\_\+\+D\+E\+C\+I\+M\+A\+L\+\_\+\+S\+T\+E\+P\+S\+\_\+12\+B\+IT~0.\+0625}
+
+
+
+Definition at line 35 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_a3a8807549211bdc71a6d78120443a299}\label{ds18b20_8h_a3a8807549211bdc71a6d78120443a299}} 
+\index{ds18b20.h@{ds18b20.h}!DS18B20\_DECIMAL\_STEPS\_9BIT@{DS18B20\_DECIMAL\_STEPS\_9BIT}}
+\index{DS18B20\_DECIMAL\_STEPS\_9BIT@{DS18B20\_DECIMAL\_STEPS\_9BIT}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{DS18B20\_DECIMAL\_STEPS\_9BIT}{DS18B20\_DECIMAL\_STEPS\_9BIT}}
+{\footnotesize\ttfamily \#define D\+S18\+B20\+\_\+\+D\+E\+C\+I\+M\+A\+L\+\_\+\+S\+T\+E\+P\+S\+\_\+9\+B\+IT~0.\+5}
+
+
+
+Definition at line 38 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_a1ec4e9313d3a65fc8e543bbbfc007483}\label{ds18b20_8h_a1ec4e9313d3a65fc8e543bbbfc007483}} 
+\index{ds18b20.h@{ds18b20.h}!DS18B20\_FAMILY\_CODE@{DS18B20\_FAMILY\_CODE}}
+\index{DS18B20\_FAMILY\_CODE@{DS18B20\_FAMILY\_CODE}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{DS18B20\_FAMILY\_CODE}{DS18B20\_FAMILY\_CODE}}
+{\footnotesize\ttfamily \#define D\+S18\+B20\+\_\+\+F\+A\+M\+I\+L\+Y\+\_\+\+C\+O\+DE~0x28}
+
+
+
+Definition at line 30 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_a6d34cae288c05b9ac2101315ca5248da}\label{ds18b20_8h_a6d34cae288c05b9ac2101315ca5248da}} 
+\index{ds18b20.h@{ds18b20.h}!DS18B20\_RESOLUTION\_R0@{DS18B20\_RESOLUTION\_R0}}
+\index{DS18B20\_RESOLUTION\_R0@{DS18B20\_RESOLUTION\_R0}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{DS18B20\_RESOLUTION\_R0}{DS18B20\_RESOLUTION\_R0}}
+{\footnotesize\ttfamily \#define D\+S18\+B20\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+R0~5}
+
+
+
+Definition at line 42 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_a399ef86b1a04c574c3abffa54911c444}\label{ds18b20_8h_a399ef86b1a04c574c3abffa54911c444}} 
+\index{ds18b20.h@{ds18b20.h}!DS18B20\_RESOLUTION\_R1@{DS18B20\_RESOLUTION\_R1}}
+\index{DS18B20\_RESOLUTION\_R1@{DS18B20\_RESOLUTION\_R1}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{DS18B20\_RESOLUTION\_R1}{DS18B20\_RESOLUTION\_R1}}
+{\footnotesize\ttfamily \#define D\+S18\+B20\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+R1~6}
+
+
+
+Definition at line 41 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_a910b28539f2b68b632eb7616cb6697dd}\label{ds18b20_8h_a910b28539f2b68b632eb7616cb6697dd}} 
+\index{ds18b20.h@{ds18b20.h}!ONEWIRE\_CMD\_CPYSCRATCHPAD@{ONEWIRE\_CMD\_CPYSCRATCHPAD}}
+\index{ONEWIRE\_CMD\_CPYSCRATCHPAD@{ONEWIRE\_CMD\_CPYSCRATCHPAD}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{ONEWIRE\_CMD\_CPYSCRATCHPAD}{ONEWIRE\_CMD\_CPYSCRATCHPAD}}
+{\footnotesize\ttfamily \#define O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+C\+P\+Y\+S\+C\+R\+A\+T\+C\+H\+P\+AD~0x48}
+
+
+
+Definition at line 22 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_ac963cdcd69f28372d69a75b95da80c01}\label{ds18b20_8h_ac963cdcd69f28372d69a75b95da80c01}} 
+\index{ds18b20.h@{ds18b20.h}!ONEWIRE\_CMD\_MATCHROM@{ONEWIRE\_CMD\_MATCHROM}}
+\index{ONEWIRE\_CMD\_MATCHROM@{ONEWIRE\_CMD\_MATCHROM}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{ONEWIRE\_CMD\_MATCHROM}{ONEWIRE\_CMD\_MATCHROM}}
+{\footnotesize\ttfamily \#define O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+M\+A\+T\+C\+H\+R\+OM~0x55}
+
+
+
+Definition at line 27 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_a9ab83bb0c1b50f23d8263163f23f06c0}\label{ds18b20_8h_a9ab83bb0c1b50f23d8263163f23f06c0}} 
+\index{ds18b20.h@{ds18b20.h}!ONEWIRE\_CMD\_READROM@{ONEWIRE\_CMD\_READROM}}
+\index{ONEWIRE\_CMD\_READROM@{ONEWIRE\_CMD\_READROM}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{ONEWIRE\_CMD\_READROM}{ONEWIRE\_CMD\_READROM}}
+{\footnotesize\ttfamily \#define O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+R\+E\+A\+D\+R\+OM~0x33}
+
+
+
+Definition at line 26 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_adfdbfe8e746b00bfbe3a20e1b801d947}\label{ds18b20_8h_adfdbfe8e746b00bfbe3a20e1b801d947}} 
+\index{ds18b20.h@{ds18b20.h}!ONEWIRE\_CMD\_RECEEPROM@{ONEWIRE\_CMD\_RECEEPROM}}
+\index{ONEWIRE\_CMD\_RECEEPROM@{ONEWIRE\_CMD\_RECEEPROM}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{ONEWIRE\_CMD\_RECEEPROM}{ONEWIRE\_CMD\_RECEEPROM}}
+{\footnotesize\ttfamily \#define O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+R\+E\+C\+E\+E\+P\+R\+OM~0x\+B8}
+
+
+
+Definition at line 23 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_a63f666afa46731d2214c42a24b022165}\label{ds18b20_8h_a63f666afa46731d2214c42a24b022165}} 
+\index{ds18b20.h@{ds18b20.h}!ONEWIRE\_CMD\_RPWRSUPPLY@{ONEWIRE\_CMD\_RPWRSUPPLY}}
+\index{ONEWIRE\_CMD\_RPWRSUPPLY@{ONEWIRE\_CMD\_RPWRSUPPLY}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{ONEWIRE\_CMD\_RPWRSUPPLY}{ONEWIRE\_CMD\_RPWRSUPPLY}}
+{\footnotesize\ttfamily \#define O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+R\+P\+W\+R\+S\+U\+P\+P\+LY~0x\+B4}
+
+
+
+Definition at line 24 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_adcf2ab2569c0f6fdd31e215f56f34d97}\label{ds18b20_8h_adcf2ab2569c0f6fdd31e215f56f34d97}} 
+\index{ds18b20.h@{ds18b20.h}!ONEWIRE\_CMD\_RSCRATCHPAD@{ONEWIRE\_CMD\_RSCRATCHPAD}}
+\index{ONEWIRE\_CMD\_RSCRATCHPAD@{ONEWIRE\_CMD\_RSCRATCHPAD}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{ONEWIRE\_CMD\_RSCRATCHPAD}{ONEWIRE\_CMD\_RSCRATCHPAD}}
+{\footnotesize\ttfamily \#define O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+R\+S\+C\+R\+A\+T\+C\+H\+P\+AD~0x\+BE}
+
+
+
+Definition at line 20 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_a0a93c99eebc37888b95b8ebc434d2196}\label{ds18b20_8h_a0a93c99eebc37888b95b8ebc434d2196}} 
+\index{ds18b20.h@{ds18b20.h}!ONEWIRE\_CMD\_SEARCHROM@{ONEWIRE\_CMD\_SEARCHROM}}
+\index{ONEWIRE\_CMD\_SEARCHROM@{ONEWIRE\_CMD\_SEARCHROM}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{ONEWIRE\_CMD\_SEARCHROM}{ONEWIRE\_CMD\_SEARCHROM}}
+{\footnotesize\ttfamily \#define O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+S\+E\+A\+R\+C\+H\+R\+OM~0x\+F0}
+
+
+
+Definition at line 25 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_a3b3334ae9d0cf3ac8552f21fd0997761}\label{ds18b20_8h_a3b3334ae9d0cf3ac8552f21fd0997761}} 
+\index{ds18b20.h@{ds18b20.h}!ONEWIRE\_CMD\_SKIPROM@{ONEWIRE\_CMD\_SKIPROM}}
+\index{ONEWIRE\_CMD\_SKIPROM@{ONEWIRE\_CMD\_SKIPROM}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{ONEWIRE\_CMD\_SKIPROM}{ONEWIRE\_CMD\_SKIPROM}}
+{\footnotesize\ttfamily \#define O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+S\+K\+I\+P\+R\+OM~0x\+CC}
+
+
+
+Definition at line 28 of file ds18b20.\+h.
+
+\mbox{\Hypertarget{ds18b20_8h_a27f5c744efea1d8e54e714be11a14dbe}\label{ds18b20_8h_a27f5c744efea1d8e54e714be11a14dbe}} 
+\index{ds18b20.h@{ds18b20.h}!ONEWIRE\_CMD\_WSCRATCHPAD@{ONEWIRE\_CMD\_WSCRATCHPAD}}
+\index{ONEWIRE\_CMD\_WSCRATCHPAD@{ONEWIRE\_CMD\_WSCRATCHPAD}!ds18b20.h@{ds18b20.h}}
+\doxysubsubsection{\texorpdfstring{ONEWIRE\_CMD\_WSCRATCHPAD}{ONEWIRE\_CMD\_WSCRATCHPAD}}
+{\footnotesize\ttfamily \#define O\+N\+E\+W\+I\+R\+E\+\_\+\+C\+M\+D\+\_\+\+W\+S\+C\+R\+A\+T\+C\+H\+P\+AD~0x4E}
+
+
+
+Definition at line 21 of file ds18b20.\+h.
+

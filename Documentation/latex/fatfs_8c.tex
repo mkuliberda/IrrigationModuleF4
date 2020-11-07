@@ -1,0 +1,116 @@
+\hypertarget{fatfs_8c}{}\doxysection{Src/fatfs.c File Reference}
+\label{fatfs_8c}\index{Src/fatfs.c@{Src/fatfs.c}}
+
+
+Code for fatfs applications.  
+
+
+{\ttfamily \#include \char`\"{}fatfs.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fatfs_8c_a3712bd1d3043334cf9343acc30bd2604}{M\+X\+\_\+\+F\+A\+T\+F\+S\+\_\+\+Init}} (void)
+\item 
+\mbox{\hyperlink{integer_8h_ad342ac907eb044443153a22f964bf0af}{D\+W\+O\+RD}} \mbox{\hyperlink{fatfs_8c_af58b536abfd30f77213f4ecaf2ac52f5}{get\+\_\+fattime}} (void)
+\begin{DoxyCompactList}\small\item\em Gets Time from R\+TC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{fatfs_8c_ab5eb61c3cf0ce65bdb6f8973d2ddaca5}{ret\+SD}}
+\item 
+char \mbox{\hyperlink{fatfs_8c_afe5c7eca20c5b43d6d1a3bda215941bb}{S\+D\+Path}} \mbox{[}4\mbox{]}
+\item 
+\mbox{\hyperlink{struct_f_a_t_f_s}{F\+A\+T\+FS}} \mbox{\hyperlink{fatfs_8c_a23b38dea75a427fda6997c2a56014e95}{S\+D\+Fat\+FS}}
+\item 
+\mbox{\hyperlink{struct_f_i_l}{F\+IL}} \mbox{\hyperlink{fatfs_8c_ac80bcdc112ce2f3eb3aea1e1e78f97d4}{S\+D\+File}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Code for fatfs applications. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+\doxysubsubsection*{\begin{center}\copyright{} Copyright (c) 2020 S\+T\+Microelectronics. All rights reserved.\end{center} }
+
+This software component is licensed by ST under Ultimate Liberty license S\+L\+A0044, the \char`\"{}\+License\char`\"{}; You may not use this file except in compliance with the License. You may obtain a copy of the License at\+: www.\+st.\+com/\+S\+L\+A0044 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fatfs_8c_af58b536abfd30f77213f4ecaf2ac52f5}\label{fatfs_8c_af58b536abfd30f77213f4ecaf2ac52f5}} 
+\index{fatfs.c@{fatfs.c}!get\_fattime@{get\_fattime}}
+\index{get\_fattime@{get\_fattime}!fatfs.c@{fatfs.c}}
+\doxysubsubsection{\texorpdfstring{get\_fattime()}{get\_fattime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{integer_8h_ad342ac907eb044443153a22f964bf0af}{D\+W\+O\+RD}} get\+\_\+fattime (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gets Time from R\+TC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Time} & in D\+W\+O\+RD \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 45 of file fatfs.\+c.
+
+\mbox{\Hypertarget{fatfs_8c_a3712bd1d3043334cf9343acc30bd2604}\label{fatfs_8c_a3712bd1d3043334cf9343acc30bd2604}} 
+\index{fatfs.c@{fatfs.c}!MX\_FATFS\_Init@{MX\_FATFS\_Init}}
+\index{MX\_FATFS\_Init@{MX\_FATFS\_Init}!fatfs.c@{fatfs.c}}
+\doxysubsubsection{\texorpdfstring{MX\_FATFS\_Init()}{MX\_FATFS\_Init()}}
+{\footnotesize\ttfamily void M\+X\+\_\+\+F\+A\+T\+F\+S\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 30 of file fatfs.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{fatfs_8c_ab5eb61c3cf0ce65bdb6f8973d2ddaca5}\label{fatfs_8c_ab5eb61c3cf0ce65bdb6f8973d2ddaca5}} 
+\index{fatfs.c@{fatfs.c}!retSD@{retSD}}
+\index{retSD@{retSD}!fatfs.c@{fatfs.c}}
+\doxysubsubsection{\texorpdfstring{retSD}{retSD}}
+{\footnotesize\ttfamily uint8\+\_\+t ret\+SD}
+
+
+
+Definition at line 21 of file fatfs.\+c.
+
+\mbox{\Hypertarget{fatfs_8c_a23b38dea75a427fda6997c2a56014e95}\label{fatfs_8c_a23b38dea75a427fda6997c2a56014e95}} 
+\index{fatfs.c@{fatfs.c}!SDFatFS@{SDFatFS}}
+\index{SDFatFS@{SDFatFS}!fatfs.c@{fatfs.c}}
+\doxysubsubsection{\texorpdfstring{SDFatFS}{SDFatFS}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_f_a_t_f_s}{F\+A\+T\+FS}} S\+D\+Fat\+FS}
+
+
+
+Definition at line 23 of file fatfs.\+c.
+
+\mbox{\Hypertarget{fatfs_8c_ac80bcdc112ce2f3eb3aea1e1e78f97d4}\label{fatfs_8c_ac80bcdc112ce2f3eb3aea1e1e78f97d4}} 
+\index{fatfs.c@{fatfs.c}!SDFile@{SDFile}}
+\index{SDFile@{SDFile}!fatfs.c@{fatfs.c}}
+\doxysubsubsection{\texorpdfstring{SDFile}{SDFile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_f_i_l}{F\+IL}} S\+D\+File}
+
+
+
+Definition at line 24 of file fatfs.\+c.
+
+\mbox{\Hypertarget{fatfs_8c_afe5c7eca20c5b43d6d1a3bda215941bb}\label{fatfs_8c_afe5c7eca20c5b43d6d1a3bda215941bb}} 
+\index{fatfs.c@{fatfs.c}!SDPath@{SDPath}}
+\index{SDPath@{SDPath}!fatfs.c@{fatfs.c}}
+\doxysubsubsection{\texorpdfstring{SDPath}{SDPath}}
+{\footnotesize\ttfamily char S\+D\+Path\mbox{[}4\mbox{]}}
+
+
+
+Definition at line 22 of file fatfs.\+c.
+

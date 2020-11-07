@@ -1,0 +1,21 @@
+digraph "ADC Exported Constants"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=box];
+  rankdir=LR;
+  Node2 [label="ADCEx",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c_ex.html",tooltip="ADC Extended driver modules."];
+  Node4 [label="ADC Direct Memory Access\l Mode For Multi Mode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c_ex___direct__memory__access__mode__for__multi__mode.html",tooltip=" "];
+  Node7 [label="ADC Injected Rank",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c_ex__injected__rank.html",tooltip=" "];
+  Node3 [label="ADC Common Mode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c_ex___common__mode.html",tooltip=" "];
+  Node6 [label="ADC External Trigger\l Source Injected",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c_ex___external__trigger___source___injected.html",tooltip=" "];
+  Node8 [label="ADC Specific Channels",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c_ex__channels.html",tooltip=" "];
+  Node1 [label="ADC Exported Constants",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node5 [label="ADC External Trigger\l Edge Injected",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___a_d_c_ex___external__trigger__edge___injected.html",tooltip=" "];
+  Node2->Node1 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node3 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node4 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node5 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node6 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node7 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node8 [shape=plaintext, dir="back", style="solid"];
+}

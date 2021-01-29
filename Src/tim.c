@@ -80,6 +80,8 @@ void MX_TIM2_Init(void)
     Error_Handler();
   }
 
+  //HAL_TIM_IC_Start();
+
 }
 /* TIM7 init function */
 void MX_TIM7_Init(void)

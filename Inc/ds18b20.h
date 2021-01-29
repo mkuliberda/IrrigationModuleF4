@@ -12,7 +12,6 @@
 #include "main.h"
 #include "gpio.h"
 #include "tim.h"
-#include "sensors_base.h"
 #include "cmsis_os.h"
 
 
@@ -52,7 +51,7 @@
 /*! DS18B20 class implementation */
 /***********************************/
 
-class DS18B20: public TemperatureSensor{
+class DS18B20{
 
 private:
 
@@ -88,10 +87,7 @@ public:
 		conversiontimeSeconds(0),
 		conversionRunning(false),
 		temperatureCelsius(-1000)
-	{
-		this->interfacetype = sensorinterfacetype_t::digital_1Wire;
-		this->type = temperaturesensortype_t::ds18b20;
-	};
+	{};
 
 	bool& 							init(const struct gpio_s & _gpio, TIM_HandleTypeDef* _tim_baseHandle);
 	bool& 							isValid(void);

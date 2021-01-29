@@ -2,6 +2,8 @@
 #include "freertos_tasks.h"
 #include "freertos_memory.h"
 #include "plants.h"
+#include <array>
+#include <cstring>
 
 
 osThreadId SysMonitorTaskHandle;

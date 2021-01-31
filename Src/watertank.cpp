@@ -2,9 +2,10 @@
 #include <bitset>
 
 
-/*********************************** /
-/*! Watertank class implementation */
-/***********************************/
+
+/*!
+* Watertank class implementation
+*/
 
 float& Watertank::getWaterTemperatureCelsius(void) {
 	return this->mean_water_temperature_celsius;

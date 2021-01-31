@@ -13,7 +13,7 @@ enum class fixedwaterlevelsensorstate_t {
 	dry
 };
 
-enum class sensor_type_t {
+enum class sensor_type_t: uint8_t {
 	generic_sensor,
 	waterlevel_sensor,
 	temperature_sensor,
@@ -21,12 +21,22 @@ enum class sensor_type_t {
 	precipitation_sensor
 };
 
+struct SensorInfo_s{
+	uint8_t id;
+	sensor_type_t type;
+	uint8_t errors;
+	bool valid;
+	float value1;
+	float value2;
+	float value3;
+};
+
 class SensorImp {
 public:
 	SensorImp(const sensor_type_t& _type) {
 		sensor_type = _type;
 	}
-	~SensorImp() {}
+	virtual ~SensorImp() {}
 	//To avoid runtime errors, delete copy constructor and copy assignment operator. If sth's wrong, compile time error will fire.
 	SensorImp(SensorImp const &) = delete;
 	SensorImp& operator=(SensorImp const&) = delete;
@@ -120,7 +130,7 @@ public:
 	Sensor(const sensor_type_t&& _type) {
 		imp_ = new SensorImp(std::move(_type));
 	}
-	~Sensor() {
+	virtual ~Sensor() {
 		delete imp_;
 	}
 	//To avoid runtime errors, delete copy constructor and copy assignment operator. If sth's wrong, compile time error will fire.

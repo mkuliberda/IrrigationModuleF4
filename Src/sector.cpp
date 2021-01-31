@@ -1,24 +1,34 @@
 #include "sector.h"
+#include "utilities.h"
 
-void IrrigationSector::encodeErrors() const {
+void IrrigationSector::encodeErrors(){
+	sector_info.errors = 0;
 	//TODO: implement this
 }
 
-void IrrigationSector::encodeState() const {
+void IrrigationSector::encodeState(){
+	sector_info.state = 0;
 	//TODO: implement this
 }
 
-const uint8_t&  IrrigationSector::getId() {
+void IrrigationSector::encodePlants() {
+	std::string sector_plants;
+	for (auto &plant : vPlants) sector_plants += patch::to_string(plant->getId()) + plant->getName().substr(0, 3) + ";";
+	sector_plants.copy(sector_info.plants_aliases, (PLANTS_FIELD_LEN < sector_plants.length()) ? PLANTS_FIELD_LEN : sector_plants.length());
+}
+
+const uint8_t&  IrrigationSector::getId() const{
 	return sector_info.id;
 }
 
-const uint8_t&  IrrigationSector::getPlantsCountLimit() {
+const uint8_t&  IrrigationSector::getPlantsCountLimit() const{
 	return plants_count_limit;
 }
 
 uint8_t  IrrigationSector::getPlantsCount() const {
 	return static_cast<uint8_t>(vPlants.size());
 }
+
 float IrrigationSector::getPlantHealth(const std::string& _name) const {
 	for (auto &plant : vPlants) {
 		if (_name.compare(plant->getName()) == 0) return plant->getMoisturePercent();
@@ -37,33 +47,22 @@ void IrrigationSector::setWateringState(const bool& _watering_active) {
 	watering = _watering_active;
 }
 
-const bool& IrrigationSector::getWateringState() {
+bool& IrrigationSector::getWateringState(){
 	return watering;
 }
 
-void IrrigationSector::update() const {
+void IrrigationSector::update() {
 	encodeState();
 	encodeErrors();
+	encodePlants();
 }
 
-const struct IrrigationSectorInfo_s&	IrrigationSector::getInfo() {
+struct IrrigationSectorInfo_s&	IrrigationSector::getInfo(){
 	update();
-	//TODO: implement this
-	//sector_info.state = 0; //todo
-	//sector_info.errors = 0; //todo
-	//for (auto &plant : vPlants) {
-	//	plants += plant->getName();
-	//	plants += ",";
-	//}
-	//std::strcpy(sector_info.plants, plants.c_str());
 	return sector_info;
 }
 
-void IrrigationSector::addPlantNameToList(const std::string&& _plant_name) const {
-	//TODO: implement this
-}
-
-bool IrrigationSector::setPlantMoistureByName(const std::string& _plant_name, const float& _moisture_percent) const {
+bool IrrigationSector::setPlantMoistureByName(const std::string& _plant_name, const float& _moisture_percent){
 	for (auto &plant : vPlants) {
 		if (plant->getName() == _plant_name) {
 			return plant->setMoisturePercent(_moisture_percent);
@@ -85,7 +84,6 @@ ConcreteIrrigationSectorBuilder& ConcreteIrrigationSectorBuilder::producePlantWi
 	if (idx <= sector->getPlantsCountLimit()) {
 		sector->vPlants.emplace_back(std::unique_ptr<PlantInterface>(new PlantWithDMAMoistureSensor(new Plant(_p_name, idx), _ref_voltage, _quantization_levels)));
 		sector->vPlants.shrink_to_fit();
-		sector->addPlantNameToList(sector->vPlants.back()->getName());
 	}
 	return *this;
 }

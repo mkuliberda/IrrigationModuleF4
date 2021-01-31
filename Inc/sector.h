@@ -10,15 +10,18 @@
 #include "pumps.h"
 #include <memory>
 
-#define NAME_LENGTH 20
-#define PLANTS_LENGTH 20
+#define PLANT_NAME_LEN 20
+#define PLANT_ALIAS_LEN 4
+#define PLANTS_COUNT_LIMIT 20
+#define PLANTS_FIELD_LEN PLANT_ALIAS_LEN * PLANTS_COUNT_LIMIT + (PLANTS_COUNT_LIMIT-1)
 
 struct IrrigationSectorInfo_s {
 	uint32_t state;
 	uint32_t errors;
 	uint8_t id;
-	char plants[PLANTS_LENGTH];
+	char plants_aliases[PLANTS_FIELD_LEN];
 };
+
 
 /**
  * It makes sense to use the Builder pattern only when your sectors are quite
@@ -31,30 +34,30 @@ struct IrrigationSectorInfo_s {
 
 class IrrigationSector{
 private:
-	const uint8_t 										plants_count_limit = 20;
+	const uint8_t 										plants_count_limit = PLANTS_COUNT_LIMIT;
 	const float											plant_dry_level = 10;
 	bool												watering;
 	struct IrrigationSectorInfo_s						sector_info;
 
-	void												encodeErrors() const;
-	void												encodeState() const;
+	void												encodeErrors();
+	void												encodeState();
+	void												encodePlants();
 
 
 public:
 	std::vector<std::unique_ptr<PlantInterface>>		vPlants;
 	PumpController										pump_controller;
 
-	const uint8_t&										getId();
-	const uint8_t&										getPlantsCountLimit();
+	const uint8_t&										getId() const;
+	const uint8_t&										getPlantsCountLimit() const;
 	uint8_t												getPlantsCount() const;
 	float												getPlantHealth(const std::string& _name) const;
 	float												getPlantHealth(const uint8_t& _id) const;
 	void												setWateringState(const bool& _watering_active);
-	const bool&											getWateringState();
-	void												update() const;
-	const struct IrrigationSectorInfo_s&				getInfo();
-	void												addPlantNameToList(const std::string&& _plant_name) const;
-	bool												setPlantMoistureByName(const std::string& _plant_name, const float& _moisture_percent) const;
+	bool&												getWateringState();
+	void												update();
+	struct IrrigationSectorInfo_s&						getInfo();
+	bool												setPlantMoistureByName(const std::string& _plant_name, const float& _moisture_percent);
 
 
 	IrrigationSector(const uint8_t& _id){
@@ -79,9 +82,6 @@ public:
 class IrrigationSectorBuilder{
     public:
     virtual ~IrrigationSectorBuilder(){}
-    virtual IrrigationSectorBuilder& ProducePartA() =0;
-    virtual IrrigationSectorBuilder& ProducePartB() =0;
-    virtual IrrigationSectorBuilder& ProducePartC() =0;
 	virtual IrrigationSectorBuilder& producePlantWithDMAMoistureSensor(const std::string& _p_name, const float& _ref_voltage = 3.3,
 		const uint32_t& _quantization_levels = 4095) =0;
 	virtual IrrigationSectorBuilder& produceDRV8833PumpWithController(const pump_controller_mode_t& _controller_mode, const uint32_t& _idletime_required_seconds,
@@ -120,9 +120,6 @@ public:
 	ConcreteIrrigationSectorBuilder& operator=(ConcreteIrrigationSectorBuilder const&) = delete;
 
 	void														Reset();
-	ConcreteIrrigationSectorBuilder&							ProducePartA() override;
-	ConcreteIrrigationSectorBuilder&							ProducePartB() override;
-	ConcreteIrrigationSectorBuilder&							ProducePartC() override;
 	ConcreteIrrigationSectorBuilder&							producePlantWithDMAMoistureSensor(const std::string& _p_name, const float& _ref_voltage = 3.3,
 																const uint32_t& _quantization_levels = 4095) override;
 	ConcreteIrrigationSectorBuilder&							produceDRV8833PumpWithController(const pump_controller_mode_t& _controller_mode, const uint32_t& _idletime_required_seconds, \

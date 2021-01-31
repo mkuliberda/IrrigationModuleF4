@@ -20,6 +20,14 @@ enum plant_type_t: uint8_t {
 	plant_with_dma_moisture_sensor
 };
 
+struct PlantInfo_s{
+	uint8_t			id;
+	plant_type_t	p_type;
+	bool			rain_exposed = true;
+	float			soil_moisture_percent;
+	char			name[20];
+};
+
 //Decorator design pattern used for plants
 class PlantInterface {
 public:

@@ -71,8 +71,7 @@ public:
 		status.id = std::move(_id);
 		init(std::move(_idletime_required_seconds), std::move(_runtime_limit_seconds));
 	}
-	~PumpImp() {
-	}
+	virtual ~PumpImp() {}
 	//To avoid runtime errors, delete copy constructor and copy assignment operator. If sth's wrong, compile time error will fire.
 	PumpImp(PumpImp const&) = delete;
 	PumpImp& operator=(PumpImp const&) = delete;
@@ -219,7 +218,7 @@ public:
 	Pump(const uint8_t&& _id, const uint32_t&& _idletime_required_seconds = 0, const uint32_t&& _runtime_limit_seconds = 4294967295, const pump_type_t& _type = pump_type_t::generic) {
 		imp_ = new PumpImp(std::move(_id), std::move(_type), std::move(_idletime_required_seconds), std::move(_runtime_limit_seconds));
 	}
-	~Pump() {
+	virtual ~Pump() {
 		delete imp_;
 	}
 	//To avoid runtime errors, delete copy constructor and copy assignment operator. If sth's wrong, compile time error will fire.
@@ -320,7 +319,6 @@ public:
 	~PumpController()
 	{
 		delete pPump;
-		//if (pPump != nullptr) delete pPump;
 	};
 
 	Pump *pPump = nullptr;

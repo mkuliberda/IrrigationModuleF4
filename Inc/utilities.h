@@ -8,6 +8,9 @@
 #ifndef UTILITIES_H_
 #define UTILITIES_H_
 
+#include <string>
+#include <sstream>
+
 template<class T>
 constexpr const T& clamp( const T& v, const T& lo, const T& hi )
 {
@@ -15,6 +18,14 @@ constexpr const T& clamp( const T& v, const T& lo, const T& hi )
     return (v < lo) ? lo : (hi < v) ? hi : v;
 }
 
-
+namespace patch
+{
+    template < typename T > std::string to_string( const T& n )
+    {
+        std::ostringstream stm ;
+        stm << n ;
+        return stm.str() ;
+    }
+}
 
 #endif /* UTILITIES_H_ */

@@ -1,6 +1,7 @@
 #include "pumps.h"
 
 
+//TODO: encode & decode PumpStatus as static methods in Pump base class
 void encodePumpStatus(const struct PumpInfo_s & _pump, uint32_t & status) {
 
 	switch (_pump.id)

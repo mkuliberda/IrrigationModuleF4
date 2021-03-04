@@ -76,6 +76,11 @@
 #define configMESSAGE_BUFFER_LENGTH_TYPE         size_t
 /* USER CODE END MESSAGE_BUFFER_LENGTH_TYPE */
 
+#define configUSE_TRACE_FACILITY					1
+#define FREERTOS_ADDITIONAL_FEATURE_TOTAL_STACK_API 1
+#define configRECORD_STACK_HIGH_ADDRESS           	1  /* 1: record stack high address for the debugger, 0: do not record stack high address */
+
+
 /* Co-routine definitions. */
 #define configUSE_CO_ROUTINES                    0
 #define configMAX_CO_ROUTINE_PRIORITIES          ( 2 )

@@ -31,6 +31,7 @@
 #include "usart.h"
 #include "gpio.h"
 #include "freertos_tasks.h"
+//#include "printf_retarget.h"
 
 
 void SystemClock_Config(void);
@@ -70,10 +71,13 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM7_Init();
   MX_USART3_UART_Init();
+  MX_USART2_UART_Init();
   MX_DMA_Init();
   MX_SDIO_SD_Init();
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
+
+  //printf("Peripherals initialized!\r\n");
 
   /* USER CODE END 2 */
 

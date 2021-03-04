@@ -2411,6 +2411,10 @@ TaskHandle_t pvTaskIncrementMutexHeldCount( void ) PRIVILEGED_FUNCTION;
  */
 void vTaskInternalSetTimeOutState( TimeOut_t * const pxTimeOut ) PRIVILEGED_FUNCTION;
 
+#if( ( FREERTOSADDITIONALFEATURETOTALSTACKAPI == 1 ) && ( configRECORDSTACKHIGHADDRESS == 1 ) )
+uint32_t uxTaskGetStackSize( TaskHandle_t xTask );
+#endif
+
 
 #ifdef __cplusplus
 }

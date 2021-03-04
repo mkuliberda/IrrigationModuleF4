@@ -5211,4 +5211,28 @@ when performing module tests). */
 
 #endif
 
+#if( ( FREERTOSADDITIONALFEATURETOTALSTACKAPI == 1 ) && ( configRECORDSTACKHIGHADDRESS == 1 ) )
+uint32_t uxTaskGetStackSize( TaskHandle_t xTask )
+{
+   uint32_t uxReturn;
+   TCBt *pxTCB;
+
+   if( xTask != NULL )
+   {
+       pxTCB = ( TCB_t * ) xTask;
+       uxReturn = (pxTCB->pxEndOfStack - pxTCB->pxStack) * sizeof(StackType_t);
+   }
+   else
+   {
+       uxReturn = 0;
+   }
+
+   return uxReturn;
+}
+#endif
+
+
+ #ifdef __cplusplus
+ }
+ #endif
 

@@ -11,6 +11,9 @@
 #include <string>
 #include <sstream>
 
+#define MINIMUM(a,b)            (((a) < (b)) ? (a) : (b))
+#define MAXIMUM(a,b)            (((a) < (b)) ? (b) : (a))
+
 template<class T>
 constexpr const T& clamp( const T& v, const T& lo, const T& hi )
 {

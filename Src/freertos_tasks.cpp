@@ -1,9 +1,15 @@
 
 #include "freertos_tasks.h"
 #include "freertos_memory.h"
+//#include "printf_retarget.h"
+#include "watertank.h"
+#include "pumps.h"
+#include "sector.h"
+#include "sensors.h"
 #include "plants.h"
 #include <array>
 #include <cstring>
+#include "utilities.h"
 
 
 osThreadId SysMonitorTaskHandle;
@@ -80,13 +86,15 @@ uint16_t publishLogMessage(std::string msg_txt, osMailQId &mail_box, const repor
 	msg->time.seconds = rtc_time.Seconds;
 	msg->time.year = rtc_date.Year;
 
-	if (msg_txt.length() > _maxlen){
-		msg_txt = msg_txt.substr(msg_txt.length() - _maxlen, _maxlen);
+	msg_txt.shrink_to_fit();
+	if (msg_txt.length() >= _maxlen){
+		msg_txt = msg_txt.substr(msg_txt.length() - _maxlen + 1, _maxlen - 1);
 		retval = 0x0001;
 	}
 	msg->reporter_id = _reporter;
-	msg->len = msg_txt.length();
-	msg_txt.copy(msg->text, std::min((uint8_t)msg_txt.length(), (uint8_t)_maxlen), 0);
+	msg->len = msg_txt.length() + 1;
+	msg_txt.copy(msg->text, msg_txt.length(), 0);
+	msg->text[MINIMUM((_maxlen - 1), msg_txt.length())] = '\0';
 
 	retval = osMailPut(mail_box, msg) != osOK ? 0x0002 : 0x0000;
 
@@ -187,10 +195,10 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(sysmonitorTask, SysMonitorTask, osPriorityRealtime, 0, configMINIMAL_STACK_SIZE);
+  osThreadDef(sysmonitorTask, SysMonitorTask, osPriorityRealtime, 0, 30*configMINIMAL_STACK_SIZE);
   SysMonitorTaskHandle = osThreadCreate(osThread(sysmonitorTask), NULL);
 
-  osThreadDef(sdcardTask, SDCardTask, osPriorityNormal, 0, 120*configMINIMAL_STACK_SIZE);
+  osThreadDef(sdcardTask, SDCardTask, osPriorityNormal, 0, 80*configMINIMAL_STACK_SIZE);
   SDCardTaskHandle = osThreadCreate(osThread(sdcardTask), NULL);
 
   osThreadDef(wirelessTask, WirelessCommTask, osPriorityNormal, 0, 20*configMINIMAL_STACK_SIZE);
@@ -214,13 +222,48 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_StartDefaultTask */
 void SysMonitorTask(void const * argument)
 {
-	size_t min_heap_size;
+	size_t min_heap_size = 0;
+	size_t prev_min_heap_size = 0;
+	TaskStatus_t TaskStatus;
+	configSTACK_DEPTH_TYPE SDCardPrevStackHighWaterMark = 0;
+	configSTACK_DEPTH_TYPE WirelessCommPrevStackHighWaterMark = 0;
+	configSTACK_DEPTH_TYPE IrrigationControlPrevStackHighWaterMark = 0;
+	BaseType_t FreeStackSpace = 1;
+	eTaskState State = eInvalid;
 	sys_logs_box = osMailCreate(osMailQ(sys_logs_box), osThreadGetId());
+
 	publishLogMessage("Sys monitor task started", sys_logs_box, reporter_t::Task_SysMonitor, LOG_TEXT_LEN);
 
 	for(;;)
 	{
     	min_heap_size = xPortGetMinimumEverFreeHeapSize();
+    	if (min_heap_size != prev_min_heap_size){
+    		prev_min_heap_size = min_heap_size;
+    		std::string msg = "Min HEAP size:" + patch::to_string(min_heap_size) + "b";
+    		msg.shrink_to_fit();
+    		publishLogMessage(msg, sys_logs_box, reporter_t::Task_SysMonitor, LOG_TEXT_LEN);
+    	}
+    	vTaskGetInfo(SDCardTaskHandle, &TaskStatus, FreeStackSpace, State);
+    	if (TaskStatus.usStackHighWaterMark != SDCardPrevStackHighWaterMark){
+    		std::string msg =  "SDCardTask HWMark:" + patch::to_string(TaskStatus.usStackHighWaterMark * 2) + "b";
+    		msg.shrink_to_fit();
+    		SDCardPrevStackHighWaterMark = TaskStatus.usStackHighWaterMark;
+    		publishLogMessage(msg, sys_logs_box, reporter_t::Task_SysMonitor, LOG_TEXT_LEN);
+    	}
+    	vTaskGetInfo(WirelessCommTaskHandle, &TaskStatus, FreeStackSpace, State);
+    	if (TaskStatus.usStackHighWaterMark != WirelessCommPrevStackHighWaterMark){
+    		std::string msg =  "WlsCom HWMark:"+ patch::to_string(TaskStatus.usStackHighWaterMark * 2) + "b";
+    		msg.shrink_to_fit();
+    		WirelessCommPrevStackHighWaterMark = TaskStatus.usStackHighWaterMark;
+    		publishLogMessage(msg, sys_logs_box, reporter_t::Task_SysMonitor, LOG_TEXT_LEN);
+    	}
+    	vTaskGetInfo(IrrigationControlTaskHandle, &TaskStatus, FreeStackSpace, State);
+    	if (TaskStatus.usStackHighWaterMark != IrrigationControlPrevStackHighWaterMark){
+    		std::string msg =  "IrrCtrl HWMark:"+ patch::to_string(TaskStatus.usStackHighWaterMark * 2) + "b";
+    		msg.shrink_to_fit();
+    		IrrigationControlPrevStackHighWaterMark = TaskStatus.usStackHighWaterMark;
+    		publishLogMessage(msg, sys_logs_box, reporter_t::Task_SysMonitor, LOG_TEXT_LEN);
+    	}
 		osDelay(2000);
 	}
 }
@@ -271,8 +314,7 @@ void SDCardTask(void const *argument)
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_SET);
 		if(f_open(&log_file, log_filename, FA_WRITE | FA_OPEN_APPEND) == FR_OK){
 			char log_str[] = "SDCard mount successful!";
-			if(f_printf(&log_file, LOG_FORMAT, timestamp.day, timestamp.month, timestamp.year, timestamp.hours,\
-					timestamp.minutes, timestamp.seconds, reporter[Task_SDCard], log_str) == EOF){
+			if(f_printf(&log_file, LOG_FORMAT, timestamp.day, timestamp.month, timestamp.year, timestamp.hours, timestamp.minutes, timestamp.seconds, reporter[Task_SDCard], log_str) == EOF){
 				HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
 			}
 			while (f_close(&log_file) != FR_OK);
@@ -346,8 +388,7 @@ void SDCardTask(void const *argument)
 					char text[LOG_TEXT_LEN] = "";
 					strncpy(text, sys_message->text, sys_message->len);
 					if(f_open(&log_file, log_filename, FA_WRITE | FA_OPEN_APPEND) == FR_OK){
-						f_printf(&log_file, LOG_FORMAT, sys_message->time.day, sys_message->time.month, sys_message->time.year,\
-								sys_message->time.hours, sys_message->time.minutes, sys_message->time.seconds, reporter[sys_message->reporter_id], text);
+						f_printf(&log_file, LOG_FORMAT, sys_message->time.day, sys_message->time.month, sys_message->time.year,	sys_message->time.hours, sys_message->time.minutes, sys_message->time.seconds, reporter[sys_message->reporter_id], text);
 						while (f_close(&log_file) != FR_OK);
 					}
 				}
@@ -361,8 +402,7 @@ void SDCardTask(void const *argument)
 					char text[LOG_TEXT_LEN] = "";
 					strncpy(text, irg_message->text, irg_message->len);
 					if(f_open(&log_file, log_filename, FA_WRITE | FA_OPEN_APPEND) == FR_OK){
-						f_printf(&log_file, LOG_FORMAT, irg_message->time.day, irg_message->time.month, irg_message->time.year,\
-								irg_message->time.hours, irg_message->time.minutes, irg_message->time.seconds, reporter[irg_message->reporter_id], text);
+						f_printf(&log_file, LOG_FORMAT, irg_message->time.day, irg_message->time.month, irg_message->time.year, irg_message->time.hours, irg_message->time.minutes, irg_message->time.seconds, reporter[irg_message->reporter_id], text);
 						while (f_close(&log_file) != FR_OK);
 					}
 				}
@@ -376,8 +416,7 @@ void SDCardTask(void const *argument)
 					char text[LOG_TEXT_LEN] = "";
 					strncpy(text, wls_message->text, wls_message->len);
 					if(f_open(&log_file, log_filename, FA_WRITE | FA_OPEN_APPEND) == FR_OK){
-						f_printf(&log_file, LOG_FORMAT, wls_message->time.day, wls_message->time.month, wls_message->time.year,\
-								wls_message->time.hours, wls_message->time.minutes, wls_message->time.seconds, reporter[wls_message->reporter_id], text);
+						f_printf(&log_file, LOG_FORMAT, wls_message->time.day, wls_message->time.month, wls_message->time.year, wls_message->time.hours, wls_message->time.minutes, wls_message->time.seconds, reporter[wls_message->reporter_id], text);
 						while (f_close(&log_file) != FR_OK);
 					}
 				}
@@ -394,7 +433,6 @@ void SDCardTask(void const *argument)
 void WirelessCommTask(void const *argument)
 {
 	wls_logs_box = osMailCreate(osMailQ(wls_logs_box), osThreadGetId());
-	publishLogMessage("Wireless Comm task started", wls_logs_box, reporter_t::Task_Wireless, LOG_TEXT_LEN);
 
 	RTC_TimeTypeDef rtc_time;
 	RTC_DateTypeDef rtc_date;
@@ -412,6 +450,7 @@ void WirelessCommTask(void const *argument)
 
 	HAL_RTC_SetTime(&hrtc, &rtc_time, RTC_FORMAT_BIN);
 	HAL_RTC_SetDate(&hrtc, &rtc_date, RTC_FORMAT_BIN);
+	publishLogMessage("Wireless Com task started", wls_logs_box, reporter_t::Task_Wireless, LOG_TEXT_LEN);
 
 
 	for( ;; )
@@ -424,7 +463,6 @@ void WirelessCommTask(void const *argument)
 void IrrigationControlTask(void const *argument){
 
 	irg_logs_box = osMailCreate(osMailQ(irg_logs_box), osThreadGetId());
-	publishLogMessage("Irrigation Ctrl task started", irg_logs_box, reporter_t::Task_Irrigation, LOG_TEXT_LEN);
 
 	RTC_TimeTypeDef rtc_time;
 	RTC_DateTypeDef rtc_date;
@@ -438,10 +476,11 @@ void IrrigationControlTask(void const *argument){
 	//PlantInterface *PlantWithDMAMoistureSensor1 = new PlantWithDMAMoistureSensor(new Plant("Pelargonia", 0), 3.3, 4095);
 	//PlantInterface *PlantWithDMAMoistureSensor2 = new PlantWithDMAMoistureSensor(new Plant("Kroton", 0), 3.3, 4095);
 
-	osDelay(1000);  //leave some time for read from SDCard
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
-
 	std::vector<Scheduler> vect(3, (Scheduler("SECTOR1"), Scheduler("SECTOR2"), Scheduler("SECTOR3")));
+
+	osDelay(1000);
+	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_14, GPIO_PIN_RESET);
+	publishLogMessage("IrrgCtrl task started", irg_logs_box, reporter_t::Task_Irrigation, LOG_TEXT_LEN);
 
 
 
